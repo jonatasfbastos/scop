@@ -17,8 +17,14 @@ import javax.persistence.Persistence;
  */
 
 //Salva, atualiza, deleta e lista o banco de dados
+
+/**
+ *
+ * @author beatriz
+ * @param <Entity>
+ */
 @SuppressWarnings("unchecked")
-public abstract class BaseDao<T extends AbstractEntity> {
+public class BaseDao<Entity extends AbstractEntity> implements IBaseDao<Entity>{
     
     protected static EntityManager entityManager;
     
@@ -27,46 +33,58 @@ public abstract class BaseDao<T extends AbstractEntity> {
         entityManager = fac.createEntityManager();
     }
     
-    public T getById(Long id){
-        return (T) entityManager.find(getTypeClass(), id);
+    /**
+     * {@inheritDoc}
+     */
+    public Entity save(Entity entity){
+       entityManager.getTransaction().begin();
+       entityManager.persist(entity);
+       entityManager.getTransaction().commit();
+       return entity;
+        
     }
     
-    public void save(T entity){
-        try{
-            entityManager.getTransaction().begin();
-            entityManager.persist(entity);
-            entityManager.getTransaction().commit();
-        }catch(Exception e){
-            e.printStackTrace();
-            entityManager.getTransaction().rollback();
-        }
+    /**
+     * {@inheritDoc}
+     * @param entity
+     * @return 
+     */
+    public Entity update(Entity entity){
+        entityManager.getTransaction().begin();
+        entityManager.merge(entity);
+        entityManager.getTransaction().commit();
+        return entity;
+
     }
     
-    public void update(T entity){
-        try{
-            entityManager.getTransaction().begin();
-            entityManager.merge(entity);
-            entityManager.getTransaction().commit();
-        }catch(Exception e){
-            e.printStackTrace();
-            entityManager.getTransaction().rollback();
-        }
+    /**
+     * {@inheritDoc}
+     * @param entity
+     */
+    public void delete(Entity entity){
+       entityManager.getTransaction().begin();
+       entityManager.remove(entity);
+       entityManager.getTransaction().commit();       
     }
     
-    public void delete(T entity){
-        try{
-            entityManager.getTransaction().begin();
-            entityManager.remove(entity);
-            entityManager.getTransaction().commit();
-        }catch(Exception e){
-            e.printStackTrace();
-            entityManager.getTransaction().rollback();
-        }
-    }
-    
-    public List<T> findAll(){
+    /**
+     * {@inheritDoc}
+     * @return 
+     */
+    public List<Entity> findAll(){
         return entityManager.createQuery(("FROM " + getTypeClass().getName())).getResultList();
     }
+    
+    
+    /**
+     * {@inheritDoc}
+     * @param id
+     * @return 
+     */
+    public Entity findById(Long id){
+        return (Entity) entityManager.find(getTypeClass(), id);
+    }
+    
     
     protected Class<?> getTypeClass(){
         
@@ -74,4 +92,6 @@ public abstract class BaseDao<T extends AbstractEntity> {
         
         return clazz;
     }
+
+    
 }
