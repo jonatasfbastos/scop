@@ -13,10 +13,5 @@ import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
  */
 public class ServiceProjetoPesquisa implements IServiceProjetoPesquisa{
     
-    public ProjetoPesquisa salvarProjetoPesquisa(){
-        
-        
-        
-    }
-    
+       
 }
