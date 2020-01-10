@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.ifba.scop.infrastructure.model;
+package br.com.ifba.scop.infraestructure.model;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;

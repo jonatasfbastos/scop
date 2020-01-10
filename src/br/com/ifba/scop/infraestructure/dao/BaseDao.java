@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.ifba.scop.infrastructure.dao;
+package br.com.ifba.scop.infraestructure.dao;
 
-import br.com.ifba.scop.infrastructure.model.AbstractEntity;
+import br.com.ifba.scop.infraestructure.model.AbstractEntity;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import javax.persistence.EntityManager;
