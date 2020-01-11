@@ -6,12 +6,15 @@
 package br.com.ifba.scop.projetopesquisa.model;
 
 import br.com.ifba.scop.infraestructure.model.AbstractEntity;
+import java.io.Serializable;
+import javax.persistence.Entity;
 
 /**
  * Classe para cadastro de pesquisa
  * @author abel, gislaine, bessa.
  */
-public class CadastroPesquisa extends AbstractEntity {
+@Entity
+public class CadastroPesquisa extends AbstractEntity implements Serializable {
     
     // dados coordenador.
     private String coordenador;
