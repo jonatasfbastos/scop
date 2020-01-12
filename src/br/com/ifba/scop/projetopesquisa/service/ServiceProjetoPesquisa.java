@@ -43,6 +43,11 @@ public class ServiceProjetoPesquisa implements IServiceProjetoPesquisa{
     public boolean jaExiste(ProjetoPesquisa projetoPesquisa) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public boolean validaProjetoPesquisa(ProjetoPesquisa projetoPesquisa) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
        
 }

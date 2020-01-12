@@ -26,5 +26,7 @@ public interface IServiceProjetoPesquisa {
     public abstract ProjetoPesquisa findByProjetoTitulo (ProjetoPesquisa projetoPesquisa);
     // Metodo que verifica se o Projeto de Pesquisa já existe na base de dados
     public abstract boolean jaExiste (ProjetoPesquisa projetoPesquisa);
+    // Metodo que valida o Projeto de Pesquisa 
+    public abstract boolean validaProjetoPesquisa (ProjetoPesquisa projetoPesquisa);
     
 }
