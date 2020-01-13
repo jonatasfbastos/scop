@@ -13,6 +13,15 @@ import br.com.ifba.scop.infraestructure.model.AbstractEntity;
  */
 public class ProjetoPesquisa extends AbstractEntity{
     
+    private String titulo;
     //teste
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
     
 }
