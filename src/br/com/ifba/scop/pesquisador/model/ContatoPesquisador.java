@@ -6,10 +6,12 @@
 package br.com.ifba.scop.pesquisador.model;
 
 import br.com.ifba.scop.infraestructure.model.AbstractEntity;
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import org.hibernate.annotations.ForeignKey;
+
+
 
 
 
@@ -18,7 +20,7 @@ import org.hibernate.annotations.ForeignKey;
  * @author mvictor
  */
 @Entity
-public class ContatoPesquisador extends AbstractEntity{
+public class ContatoPesquisador extends AbstractEntity implements Serializable{
     
     
     
@@ -27,7 +29,7 @@ public class ContatoPesquisador extends AbstractEntity{
     private String Email;
     
     @ManyToOne
-    @JoinColumn(name="pessoa", nullable=false)
+    @JoinColumn(name="pesquisador", nullable=false)
     private Pesquisador pesquisador = new Pesquisador();
     
     public String getTelefone() {

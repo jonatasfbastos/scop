@@ -6,6 +6,7 @@
 package br.com.ifba.scop.pesquisador.model;
 
 import br.com.ifba.scop.infraestructure.model.AbstractEntity;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -20,18 +21,18 @@ import org.hibernate.annotations.Cascade;
  */
 
 @Entity
-public class Pesquisador  extends AbstractEntity{
+public class Pesquisador  extends AbstractEntity implements Serializable{
     
     private String Nome;
     private String Titulacao;
     private String Vinculo_Institucional;
     private String Indetificacao;
     
-    @OneToMany(mappedBy = "pessoa", orphanRemoval=true)
+    @OneToMany(mappedBy = "pesquisador", orphanRemoval=true)
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<ContatoPesquisador> pesquisadorTelefone = new ArrayList<ContatoPesquisador>();
     
-    @OneToOne(mappedBy="pessoa", orphanRemoval=true)
+    @OneToOne(mappedBy="pesquisador", orphanRemoval=true)
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<EnderecoPesquisador> enderecoPesquisador = new ArrayList<EnderecoPesquisador>();
     
@@ -82,5 +83,6 @@ public class Pesquisador  extends AbstractEntity{
     public void setEnderecoPesquisador(List<EnderecoPesquisador> enderecoPesquisador) {
         this.enderecoPesquisador = enderecoPesquisador;
     }
-    
+
+   
 }
