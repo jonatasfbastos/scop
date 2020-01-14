@@ -1,5 +1,6 @@
 package br.com.ifba.scop.infraestructure.service;
 
+import br.com.ifba.scop.patente.model.Patente;
 import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
 import java.util.List;
 
@@ -23,4 +24,65 @@ public interface IFachada {
     // Metodo que valida o Projeto de Pesquisa 
     public abstract boolean validaProjetoPesquisa (ProjetoPesquisa projetoPesquisa);
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // ---------- Patente
+    // valida savePatente
+    public abstract void savePatente(Patente patente);
+    // valida updatePatente
+    public abstract void updatePatente(Patente patente);
+    // valida deletePatente
+    public abstract void deletePatente(Patente patente);
 }

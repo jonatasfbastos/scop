@@ -16,11 +16,40 @@ import javax.persistence.Entity;
 @Entity
 public class Patente extends AbstractEntity implements Serializable {
 
+    // atributos
+    private long numero;
+    private String tituloInvencao;
+    private String areaInvencao;
+    
     /**
      * Construtor.
      */
     public Patente() {
         super();
+    }
+    
+    public long getNumero() {
+        return numero;
+    }
+
+    public void setNumero(long numero) {
+        this.numero = numero;
+    }
+
+    public String getTituloInvencao() {
+        return tituloInvencao;
+    }
+
+    public void setTituloInvencao(String tituloInvencao) {
+        this.tituloInvencao = tituloInvencao;
+    }
+
+    public String getAreaInvencao() {
+        return areaInvencao;
+    }
+
+    public void setAreaInvencao(String areaInvencao) {
+        this.areaInvencao = areaInvencao;
     }
     
 }

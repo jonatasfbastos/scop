@@ -1,5 +1,7 @@
 package br.com.ifba.scop.infraestructure.service;
 
+import br.com.ifba.scop.patente.model.Patente;
+import br.com.ifba.scop.patente.service.IServicePatente;
 import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.service.IServiceProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.service.ServiceProjetoPesquisa;
@@ -48,9 +50,71 @@ public class Fachada implements IFachada {
     }
 
 
+
     
     
 	
 
-		
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // ---- Patente
+    private final IServicePatente service = 
+            new br.com.ifba.scop.patente.service.ServicePatente();
+    
+    @Override
+    public void savePatente(Patente patente) {
+        this.service.savePatente(patente);
+    }
+
+    @Override
+    public void updatePatente(Patente patente) {
+        this.service.updatePatente(patente);
+    }
+
+    @Override
+    public void deletePatente(Patente patente) {
+        this.service.deletePatente(patente);
+    }
 }
