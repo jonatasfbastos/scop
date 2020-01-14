@@ -3,36 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.ifba.scop.pesquisador.model;
-
-import br.com.ifba.scop.infraestructure.model.AbstractEntity;
-import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+package br.com.ifba.scop.projetopesquisa.model;
 
 /**
  *
  * @author mvictor
  */
-
-@Entity
-public class EnderecoPesquisador extends AbstractEntity implements Serializable{
+public class EnderecoProjetoPesquisa {
     
+    //-------------- Atributos da Class. ------------------//
     private String Rua;
+    
     private String Bairro;
-    private String CEP;
+    
     private String Complemento;
+    
+    private String CEP;
+    
     private String Cidade;
+    
     private String Estado;
-    private String Pais;
-    private int Numero; 
     
-    @OneToOne
-    @JoinColumn(name="pesquisador", nullable=false)
-    
-    private Pesquisador pesquisador = new Pesquisador();
+    private int Numero;
 
+    //-----         Getting and Setting ---------------//
     public String getRua() {
         return Rua;
     }
@@ -49,20 +43,20 @@ public class EnderecoPesquisador extends AbstractEntity implements Serializable{
         this.Bairro = Bairro;
     }
 
-    public String getCEP() {
-        return CEP;
-    }
-
-    public void setCEP(String CEP) {
-        this.CEP = CEP;
-    }
-
     public String getComplemento() {
         return Complemento;
     }
 
     public void setComplemento(String Complemento) {
         this.Complemento = Complemento;
+    }
+
+    public String getCEP() {
+        return CEP;
+    }
+
+    public void setCEP(String CEP) {
+        this.CEP = CEP;
     }
 
     public String getCidade() {
@@ -81,14 +75,6 @@ public class EnderecoPesquisador extends AbstractEntity implements Serializable{
         this.Estado = Estado;
     }
 
-    public String getPais() {
-        return Pais;
-    }
-
-    public void setPais(String Pais) {
-        this.Pais = Pais;
-    }
-
     public int getNumero() {
         return Numero;
     }
@@ -96,13 +82,7 @@ public class EnderecoPesquisador extends AbstractEntity implements Serializable{
     public void setNumero(int Numero) {
         this.Numero = Numero;
     }
-
-    public Pesquisador getPesquisador() {
-        return pesquisador;
-    }
-
-    public void setPesquisador(Pesquisador pesquisador) {
-        this.pesquisador = pesquisador;
-    }
+    
+    
     
 }

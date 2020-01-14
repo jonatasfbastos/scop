@@ -10,6 +10,6 @@ package br.com.ifba.scop.projetopesquisa.model;
  * @author mvictor
  */
 
-public class ContatoPesquisa {
+public class ContatoProjetoPesquisa {
     
 }
