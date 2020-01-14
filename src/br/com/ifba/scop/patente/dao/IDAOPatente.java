@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.ifba.scop.registropatentes.dao;
+package br.com.ifba.scop.patente.dao;
 
 /**
  *
  * @author abel,felipe,edcleia
  */
-public interface IDAORegistroPatentes {
+public interface IDAOPatente {
     
 }
