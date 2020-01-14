@@ -15,11 +15,16 @@ import java.util.List;
  */
 public interface TableModelConst {
     
+    /**
+     * AINDA EM CONSTRUÇÃO
+     */
     public List <ProjetoPesquisa> projetoPesquisa = new ArrayList();
     
     public String colunas[] = new String[]
     {
-        
+        "Nome",
+        "Titulo",
+        ""
     };
     
 }
