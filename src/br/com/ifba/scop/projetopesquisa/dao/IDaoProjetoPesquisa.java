@@ -7,11 +7,15 @@ package br.com.ifba.scop.projetopesquisa.dao;
 
 import br.com.ifba.scop.infraestructure.dao.IBaseDao;
 import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
+import java.util.List;
 
 /**
  *
  * @author jonatasfbastos
  */
 public interface IDaoProjetoPesquisa extends IBaseDao<ProjetoPesquisa>{
+    
+    //Busca um Projeto de Pesquisa pelo título.
+    public abstract List<ProjetoPesquisa> findByTitulo(ProjetoPesquisa projetoPesquisa);
     
 }

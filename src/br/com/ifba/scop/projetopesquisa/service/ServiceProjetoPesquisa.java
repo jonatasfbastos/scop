@@ -93,8 +93,8 @@ public class ServiceProjetoPesquisa implements IServiceProjetoPesquisa{
     // Busca Projeto de Pesquisa pelo título. Retorna um Projeto de Pesquisa.
     // Ainda não foi implementado.
     @Override
-    public ProjetoPesquisa findByProjetoTitulo(ProjetoPesquisa projetoPesquisa) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ProjetoPesquisa findByTitulo(ProjetoPesquisa projetoPesquisa) {
+        return (ProjetoPesquisa) daoProjetoPesquisa.findByTitulo(projetoPesquisa);
     }
 
     
