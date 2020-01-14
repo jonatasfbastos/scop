@@ -29,7 +29,7 @@ public class BaseDao<Entity extends AbstractEntity> implements IBaseDao<Entity>{
     protected static EntityManager entityManager;
     
     static{
-        EntityManagerFactory fac = Persistence.createEntityManagerFactory("ProjetoLoja");
+        EntityManagerFactory fac = Persistence.createEntityManagerFactory("ProjetoScop");
         entityManager = fac.createEntityManager();
     }
     
