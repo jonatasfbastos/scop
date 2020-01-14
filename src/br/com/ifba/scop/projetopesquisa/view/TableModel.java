@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.ifba.scop.projetopesquisa.service;
+package br.com.ifba.scop.projetopesquisa.view;
 
 import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
 import java.util.List;
