@@ -5,11 +5,18 @@
  */
 package br.com.ifba.scop.projetopesquisa.model;
 
+import java.io.Serializable;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+
 /**
  *
  * @author mvictor
  */
-public class EnderecoProjetoPesquisa {
+
+@Entity
+public class EnderecoProjetoPesquisa implements Serializable {
     
     //-------------- Atributos da Class. ------------------//
     private String Rua;
@@ -25,6 +32,8 @@ public class EnderecoProjetoPesquisa {
     private String Estado;
     
     private int Numero;
+    
+    
 
     //-----         Getting and Setting ---------------//
     public String getRua() {

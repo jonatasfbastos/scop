@@ -12,4 +12,32 @@ package br.com.ifba.scop.projetopesquisa.model;
 
 public class ContatoProjetoPesquisa {
     
+    private String Telefone;
+    private String Celular;
+    private String Email;
+    
+    public String getTelefone() {
+        return Telefone;
+    }
+
+    public void setTelefone(String Telefone) {
+        this.Telefone = Telefone;
+    }
+
+    public String getCelular() {
+        return Celular;
+    }
+
+    public void setCelular(String Celular) {
+        this.Celular = Celular;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String Email) {
+        this.Email = Email;
+    }
+    
 }
