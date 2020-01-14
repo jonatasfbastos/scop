@@ -6,28 +6,29 @@
 package br.com.ifba.scop.projetopesquisa.model;
 
 import br.com.ifba.scop.infraestructure.model.AbstractEntity;
-import javax.persistence.OneToOne;
-import javax.persistence.CascadeType;
-import javax.persistence.OneToMany;
-
+import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisaOrientador;
+import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisaEquipeExecutora;
 /**
  *
  * @author jonatasfbastos
  */
+
+//pegar dados do cadastro do projeto de pesquisa
 public class ProjetoPesquisa extends AbstractEntity{
     
     private String titulo;
-    //teste
+    private String campus;
+    private String subarea;
+    private String linhaDePesquisa;
+    private String data;
+    private String dataTermino;
+    private boolean finaciamento;
+    private String justFinanciamento;
+    private String espaco;
     
-    //criar as relacionamento entre as tabelas.
+     //boolean porque pode existir financiamento ou não, e data término é a data prevista
     
-    //um para um
-    @OneToOne(cascade= CascadeType.ALL)
-    private EnderecoProjetoPesquisa Endereco;
-    
-    //um para muitos
-    @OneToMany(cascade = CascadeType.ALL)
-    private ContatoProjetoPesquisa Contato;
+    //métodos acessores
     
     public String getTitulo() {
         return titulo;
@@ -37,20 +38,67 @@ public class ProjetoPesquisa extends AbstractEntity{
         this.titulo = titulo;
     }
 
-    public EnderecoProjetoPesquisa getEndereco() {
-        return Endereco;
+    public String getCampus() {
+        return campus;
     }
 
-    public void setEndereco(EnderecoProjetoPesquisa Endereco) {
-        this.Endereco = Endereco;
+    public void setCampus(String campus) {
+        this.campus = campus;
     }
 
-    public ContatoProjetoPesquisa getContato() {
-        return Contato;
+    public String getSubarea() {
+        return subarea;
     }
 
-    public void setContato(ContatoProjetoPesquisa Contato) {
-        this.Contato = Contato;
+    public void setSubarea(String subarea) {
+        this.subarea = subarea;
     }
-    
-}
+
+    public String getLinhaDePesquisa() {
+        return linhaDePesquisa;
+    }
+
+    public void setLinhaDePesquisa(String linhaDePesquisa) {
+        this.linhaDePesquisa = linhaDePesquisa;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public String getDataTermino() {
+        return dataTermino;
+    }
+
+    public void setDataTermino(String dataTermino) {
+        this.dataTermino = dataTermino;
+    }
+
+    public boolean isFinaciamento() {
+        return finaciamento;
+    }
+
+    public void setFinaciamento(boolean finaciamento) {
+        this.finaciamento = finaciamento;
+    }
+
+    public String getJustFinanciamento() {
+        return justFinanciamento;
+    }
+
+    public void setJustFinanciamento(String justFinanciamento) {
+        this.justFinanciamento = justFinanciamento;
+    }
+
+    public String getEspaco() {
+        return espaco;
+    }
+
+    public void setEspaco(String espaco) {
+        this.espaco = espaco;
+    }
+  }
