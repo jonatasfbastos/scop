@@ -99,7 +99,6 @@ public class ServiceProjetoPesquisa implements IServiceProjetoPesquisa{
 
     
     //Verifica se já existe algum Projeto de Pesquisa com o mesmo titulo na base de dados
-    @Override
     public boolean projetoExistente(ProjetoPesquisa projetoPesquisa) {
         // Recebe todos os Projetos de Pesquisa da base de dados
         List<ProjetoPesquisa> todos = this.daoProjetoPesquisa.findAll();
@@ -116,7 +115,6 @@ public class ServiceProjetoPesquisa implements IServiceProjetoPesquisa{
 
     // Verifica se o Projeto de Pesquisa é valido. Retorna true ou false.
     // Ainda não foi implementado.
-    @Override
     public boolean validaProjetoPesquisa(ProjetoPesquisa projetoPesquisa) {
         if(projetoPesquisa != null) {
             // necessita da verificação de alguns campos, por exemplo título.

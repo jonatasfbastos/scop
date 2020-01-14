@@ -39,15 +39,6 @@ public class Fachada implements IFachada {
         return this.serviceProjeto.findByTitulo(projetoPesquisa);
     }
 
-    @Override
-    public boolean projetoExistente(ProjetoPesquisa projetoPesquisa) {
-        return this.serviceProjeto.projetoExistente(projetoPesquisa);
-    }
-
-    @Override
-    public boolean validaProjetoPesquisa(ProjetoPesquisa projetoPesquisa) {
-        return this.serviceProjeto.validaProjetoPesquisa(projetoPesquisa);
-    }
 
 
     
