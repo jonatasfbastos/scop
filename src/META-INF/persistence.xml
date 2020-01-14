@@ -23,6 +23,8 @@
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <!-- entidade mapaeada -->
     <class>br.com.ifba.scop.patente.model.Patente</class>
+    <class>br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa</class>
+    <class>br.com.ifba.scop.grupopesquisa.model.GrupoPesquisa</class>
     <properties>
       <!-- dados da conexao -->
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
