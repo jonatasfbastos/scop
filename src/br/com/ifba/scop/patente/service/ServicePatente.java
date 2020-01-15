@@ -7,6 +7,7 @@ package br.com.ifba.scop.patente.service;
 
 import br.com.ifba.scop.patente.model.Patente;
 import br.com.ifba.scop.infraestructure.support.StringUtil;
+import br.com.ifba.scop.patente.dao.IDAOPatente;
 
 /**
  *
@@ -14,9 +15,16 @@ import br.com.ifba.scop.infraestructure.support.StringUtil;
  */
 public class ServicePatente implements IServicePatente {
     private boolean success;
+    private final IDAOPatente daoPatente;
     
+    /**
+     * Construtor of this service.
+     */
     public ServicePatente() {
         this.success = false;
+        // instanciando dao
+        this.daoPatente = 
+                new br.com.ifba.scop.patente.dao.DAOPatente();
     }
     
     /**
@@ -57,6 +65,7 @@ public class ServicePatente implements IServicePatente {
             return;
         }
         // se chegou até aqui, dados aprovados
+        this.getDaoPatente().savePatente(patente);
     }
 
     /**
@@ -93,7 +102,8 @@ public class ServicePatente implements IServicePatente {
             this.setSuccess(false);
             return;
         }
-        // se chegou até aqui, dados aprovados
+        // se chegou até aqui, dados aprovados // enviando para o dao
+        this.getDaoPatente().updatePatente(patente);
     }
     
     /**
@@ -107,7 +117,8 @@ public class ServicePatente implements IServicePatente {
         if (patente.getId() < 1) {
             this.setSuccess(false);
         }
-        // se chegou até aqui, dados aprovados
+        // se chegou até aqui, dados aprovados // enviando para o dao
+        this.getDaoPatente().deletePatente(patente);
     }
 
     /**
@@ -123,8 +134,16 @@ public class ServicePatente implements IServicePatente {
      * Only for teste.
      * @param success 
      */
-    public void setSuccess(boolean success) {
+    private void setSuccess(boolean success) {
         this.success = success;
+    }
+
+    /**
+     * This method returns a dao of Patente object.
+     * @return 
+     */
+    private IDAOPatente getDaoPatente() {
+        return this.daoPatente;
     }
     
 }
