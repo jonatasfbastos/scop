@@ -20,7 +20,9 @@ public class Patente extends AbstractEntity implements Serializable {
     private long numero;
     private String tituloInvencao;
     private String areaInvencao;
-
+    private int dia;
+    private int mes;
+    private int ano;
 
     /**
      * Construtor.
@@ -80,5 +82,57 @@ public class Patente extends AbstractEntity implements Serializable {
     public void setAreaInvencao(String areaInvencao) {
         this.areaInvencao = areaInvencao;
     }
+    
+    // data
+    
+    /**
+     * Returns the day.
+     * @return Integer
+     */
+    public int getDia() {
+        return this.dia;
+    }
+
+    /**
+     * Inserts the day.
+     * @param dia Integer
+     */
+    public void setDia(int dia) {
+        this.dia = dia;
+    }
+
+    /**
+     * Returns the month
+     * @return Integer
+     */
+    public int getMes() {
+        return this.mes;
+    }
+
+    /**
+     * Inserts the month
+     * @param mes 
+     */
+    public void setMes(int mes) {
+        this.mes = mes;
+    }
+
+    /**
+     * Returns the year.
+     * @return Integer
+     */
+    public int getAno() {
+        return this.ano;
+    }
+
+    /**
+     * Inserts the year.
+     * @param ano Integer
+     */
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+    
+    
     
 }
