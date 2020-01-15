@@ -19,15 +19,6 @@ public interface IFachada {
     public abstract List<ProjetoPesquisa> getAll();
     // Metodo que busca um Projeto de Pesquisa na base de dados através do titulo
     public abstract ProjetoPesquisa findByTitulo (ProjetoPesquisa projetoPesquisa);
-    // Metodo que verifica se o Projeto de Pesquisa já existe na base de dados
-    public abstract boolean projetoExistente (ProjetoPesquisa projetoPesquisa);
-    // Metodo que valida o Projeto de Pesquisa 
-    public abstract boolean validaProjetoPesquisa (ProjetoPesquisa projetoPesquisa);
-    
-    
-    
-    
-  
     
     // ---------- Patente
     // valida savePatente
@@ -36,4 +27,6 @@ public interface IFachada {
     public abstract void updatePatente(Patente patente);
     // valida deletePatente
     public abstract void deletePatente(Patente patente);
+    // Retora um objeto do service para integrar com a GUI
+    public br.com.ifba.scop.patente.service.IServicePatente getServicePatente();
 }

@@ -5,10 +5,14 @@
  */
 package br.com.ifba.scop.patente.dao;
 
+import br.com.ifba.scop.patente.model.Patente;
+
 /**
  *
  * @author abel,felipe,edcleia
  */
 public interface IDAOPatente {
-    
+    public abstract void savePatente(Patente patente);
+    public abstract void deletePatente(Patente patente);
+    public abstract void updatePatente(Patente patente);
 }

@@ -39,35 +39,44 @@ public class Fachada implements IFachada {
         return this.serviceProjeto.findByTitulo(projetoPesquisa);
     }
 
-    @Override
-    public boolean projetoExistente(ProjetoPesquisa projetoPesquisa) {
-        return this.serviceProjeto.projetoExistente(projetoPesquisa);
-    }
-
-    @Override
-    public boolean validaProjetoPesquisa(ProjetoPesquisa projetoPesquisa) {
-        return this.serviceProjeto.validaProjetoPesquisa(projetoPesquisa);
-    }
 
 
     
     
     // ---- Patente
-    private final IServicePatente service = 
+    private final IServicePatente servicePatente =
             new br.com.ifba.scop.patente.service.ServicePatente();
-    
+    /**
+     * This method sent information for allow or not save operation.
+     * @param patente Patente Object.
+     */
     @Override
     public void savePatente(Patente patente) {
-        this.service.savePatente(patente);
+        this.getServicePatente().savePatente(patente);
     }
-
+    /**
+     * This method sent information for allow or not update operation.
+     * @param patente Patente Object.
+     */
     @Override
     public void updatePatente(Patente patente) {
-        this.service.updatePatente(patente);
+        this.getServicePatente().updatePatente(patente);
     }
-
+    /**
+     * This method sent information for allow or not delete operation.
+     * @param patente Patente Object.
+     */
     @Override
     public void deletePatente(Patente patente) {
-        this.service.deletePatente(patente);
+        this.getServicePatente().deletePatente(patente);
     }
+    /**
+     * Returns a object of Service Patente for integrates with views.
+     * @return ServicePatente Object.
+     */
+    @Override
+    public IServicePatente getServicePatente() {
+        return this.servicePatente;
+    }
+    
 }
