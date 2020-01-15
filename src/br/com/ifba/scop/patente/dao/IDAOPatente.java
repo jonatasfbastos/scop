@@ -15,4 +15,5 @@ public interface IDAOPatente {
     public abstract void savePatente(Patente patente);
     public abstract void deletePatente(Patente patente);
     public abstract void updatePatente(Patente patente);
+    public abstract java.util.List<Patente> takeAll();
 }

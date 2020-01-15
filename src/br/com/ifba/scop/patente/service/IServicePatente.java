@@ -6,6 +6,7 @@
 package br.com.ifba.scop.patente.service;
 
 import br.com.ifba.scop.patente.model.Patente;
+import java.util.List;
 
 /**
  *
@@ -16,4 +17,5 @@ public interface IServicePatente {
     public abstract void updatePatente(Patente patente);
     public abstract void deletePatente(Patente patente);
     public abstract boolean patenteSuccess();
+    public abstract List<Patente> takeAllPatente();
 }

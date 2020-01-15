@@ -18,8 +18,8 @@ public class Patente extends AbstractEntity implements Serializable {
 
     // atributos
     private long numero;
-    private String tituloPesquisador;
-    private String areaPesquisador;
+    private String tituloInvencao;
+    private String areaInvencao;
 
 
     /**
@@ -29,28 +29,56 @@ public class Patente extends AbstractEntity implements Serializable {
         super();
     }
     
+    /**
+     * Returns a register number of a patent.
+     * @return Long.
+     */
     public long getNumero() {
-        return numero;
+        return this.numero;
     }
 
+    /**
+     * Inserts a register number of a patent.
+     * @param numero Long. 
+     */
     public void setNumero(long numero) {
         this.numero = numero;
     }
+    
+    // titulo de invenção - nome
 
-       public String getTituloPesquisador() {
-        return tituloPesquisador;
+    /**
+     * Returns a title of invention - name of it.
+     * @return String
+     */
+    public String getTituloInvencao() {
+        return this.tituloInvencao;
     }
 
-    public void setTituloPesquisador(String tituloPesquisador) {
-        this.tituloPesquisador = tituloPesquisador;
+    /**
+     * Inserts a title of invention - name of it.
+     * @param tituloInvencao String
+     */
+    public void setTituloInvencao(String tituloInvencao) {
+        this.tituloInvencao = tituloInvencao;
+    }
+    
+    // area de invenção
+
+    /**
+     * Returns the area of a patent.
+     * @return 
+     */
+    public String getAreaInvencao() {
+        return this.areaInvencao;
     }
 
-    public String getAreaPesquisador() {
-        return areaPesquisador;
-    }
-
-    public void setAreaPesquisador(String areaPesquisador) {
-        this.areaPesquisador = areaPesquisador;
+    /**
+     * Inserts the area of a patente
+     * @param areaInvencao 
+     */
+    public void setAreaInvencao(String areaInvencao) {
+        this.areaInvencao = areaInvencao;
     }
     
 }

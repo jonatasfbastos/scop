@@ -8,6 +8,7 @@ package br.com.ifba.scop.patente.service;
 import br.com.ifba.scop.patente.model.Patente;
 import br.com.ifba.scop.infraestructure.support.StringUtil;
 import br.com.ifba.scop.patente.dao.IDAOPatente;
+import java.util.List;
 
 /**
  *
@@ -144,6 +145,15 @@ public class ServicePatente implements IServicePatente {
      */
     private IDAOPatente getDaoPatente() {
         return this.daoPatente;
+    }
+    
+    /**
+     * This method returns all data inside database
+     * @return a list of Patente Object.
+     */
+    @Override
+    public List<Patente> takeAllPatente() {
+        return this.getDaoPatente().takeAll();
     }
     
 }

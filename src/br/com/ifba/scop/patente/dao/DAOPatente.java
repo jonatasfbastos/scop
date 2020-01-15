@@ -7,6 +7,7 @@ package br.com.ifba.scop.patente.dao;
 
 import br.com.ifba.scop.infraestructure.dao.BaseDao;
 import br.com.ifba.scop.patente.model.Patente;
+import java.util.List;
 
 /**
  * This class is the dao of Patente entity.
@@ -48,5 +49,14 @@ public class DAOPatente extends BaseDao<Patente> implements IDAOPatente {
         this.update(patente);
     }
     
+    
+    /**
+     * This method returns all instances of database about patente
+     * @return List of Patente Object.
+     */
+    @Override
+    public List<Patente> takeAll() {
+        return this.findAll();
+    }
     
 }
