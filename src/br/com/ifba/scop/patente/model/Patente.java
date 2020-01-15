@@ -18,9 +18,10 @@ public class Patente extends AbstractEntity implements Serializable {
 
     // atributos
     private long numero;
-    private String tituloInvencao;
-    private String areaInvencao;
-    
+    private String tituloPesquisador;
+    private String areaPesquisador;
+
+
     /**
      * Construtor.
      */
@@ -36,20 +37,20 @@ public class Patente extends AbstractEntity implements Serializable {
         this.numero = numero;
     }
 
-    public String getTituloInvencao() {
-        return tituloInvencao;
+       public String getTituloPesquisador() {
+        return tituloPesquisador;
     }
 
-    public void setTituloInvencao(String tituloInvencao) {
-        this.tituloInvencao = tituloInvencao;
+    public void setTituloPesquisador(String tituloPesquisador) {
+        this.tituloPesquisador = tituloPesquisador;
     }
 
-    public String getAreaInvencao() {
-        return areaInvencao;
+    public String getAreaPesquisador() {
+        return areaPesquisador;
     }
 
-    public void setAreaInvencao(String areaInvencao) {
-        this.areaInvencao = areaInvencao;
+    public void setAreaPesquisador(String areaPesquisador) {
+        this.areaPesquisador = areaPesquisador;
     }
     
 }
