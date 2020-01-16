@@ -5,6 +5,8 @@
  */
 package br.com.ifba.scop.patente.view;
 
+import br.com.ifba.scop.patente.model.Patente;
+
 /**
  *
  * @author Igor Lopes
@@ -166,7 +168,22 @@ public class CadastroPatente extends javax.swing.JFrame {
      * @param evt Action Event.
      */
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
-        // TODO add your handling code here:
+       
+        Patente patente = new Patente();
+        
+        String numero = txtNumber.getText();
+        String dia =    txtDay.getText();
+        String mes =    txtMonth.getText();
+        String ano =    txtYear.getText();
+        String titulo = txtTituloPatente.getText();
+        String area_linha= txtAreaLinhaPatente.getText();
+        
+        patente.setNumero(Long.parseLong(numero));
+        patente.setDia(Integer.parseInt(dia));
+        patente.setMes(Integer.parseInt(mes));
+        patente.setAno(Integer.parseInt(ano));
+        patente.setTituloInvencao(titulo);
+        patente.setAreaInvencao(area_linha);
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
     /**
