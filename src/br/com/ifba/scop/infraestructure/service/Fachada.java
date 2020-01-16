@@ -43,7 +43,7 @@ public class Fachada implements IFachada {
 
     
     
-    // ---- Patente
+    // ---- Patente ------------------------------------------------------------
     private final IServicePatente servicePatente =
             new br.com.ifba.scop.patente.service.ServicePatente();
     /**
@@ -73,5 +73,36 @@ public class Fachada implements IFachada {
     public boolean deletePatente(Patente patente) {
         return this.servicePatente.deletePatente(patente);
     }
+    
+    /**
+     * This method returns all patentes that was registered inside database.
+     * @return A List of Patente instances
+     */
+    @Override
+    public List<Patente> takeAllPatente() {
+        return this.servicePatente.takeAllPatente();
+    }
+    
+    /**
+     * This method returns a Patente instance, it's for search by id or number of
+     * patente.
+     * @param idnum
+     * @return Patente Object 
+     */
+    @Override
+    public Patente searchPatenteNumOrId(long idnum) {
+        return this.servicePatente.searchPatenteNumOrId(idnum);
+    }
+    
+    /**
+     * This method returns the search of a patente by Title.
+     * @param patente Patente Object
+     * @return A List of Patente Object
+     */
+    @Override
+    public List<Patente> searchPatenteTitle(Patente patente) {
+        return this.servicePatente.searchPatenteTitle(patente);
+    }
+    //--------------------------------------------------------------------------
     
 }

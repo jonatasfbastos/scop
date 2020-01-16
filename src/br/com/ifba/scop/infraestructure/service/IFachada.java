@@ -20,11 +20,17 @@ public interface IFachada {
     // Metodo que busca um Projeto de Pesquisa na base de dados através do titulo
     public abstract ProjetoPesquisa findByTitulo (ProjetoPesquisa projetoPesquisa);
     
-    // ---------- Patente
+    // ---------- Patente ----------------------------------
     // valida savePatente
     public abstract boolean savePatente(Patente patente);
     // valida updatePatente
     public abstract boolean updatePatente(Patente patente);
     // valida deletePatente
     public abstract boolean deletePatente(Patente patente);
+    // esse metodo retorna todas as patentes registradas
+    public abstract List<Patente> takeAllPatente();
+    // esse metodo retorna pelo numero ou id
+    public abstract Patente searchPatenteNumOrId(long idnum);
+    // esse metodo retorna pelo titulo 
+    public abstract List<Patente> searchPatenteTitle(Patente patente);
 }

@@ -27,17 +27,11 @@ public class ServicePatente implements IServicePatente {
         this.daoPatente = 
                 new br.com.ifba.scop.patente.dao.DAOPatente();
     }
-    
-    /**
-     * Option for validate data string.
-     */
-    static {
-        StringUtil.getInstance();
-    }
 
     /**
      * Valida dados para inserir na base de dados.
      * @param patente Objeto Patente.
+     * @return Boolean
      */
     @Override
     public boolean savePatente(Patente patente) {
@@ -164,6 +158,34 @@ public class ServicePatente implements IServicePatente {
     @Override
     public List<Patente> takeAllPatente() {
         return this.getDaoPatente().takeAll();
+    }
+    
+    /**
+     * Search by id or number.
+     * @param idnum Integer
+     * @return Patente Object
+     */
+    @Override
+    public Patente searchPatenteNumOrId(long idnum) {
+        if (idnum < 1) {
+            // o parametro nunca pode ser um valor negativo
+            return null;
+        }
+        return this.getDaoPatente().findByID(idnum);
+    }
+    
+    /**
+     * This method returns a search by title.
+     * @param patente Patente Object
+     * @return A Patente Object List.
+     */
+    @Override
+    public List<Patente> searchPatenteTitle(Patente patente) {
+        if (StringUtil.getInstance().isNullOrEmpty(patente.getTituloInvencao())) {
+            // quando os dados para pesquisa são reprovados
+            return null;
+        }
+        return this.getDaoPatente().findByTitle(patente);
     }
     
 }
