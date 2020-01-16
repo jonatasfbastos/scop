@@ -83,7 +83,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="lblCordenador">
           <Properties>
             <Property name="text" type="java.lang.String" value="Coordenador(a)"/>
           </Properties>
@@ -93,7 +93,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
+        <Component class="javax.swing.JLabel" name="lblEmail">
           <Properties>
             <Property name="text" type="java.lang.String" value="Email"/>
           </Properties>
@@ -103,7 +103,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel3">
+        <Component class="javax.swing.JLabel" name="lblTelefone">
           <Properties>
             <Property name="text" type="java.lang.String" value="Telefone"/>
           </Properties>
@@ -126,7 +126,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel9">
+        <Component class="javax.swing.JLabel" name="lblTituloProjeto">
           <Properties>
             <Property name="text" type="java.lang.String" value="T&#xed;tulo do projeto"/>
           </Properties>
@@ -136,7 +136,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel10">
+        <Component class="javax.swing.JLabel" name="lblSubarea">
           <Properties>
             <Property name="text" type="java.lang.String" value="Sub&#xe1;rea"/>
           </Properties>
@@ -146,7 +146,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel11">
+        <Component class="javax.swing.JLabel" name="lblLinhaPesquisa">
           <Properties>
             <Property name="text" type="java.lang.String" value="Linha de pesquisa"/>
           </Properties>
@@ -199,7 +199,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel5">
+        <Component class="javax.swing.JLabel" name="lblFinanciamento">
           <Properties>
             <Property name="text" type="java.lang.String" value="Financiamento"/>
           </Properties>
@@ -219,7 +219,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel6">
+        <Component class="javax.swing.JLabel" name="lblFonte">
           <Properties>
             <Property name="text" type="java.lang.String" value="Fonte"/>
           </Properties>
@@ -239,7 +239,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel7">
+        <Component class="javax.swing.JLabel" name="lblDataInicio">
           <Properties>
             <Property name="text" type="java.lang.String" value="Data de inicio"/>
           </Properties>
@@ -261,7 +261,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel8">
+        <Component class="javax.swing.JLabel" name="lblDataTermino">
           <Properties>
             <Property name="text" type="java.lang.String" value="Data de T&#xe9;rmino prevista"/>
           </Properties>
@@ -283,7 +283,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel12">
+        <Component class="javax.swing.JLabel" name="lblGrupoPesquisa">
           <Properties>
             <Property name="text" type="java.lang.String" value="Grupo de pesquisa"/>
           </Properties>
@@ -293,7 +293,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel13">
+        <Component class="javax.swing.JLabel" name="lblCampus">
           <Properties>
             <Property name="text" type="java.lang.String" value="Campus"/>
           </Properties>
@@ -323,7 +323,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel14">
+        <Component class="javax.swing.JLabel" name="lblLocalDesensolvimento">
           <Properties>
             <Property name="text" type="java.lang.String" value="Local de desenvolvimento da pesquisa (espa&#xe7;o f&#xed;sico)"/>
           </Properties>
@@ -343,7 +343,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel15">
+        <Component class="javax.swing.JLabel" name="lblViabilidadeTecnica">
           <Properties>
             <Property name="text" type="java.lang.String" value="Viabilidade t&#xe9;cnica"/>
           </Properties>
@@ -377,6 +377,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Cadastrar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastrarActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="551" y="587" width="160" height="27"/>

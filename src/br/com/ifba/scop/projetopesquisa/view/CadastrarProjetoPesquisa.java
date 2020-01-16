@@ -33,32 +33,32 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         txtCordenador = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
         txtTelefone = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblCordenador = new javax.swing.JLabel();
+        lblEmail = new javax.swing.JLabel();
+        lblTelefone = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        lblTituloProjeto = new javax.swing.JLabel();
+        lblSubarea = new javax.swing.JLabel();
+        lblLinhaPesquisa = new javax.swing.JLabel();
         txtTituloProjeto = new javax.swing.JTextField();
         txtSubarea = new javax.swing.JTextField();
         txtLinhaPesquisa = new javax.swing.JTextField();
         chkSim = new javax.swing.JCheckBox();
-        jLabel5 = new javax.swing.JLabel();
+        lblFinanciamento = new javax.swing.JLabel();
         chkNao = new javax.swing.JCheckBox();
-        jLabel6 = new javax.swing.JLabel();
+        lblFonte = new javax.swing.JLabel();
         txtFonte = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
+        lblDataInicio = new javax.swing.JLabel();
         jspDataInicio = new javax.swing.JSpinner();
-        jLabel8 = new javax.swing.JLabel();
+        lblDataTermino = new javax.swing.JLabel();
         jspDataTermino = new javax.swing.JSpinner();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        lblGrupoPesquisa = new javax.swing.JLabel();
+        lblCampus = new javax.swing.JLabel();
         txtLocalDesenvolvimento = new javax.swing.JTextField();
         txtGrupoPesquisa = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
+        lblLocalDesensolvimento = new javax.swing.JLabel();
         txtCampus = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
+        lblViabilidadeTecnica = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtViabilidadeTecnica = new javax.swing.JTextArea();
         btnCadastrar = new javax.swing.JButton();
@@ -95,34 +95,34 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         jPanel1.add(txtTelefone);
         txtTelefone.setBounds(30, 216, 182, 29);
 
-        jLabel1.setText("Coordenador(a)");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(30, 90, 77, 14);
+        lblCordenador.setText("Coordenador(a)");
+        jPanel1.add(lblCordenador);
+        lblCordenador.setBounds(30, 90, 77, 14);
 
-        jLabel2.setText("Email");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(30, 143, 24, 14);
+        lblEmail.setText("Email");
+        jPanel1.add(lblEmail);
+        lblEmail.setBounds(30, 143, 24, 14);
 
-        jLabel3.setText("Telefone");
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(30, 196, 42, 14);
+        lblTelefone.setText("Telefone");
+        jPanel1.add(lblTelefone);
+        lblTelefone.setBounds(30, 196, 42, 14);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Cadastro de Projeto de pesquisa");
         jPanel1.add(jLabel4);
         jLabel4.setBounds(284, 32, 198, 17);
 
-        jLabel9.setText("Título do projeto");
-        jPanel1.add(jLabel9);
-        jLabel9.setBounds(30, 251, 79, 14);
+        lblTituloProjeto.setText("Título do projeto");
+        jPanel1.add(lblTituloProjeto);
+        lblTituloProjeto.setBounds(30, 251, 79, 14);
 
-        jLabel10.setText("Subárea");
-        jPanel1.add(jLabel10);
-        jLabel10.setBounds(30, 304, 40, 14);
+        lblSubarea.setText("Subárea");
+        jPanel1.add(lblSubarea);
+        lblSubarea.setBounds(30, 304, 40, 14);
 
-        jLabel11.setText("Linha de pesquisa");
-        jPanel1.add(jLabel11);
-        jLabel11.setBounds(30, 357, 85, 14);
+        lblLinhaPesquisa.setText("Linha de pesquisa");
+        jPanel1.add(lblLinhaPesquisa);
+        lblLinhaPesquisa.setBounds(30, 357, 85, 14);
 
         txtTituloProjeto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,17 +157,17 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         jPanel1.add(chkSim);
         chkSim.setBounds(405, 446, 41, 23);
 
-        jLabel5.setText("Financiamento");
-        jPanel1.add(jLabel5);
-        jLabel5.setBounds(405, 410, 69, 14);
+        lblFinanciamento.setText("Financiamento");
+        jPanel1.add(lblFinanciamento);
+        lblFinanciamento.setBounds(405, 410, 69, 14);
 
         chkNao.setText("Não");
         jPanel1.add(chkNao);
         chkNao.setBounds(464, 446, 45, 23);
 
-        jLabel6.setText("Fonte");
-        jPanel1.add(jLabel6);
-        jLabel6.setBounds(405, 304, 28, 14);
+        lblFonte.setText("Fonte");
+        jPanel1.add(lblFonte);
+        lblFonte.setBounds(405, 304, 28, 14);
 
         txtFonte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,29 +177,29 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         jPanel1.add(txtFonte);
         txtFonte.setBounds(405, 324, 306, 27);
 
-        jLabel7.setText("Data de inicio");
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(405, 225, 64, 14);
+        lblDataInicio.setText("Data de inicio");
+        jPanel1.add(lblDataInicio);
+        lblDataInicio.setBounds(405, 225, 64, 14);
 
         jspDataInicio.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(1578770023278L), null, null, java.util.Calendar.DAY_OF_MONTH));
         jPanel1.add(jspDataInicio);
         jspDataInicio.setBounds(558, 222, 153, 20);
 
-        jLabel8.setText("Data de Término prevista");
-        jPanel1.add(jLabel8);
-        jLabel8.setBounds(405, 256, 121, 14);
+        lblDataTermino.setText("Data de Término prevista");
+        jPanel1.add(lblDataTermino);
+        lblDataTermino.setBounds(405, 256, 121, 14);
 
         jspDataTermino.setModel(new javax.swing.SpinnerDateModel());
         jPanel1.add(jspDataTermino);
         jspDataTermino.setBounds(558, 253, 153, 20);
 
-        jLabel12.setText("Grupo de pesquisa");
-        jPanel1.add(jLabel12);
-        jLabel12.setBounds(30, 410, 89, 14);
+        lblGrupoPesquisa.setText("Grupo de pesquisa");
+        jPanel1.add(lblGrupoPesquisa);
+        lblGrupoPesquisa.setBounds(30, 410, 89, 14);
 
-        jLabel13.setText("Campus");
-        jPanel1.add(jLabel13);
-        jLabel13.setBounds(30, 463, 38, 14);
+        lblCampus.setText("Campus");
+        jPanel1.add(lblCampus);
+        lblCampus.setBounds(30, 463, 38, 14);
 
         txtLocalDesenvolvimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -217,9 +217,9 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         jPanel1.add(txtGrupoPesquisa);
         txtGrupoPesquisa.setBounds(30, 430, 303, 27);
 
-        jLabel14.setText("Local de desenvolvimento da pesquisa (espaço físico)");
-        jPanel1.add(jLabel14);
-        jLabel14.setBounds(30, 512, 255, 14);
+        lblLocalDesensolvimento.setText("Local de desenvolvimento da pesquisa (espaço físico)");
+        jPanel1.add(lblLocalDesensolvimento);
+        lblLocalDesensolvimento.setBounds(30, 512, 255, 14);
 
         txtCampus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,9 +229,9 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         jPanel1.add(txtCampus);
         txtCampus.setBounds(30, 479, 303, 27);
 
-        jLabel15.setText("Viabilidade técnica");
-        jPanel1.add(jLabel15);
-        jLabel15.setBounds(405, 90, 87, 14);
+        lblViabilidadeTecnica.setText("Viabilidade técnica");
+        jPanel1.add(lblViabilidadeTecnica);
+        lblViabilidadeTecnica.setBounds(405, 90, 87, 14);
 
         txtViabilidadeTecnica.setColumns(20);
         txtViabilidadeTecnica.setRows(5);
@@ -241,6 +241,11 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         jScrollPane1.setBounds(405, 110, 306, 96);
 
         btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnCadastrar);
         btnCadastrar.setBounds(551, 587, 160, 27);
 
@@ -294,6 +299,10 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCordenadorActionPerformed
 
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -337,26 +346,26 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
     private javax.swing.JCheckBox chkNao;
     private javax.swing.JCheckBox chkSim;
     private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JSpinner jspDataInicio;
     private javax.swing.JSpinner jspDataTermino;
+    private javax.swing.JLabel lblCampus;
+    private javax.swing.JLabel lblCordenador;
+    private javax.swing.JLabel lblDataInicio;
+    private javax.swing.JLabel lblDataTermino;
+    private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblFinanciamento;
+    private javax.swing.JLabel lblFonte;
+    private javax.swing.JLabel lblGrupoPesquisa;
+    private javax.swing.JLabel lblLinhaPesquisa;
+    private javax.swing.JLabel lblLocalDesensolvimento;
+    private javax.swing.JLabel lblSubarea;
+    private javax.swing.JLabel lblTelefone;
+    private javax.swing.JLabel lblTituloProjeto;
+    private javax.swing.JLabel lblViabilidadeTecnica;
     private javax.swing.JTextField txtCampus;
     private javax.swing.JTextField txtCordenador;
     private javax.swing.JTextField txtEmail;
