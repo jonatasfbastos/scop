@@ -181,9 +181,8 @@ public class CadastroPatente extends javax.swing.JFrame {
         // acessando a fachada
         IFachada fachada = 
                 new br.com.ifba.scop.infraestructure.service.Fachada();
-        // enviando entidade
-        fachada.savePatente(patente);
-        if (!fachada.getServicePatente().patenteSuccess()) {
+        // enviando entidade // testando sucesso
+        if (fachada.savePatente(patente)) {
             // quando houve dados invalidos
             javax.swing.JOptionPane.showMessageDialog(null, 
                     "Error: Dados Invalidos Encontrados.");

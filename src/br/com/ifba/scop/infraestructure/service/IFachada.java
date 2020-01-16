@@ -22,11 +22,9 @@ public interface IFachada {
     
     // ---------- Patente
     // valida savePatente
-    public abstract void savePatente(Patente patente);
+    public abstract boolean savePatente(Patente patente);
     // valida updatePatente
     public abstract void updatePatente(Patente patente);
     // valida deletePatente
     public abstract void deletePatente(Patente patente);
-    // Retora um objeto do service para integrar com a GUI
-    public br.com.ifba.scop.patente.service.IServicePatente getServicePatente();
 }

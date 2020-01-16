@@ -13,7 +13,7 @@ import java.util.List;
  * @author abel
  */
 public interface IServicePatente {
-    public abstract void savePatente(Patente patente);
+    public abstract boolean savePatente(Patente patente);
     public abstract void updatePatente(Patente patente);
     public abstract void deletePatente(Patente patente);
     public abstract boolean patenteSuccess();

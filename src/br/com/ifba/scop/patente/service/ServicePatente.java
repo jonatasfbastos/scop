@@ -40,30 +40,30 @@ public class ServicePatente implements IServicePatente {
      * @param patente Objeto Patente.
      */
     @Override
-    public void savePatente(Patente patente) {
+    public boolean savePatente(Patente patente) {
         this.setSuccess(true);
         // numero da patente, se negativo
         if (patente.getNumero() < 1) {
             this.setSuccess(false);
-            return;
+            return this.patenteSuccess();
         }
         // titulo invenção - testa - vazio ou nulo
         if (StringUtil.getInstance().isEmpty(patente.getTituloInvencao())) {
             this.success = false;
-            return;
+            return this.patenteSuccess();
         }
         if (StringUtil.getInstance().isNull(patente.getTituloInvencao())) {
             this.setSuccess(false);
-            return;
+            return this.patenteSuccess();
         }
         // area invenção - testa - vazio ou nulo
         if (StringUtil.getInstance().isEmpty(patente.getAreaInvencao())) {
             this.setSuccess(false);
-            return;
+            return this.patenteSuccess();
         }
         if (StringUtil.getInstance().isNull(patente.getAreaInvencao())) {
             this.setSuccess(false);
-            return;
+            return this.patenteSuccess();
         }
         // se chegou até aqui, dados aprovados
         /*
@@ -72,6 +72,7 @@ public class ServicePatente implements IServicePatente {
         fora encontrado um erro ou exeção.
         */
         this.setSuccess(this.getDaoPatente().savePatente(patente));
+        return this.patenteSuccess();
     }
 
     /**

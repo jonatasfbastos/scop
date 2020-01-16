@@ -51,8 +51,8 @@ public class Fachada implements IFachada {
      * @param patente Patente Object.
      */
     @Override
-    public void savePatente(Patente patente) {
-        this.getServicePatente().savePatente(patente);
+    public boolean savePatente(Patente patente) {
+        return this.servicePatente.savePatente(patente);
     }
     /**
      * This method sent information for allow or not update operation.
@@ -60,7 +60,7 @@ public class Fachada implements IFachada {
      */
     @Override
     public void updatePatente(Patente patente) {
-        this.getServicePatente().updatePatente(patente);
+        this.servicePatente.updatePatente(patente);
     }
     /**
      * This method sent information for allow or not delete operation.
@@ -68,15 +68,7 @@ public class Fachada implements IFachada {
      */
     @Override
     public void deletePatente(Patente patente) {
-        this.getServicePatente().deletePatente(patente);
-    }
-    /**
-     * Returns a object of Service Patente for integrates with views.
-     * @return ServicePatente Object.
-     */
-    @Override
-    public IServicePatente getServicePatente() {
-        return this.servicePatente;
+        this.servicePatente.deletePatente(patente);
     }
     
 }
