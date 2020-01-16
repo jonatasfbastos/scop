@@ -5,8 +5,8 @@
  */
 package br.com.ifba.scop.projetopesquisa.service;
 
+import br.com.ifba.scop.infraestructure.exception.BusinessException;
 import br.com.ifba.scop.infraestructure.support.StringUtil;
-import br.com.ifba.scop.infraestruture.exception.BusinessException;
 import br.com.ifba.scop.projetopesquisa.dao.DaoProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.dao.IDaoProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
