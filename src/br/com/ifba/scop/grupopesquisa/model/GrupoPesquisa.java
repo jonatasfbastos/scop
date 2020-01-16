@@ -6,8 +6,12 @@
 package br.com.ifba.scop.grupopesquisa.model;
 
 import br.com.ifba.scop.infraestructure.model.AbstractEntity;
+import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -15,6 +19,12 @@ import javax.persistence.Entity;
  */
 @Entity
 public class GrupoPesquisa extends AbstractEntity implements Serializable {
+
+    /*
+    @ManyToMany(mappedBy = "gruposPesquisa")
+    private List<ProjetoPesquisa> projetoPesquisas;
+    */
+    
 //  private int identificacao;
     private String nome;
 //  private String departamento;
