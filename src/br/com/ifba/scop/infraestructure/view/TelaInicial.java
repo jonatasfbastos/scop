@@ -70,17 +70,27 @@ public class TelaInicial extends javax.swing.JFrame {
         getContentPane().add(btnCadPesquisador, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 110, -1));
 
         jButton6.setText("Pesquisa");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 110, -1));
 
         jButton7.setText("Patente");
+        jButton7.setPreferredSize(new java.awt.Dimension(70, 23));
         getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, 110, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Fundo Principal.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 380));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 380));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments

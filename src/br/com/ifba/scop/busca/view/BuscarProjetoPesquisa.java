@@ -33,36 +33,17 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
         txtNomeProjeto = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         btnPesquisar = new javax.swing.JButton();
-        btnExcluir = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        txtCordenador = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        txtEmail = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        txtTituloProjeto = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        txtSubarea = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        txtLinhaPesquisa = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        txtGrupoPesquisa = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        txtCampus = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        txtFinanciamento = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        txtDataInicio = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        txtDataTermino = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        txtViabilidadeTecnica = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtProjetosPesquisa = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(815, 643));
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Pesquisar Projeto de Pesquisa");
 
+        txtNomeProjeto.setMinimumSize(new java.awt.Dimension(6, 27));
         txtNomeProjeto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeProjetoActionPerformed(evt);
@@ -73,41 +54,15 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
 
         btnPesquisar.setText("Pesquisar");
 
-        btnExcluir.setText("Excluir");
-        btnExcluir.setPreferredSize(new java.awt.Dimension(80, 25));
-        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExcluirActionPerformed(evt);
+        jtProjetosPesquisa.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Projeto Pesquisa", "Coordenador(a)", "Campus", "Local"
             }
-        });
-
-        jLabel3.setText("Cordenador(a)");
-
-        txtCordenador.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCordenadorActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setText("Email");
-
-        jLabel5.setText("Titulo Do Projeto");
-
-        jLabel6.setText("Subárea");
-
-        jLabel7.setText("Linha de Pesquisa");
-
-        jLabel8.setText("Grupo de Pesquisa");
-
-        jLabel9.setText("Campus");
-
-        jLabel10.setText("Financiamento");
-
-        jLabel11.setText("Data de Início");
-
-        jLabel12.setText("Data Termino");
-
-        jLabel13.setText("Viabilidade Técnina");
+        ));
+        jScrollPane1.setViewportView(jtProjetosPesquisa);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -119,70 +74,17 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
                         .addGap(250, 250, 250)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(330, 330, 330)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(240, 240, 240)
                         .addComponent(txtNomeProjeto, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnPesquisar))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(307, 307, 307)
-                        .addComponent(jLabel9))
+                        .addGap(330, 330, 330)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(txtCordenador, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(248, 248, 248)
-                        .addComponent(txtCampus, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(jLabel4)
-                        .addGap(366, 366, 366)
-                        .addComponent(jLabel10))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(248, 248, 248)
-                        .addComponent(txtFinanciamento, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(jLabel5)
-                        .addGap(310, 310, 310)
-                        .addComponent(jLabel11))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(txtTituloProjeto, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(248, 248, 248)
-                        .addComponent(txtDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(jLabel6)
-                        .addGap(350, 350, 350)
-                        .addComponent(jLabel12))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(txtSubarea, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(248, 248, 248)
-                        .addComponent(txtDataTermino, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(jLabel7)
-                        .addGap(305, 305, 305)
-                        .addComponent(jLabel13))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtLinhaPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8)
-                            .addComponent(txtGrupoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(248, 248, 248)
-                        .addComponent(txtViabilidadeTecnica, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(529, 529, 529)
-                        .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(87, Short.MAX_VALUE))
+                        .addGap(115, 115, 115)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,57 +94,12 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addComponent(jLabel2)
                 .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNomeProjeto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNomeProjeto, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
                     .addComponent(btnPesquisar))
-                .addGap(57, 57, 57)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel9))
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtCordenador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCampus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel10))
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtFinanciamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel11))
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtTituloProjeto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel12))
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtSubarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDataTermino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel13))
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtLinhaPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel8)
-                        .addGap(16, 16, 16)
-                        .addComponent(txtGrupoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtViabilidadeTecnica, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addGap(52, 52, 52)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(251, 251, 251))
         );
 
         pack();
@@ -252,14 +109,6 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
     private void txtNomeProjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeProjetoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeProjetoActionPerformed
-
-    private void txtCordenadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCordenadorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCordenadorActionPerformed
-
-    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnExcluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -298,32 +147,11 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField txtCampus;
-    private javax.swing.JTextField txtCordenador;
-    private javax.swing.JTextField txtDataInicio;
-    private javax.swing.JTextField txtDataTermino;
-    private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtFinanciamento;
-    private javax.swing.JTextField txtGrupoPesquisa;
-    private javax.swing.JTextField txtLinhaPesquisa;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jtProjetosPesquisa;
     private javax.swing.JTextField txtNomeProjeto;
-    private javax.swing.JTextField txtSubarea;
-    private javax.swing.JTextField txtTituloProjeto;
-    private javax.swing.JTextField txtViabilidadeTecnica;
     // End of variables declaration//GEN-END:variables
 }
