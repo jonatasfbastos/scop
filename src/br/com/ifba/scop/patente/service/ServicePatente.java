@@ -66,7 +66,12 @@ public class ServicePatente implements IServicePatente {
             return;
         }
         // se chegou até aqui, dados aprovados
-        this.getDaoPatente().savePatente(patente);
+        /*
+        Aqui é enviado os dados para o dao que, se retornar true,
+        foram inseridos com sucesso, do contrário, em algum momento
+        fora encontrado um erro ou exeção.
+        */
+        this.setSuccess(this.getDaoPatente().savePatente(patente));
     }
 
     /**
