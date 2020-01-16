@@ -172,10 +172,12 @@ public class CadastroPatente extends javax.swing.JFrame {
         String titulo = txtTituloPatente.getText();
         String area_linha= txtAreaLinhaPatente.getText();
         // inserindo valores na entidade
-        patente.setNumero(Long.parseLong(numero));
-        patente.setDia(Integer.parseInt(dia));
-        patente.setMes(Integer.parseInt(mes));
-        patente.setAno(Integer.parseInt(ano));
+        patente.setNumero(this.stringBeNumber(numero));
+        // data
+        patente.setDia(this.stringBeNumber(dia));
+        patente.setMes(this.stringBeNumber(mes));
+        patente.setAno(this.stringBeNumber(ano));
+        // titulo e area
         patente.setTituloInvencao(titulo);
         patente.setAreaInvencao(area_linha);
         // acessando a fachada
@@ -245,4 +247,19 @@ public class CadastroPatente extends javax.swing.JFrame {
     private javax.swing.JTextField txtTituloPatente;
     private javax.swing.JTextField txtYear;
     // End of variables declaration//GEN-END:variables
+    
+    /**
+     * This Method verifies if a string can be a number or not.
+     * @param value String.
+     * @return Integer.
+     */
+    private int stringBeNumber(String value) {
+        int number;
+        try {
+            number = Integer.parseInt(value);
+        } catch (NumberFormatException ex) {
+            number = 0;
+        }
+        return number;
+    }
 }

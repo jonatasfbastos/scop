@@ -21,8 +21,10 @@ public interface IServicePatente {
     public abstract boolean deletePatente(Patente patente);
     // returns all patentes 
     public abstract List<Patente> takeAllPatente();
-    // search a patente by id or patente number
-    public abstract Patente searchPatenteNumOrId(long idnum);
+    // search a patente by patente area
+    public abstract List<Patente> searchPatenteArea(Patente patente);
     // search a patente by title of it
     public abstract List<Patente> searchPatenteTitle(Patente patente);
+    // search a patente by number of it
+    public abstract List<Patente> searchPatenteNumber(Patente patente);
 }

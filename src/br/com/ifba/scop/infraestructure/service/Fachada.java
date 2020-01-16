@@ -84,14 +84,14 @@ public class Fachada implements IFachada {
     }
     
     /**
-     * This method returns a Patente instance, it's for search by id or number of
+     * This method returns a Patente instance, it's for search by area of 
      * patente.
-     * @param idnum
-     * @return Patente Object 
+     * @param patente Patente Instance
+     * @return A List of Patente instance
      */
     @Override
-    public Patente searchPatenteNumOrId(long idnum) {
-        return this.servicePatente.searchPatenteNumOrId(idnum);
+    public List<Patente> searchPatenteArea(Patente patente) {
+        return this.servicePatente.searchPatenteArea(patente);
     }
     
     /**
@@ -102,6 +102,16 @@ public class Fachada implements IFachada {
     @Override
     public List<Patente> searchPatenteTitle(Patente patente) {
         return this.servicePatente.searchPatenteTitle(patente);
+    }
+    
+    /**
+     * This method returns a search by number.
+     * @param patente Patente instance
+     * @return A List of Patente Instances
+     */
+    @Override
+    public List<Patente> searchPatenteNumber(Patente patente) {
+        return this.servicePatente.searchPatenteNumber(patente);
     }
     //--------------------------------------------------------------------------
     
