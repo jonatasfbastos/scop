@@ -213,8 +213,18 @@ public class CentroPatente extends javax.swing.JFrame {
         });
 
         btnListar.setText("Listar");
+        btnListar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarActionPerformed(evt);
+            }
+        });
 
         btnLimpar.setText("Limpar");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panButtonLayout = new javax.swing.GroupLayout(panButton);
         panButton.setLayout(panButtonLayout);
@@ -391,6 +401,34 @@ public class CentroPatente extends javax.swing.JFrame {
         CadastroPatente casdastro = new CadastroPatente(); // instanciando nova tela
         casdastro.setVisible(true); // tornando tela de cadastro visivel
     }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    /**
+     * Inserts all data inside the JTable.
+     * @param evt Action Event
+     */
+    private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
+        // TODO add your handling code here:
+        // instancia fachada
+        IFachada fachada =
+                new br.com.ifba.scop.infraestructure.service.Fachada();
+        // inserindo numa lista
+        List<Patente> patentes = fachada.takeAllPatente();
+        if (patentes == null || patentes.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(null, 
+                    "Erro: Nenhuma Patente Encontrada.");
+            return;
+        }
+        
+    }//GEN-LAST:event_btnListarActionPerformed
+
+    /**
+     * Cleans JTable.
+     * @param evt Action Event.
+     */
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnLimparActionPerformed
 
     /**
      * @param args the command line arguments
