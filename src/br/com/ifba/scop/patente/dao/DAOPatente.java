@@ -8,6 +8,7 @@ package br.com.ifba.scop.patente.dao;
 import br.com.ifba.scop.infraestructure.dao.BaseDao;
 import br.com.ifba.scop.patente.model.Patente;
 import java.util.List;
+import javax.persistence.Query;
 
 /**
  * This class is the dao of Patente entity.
@@ -25,10 +26,29 @@ public class DAOPatente extends BaseDao<Patente> implements IDAOPatente {
     /**
      * It registers inside database a new patente.
      * @param patente Patente Object.
+     * @return Boolean
      */
     @Override
-    public void savePatente(Patente patente) {
-        this.save(patente);
+    public boolean savePatente(Patente patente) {
+        final String sql =
+                "SELECT c.id FROM Patente AS c WHERE c.numero=:numero "
+                + "OR c.tituloInvencao=:title OR c.areaInvencao=:area";
+        // mandando query
+        Query query = entityManager.createQuery(sql);
+        // mandando parametro para o query
+        query.setParameter("numero", patente.getNumero());
+        query.setParameter("title", patente.getTituloInvencao());
+        query.setParameter("area", patente.getAreaInvencao());
+        if (!query.getResultList().isEmpty()) {
+            // foi encontrado patente correspondente - erro
+            return false;
+        }
+        try {
+            this.save(patente);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     /**
