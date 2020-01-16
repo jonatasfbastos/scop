@@ -36,6 +36,11 @@ public class ProjetoPesquisa extends AbstractEntity implements Serializable{
     private List<GrupoPesquisa> gruposPesquisa;
     */
     
+    /*      AVISOOOOOO!!!!!!
+    Ao Adicionar um atributo not null a essa clase, o método validaProjeto
+    da classe ServiceProjetoPesquisa deve ser revisado e implementado se necessario
+    */
+    
     @Column(name="TITULO", length=100, nullable=false) //not null
     private String titulo;
     
@@ -56,10 +61,10 @@ public class ProjetoPesquisa extends AbstractEntity implements Serializable{
     @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar dataTermino;
     
-    @Column(name="FINANCIADA", nullable=false) //not null
-    private boolean financiada;
+    @Column(name="FINANCIADA")
+    private boolean financiada = false; // Por default é false
     
-    @Column(name="FINANCIAMENTO", nullable=false) //not null
+    @Column(name="FINANCIAMENTO") 
     private String finaciamento;
     
     @Column(name="VIABILIDADE_TEC", nullable=false) //not null

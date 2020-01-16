@@ -5,6 +5,7 @@
  */
 package br.com.ifba.scop.projetopesquisa.service;
 
+import br.com.ifba.scop.infraestructure.support.StringUtil;
 import br.com.ifba.scop.infraestruture.exception.BusinessException;
 import br.com.ifba.scop.projetopesquisa.dao.DaoProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.dao.IDaoProjetoPesquisa;
@@ -116,12 +117,37 @@ public class ServiceProjetoPesquisa implements IServiceProjetoPesquisa{
     // Verifica se o Projeto de Pesquisa é valido. Retorna true ou false.
     // Ainda não foi implementado.
     public boolean validaProjetoPesquisa(ProjetoPesquisa projetoPesquisa) {
-        if(projetoPesquisa != null) {
-            // necessita da verificação de alguns campos, por exemplo título.
-            return true;
-        }else {
+        
+        StringUtil util = StringUtil.getInstance();
+        
+        if(projetoPesquisa == null) {
             return false;
         }
+        
+        if(util.isNullOrEmpty(projetoPesquisa.getTitulo())) {
+            return false;
+        }
+        
+        if(util.isNullOrEmpty(projetoPesquisa.getCampus())) {
+            return false;
+        }
+        
+        if(util.isNullOrEmpty(projetoPesquisa.getSubArea())) {
+            return false;
+        }
+        if(util.isNullOrEmpty(projetoPesquisa.getLinhaPesquisa())) {
+            return false;
+        }
+        
+        if(projetoPesquisa.getDataInicio() == null) {
+            return false;
+        }
+        
+        if(util.isNullOrEmpty(projetoPesquisa.getViabilidadeTec())) {
+            return false;
+        }
+        
+        return true;
         
     }
     
