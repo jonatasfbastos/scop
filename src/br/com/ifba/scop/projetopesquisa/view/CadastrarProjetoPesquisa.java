@@ -75,50 +75,78 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setLayout(null);
+
         txtCordenador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCordenadorActionPerformed(evt);
             }
         });
+        jPanel1.add(txtCordenador);
+        txtCordenador.setBounds(30, 110, 303, 27);
 
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailActionPerformed(evt);
             }
         });
+        jPanel1.add(txtEmail);
+        txtEmail.setBounds(30, 163, 303, 27);
+        jPanel1.add(txtTelefone);
+        txtTelefone.setBounds(30, 216, 182, 29);
 
         jLabel1.setText("Coordenador(a)");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(30, 90, 77, 14);
 
         jLabel2.setText("Email");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(30, 143, 24, 14);
 
         jLabel3.setText("Telefone");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(30, 196, 42, 14);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Cadastro de Projeto de pesquisa");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(284, 32, 198, 17);
 
         jLabel9.setText("Título do projeto");
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(30, 251, 79, 14);
 
         jLabel10.setText("Subárea");
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(30, 304, 40, 14);
 
         jLabel11.setText("Linha de pesquisa");
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(30, 357, 85, 14);
 
         txtTituloProjeto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTituloProjetoActionPerformed(evt);
             }
         });
+        jPanel1.add(txtTituloProjeto);
+        txtTituloProjeto.setBounds(30, 271, 303, 27);
 
         txtSubarea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSubareaActionPerformed(evt);
             }
         });
+        jPanel1.add(txtSubarea);
+        txtSubarea.setBounds(30, 324, 303, 27);
 
         txtLinhaPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtLinhaPesquisaActionPerformed(evt);
             }
         });
+        jPanel1.add(txtLinhaPesquisa);
+        txtLinhaPesquisa.setBounds(30, 377, 303, 27);
 
         chkSim.setText("Sim");
         chkSim.addActionListener(new java.awt.event.ActionListener() {
@@ -126,192 +154,95 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
                 chkSimActionPerformed(evt);
             }
         });
+        jPanel1.add(chkSim);
+        chkSim.setBounds(405, 446, 41, 23);
 
         jLabel5.setText("Financiamento");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(405, 410, 69, 14);
 
         chkNao.setText("Não");
+        jPanel1.add(chkNao);
+        chkNao.setBounds(464, 446, 45, 23);
 
         jLabel6.setText("Fonte");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(405, 304, 28, 14);
 
         txtFonte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFonteActionPerformed(evt);
             }
         });
+        jPanel1.add(txtFonte);
+        txtFonte.setBounds(405, 324, 306, 27);
 
         jLabel7.setText("Data de inicio");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(405, 225, 64, 14);
 
         jspDataInicio.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(1578770023278L), null, null, java.util.Calendar.DAY_OF_MONTH));
+        jPanel1.add(jspDataInicio);
+        jspDataInicio.setBounds(558, 222, 153, 20);
 
         jLabel8.setText("Data de Término prevista");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(405, 256, 121, 14);
 
         jspDataTermino.setModel(new javax.swing.SpinnerDateModel());
+        jPanel1.add(jspDataTermino);
+        jspDataTermino.setBounds(558, 253, 153, 20);
 
         jLabel12.setText("Grupo de pesquisa");
+        jPanel1.add(jLabel12);
+        jLabel12.setBounds(30, 410, 89, 14);
 
         jLabel13.setText("Campus");
+        jPanel1.add(jLabel13);
+        jLabel13.setBounds(30, 463, 38, 14);
 
         txtLocalDesenvolvimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtLocalDesenvolvimentoActionPerformed(evt);
             }
         });
+        jPanel1.add(txtLocalDesenvolvimento);
+        txtLocalDesenvolvimento.setBounds(30, 532, 303, 27);
 
         txtGrupoPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtGrupoPesquisaActionPerformed(evt);
             }
         });
+        jPanel1.add(txtGrupoPesquisa);
+        txtGrupoPesquisa.setBounds(30, 430, 303, 27);
 
         jLabel14.setText("Local de desenvolvimento da pesquisa (espaço físico)");
+        jPanel1.add(jLabel14);
+        jLabel14.setBounds(30, 512, 255, 14);
 
         txtCampus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCampusActionPerformed(evt);
             }
         });
+        jPanel1.add(txtCampus);
+        txtCampus.setBounds(30, 479, 303, 27);
 
         jLabel15.setText("Viabilidade técnica");
+        jPanel1.add(jLabel15);
+        jLabel15.setBounds(405, 90, 87, 14);
 
         txtViabilidadeTecnica.setColumns(20);
         txtViabilidadeTecnica.setRows(5);
         jScrollPane1.setViewportView(txtViabilidadeTecnica);
 
-        btnCadastrar.setText("Cadastrar");
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(405, 110, 306, 96);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel12)
-                            .addComponent(txtCampus, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtLinhaPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel11)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(txtCordenador, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)
-                            .addComponent(txtTituloProjeto, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9)
-                            .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSubarea, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtLocalDesenvolvimento, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(txtGrupoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel13))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel15)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jLabel7)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jspDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jLabel8)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jspDataTermino, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel6)
-                                    .addComponent(txtFonte, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(chkSim)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(chkNao)))))
-                        .addGap(119, 119, 119))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(284, 284, 284)
-                .addComponent(jLabel4)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jLabel4)
-                .addGap(41, 41, 41)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel15))
-                .addGap(6, 6, 6)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtCordenador, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
-                        .addGap(6, 6, 6)
-                        .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTituloProjeto, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtSubarea, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtFonte, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtLinhaPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel5))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(chkSim)
-                                    .addComponent(chkNao)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtGrupoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel13)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCampus, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtLocalDesenvolvimento, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jspDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(jspDataTermino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69))
-        );
+        btnCadastrar.setText("Cadastrar");
+        jPanel1.add(btnCadastrar);
+        btnCadastrar.setBounds(551, 587, 160, 27);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 830, 683));
 
