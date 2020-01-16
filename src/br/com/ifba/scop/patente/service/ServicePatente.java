@@ -161,17 +161,17 @@ public class ServicePatente implements IServicePatente {
     }
     
     /**
-     * Search by id or number.
-     * @param idnum Integer
-     * @return Patente Object
+     * Search by Area of patente.
+     * @param patente Instance
+     * @return A List of Patente Instance
      */
     @Override
-    public Patente searchPatenteNumOrId(long idnum) {
-        if (idnum < 1) {
+    public List<Patente> searchPatenteArea(Patente patente) {
+        if (StringUtil.getInstance().isNullOrEmpty(patente.getAreaInvencao())) {
             // o parametro nunca pode ser um valor negativo
             return null;
         }
-        return this.getDaoPatente().findByID(idnum);
+        return this.getDaoPatente().findByArea(patente);
     }
     
     /**
@@ -186,6 +186,20 @@ public class ServicePatente implements IServicePatente {
             return null;
         }
         return this.getDaoPatente().findByTitle(patente);
+    }
+    
+    /**
+     * This method returns a search by number.
+     * @param patente Patente Instance
+     * @return A List of Patente Instances
+     */
+    @Override
+    public List<Patente> searchPatenteNumber(Patente patente) {
+        if (patente.getNumero() < 1) {
+            // um numero de patente não pode ser menor que 1
+            return null;
+        }
+        return this.getDaoPatente().findByNumber(patente);
     }
     
 }

@@ -233,11 +233,13 @@ public class AtualizaPatente extends javax.swing.JFrame {
         // instanciando entidade
         Patente patente = new Patente();
         // inserindo valores
-        patente.setId(Long.parseLong(this.txtID.getText()));
-        patente.setNumero(Long.parseLong(this.txtNumPatente.getText()));
-        patente.setDia(Integer.parseInt(this.txtDia.getText()));
-        patente.setMes(Integer.parseInt(this.txtMes.getText()));
-        patente.setAno(Integer.parseInt(this.txtAno.getText()));
+        patente.setId((long)this.stringBeNumber(this.txtID.getText())); //id
+        patente.setNumero((long)this.stringBeNumber(this.txtNumPatente.getText()));
+        //data
+        patente.setDia(this.stringBeNumber(this.txtDia.getText()));
+        patente.setMes(this.stringBeNumber(this.txtMes.getText()));
+        patente.setAno(this.stringBeNumber(this.txtAno.getText()));
+        // titulo e area
         patente.setTituloInvencao(this.txtTituloPatente.getText());
         patente.setAreaInvencao(this.txtAreaPatente.getText());
         // instanciando fachada
@@ -310,4 +312,19 @@ public class AtualizaPatente extends javax.swing.JFrame {
     private javax.swing.JTextField txtNumPatente;
     private javax.swing.JTextField txtTituloPatente;
     // End of variables declaration//GEN-END:variables
+    
+    /**
+     * This Method verifies if a string can be a number or not.
+     * @param value String.
+     * @return Integer.
+     */
+    private int stringBeNumber(String value) {
+        int number;
+        try {
+            number = Integer.parseInt(value);
+        } catch (NumberFormatException ex) {
+            number = 0;
+        }
+        return number;
+    }
 }

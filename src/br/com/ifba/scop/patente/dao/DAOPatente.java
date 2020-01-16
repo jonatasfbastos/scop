@@ -116,13 +116,17 @@ public class DAOPatente extends BaseDao<Patente> implements IDAOPatente {
     }
     
     /**
-     * 
-     * @param idnum
-     * @return 
+     * Returns by Patente area.
+     * @param patente Patente Object
+     * @return A List of Patente instances
      */
     @Override
-    public Patente findByID(long idnum) {
-        return this.findById(idnum);
+    public List<Patente> findByArea(Patente patente) {
+        this.setSql("SELECT c FROM Patente WHERE c.areaInvencao=:area");
+        // inserindo comando na querry e inserindo os dados
+        Query query = entityManager.createQuery(this.getSql());
+        query.setParameter("area", patente.getAreaInvencao());
+        return query.getResultList();
     }
     
     /**
@@ -136,6 +140,20 @@ public class DAOPatente extends BaseDao<Patente> implements IDAOPatente {
         // inserindo comando na querry e inserindo os dados
         Query query = entityManager.createQuery(this.getSql());
         query.setParameter("title", patente.getTituloInvencao());
+        return query.getResultList();
+    }
+    
+    /**
+     * This method is for search by patente number.
+     * @param number Long
+     * @return A List of Patente
+     */
+    @Override
+    public List<Patente> findByNumber(Patente patente) {
+        this.setSql("SELECT c FROM Patente WHERE c.numero=:numero");
+        // inserindo comando na querry e inserindo os dados
+        Query query = entityManager.createQuery(this.getSql());
+        query.setParameter("numero", patente.getNumero());
         return query.getResultList();
     }
     

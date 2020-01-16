@@ -5,6 +5,10 @@
  */
 package br.com.ifba.scop.patente.view;
 
+import br.com.ifba.scop.infraestructure.service.IFachada;
+import br.com.ifba.scop.patente.model.Patente;
+import java.util.List;
+
 /**
  *
  * @author Igor Lopes
@@ -32,7 +36,7 @@ public class CentroPatente extends javax.swing.JFrame {
         panSearch = new javax.swing.JPanel();
         lblPesquisar = new javax.swing.JLabel();
         txtPesquisar = new javax.swing.JTextField();
-        chkID = new javax.swing.JCheckBox();
+        chkArea = new javax.swing.JCheckBox();
         chkNum = new javax.swing.JCheckBox();
         chkTitle = new javax.swing.JCheckBox();
         panJanelaTitulo = new javax.swing.JPanel();
@@ -65,10 +69,10 @@ public class CentroPatente extends javax.swing.JFrame {
             }
         });
 
-        chkID.setText("Por ID");
-        chkID.addMouseListener(new java.awt.event.MouseAdapter() {
+        chkArea.setText("Por Area");
+        chkArea.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                chkIDMouseClicked(evt);
+                chkAreaMouseClicked(evt);
             }
         });
 
@@ -98,7 +102,7 @@ public class CentroPatente extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panSearchLayout.createSequentialGroup()
-                        .addComponent(chkID)
+                        .addComponent(chkArea)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(chkNum)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -114,7 +118,7 @@ public class CentroPatente extends javax.swing.JFrame {
                     .addComponent(txtPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(chkID)
+                    .addComponent(chkArea)
                     .addComponent(chkNum)
                     .addComponent(chkTitle))
                 .addContainerGap())
@@ -188,6 +192,11 @@ public class CentroPatente extends javax.swing.JFrame {
         );
 
         btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
 
         btnAtualizar.setText("Atualizar");
         btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -277,13 +286,15 @@ public class CentroPatente extends javax.swing.JFrame {
      */
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
         // TODO add your handling code here:
+        AtualizaPatente atualiza = new AtualizaPatente(); // instanciando nova tela
+        atualiza.setVisible(true); // tornando visível
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
     /**
      * Search by ID.
      * @param evt Mouse event
      */
-    private void chkIDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkIDMouseClicked
+    private void chkAreaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkAreaMouseClicked
         // TODO add your handling code here:
         // desmarcando demais campos
         if (this.chkNum.isSelected()) {
@@ -292,7 +303,7 @@ public class CentroPatente extends javax.swing.JFrame {
         if (this.chkTitle.isSelected()) {
             this.chkTitle.setSelected(false);
         }
-    }//GEN-LAST:event_chkIDMouseClicked
+    }//GEN-LAST:event_chkAreaMouseClicked
 
     /**
      * Search by Number.
@@ -301,8 +312,8 @@ public class CentroPatente extends javax.swing.JFrame {
     private void chkNumMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkNumMouseClicked
         // TODO add your handling code here:
         // desmarcando demais campos
-        if (this.chkID.isSelected()) {
-            this.chkID.setSelected(false);
+        if (this.chkArea.isSelected()) {
+            this.chkArea.setSelected(false);
         }
         if (this.chkTitle.isSelected()) {
             this.chkTitle.setSelected(false);
@@ -310,14 +321,14 @@ public class CentroPatente extends javax.swing.JFrame {
     }//GEN-LAST:event_chkNumMouseClicked
 
     /**
-     * Search by title.
+     * Search by title.patente
      * @param evt Mouse Event
      */
     private void chkTitleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkTitleMouseClicked
         // TODO add your handling code here:
         // desmarcando demais campos
-        if (this.chkID.isSelected()) {
-            this.chkID.setSelected(false);
+        if (this.chkArea.isSelected()) {
+            this.chkArea.setSelected(false);
         }
         if (this.chkNum.isSelected()) {
             this.chkNum.setSelected(false);
@@ -330,7 +341,56 @@ public class CentroPatente extends javax.swing.JFrame {
      */
     private void txtPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisarActionPerformed
         // TODO add your handling code here:
+        // instanciando patente entidade
+        Patente patente = new Patente();
+        // instanciando fachada
+        IFachada fachada = 
+                new br.com.ifba.scop.infraestructure.service.Fachada();
+        // qual o tipo de pesquisa
+        if (this.chkArea.isSelected()) {
+            // area
+            patente.setAreaInvencao(this.txtPesquisar.getText());
+            // retorna pesquisa de área
+            List<Patente> dados = fachada.searchPatenteArea(patente);
+            // testa se houve erro
+            if (dados == null || dados.isEmpty()) {
+                javax.swing.JOptionPane.showConfirmDialog(null, 
+                        "Erro de Busca por Área! Nada Encontrado.");
+            }
+        } else if (this.chkNum.isSelected()) {
+            // numero
+            // evita erro de string não poder ser convertida para numero
+            long num = (long) this.stringBeNumber(this.txtPesquisar.getText());
+            patente.setNumero(num);
+            // retorna pesquisa de numero
+            List<Patente> dados = fachada.searchPatenteNumber(patente);
+            // testa se houve erro
+            if (dados == null || dados.isEmpty()) {
+                javax.swing.JOptionPane.showConfirmDialog(null, 
+                        "Erro de Busca por Número! Nada Encontrado.");
+            }
+        } else if (this.chkTitle.isSelected()) {
+            // titulo
+            patente.setTituloInvencao(this.txtPesquisar.getText());
+            // retorna pesquisa de titulo
+            List<Patente> dados = fachada.searchPatenteTitle(patente);
+            // testa se houve erro
+            if (dados == null || dados.isEmpty()) {
+                javax.swing.JOptionPane.showConfirmDialog(null, 
+                        "Erro de Busca por Título! Nada Encontrado.");
+            }
+        }
     }//GEN-LAST:event_txtPesquisarActionPerformed
+
+    /**
+     * This method calls cadastro patente screen.
+     * @param evt Action event
+     */
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        // TODO add your handling code here:
+        CadastroPatente casdastro = new CadastroPatente(); // instanciando nova tela
+        casdastro.setVisible(true); // tornando tela de cadastro visivel
+    }//GEN-LAST:event_btnCadastrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -373,7 +433,7 @@ public class CentroPatente extends javax.swing.JFrame {
     private javax.swing.JButton btnDeletar;
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnListar;
-    private javax.swing.JCheckBox chkID;
+    private javax.swing.JCheckBox chkArea;
     private javax.swing.JCheckBox chkNum;
     private javax.swing.JCheckBox chkTitle;
     private javax.swing.JList<String> jList1;
@@ -388,4 +448,19 @@ public class CentroPatente extends javax.swing.JFrame {
     private javax.swing.JTable tblPatentes;
     private javax.swing.JTextField txtPesquisar;
     // End of variables declaration//GEN-END:variables
+    
+    /**
+     * This Method verifies if a string can be a number or not.
+     * @param value String.
+     * @return Integer.
+     */
+    private int stringBeNumber(String value) {
+        int number;
+        try {
+            number = Integer.parseInt(value);
+        } catch (NumberFormatException ex) {
+            number = 0;
+        }
+        return number;
+    }
 }

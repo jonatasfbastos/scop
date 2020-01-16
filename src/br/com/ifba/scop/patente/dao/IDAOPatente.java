@@ -20,8 +20,10 @@ public interface IDAOPatente {
     public abstract boolean updatePatente(Patente patente);
     // returns all patentes
     public abstract java.util.List<Patente> takeAll();
-    // search by id or patente number
-    public abstract Patente findByID(long idnum);
-    // search by title
+    // search by id
+    public abstract java.util.List<Patente> findByArea(Patente patente);
+    // search by title patente
     public abstract java.util.List<Patente> findByTitle(Patente patente);
+    // search by number patente
+    public abstract java.util.List<Patente> findByNumber(Patente patente);
 }
