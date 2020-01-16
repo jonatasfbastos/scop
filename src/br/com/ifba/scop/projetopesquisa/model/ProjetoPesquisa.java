@@ -9,36 +9,70 @@ import br.com.ifba.scop.grupopesquisa.model.GrupoPesquisa;
 import br.com.ifba.scop.infraestructure.model.AbstractEntity;
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 /**
  *
  * @author jonatasfbastos
  */
 
-@Entity
 //pegar dados do cadastro do projeto de pesquisa
+@Entity
 public class ProjetoPesquisa extends AbstractEntity implements Serializable{
     
-//    private Pesquisador coordenador;
-//    Precisa corrigir o nome da classe
-    private GrupoPesquisa grupoPesquisa;
+    /*
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private Pesquisador coordenador;
+    //Precisa corrigir o nome da classe pesquisador
+    
+    @ManyToMany(mappedBy = "projetoPesquisas")
+    private List<GrupoPesquisa> gruposPesquisa;
+    */
+    
+    @Column(name="TITULO", length=100, nullable=false) //not null
     private String titulo;
+    
+    @Column(name="CAMPUS", length=100, nullable=false) //not null
     private String campus;
-    private String subarea;
+    
+    @Column(name="SUBAREA", length=100, nullable=false) //not null
+    private String subArea;
+    
+    @Column(name="LINHA_PESQUISA", length=100, nullable=false) //not null
     private String linhaPesquisa;
+    
+    @Column(name="DATA_INICIO", nullable=false) //not null
     @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar dataInicio;
+    
+    @Column(name="DATA_TERMINO")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar dataTermino;
-    private boolean finaciamento;
-    private String justificativa;
+    
+    @Column(name="FINANCIADA", nullable=false) //not null
+    private boolean financiada;
+    
+    @Column(name="FINANCIAMENTO", nullable=false) //not null
+    private String finaciamento;
+    
+    @Column(name="VIABILIDADE_TEC", nullable=false) //not null
+    private String viabilidadeTec;
+    
+    @Column(name="ESPACO")
     private String espaco;
     
      //boolean porque pode existir financiamento ou não, e data término é a data prevista
     
     //métodos acessores
 
+    /*
     public GrupoPesquisa getGrupoPesquisa() {
         return grupoPesquisa;
     }
@@ -46,6 +80,7 @@ public class ProjetoPesquisa extends AbstractEntity implements Serializable{
     public void setGrupoPesquisa(GrupoPesquisa grupoPesquisa) {
         this.grupoPesquisa = grupoPesquisa;
     }
+    */
 
     public String getTitulo() {
         return titulo;
@@ -63,12 +98,12 @@ public class ProjetoPesquisa extends AbstractEntity implements Serializable{
         this.campus = campus;
     }
 
-    public String getSubarea() {
-        return subarea;
+    public String getSubArea() {
+        return subArea;
     }
 
-    public void setSubarea(String subarea) {
-        this.subarea = subarea;
+    public void setSubArea(String subarea) {
+        this.subArea = subarea;
     }
 
     public String getLinhaPesquisa() {
@@ -95,20 +130,20 @@ public class ProjetoPesquisa extends AbstractEntity implements Serializable{
         this.dataTermino = dataTermino;
     }
 
-    public boolean isFinaciamento() {
+    public String getFinaciamento() {
         return finaciamento;
     }
 
-    public void setFinaciamento(boolean finaciamento) {
+    public void setFinaciamento(String finaciamento) {
         this.finaciamento = finaciamento;
     }
 
-    public String getJustificativa() {
-        return justificativa;
+    public String getViabilidadeTec() {
+        return viabilidadeTec;
     }
 
-    public void setJustificativa(String justificativa) {
-        this.justificativa = justificativa;
+    public void setViabilidadeTec(String justificativa) {
+        this.viabilidadeTec = justificativa;
     }
 
     public String getEspaco() {
@@ -118,5 +153,13 @@ public class ProjetoPesquisa extends AbstractEntity implements Serializable{
     public void setEspaco(String espaco) {
         this.espaco = espaco;
     }  
+
+    public boolean isFinanciada() {
+        return financiada;
+    }
+
+    public void setFinanciada(boolean financiada) {
+        this.financiada = financiada;
+    }
     
-  }
+}
