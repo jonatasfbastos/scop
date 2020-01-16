@@ -1,4 +1,4 @@
-package br.com.ifba.scop.busca.view;
+package br.com.ifba.scop.projetopesquisa.view;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -39,7 +39,6 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
         btnAtualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(815, 643));
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -106,7 +105,7 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNomeProjeto, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                    .addComponent(txtNomeProjeto, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(btnPesquisar))
                 .addGap(52, 52, 52)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)

@@ -5,6 +5,9 @@
  */
 package br.com.ifba.scop.projetopesquisa.view;
 
+import br.com.ifba.scop.infraestructure.support.StringUtil;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jonatasfbastos
@@ -303,6 +306,29 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
+    /*
+    private boolean validaCampos(){
+        
+        //StringUtil util = StringUtil.getInstance();
+        
+        if(txtCordenador.getText() == null){
+            
+            JOptionPane.showMessageDialog(null, "Campo obrigatório vazio! (Cordenador(a))");
+            
+            return false;
+        }
+        
+        if(txtCordenador.getText() == null){
+            
+            JOptionPane.showMessageDialog(null, "Campo obrigatório vazio! (Cordenador(a))");
+            
+            return false;
+        }
+        
+        
+        return true;
+    }*/
+    
     /**
      * @param args the command line arguments
      */
