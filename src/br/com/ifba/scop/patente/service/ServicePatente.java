@@ -78,61 +78,65 @@ public class ServicePatente implements IServicePatente {
     /**
      * Valida dados para fazer atualização - pelo número da patente.
      * @param patente Objeto Patente.
+     * @return Boolean
      */
     @Override
-    public void updatePatente(Patente patente) {
+    public boolean updatePatente(Patente patente) {
         this.setSuccess(true);
         // numero da patente, se negativo 
         if (patente.getId() < 1) {
             this.setSuccess(false);
-            return;
+            return this.patenteSuccess();
         }
         if (patente.getNumero() < 1) {
             this.setSuccess(false);
-            return;
+            return this.patenteSuccess();
         }
         // titulo invenção - testa - vazio ou nulo
         if (StringUtil.getInstance().isEmpty(patente.getTituloInvencao())) {
             this.success = false;
-            return;
+            return this.patenteSuccess();
         }
         if (StringUtil.getInstance().isNull(patente.getTituloInvencao())) {
             this.setSuccess(false);
-            return;
+            return this.patenteSuccess();
         }
         // area invenção - testa - vazio ou nulo
         if (StringUtil.getInstance().isEmpty(patente.getAreaInvencao())) {
             this.setSuccess(false);
-            return;
+            return this.patenteSuccess();
         }
         if (StringUtil.getInstance().isNull(patente.getAreaInvencao())) {
             this.setSuccess(false);
-            return;
+            return this.patenteSuccess();
         }
         // se chegou até aqui, dados aprovados // enviando para o dao
-        this.getDaoPatente().updatePatente(patente);
+        this.setSuccess(this.getDaoPatente().updatePatente(patente));
+        return this.patenteSuccess();
     }
     
     /**
      * Valida dados para deletar.
      * @param patente Objeto Patente.
+     * @return Boolean
      */
     @Override
-    public void deletePatente(Patente patente) {
+    public boolean deletePatente(Patente patente) {
         this.setSuccess(true);
         // verifica se o id fornecido é valido.
         if (patente.getId() < 1) {
             this.setSuccess(false);
+            return this.patenteSuccess();
         }
         // se chegou até aqui, dados aprovados // enviando para o dao
-        this.getDaoPatente().deletePatente(patente);
+        this.setSuccess(this.getDaoPatente().deletePatente(patente));
+        return this.patenteSuccess();
     }
 
     /**
      * Returns the success or not of the operation.
      * @return Boolean.
      */
-    @Override
     public boolean patenteSuccess() {
         return this.success;
     }

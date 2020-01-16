@@ -54,19 +54,54 @@ public class DAOPatente extends BaseDao<Patente> implements IDAOPatente {
     /**
      * It is for delete a patente inside database.
      * @param patente Patente Object.
+     * @return Boolean
      */
     @Override
-    public void deletePatente(Patente patente) {
-        this.delete(patente);
+    public boolean deletePatente(Patente patente) {
+        // testando se o comando funcionará bem, retornando booleano
+        try {
+            this.delete(patente);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     /**
      * It is for update data about a patente.
      * @param patente Patente Object.
+     * @return Boolean
      */
     @Override
-    public void updatePatente(Patente patente) {
-        this.update(patente);
+    public boolean updatePatente(Patente patente) {
+        String sql =
+                "SELECT c.id FROM Patente AS c WHERE c.numero=:numero "
+                + "AND c.id=:id";
+        // mandando query
+        Query query = entityManager.createQuery(sql);
+        // mandando parametro para o query
+        query.setParameter("numero", patente.getNumero());
+        query.setParameter("id", patente.getId());
+        if (query.getResultList().isEmpty()) {
+            // não foi encontrado patente correspondente - erro
+            return false;
+        }
+        sql = "SELECT c.id FROM Patente AS c WHERE "
+                + "c.tituloInvencao=:title OR c.areaInvencao=:area";
+        query = entityManager.createQuery(sql);
+        query.setParameter("title", patente.getTituloInvencao());
+        query.setParameter("area", patente.getAreaInvencao());
+        if (!query.getResultList().isEmpty()) {
+            // foi encontrado patente correspondente - erro
+            return false;
+        }
+        // verificando se operação foi concluida com sucesso ou não
+        try {
+            this.update(patente);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
     
     

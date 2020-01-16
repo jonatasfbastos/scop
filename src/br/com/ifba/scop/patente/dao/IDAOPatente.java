@@ -13,7 +13,7 @@ import br.com.ifba.scop.patente.model.Patente;
  */
 public interface IDAOPatente {
     public abstract boolean savePatente(Patente patente);
-    public abstract void deletePatente(Patente patente);
-    public abstract void updatePatente(Patente patente);
+    public abstract boolean deletePatente(Patente patente);
+    public abstract boolean updatePatente(Patente patente);
     public abstract java.util.List<Patente> takeAll();
 }

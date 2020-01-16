@@ -24,7 +24,7 @@ public interface IFachada {
     // valida savePatente
     public abstract boolean savePatente(Patente patente);
     // valida updatePatente
-    public abstract void updatePatente(Patente patente);
+    public abstract boolean updatePatente(Patente patente);
     // valida deletePatente
-    public abstract void deletePatente(Patente patente);
+    public abstract boolean deletePatente(Patente patente);
 }

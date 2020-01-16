@@ -14,8 +14,7 @@ import java.util.List;
  */
 public interface IServicePatente {
     public abstract boolean savePatente(Patente patente);
-    public abstract void updatePatente(Patente patente);
-    public abstract void deletePatente(Patente patente);
-    public abstract boolean patenteSuccess();
+    public abstract boolean updatePatente(Patente patente);
+    public abstract boolean deletePatente(Patente patente);
     public abstract List<Patente> takeAllPatente();
 }

@@ -5,6 +5,9 @@
  */
 package br.com.ifba.scop.patente.view;
 
+import br.com.ifba.scop.infraestructure.service.IFachada;
+import br.com.ifba.scop.patente.model.Patente;
+
 /**
  *
  * @author Igor Lopes
@@ -27,114 +30,235 @@ public class AtualizaPatente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panHead = new javax.swing.JPanel();
+        lblTituloJanela = new javax.swing.JLabel();
+        panData = new javax.swing.JPanel();
+        lblID = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
         lblNumPatente = new javax.swing.JLabel();
-        btnAtualizar = new javax.swing.JButton();
         txtNumPatente = new javax.swing.JTextField();
+        lblData = new javax.swing.JLabel();
+        lblDay = new javax.swing.JLabel();
+        lblMonth = new javax.swing.JLabel();
+        lblYear = new javax.swing.JLabel();
+        txtDia = new javax.swing.JTextField();
+        txtMes = new javax.swing.JTextField();
+        txtAno = new javax.swing.JTextField();
         lblTituloPatente = new javax.swing.JLabel();
         txtTituloPatente = new javax.swing.JTextField();
-        lblTituloJanela = new javax.swing.JLabel();
-        lblID = new javax.swing.JLabel();
         lblAreaPatente = new javax.swing.JLabel();
         txtAreaPatente = new javax.swing.JTextField();
+        panButton = new javax.swing.JPanel();
+        btnAtualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Atualizar Patente");
         setResizable(false);
 
+        lblTituloJanela.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        lblTituloJanela.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTituloJanela.setText("ATUALIZAR PATENTE");
+
+        javax.swing.GroupLayout panHeadLayout = new javax.swing.GroupLayout(panHead);
+        panHead.setLayout(panHeadLayout);
+        panHeadLayout.setHorizontalGroup(
+            panHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panHeadLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTituloJanela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panHeadLayout.setVerticalGroup(
+            panHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panHeadLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTituloJanela, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        lblID.setText("ID");
+
         txtID.setText(" ");
 
         lblNumPatente.setText("N° PATENTE");
 
-        btnAtualizar.setText("Atualizar");
-
         txtNumPatente.setText(" ");
+
+        lblData.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        lblData.setText("DATA");
+
+        lblDay.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        lblDay.setText("DIA");
+
+        lblMonth.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        lblMonth.setText("MÊS");
+
+        lblYear.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        lblYear.setText("ANO");
 
         lblTituloPatente.setText("TÍTULO:");
 
         txtTituloPatente.setText(" ");
 
-        lblTituloJanela.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        lblTituloJanela.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTituloJanela.setText("ATUALIZAR PATENTE");
-
-        lblID.setText("ID");
-
         lblAreaPatente.setText("AREA");
 
         txtAreaPatente.setText(" ");
+
+        btnAtualizar.setText("Atualizar");
+        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtualizarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panButtonLayout = new javax.swing.GroupLayout(panButton);
+        panButton.setLayout(panButtonLayout);
+        panButtonLayout.setHorizontalGroup(
+            panButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panButtonLayout.createSequentialGroup()
+                .addGap(173, 173, 173)
+                .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panButtonLayout.setVerticalGroup(
+            panButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panButtonLayout.createSequentialGroup()
+                .addContainerGap(55, Short.MAX_VALUE)
+                .addComponent(btnAtualizar)
+                .addGap(28, 28, 28))
+        );
+
+        javax.swing.GroupLayout panDataLayout = new javax.swing.GroupLayout(panData);
+        panData.setLayout(panDataLayout);
+        panDataLayout.setHorizontalGroup(
+            panDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panDataLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panDataLayout.createSequentialGroup()
+                        .addComponent(lblTituloPatente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtTituloPatente, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panDataLayout.createSequentialGroup()
+                        .addComponent(lblAreaPatente, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtAreaPatente, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panDataLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addGroup(panDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblID, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panDataLayout.createSequentialGroup()
+                                .addGroup(panDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtDia, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblDay, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(6, 6, 6)
+                                .addGroup(panDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(panDataLayout.createSequentialGroup()
+                                        .addComponent(txtMes, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtAno, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(panDataLayout.createSequentialGroup()
+                                            .addComponent(lblNumPatente)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(txtNumPatente, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(panDataLayout.createSequentialGroup()
+                                            .addComponent(lblMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(lblYear, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addComponent(panButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        panDataLayout.setVerticalGroup(
+            panDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panDataLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblID)
+                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNumPatente)
+                    .addComponent(txtNumPatente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDay)
+                    .addComponent(lblMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblYear))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblData)
+                    .addComponent(txtDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTituloPatente)
+                    .addComponent(txtTituloPatente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAreaPatente)
+                    .addComponent(txtAreaPatente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(59, 59, 59)
-                                .addComponent(lblID, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblNumPatente)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNumPatente, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblTituloPatente)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtTituloPatente, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblAreaPatente, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtAreaPatente, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblTituloJanela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(171, 171, 171)
-                .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(panHead, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblTituloJanela, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panHead, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNumPatente)
-                    .addComponent(txtNumPatente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblID))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTituloPatente)
-                    .addComponent(txtTituloPatente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAreaPatente)
-                    .addComponent(txtAreaPatente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
-                .addComponent(btnAtualizar)
-                .addGap(24, 24, 24))
+                .addComponent(panData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     /**
+     * This button is for update a patente that was registered.
+     * @param evt Action Event
+     */
+    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
+        // TODO add your handling code here:
+        // instanciando entidade
+        Patente patente = new Patente();
+        // inserindo valores
+        patente.setId(Long.parseLong(this.txtID.getText()));
+        patente.setNumero(Long.parseLong(this.txtNumPatente.getText()));
+        patente.setDia(Integer.parseInt(this.txtDia.getText()));
+        patente.setMes(Integer.parseInt(this.txtMes.getText()));
+        patente.setAno(Integer.parseInt(this.txtAno.getText()));
+        patente.setTituloInvencao(this.txtTituloPatente.getText());
+        patente.setAreaInvencao(this.txtAreaPatente.getText());
+        // instanciando fachada
+        IFachada fachada = 
+                new br.com.ifba.scop.infraestructure.service.Fachada();
+        // enviando para a fachada e testando operação
+        if (!fachada.updatePatente(patente)) {
+            javax.swing.JOptionPane.showMessageDialog(null, 
+                    "Impossível Atualizar! Dados Inválidos.");
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(null, 
+                    "Sucesso ao Atualizar!");
+        }
+    }//GEN-LAST:event_btnAtualizarActionPerformed
+
+    /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        //<editor-fold defaultstate="cpanDatad" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
@@ -167,12 +291,22 @@ public class AtualizaPatente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtualizar;
     private javax.swing.JLabel lblAreaPatente;
+    private javax.swing.JLabel lblData;
+    private javax.swing.JLabel lblDay;
     private javax.swing.JLabel lblID;
+    private javax.swing.JLabel lblMonth;
     private javax.swing.JLabel lblNumPatente;
     private javax.swing.JLabel lblTituloJanela;
     private javax.swing.JLabel lblTituloPatente;
+    private javax.swing.JLabel lblYear;
+    private javax.swing.JPanel panButton;
+    private javax.swing.JPanel panData;
+    private javax.swing.JPanel panHead;
+    private javax.swing.JTextField txtAno;
     private javax.swing.JTextField txtAreaPatente;
+    private javax.swing.JTextField txtDia;
     private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtMes;
     private javax.swing.JTextField txtNumPatente;
     private javax.swing.JTextField txtTituloPatente;
     // End of variables declaration//GEN-END:variables
