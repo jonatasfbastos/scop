@@ -5,6 +5,8 @@
  */
 package br.com.ifba.scop.infraestructure.view;
 
+import br.com.ifba.scop.patente.view.CentroPatente;
+
 /**
  *
  * @author Lucas
@@ -60,6 +62,11 @@ public class TelaInicial extends javax.swing.JFrame {
         getContentPane().add(btnCadPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 110, -1));
 
         btnCadPatente.setText("Patente");
+        btnCadPatente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadPatenteActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnCadPatente, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 110, -1));
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -91,6 +98,18 @@ public class TelaInicial extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    /**
+     * This method calls patente screen main.
+     * @param evt Action Event
+     */
+    private void btnCadPatenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadPatenteActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false); // invisivel
+        this.getDefaultCloseOperation(); // fechando
+        CentroPatente centroPatente = new CentroPatente();
+        centroPatente.setVisible(true);
+    }//GEN-LAST:event_btnCadPatenteActionPerformed
 
     /**
      * @param args the command line arguments
