@@ -14,6 +14,7 @@ import br.com.ifba.scop.projetopesquisa.dao.DaoProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.dao.IDaoProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
 import java.util.Calendar;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -142,11 +143,11 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
 
         lblDataInicio.setText("Data de inicio");
 
-        jspDataInicio.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(1578770023278L), null, null, java.util.Calendar.DAY_OF_MONTH));
+        jspDataInicio.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), null, new java.util.Date(), java.util.Calendar.DAY_OF_MONTH));
 
         lblDataTermino.setText("Data de Término prevista");
 
-        jspDataTermino.setModel(new javax.swing.SpinnerDateModel());
+        jspDataTermino.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), new java.util.Date(), null, java.util.Calendar.DAY_OF_MONTH));
 
         lblGrupoPesquisa.setText("Grupo de pesquisa");
 
@@ -279,9 +280,9 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jspDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblDataInicio))
@@ -294,7 +295,6 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addComponent(txtFonte, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
                         .addComponent(lblTelefone)
                         .addGap(8, 8, 8)
                         .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -361,45 +361,26 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
             IFachada fachada = new Fachada();
             ProjetoPesquisa projeto = new ProjetoPesquisa();
             
-            
-            
-            /*
-            //Pegando os cadastros
-            String Titulo = txtTituloProjeto.getText();
-            String Email = txtEmail.getText();
-            String Telefone = txtTelefone.getText();
-            String Subarea = txtSubarea.getText();
-            String LinhaPesquisa = txtLinhaPesquisa.getText();
-            String GrupoPesquisa = txtGrupoPesquisa.getText();
-            String Campus = txtCampus.getText();
-            String Local = txtLocalDesenvolvimento.getText();
-            String Viabilidade = txtViabilidadeTecnica.getText();
-            String DataInicio = jspDataInicio.getToolTipText();
-            String DataTermino = jspDataTermino.getToolTipText();
-            String Fonte = txtFonte.getText();
-            */
-            
-            
-          if(validaCampos() == true){
-              
-            projeto.setCampus(this.txtCampus.getText());
-//            projeto.setDataInicio((Calendar) this.jspDataInicio.getValue());
-//            projeto.setDataTermino((Calendar) this.jspDataTermino.getValue());
-            projeto.setEspaco(this.txtLocalDesenvolvimento.getText());
-            projeto.setFinaciamento(this.txtFonte.getText());
-            projeto.setLinhaPesquisa(this.txtLinhaPesquisa.getText());
-            projeto.setSubArea(this.txtSubarea.getText());
-            projeto.setTitulo(this.txtTituloProjeto.getText());
-            projeto.setViabilidadeTec(this.txtViabilidadeTecnica.getText());
-            
-            
-            if(fachada.saveProjetoPesquisa(projeto) == projeto){
-                JOptionPane.showMessageDialog(null, "Deu certo, doido");
-            }else{
-                JOptionPane.showMessageDialog(null, "Loser!");
+            if(validaCampos() == true){
+
+                projeto.setCampus(this.txtCampus.getText());
+                projeto.setDataInicio((Date) this.jspDataInicio.getValue());
+                projeto.setDataTermino((Date) this.jspDataTermino.getValue());
+                projeto.setEspaco(this.txtLocalDesenvolvimento.getText());
+                projeto.setFinaciamento(this.txtFonte.getText());
+                projeto.setLinhaPesquisa(this.txtLinhaPesquisa.getText());
+                projeto.setSubArea(this.txtSubarea.getText());
+                projeto.setTitulo(this.txtTituloProjeto.getText());
+                projeto.setViabilidadeTec(this.txtViabilidadeTecnica.getText());
+
+
+                if(fachada.saveProjetoPesquisa(projeto) == projeto){
+                    JOptionPane.showMessageDialog(null, "Deu certo, doido");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Loser!");
+                }
+
             }
-            
-          }
         
     }//GEN-LAST:event_btnCadastrarActionPerformed
 

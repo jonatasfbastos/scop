@@ -42,7 +42,7 @@ public class ServiceProjetoPesquisa implements IServiceProjetoPesquisa{
         
         if(this.validaProjetoPesquisa(projetoPesquisa) == false){
             // Tratamento de exceção
-            throw new BusinessException(PROJ_INVALIDO);
+           throw new BusinessException(PROJ_INVALIDO);
             
         }
         

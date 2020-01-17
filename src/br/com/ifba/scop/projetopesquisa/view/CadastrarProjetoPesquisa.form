@@ -339,7 +339,7 @@
         <Component class="javax.swing.JSpinner" name="jspDataInicio">
           <Properties>
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-              <SpinnerModel initial="1578770023278" stepSize="5" type="date"/>
+              <SpinnerModel initial="now" maximum="now" stepSize="5" type="date"/>
             </Property>
           </Properties>
         </Component>
@@ -351,7 +351,7 @@
         <Component class="javax.swing.JSpinner" name="jspDataTermino">
           <Properties>
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-              <SpinnerModel initial="now" stepSize="5" type="date"/>
+              <SpinnerModel initial="now" minimum="now" stepSize="5" type="date"/>
             </Property>
           </Properties>
         </Component>

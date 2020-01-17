@@ -9,6 +9,7 @@ import br.com.ifba.scop.grupopesquisa.model.GrupoPesquisa;
 import br.com.ifba.scop.infraestructure.model.AbstractEntity;
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -55,11 +56,11 @@ public class ProjetoPesquisa extends AbstractEntity implements Serializable{
     
     @Column(name="DATA_INICIO", nullable=false) //not null
     @Temporal(javax.persistence.TemporalType.DATE)
-    private Calendar dataInicio;
+    private Date dataInicio;
     
     @Column(name="DATA_TERMINO")
     @Temporal(javax.persistence.TemporalType.DATE)
-    private Calendar dataTermino;
+    private Date dataTermino;
     
     @Column(name="FINANCIADA")
     private boolean financiada = false; // Por default é false
@@ -119,19 +120,19 @@ public class ProjetoPesquisa extends AbstractEntity implements Serializable{
         this.linhaPesquisa = linhaPesquisa;
     }
 
-    public Calendar getDataInicio() {
+    public Date getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(Calendar dataInicio) {
+    public void setDataInicio(Date dataInicio) {
         this.dataInicio = dataInicio;
     }
 
-    public Calendar getDataTermino() {
+    public Date getDataTermino() {
         return dataTermino;
     }
 
-    public void setDataTermino(Calendar dataTermino) {
+    public void setDataTermino(Date dataTermino) {
         this.dataTermino = dataTermino;
     }
 
