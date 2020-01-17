@@ -45,7 +45,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" pref="721" max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="111" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -68,6 +68,38 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="txtGrupoPesquisa" min="-2" pref="303" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                                  <Component id="lblFinanciamento" min="-2" pref="130" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="lblGrupoPesquisa" min="-2" pref="130" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblLinhaPesquisa" min="-2" pref="120" max="-2" attributes="0"/>
+                                      <Component id="txtLinhaPesquisa" min="-2" pref="303" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtFonte" min="-2" pref="306" max="-2" attributes="0"/>
+                                      <Component id="lblFonte" min="-2" pref="70" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Component id="lblTelefone" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblSubarea" min="-2" pref="70" max="-2" attributes="0"/>
+                                      <Component id="txtSubarea" min="-2" pref="303" max="-2" attributes="0"/>
+                                      <Component id="txtTelefone" alignment="0" min="-2" pref="182" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                                  <Component id="lblDataTermino" min="-2" pref="152" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace min="284" pref="284" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
@@ -123,41 +155,6 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jspDataTermino" min="-2" pref="153" max="-2" attributes="0"/>
                                       <Component id="jspDataInicio" min="-2" pref="153" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="txtGrupoPesquisa" min="-2" pref="303" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                                  <Component id="lblFinanciamento" min="-2" pref="130" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="lblGrupoPesquisa" min="-2" pref="130" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblLinhaPesquisa" min="-2" pref="120" max="-2" attributes="0"/>
-                                      <Component id="txtLinhaPesquisa" min="-2" pref="303" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                                  <Component id="txtFonte" min="-2" pref="306" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="lblTelefone" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblSubarea" min="-2" pref="70" max="-2" attributes="0"/>
-                                      <Component id="txtSubarea" min="-2" pref="303" max="-2" attributes="0"/>
-                                      <Component id="txtTelefone" alignment="0" min="-2" pref="182" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="lblFonte" alignment="1" min="-2" pref="70" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="lblDataTermino" min="-2" pref="152" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
-                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
