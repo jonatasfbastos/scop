@@ -10,7 +10,7 @@
     <properties>
       <!-- dados da conexao -->
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/scop"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/scop?useTimezone=true&amp;serverTimezone=UTC"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
       <property name="javax.persistence.jdbc.password" value="toor"/>
       <!-- propriedades do hibernate -->
