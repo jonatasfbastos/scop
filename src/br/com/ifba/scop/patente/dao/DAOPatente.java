@@ -40,6 +40,7 @@ public class DAOPatente extends BaseDao<Patente> implements IDAOPatente {
         query.setParameter("title", patente.getTituloInvencao());
         query.setParameter("area", patente.getAreaInvencao());
         if (!query.getResultList().isEmpty()) {
+            System.out.println("BEATRIZ");
             // foi encontrado patente correspondente - erro
             return false;
         }
@@ -130,7 +131,7 @@ public class DAOPatente extends BaseDao<Patente> implements IDAOPatente {
      */
     @Override
     public List<Patente> findByArea(Patente patente) {
-        this.setSql("SELECT c FROM Patente WHERE c.areaInvencao=:area");
+        this.setSql("SELECT c FROM Patente AS c WHERE c.areaInvencao=:area");
         // inserindo comando na querry e inserindo os dados
         Query query = entityManager.createQuery(this.getSql());
         query.setParameter("area", patente.getAreaInvencao());
@@ -144,7 +145,7 @@ public class DAOPatente extends BaseDao<Patente> implements IDAOPatente {
      */
     @Override
     public List<Patente> findByTitle(Patente patente) {
-        this.setSql("SELECT c FROM Patente WHERE c.tituloInvencao=:title");
+        this.setSql("SELECT c FROM Patente AS c WHERE c.tituloInvencao=:title");
         // inserindo comando na querry e inserindo os dados
         Query query = entityManager.createQuery(this.getSql());
         query.setParameter("title", patente.getTituloInvencao());
@@ -153,12 +154,12 @@ public class DAOPatente extends BaseDao<Patente> implements IDAOPatente {
     
     /**
      * This method is for search by patente number.
-     * @param number Long
+     * @param patente Patente Instance
      * @return A List of Patente
      */
     @Override
     public List<Patente> findByNumber(Patente patente) {
-        this.setSql("SELECT c FROM Patente WHERE c.numero=:numero");
+        this.setSql("SELECT c FROM Patente AS c WHERE c.numero=:numero");
         // inserindo comando na querry e inserindo os dados
         Query query = entityManager.createQuery(this.getSql());
         query.setParameter("numero", patente.getNumero());
@@ -171,7 +172,7 @@ public class DAOPatente extends BaseDao<Patente> implements IDAOPatente {
      * @return Boolean
      */
     private boolean therePatente(Patente patente) {
-        this.setSql("SELECT c.id FROM Patente WHERE c.id=:id");
+        this.setSql("SELECT c.id FROM Patente AS c WHERE c.id=:id");
         // inserindo comando na querry e inserindo os dados
         Query query = entityManager.createQuery(this.getSql());
         query.setParameter("id", patente.getId());
