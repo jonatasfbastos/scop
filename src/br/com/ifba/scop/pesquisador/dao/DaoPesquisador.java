@@ -7,11 +7,24 @@ package br.com.ifba.scop.pesquisador.dao;
 
 import br.com.ifba.scop.infraestructure.dao.BaseDao;
 import br.com.ifba.scop.pesquisador.model.Pesquisador;
+import java.util.List;
 
 /**
  *
  * @author Gustavo Dourado
  */
-public class DaoPesquisador extends BaseDao<Pesquisador> {
+public class DaoPesquisador extends BaseDao<Pesquisador> implements IDaoPesquisador {
+
+    public DaoPesquisador() {
+         //To change body of generated methods, choose Tools | Templates.
+    }
+    @Override
+    public List<Pesquisador> findByMatricula(Pesquisador pesquisador){
+        
+        return null;
+        
+    }
+    
+    
     
 }

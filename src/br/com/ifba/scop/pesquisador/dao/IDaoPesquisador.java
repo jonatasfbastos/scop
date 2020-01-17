@@ -7,11 +7,13 @@ package br.com.ifba.scop.pesquisador.dao;
 
 import br.com.ifba.scop.infraestructure.dao.IBaseDao;
 import br.com.ifba.scop.pesquisador.model.Pesquisador;
+import java.util.List;
 
 /**
  *
  * @author Bessa
  */
 public interface IDaoPesquisador extends IBaseDao<Pesquisador>{
+    public abstract List<Pesquisador> findByMatricula(Pesquisador pesquisador);
     
 }
