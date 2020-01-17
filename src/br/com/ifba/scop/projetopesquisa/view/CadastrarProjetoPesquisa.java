@@ -12,6 +12,8 @@ import br.com.ifba.scop.infraestructure.service.IFachada;
 import br.com.ifba.scop.infraestructure.support.StringUtil;
 import br.com.ifba.scop.projetopesquisa.dao.DaoProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.dao.IDaoProjetoPesquisa;
+import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
+import java.util.Calendar;
 import javax.swing.JOptionPane;
 
 /**
@@ -356,9 +358,12 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
             
-            IFachada projeto = new Fachada();
-            IDaoProjetoPesquisa p = new DaoProjetoPesquisa();
+            IFachada fachada = new Fachada();
+            ProjetoPesquisa projeto = new ProjetoPesquisa();
             
+            
+            
+            /*
             //Pegando os cadastros
             String Titulo = txtTituloProjeto.getText();
             String Email = txtEmail.getText();
@@ -372,12 +377,29 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
             String DataInicio = jspDataInicio.getToolTipText();
             String DataTermino = jspDataTermino.getToolTipText();
             String Fonte = txtFonte.getText();
+            */
             
             
+          if(validaCampos() == true){
+              
+            projeto.setCampus(this.txtCampus.getText());
+//            projeto.setDataInicio((Calendar) this.jspDataInicio.getValue());
+//            projeto.setDataTermino((Calendar) this.jspDataTermino.getValue());
+            projeto.setEspaco(this.txtLocalDesenvolvimento.getText());
+            projeto.setFinaciamento(this.txtFonte.getText());
+            projeto.setLinhaPesquisa(this.txtLinhaPesquisa.getText());
+            projeto.setSubArea(this.txtSubarea.getText());
+            projeto.setTitulo(this.txtTituloProjeto.getText());
+            projeto.setViabilidadeTec(this.txtViabilidadeTecnica.getText());
             
-          //if(validaCampos() == true){
-            //projeto = p.saveProjetoPesquisa(projeto);
-          //}
+            
+            if(fachada.saveProjetoPesquisa(projeto) == projeto){
+                JOptionPane.showMessageDialog(null, "Deu certo, doido");
+            }else{
+                JOptionPane.showMessageDialog(null, "Loser!");
+            }
+            
+          }
         
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
@@ -463,14 +485,14 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
             return false;
         }
         
-        if(jspDataInicio.getToolTipText() == null){
+        if(jspDataInicio.getValue() == null){
             
             JOptionPane.showMessageDialog(null, "Campo obrigatório vazio! (Data início)");
             
             return false;
         }
         
-        if(jspDataTermino.getToolTipText() == null){
+        if(jspDataTermino.getValue() == null){
 
               JOptionPane.showMessageDialog(null, "Campo obrigatório vazio! (Data termino)");
 
