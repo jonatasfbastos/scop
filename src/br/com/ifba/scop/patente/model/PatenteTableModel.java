@@ -15,8 +15,8 @@ import javax.swing.table.AbstractTableModel;
  */
 public class PatenteTableModel extends AbstractTableModel {
     
-    private List<Patente> data = new ArrayList<>();
-    private String[] columns = {"ID","Número","Título","Área","Dia","Mês","Ano"};
+    private final List<Patente> data = new ArrayList<>();
+    private final String[] columns = {"ID","Número","Título","Área","Dia","Mês","Ano"};
 
     /**
      * Inserts column name.

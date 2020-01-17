@@ -11,12 +11,12 @@ import br.com.ifba.scop.patente.model.PatenteTableModel;
 import java.util.List;
 
 /**
- *
+ * This is the main screen of patente part.
  * @author Igor Lopes
  */
 public class CentroPatente extends javax.swing.JFrame {
     
-    private PatenteTableModel patenteModel = new PatenteTableModel();
+    private final PatenteTableModel patenteModel = new PatenteTableModel();
 
     /**
      * Creates new form CentroPatente
@@ -303,6 +303,30 @@ public class CentroPatente extends javax.swing.JFrame {
      */
     private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
         // TODO add your handling code here:
+        int idx = this.tblPatentes.getSelectedRow(); // selected row index
+        Object forID = this.patenteModel.getValueAt(idx, 0);
+        String id = String.valueOf(forID);
+        // confirme exclusão messagem
+        int choose = javax.swing.JOptionPane.showConfirmDialog(null, "Deletar Patente ID: "+id
+                + "Tem Certeza?");
+        if (choose < 0 || choose > 0) {
+            return; // o usuario desistiu de excluir, encerra.
+        }
+        // instanciando patente
+        Patente patente = new Patente();
+        patente.setId((long) this.stringBeNumber(id)); // setando na entidade
+        // instanciando fachada
+        IFachada fachada = new 
+            br.com.ifba.scop.infraestructure.service.Fachada();
+        // enviando valores e testando sucesso ou não
+        if (fachada.deletePatente(patente)) {
+            javax.swing.JOptionPane.showMessageDialog(null, 
+                    "Patente Encontrada e Deletada.");
+            this.patenteModel.removeRow(idx);
+        } else {
+            javax.swing.JOptionPane.showConfirmDialog(null, 
+                    "Erro ao Deletar: Patente Não Encontrada!");
+        }
     }//GEN-LAST:event_btnDeletarActionPerformed
 
     /**
@@ -311,7 +335,14 @@ public class CentroPatente extends javax.swing.JFrame {
      */
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
         // TODO add your handling code here:
-        AtualizaPatente atualiza = new AtualizaPatente(); // instanciando nova tela
+        // valores selecionados
+        Object forID = this.patenteModel.getValueAt(this.tblPatentes.getSelectedRow(), 0);
+        Object forNum = this.patenteModel.getValueAt(this.tblPatentes.getSelectedRow(), 1);
+        // Convert to string
+        String id = String.valueOf(forID);
+        String num = String.valueOf(forNum);
+        // instanciando atualizar e enviando valores
+        AtualizaPatente atualiza = new AtualizaPatente(id,num); // instanciando nova tela
         atualiza.setVisible(true); // tornando visível
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
@@ -384,6 +415,7 @@ public class CentroPatente extends javax.swing.JFrame {
                 return;
             }
             this.patenteModel.removeAllRows(); // remove all rows
+            // insert data
             dados.forEach((c) -> {
                 this.patenteModel.addRow(c);
             });
@@ -401,6 +433,7 @@ public class CentroPatente extends javax.swing.JFrame {
                 return;
             }
             this.patenteModel.removeAllRows(); // remove all rows
+            // insert data
             dados.forEach((c) -> {
                 this.patenteModel.addRow(c);
             });
@@ -416,6 +449,7 @@ public class CentroPatente extends javax.swing.JFrame {
                 return;
             }
             this.patenteModel.removeAllRows(); // remove all rows
+            // insert data
             dados.forEach((c) -> {
                 this.patenteModel.addRow(c);
             });
@@ -438,20 +472,7 @@ public class CentroPatente extends javax.swing.JFrame {
      */
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
         // TODO add your handling code here:
-        // instancia fachada
-        IFachada fachada =
-                new br.com.ifba.scop.infraestructure.service.Fachada();
-        // inserindo numa lista
-        List<Patente> patentes = fachada.takeAllPatente();
-        if (patentes == null || patentes.isEmpty()) {
-            javax.swing.JOptionPane.showMessageDialog(null, 
-                    "Erro: Nenhuma Patente Encontrada.");
-            return;
-        }
-        // inserindo linha/s na tabela
-        patentes.forEach((p) -> {
-            this.patenteModel.addRow(p);
-        });
+        this.forListagemAll(); // insere dados que encontrar no JTable.
     }//GEN-LAST:event_btnListarActionPerformed
 
     /**
@@ -533,5 +554,25 @@ public class CentroPatente extends javax.swing.JFrame {
             number = 0;
         }
         return number;
+    }
+    
+    /**
+     * This method insert all data found inside database into the JTable.
+     */
+    private void forListagemAll() {
+        // instancia fachada
+        IFachada fachada =
+                new br.com.ifba.scop.infraestructure.service.Fachada();
+        // inserindo numa lista
+        List<Patente> patentes = fachada.takeAllPatente();
+        if (patentes == null || patentes.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(null, 
+                    "Erro: Nenhuma Patente Encontrada.");
+            return;
+        }
+        // inserindo linha/s na tabela
+        patentes.forEach((p) -> {
+            this.patenteModel.addRow(p);
+        });
     }
 }
