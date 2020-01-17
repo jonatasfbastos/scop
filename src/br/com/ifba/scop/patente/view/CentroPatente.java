@@ -303,12 +303,21 @@ public class CentroPatente extends javax.swing.JFrame {
      */
     private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
         // TODO add your handling code here:
-        int idx = this.tblPatentes.getSelectedRow(); // selected row index
-        Object forID = this.patenteModel.getValueAt(idx, 0);
+        int idx;
+        Object forID;
+        // tratando exceção no modelo da tabela
+        try {
+            idx = this.tblPatentes.getSelectedRow(); // selected row index
+            forID = this.patenteModel.getValueAt(idx, 0);
+        } catch (java.lang.ArrayIndexOutOfBoundsException ex) {
+            javax.swing.JOptionPane.showMessageDialog(null,
+                    "Impossível Deletar! Registro não Selecionado.");
+            return;
+        }
         String id = String.valueOf(forID);
         // confirme exclusão messagem
         int choose = javax.swing.JOptionPane.showConfirmDialog(null, "Deletar Patente ID: "+id
-                + "Tem Certeza?");
+                + "\nTem Certeza?");
         if (choose < 0 || choose > 0) {
             return; // o usuario desistiu de excluir, encerra.
         }
@@ -324,7 +333,7 @@ public class CentroPatente extends javax.swing.JFrame {
                     "Patente Encontrada e Deletada.");
             this.patenteModel.removeRow(idx);
         } else {
-            javax.swing.JOptionPane.showConfirmDialog(null, 
+            javax.swing.JOptionPane.showMessageDialog(null, 
                     "Erro ao Deletar: Patente Não Encontrada!");
         }
     }//GEN-LAST:event_btnDeletarActionPerformed
@@ -336,8 +345,17 @@ public class CentroPatente extends javax.swing.JFrame {
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
         // TODO add your handling code here:
         // valores selecionados
-        Object forID = this.patenteModel.getValueAt(this.tblPatentes.getSelectedRow(), 0);
-        Object forNum = this.patenteModel.getValueAt(this.tblPatentes.getSelectedRow(), 1);
+        Object forID;
+        Object forNum;
+        // tratando exceção no modelo da tabela
+        try {
+            forID = this.patenteModel.getValueAt(this.tblPatentes.getSelectedRow(), 0);
+            forNum = this.patenteModel.getValueAt(this.tblPatentes.getSelectedRow(), 1);
+        } catch (java.lang.ArrayIndexOutOfBoundsException ex) {
+            javax.swing.JOptionPane.showMessageDialog(null,
+                    "Impossível Deletar! Registro não Selecionado.");
+            return;
+        }
         // Convert to string
         String id = String.valueOf(forID);
         String num = String.valueOf(forNum);
@@ -472,6 +490,7 @@ public class CentroPatente extends javax.swing.JFrame {
      */
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
         // TODO add your handling code here:
+        this.btnLimparActionPerformed(evt); // limpando jtable
         this.forListagemAll(); // insere dados que encontrar no JTable.
     }//GEN-LAST:event_btnListarActionPerformed
 

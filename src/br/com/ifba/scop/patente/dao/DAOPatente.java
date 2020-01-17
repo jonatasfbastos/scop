@@ -59,8 +59,16 @@ public class DAOPatente extends BaseDao<Patente> implements IDAOPatente {
     @Override
     public boolean deletePatente(Patente patente) {
         // testando se o comando funcionará bem, retornando booleano
+        if (this.therePatente(patente)) {
+            return false; // erro, a patente não existe na base de dados
+        }
+        this.setSql("DELETE FROM "+Patente.class.getName()+" WHERE id=:id");
+        // Query
+        Query query;
         try {
-            this.delete(patente);
+            query = entityManager.createNamedQuery(this.getSql());
+            query.setParameter("id", patente.getId());
+            query.executeUpdate();
             return true;
         } catch (Exception e) {
             return false;
@@ -155,6 +163,19 @@ public class DAOPatente extends BaseDao<Patente> implements IDAOPatente {
         Query query = entityManager.createQuery(this.getSql());
         query.setParameter("numero", patente.getNumero());
         return query.getResultList();
+    }
+    
+    /**
+     * Verifies if there's an id to delete the register.
+     * @param patente Patente instance
+     * @return Boolean
+     */
+    private boolean therePatente(Patente patente) {
+        this.setSql("SELECT c.id FROM Patente WHERE c.id=:id");
+        // inserindo comando na querry e inserindo os dados
+        Query query = entityManager.createQuery(this.getSql());
+        query.setParameter("id", patente.getId());
+        return query.getResultList().isEmpty();
     }
     
     // Getter and Setter
