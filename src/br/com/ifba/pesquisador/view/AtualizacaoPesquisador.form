@@ -81,7 +81,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="24" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Cadastro de Pesquisador"/>
+            <Property name="text" type="java.lang.String" value="Atualiza&#xe7;&#xe3;o de pesquisador"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -129,7 +129,7 @@
                               <Component id="txtLocacao" min="-2" pref="267" max="-2" attributes="0"/>
                               <Component id="txtInstituicao" min="-2" pref="267" max="-2" attributes="0"/>
                               <Component id="txtTitulacao" min="-2" pref="267" max="-2" attributes="0"/>
-                              <Component id="txtOrg_emissor" min="-2" pref="267" max="-2" attributes="0"/>
+                              <Component id="txtOrgEmissor" min="-2" pref="267" max="-2" attributes="0"/>
                               <Component id="lblInstituicao" min="-2" max="-2" attributes="0"/>
                               <Component id="lblMatricula" min="-2" max="-2" attributes="0"/>
                               <Component id="lblTitulacao" min="-2" max="-2" attributes="0"/>
@@ -185,7 +185,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtOrg_emissor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtOrgEmissor" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="lblLocacao" min="-2" max="-2" attributes="0"/>
@@ -245,9 +245,9 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTitulacaoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtOrg_emissor">
+        <Component class="javax.swing.JTextField" name="txtOrgEmissor">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtOrg_emissorActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtOrgEmissorActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblInstituicao">
