@@ -7,6 +7,7 @@ package br.com.ifba.scop.patente.view;
 
 import br.com.ifba.scop.infraestructure.service.IFachada;
 import br.com.ifba.scop.patente.model.Patente;
+import br.com.ifba.scop.patente.model.PatenteTableModel;
 import java.util.List;
 
 /**
@@ -14,12 +15,15 @@ import java.util.List;
  * @author Igor Lopes
  */
 public class CentroPatente extends javax.swing.JFrame {
+    
+    private PatenteTableModel patenteModel = new PatenteTableModel();
 
     /**
      * Creates new form CentroPatente
      */
     public CentroPatente() {
         initComponents();
+        this.tblPatentes.setModel(patenteModel);
     }
 
     /**
@@ -199,7 +203,7 @@ public class CentroPatente extends javax.swing.JFrame {
         );
         panTableDataLayout.setVerticalGroup(
             panTableDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
         );
 
         btnCadastrar.setText("Cadastrar");
@@ -285,9 +289,9 @@ public class CentroPatente extends javax.swing.JFrame {
                     .addComponent(panSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panJanelaTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panTableData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addComponent(panButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(panButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panTableData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -377,7 +381,12 @@ public class CentroPatente extends javax.swing.JFrame {
             if (dados == null || dados.isEmpty()) {
                 javax.swing.JOptionPane.showConfirmDialog(null, 
                         "Erro de Busca por Área! Nada Encontrado.");
+                return;
             }
+            this.patenteModel.removeAllRows(); // remove all rows
+            dados.forEach((c) -> {
+                this.patenteModel.addRow(c);
+            });
         } else if (this.chkNum.isSelected()) {
             // numero
             // evita erro de string não poder ser convertida para numero
@@ -389,7 +398,12 @@ public class CentroPatente extends javax.swing.JFrame {
             if (dados == null || dados.isEmpty()) {
                 javax.swing.JOptionPane.showConfirmDialog(null, 
                         "Erro de Busca por Número! Nada Encontrado.");
+                return;
             }
+            this.patenteModel.removeAllRows(); // remove all rows
+            dados.forEach((c) -> {
+                this.patenteModel.addRow(c);
+            });
         } else if (this.chkTitle.isSelected()) {
             // titulo
             patente.setTituloInvencao(this.txtPesquisar.getText());
@@ -399,7 +413,12 @@ public class CentroPatente extends javax.swing.JFrame {
             if (dados == null || dados.isEmpty()) {
                 javax.swing.JOptionPane.showConfirmDialog(null, 
                         "Erro de Busca por Título! Nada Encontrado.");
+                return;
             }
+            this.patenteModel.removeAllRows(); // remove all rows
+            dados.forEach((c) -> {
+                this.patenteModel.addRow(c);
+            });
         }
     }//GEN-LAST:event_txtPesquisarActionPerformed
 
@@ -429,7 +448,10 @@ public class CentroPatente extends javax.swing.JFrame {
                     "Erro: Nenhuma Patente Encontrada.");
             return;
         }
-        
+        // inserindo linha/s na tabela
+        patentes.forEach((p) -> {
+            this.patenteModel.addRow(p);
+        });
     }//GEN-LAST:event_btnListarActionPerformed
 
     /**
@@ -438,7 +460,7 @@ public class CentroPatente extends javax.swing.JFrame {
      */
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         // TODO add your handling code here:
-        
+        this.patenteModel.removeAllRows(); // limpando jtable
     }//GEN-LAST:event_btnLimparActionPerformed
 
     /**
