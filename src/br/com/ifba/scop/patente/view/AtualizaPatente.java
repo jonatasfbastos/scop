@@ -20,6 +20,18 @@ public class AtualizaPatente extends javax.swing.JFrame {
     public AtualizaPatente() {
         initComponents();
     }
+    
+    /**
+     * Create a new Instance of AtualizaPatente.
+     * @param id String - pk
+     * @param num String - patente number
+     */
+    public AtualizaPatente(String id, String num) {
+        this.initComponents();
+        // inserindo valores
+        this.txtID.setText(id);
+        this.txtNumPatente.setText(num);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
