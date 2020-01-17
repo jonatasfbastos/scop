@@ -16,7 +16,7 @@ import javax.persistence.Entity;
  */
 
 @Entity
-public class pesquisador extends AbstractEntity implements Serializable {
+public class Pesquisador extends AbstractEntity implements Serializable {
     
     // atributos
     String nome;
@@ -32,7 +32,7 @@ public class pesquisador extends AbstractEntity implements Serializable {
     // devera conter tambem endereço, data de emisão do RG e telefone
     
     //Construtor
-    public pesquisador() {
+    public Pesquisador() {
         super();
     }
     

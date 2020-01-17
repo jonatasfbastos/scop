@@ -6,12 +6,12 @@
 package br.com.ifba.scop.pesquisador.dao;
 
 import br.com.ifba.scop.infraestructure.dao.BaseDao;
-import br.com.ifba.scop.pesquisador.model.pesquisador;
+import br.com.ifba.scop.pesquisador.model.Pesquisador;
 
 /**
  *
  * @author Gustavo Dourado
  */
-public class DaoPesquisador extends BaseDao<pesquisador> {
+public class DaoPesquisador extends BaseDao<Pesquisador> {
     
 }

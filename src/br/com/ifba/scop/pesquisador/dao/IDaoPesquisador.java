@@ -6,12 +6,12 @@
 package br.com.ifba.scop.pesquisador.dao;
 
 import br.com.ifba.scop.infraestructure.dao.IBaseDao;
-import br.com.ifba.scop.pesquisador.model.pesquisador;
+import br.com.ifba.scop.pesquisador.model.Pesquisador;
 
 /**
  *
  * @author Bessa
  */
-public interface IDaoPesquisador extends IBaseDao<pesquisador>{
+public interface IDaoPesquisador extends IBaseDao<Pesquisador>{
     
 }
