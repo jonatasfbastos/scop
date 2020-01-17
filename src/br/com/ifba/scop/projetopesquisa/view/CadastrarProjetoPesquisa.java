@@ -12,6 +12,9 @@ import br.com.ifba.scop.infraestructure.service.IFachada;
 import br.com.ifba.scop.infraestructure.support.StringUtil;
 import br.com.ifba.scop.projetopesquisa.dao.DaoProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.dao.IDaoProjetoPesquisa;
+import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -78,7 +81,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
@@ -140,11 +143,11 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
 
         lblDataInicio.setText("Data de inicio");
 
-        jspDataInicio.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(1578770023278L), null, null, java.util.Calendar.DAY_OF_MONTH));
+        jspDataInicio.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), null, new java.util.Date(), java.util.Calendar.DAY_OF_MONTH));
 
         lblDataTermino.setText("Data de Término prevista");
 
-        jspDataTermino.setModel(new javax.swing.SpinnerDateModel());
+        jspDataTermino.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), new java.util.Date(), null, java.util.Calendar.DAY_OF_MONTH));
 
         lblGrupoPesquisa.setText("Grupo de pesquisa");
 
@@ -277,9 +280,9 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jspDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblDataInicio))
@@ -292,7 +295,6 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addComponent(txtFonte, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
                         .addComponent(lblTelefone)
                         .addGap(8, 8, 8)
                         .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -356,28 +358,35 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
             
-            IFachada projeto = new Fachada();
-            IDaoProjetoPesquisa p = new DaoProjetoPesquisa();
+            IFachada fachada = new Fachada();
+            ProjetoPesquisa projeto = new ProjetoPesquisa();
             
-            //Pegando os cadastros
-            String Titulo = txtTituloProjeto.getText();
-            String Email = txtEmail.getText();
-            String Telefone = txtTelefone.getText();
-            String Subarea = txtSubarea.getText();
-            String LinhaPesquisa = txtLinhaPesquisa.getText();
-            String GrupoPesquisa = txtGrupoPesquisa.getText();
-            String Campus = txtCampus.getText();
-            String Local = txtLocalDesenvolvimento.getText();
-            String Viabilidade = txtViabilidadeTecnica.getText();
-            String DataInicio = jspDataInicio.getToolTipText();
-            String DataTermino = jspDataTermino.getToolTipText();
-            String Fonte = txtFonte.getText();
-            
-            
-            
-          //if(validaCampos() == true){
-            //projeto = p.saveProjetoPesquisa(projeto);
-          //}
+            if(validaCampos() == true){
+                
+                // Atribuindo os dados dos campos aos atributos do objeto
+                projeto.setCampus(this.txtCampus.getText());
+                projeto.setDataInicio((Date) this.jspDataInicio.getValue());
+                projeto.setDataTermino((Date) this.jspDataTermino.getValue());
+                projeto.setEspaco(this.txtLocalDesenvolvimento.getText());
+                projeto.setFinaciamento(this.txtFonte.getText());
+                projeto.setLinhaPesquisa(this.txtLinhaPesquisa.getText());
+                projeto.setSubArea(this.txtSubarea.getText());
+                projeto.setTitulo(this.txtTituloProjeto.getText());
+                projeto.setViabilidadeTec(this.txtViabilidadeTecnica.getText());
+
+                // Salvo com sucesso
+                if(fachada.saveProjetoPesquisa(projeto) == projeto){
+                    
+                    JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
+                    
+                    // Fecha a janela
+                    this.dispose();
+                    
+                }else{
+                    JOptionPane.showMessageDialog(null, "Erro ao salvar");
+                }
+
+            }
         
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
@@ -417,6 +426,10 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailActionPerformed
 
+    /**
+     * 
+     * @return true se todos os campos obrigatórios estiverem preenchidos
+     */
     
     private boolean validaCampos(){
         
@@ -463,14 +476,14 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
             return false;
         }
         
-        if(jspDataInicio.getToolTipText() == null){
+        if(jspDataInicio.getValue() == null){
             
             JOptionPane.showMessageDialog(null, "Campo obrigatório vazio! (Data início)");
             
             return false;
         }
         
-        if(jspDataTermino.getToolTipText() == null){
+        if(jspDataTermino.getValue() == null){
 
               JOptionPane.showMessageDialog(null, "Campo obrigatório vazio! (Data termino)");
 

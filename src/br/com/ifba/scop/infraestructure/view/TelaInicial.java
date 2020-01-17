@@ -6,6 +6,7 @@
 package br.com.ifba.scop.infraestructure.view;
 
 import br.com.ifba.scop.patente.view.CentroPatente;
+import br.com.ifba.scop.projetopesquisa.view.CadastrarProjetoPesquisa;
 
 /**
  *
@@ -30,98 +31,80 @@ public class TelaInicial extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton2 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        lblCadastrar = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         btnCadPesquisa = new javax.swing.JButton();
         btnCadPatente = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        lblPesquisar = new javax.swing.JLabel();
         btnCadPesquisador = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
+        lblLogo = new javax.swing.JLabel();
+        lblFundo = new javax.swing.JLabel();
 
         jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("CADASTRAR");
+        lblCadastrar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblCadastrar.setForeground(new java.awt.Color(255, 255, 255));
+        lblCadastrar.setText("CADASTRAR");
+        lblCadastrar.setPreferredSize(new java.awt.Dimension(80, 14));
+        getContentPane().add(lblCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, 120, 30));
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("Pesquisador");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 210, 170, 30));
 
+        btnCadPesquisa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnCadPesquisa.setText("Pesquisa");
+        btnCadPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadPesquisaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCadPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 210, 170, 30));
 
+        btnCadPatente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnCadPatente.setText("Patente");
         btnCadPatente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadPatenteActionPerformed(evt);
             }
         });
+        getContentPane().add(btnCadPatente, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 330, 170, 30));
 
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("PESQUISAR");
+        lblPesquisar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblPesquisar.setForeground(new java.awt.Color(255, 255, 255));
+        lblPesquisar.setText("PESQUISAR");
+        getContentPane().add(lblPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 139, 130, 30));
 
+        btnCadPesquisador.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnCadPesquisador.setText("Pesquisador");
+        getContentPane().add(btnCadPesquisador, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 270, 170, 30));
 
+        jButton6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton6.setText("Pesquisa");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 270, 170, 30));
 
+        jButton7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton7.setText("Patente");
         jButton7.setPreferredSize(new java.awt.Dimension(70, 23));
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 330, 170, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(290, 290, 290)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(270, 270, 270)
-                        .addComponent(btnCadPesquisador, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(270, 270, 270)
-                        .addComponent(btnCadPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(270, 270, 270)
-                        .addComponent(btnCadPatente, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(145, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCadPesquisador)
-                    .addComponent(jButton1))
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCadPesquisa)
-                    .addComponent(jButton6))
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCadPatente)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(159, Short.MAX_VALUE))
-        );
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/infraestructure/view/logo_scop.png"))); // NOI18N
+        getContentPane().add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 400, 270));
+
+        lblFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/infraestructure/view/fundo_roxo.png"))); // NOI18N
+        lblFundo.setText("lblFundo");
+        getContentPane().add(lblFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -90, 1060, 630));
 
         pack();
         setLocationRelativeTo(null);
@@ -137,11 +120,17 @@ public class TelaInicial extends javax.swing.JFrame {
      */
     private void btnCadPatenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadPatenteActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false); // invisivel
-        this.getDefaultCloseOperation(); // fechando
+        //this.setVisible(false); // invisivel
+        //this.getDefaultCloseOperation(); // fechando
         CentroPatente centroPatente = new CentroPatente();
         centroPatente.setVisible(true);
     }//GEN-LAST:event_btnCadPatenteActionPerformed
+
+    private void btnCadPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadPesquisaActionPerformed
+        // TODO add your handling code here:
+        CadastrarProjetoPesquisa cadastrarProjeto = new CadastrarProjetoPesquisa();
+        cadastrarProjeto.setVisible(true);
+    }//GEN-LAST:event_btnCadPesquisaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,7 +175,9 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel lblCadastrar;
+    private javax.swing.JLabel lblFundo;
+    private javax.swing.JLabel lblLogo;
+    private javax.swing.JLabel lblPesquisar;
     // End of variables declaration//GEN-END:variables
 }

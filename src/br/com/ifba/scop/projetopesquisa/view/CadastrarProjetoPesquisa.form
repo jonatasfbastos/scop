@@ -21,7 +21,7 @@
     </Component>
   </NonVisualComponents>
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -185,9 +185,9 @@
                       </Group>
                       <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jspDataInicio" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="lblDataInicio" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -203,7 +203,6 @@
                           <Component id="txtFonte" min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                           <Component id="lblTelefone" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                           <Component id="txtTelefone" min="-2" pref="28" max="-2" attributes="0"/>
@@ -340,7 +339,7 @@
         <Component class="javax.swing.JSpinner" name="jspDataInicio">
           <Properties>
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-              <SpinnerModel initial="1578770023278" stepSize="5" type="date"/>
+              <SpinnerModel initial="now" maximum="now" stepSize="5" type="date"/>
             </Property>
           </Properties>
         </Component>
@@ -352,7 +351,7 @@
         <Component class="javax.swing.JSpinner" name="jspDataTermino">
           <Properties>
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-              <SpinnerModel initial="now" stepSize="5" type="date"/>
+              <SpinnerModel initial="now" minimum="now" stepSize="5" type="date"/>
             </Property>
           </Properties>
         </Component>

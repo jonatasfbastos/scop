@@ -33,22 +33,27 @@ public class ServiceProjetoPesquisa implements IServiceProjetoPesquisa{
     //Salva Projeto de Pesquisa. Retorna o Projeto que foi salvo.
     @Override
     public ProjetoPesquisa saveProjetoPesquisa(ProjetoPesquisa projetoPesquisa) {
+        
         if(projetoPesquisa == null){
             // Tratamento de exceção
             throw new BusinessException(PROJ_NULL);
             
-        }else if(this.validaProjetoPesquisa(projetoPesquisa) == false){
+        }
+        
+        if(this.validaProjetoPesquisa(projetoPesquisa) == false){
             // Tratamento de exceção
-            throw new BusinessException(PROJ_INVALIDO);
+           throw new BusinessException(PROJ_INVALIDO);
             
-        }else if(this.projetoExistente(projetoPesquisa)){
+        }
+        
+        if(this.projetoExistente(projetoPesquisa)){
             // Tratamento de exceção
             throw new BusinessException(PROJ_EXISTE);
             
-        }else{
-            // Salvando objeto na base de dados
-            return this.daoProjetoPesquisa.save(projetoPesquisa);
         }
+        
+        // Salvando objeto na base de dados
+        return this.daoProjetoPesquisa.save(projetoPesquisa);
     }
 
     //Atualiza Projeto de Pesquisa. Retorna o Projeto que foi atualizado.
@@ -124,18 +129,18 @@ public class ServiceProjetoPesquisa implements IServiceProjetoPesquisa{
             return false;
         }
         
-        if(util.isNullOrEmpty(projetoPesquisa.getTitulo())) {
+        if(util.isEmpty(projetoPesquisa.getTitulo())) {
             return false;
         }
         
-        if(util.isNullOrEmpty(projetoPesquisa.getCampus())) {
+        if(util.isEmpty(projetoPesquisa.getCampus())) {
             return false;
         }
         
-        if(util.isNullOrEmpty(projetoPesquisa.getSubArea())) {
+        if(util.isEmpty(projetoPesquisa.getSubArea())) {
             return false;
         }
-        if(util.isNullOrEmpty(projetoPesquisa.getLinhaPesquisa())) {
+        if(util.isEmpty(projetoPesquisa.getLinhaPesquisa())) {
             return false;
         }
         
@@ -143,7 +148,7 @@ public class ServiceProjetoPesquisa implements IServiceProjetoPesquisa{
             return false;
         }
         
-        if(util.isNullOrEmpty(projetoPesquisa.getViabilidadeTec())) {
+        if(util.isEmpty(projetoPesquisa.getViabilidadeTec())) {
             return false;
         }
         
@@ -151,5 +156,4 @@ public class ServiceProjetoPesquisa implements IServiceProjetoPesquisa{
         
     }
     
-       
 }
