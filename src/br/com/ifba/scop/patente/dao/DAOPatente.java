@@ -40,7 +40,6 @@ public class DAOPatente extends BaseDao<Patente> implements IDAOPatente {
         query.setParameter("title", patente.getTituloInvencao());
         query.setParameter("area", patente.getAreaInvencao());
         if (!query.getResultList().isEmpty()) {
-            System.out.println("BEATRIZ");
             // foi encontrado patente correspondente - erro
             return false;
         }
@@ -54,24 +53,16 @@ public class DAOPatente extends BaseDao<Patente> implements IDAOPatente {
 
     /**
      * It is for delete a patente inside database.
-     * @param patente Patente Object.
+     * @param patente Patente object.
      * @return Boolean
      */
     @Override
     public boolean deletePatente(Patente patente) {
-        // testando se o comando funcionará bem, retornando booleano
-        if (this.therePatente(patente)) {
-            return false; // erro, a patente não existe na base de dados
-        }
-        this.setSql("DELETE FROM "+Patente.class.getName()+" WHERE id=:id");
-        // Query
-        Query query;
         try {
-            query = entityManager.createNamedQuery(this.getSql());
-            query.setParameter("id", patente.getId());
-            query.executeUpdate();
+            this.delete(patente);
             return true;
         } catch (Exception e) {
+            System.err.println(e);
             return false;
         }
     }
@@ -171,11 +162,11 @@ public class DAOPatente extends BaseDao<Patente> implements IDAOPatente {
      * @param patente Patente instance
      * @return Boolean
      */
-    private boolean therePatente(Patente patente) {
+    private boolean therePatente(Long id) {
         this.setSql("SELECT c.id FROM Patente AS c WHERE c.id=:id");
         // inserindo comando na querry e inserindo os dados
         Query query = entityManager.createQuery(this.getSql());
-        query.setParameter("id", patente.getId());
+        query.setParameter("id", id);
         return query.getResultList().isEmpty();
     }
     

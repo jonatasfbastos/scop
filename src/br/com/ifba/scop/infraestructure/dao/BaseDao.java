@@ -61,7 +61,9 @@ public class BaseDao<Entity extends AbstractEntity> implements IBaseDao<Entity>{
      * {@inheritDoc}
      * @param entity
      */
+    @Override
     public void delete(Entity entity){
+       entity = findById(entity.getId());
        entityManager.getTransaction().begin();
        entityManager.remove(entity);
        entityManager.getTransaction().commit();       
