@@ -1,5 +1,9 @@
 package br.com.ifba.scop.projetopesquisa.view;
 
+import br.com.ifba.scop.projetopesquisa.dao.DaoProjetoPesquisa;
+import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
+import br.com.ifba.scop.projetopesquisa.tableModel.ProjetoPesquisaTableModel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,11 +17,18 @@ package br.com.ifba.scop.projetopesquisa.view;
  */
 public class BuscarProjetoPesquisa extends javax.swing.JFrame {
 
+    private ProjetoPesquisaTableModel modelo = new ProjetoPesquisaTableModel();
+    private DaoProjetoPesquisa dao = new DaoProjetoPesquisa();
+    
     /**
      * Creates new form BuscarProjetoPesquisa
      */
     public BuscarProjetoPesquisa() {
+        
         initComponents();
+        this.jtProjetosPesquisa.setModel(modelo);
+        this.modelo.updateTableList(this.dao.findAll());
+        
     }
 
     /**
@@ -60,7 +71,7 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Projeto Pesquisa", "Coordenador(a)", "Campus", "Local"
+
             }
         ));
         jScrollPane1.setViewportView(jtProjetosPesquisa);
