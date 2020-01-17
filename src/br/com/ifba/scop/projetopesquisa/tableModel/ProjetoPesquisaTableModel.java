@@ -20,22 +20,29 @@ import javax.swing.table.AbstractTableModel;
 public class ProjetoPesquisaTableModel extends AbstractTableModel implements IProjetoPesquisaTableModel{
 
     
+    //metódo que retorna o nomes de cada colunas.
+    
     @Override
     public String getColumnName(int linhas)
     {
         return ProjetoPesquisaTableModel.colunas[linhas];
     }
     
+    //metodo que retorn o número de linhas da tabela.
     @Override
     public int getRowCount() {
         return ProjetoPesquisaTableModel.lista.size();
     }
 
+    /**
+    * Método que retorna o numero de colunas
+    */
     @Override
     public int getColumnCount() {
         return ProjetoPesquisaTableModel.colunas.length;
     }
-
+    
+    //metodo que set os valores das linhas, baseado com a coluna.
     @Override
     public Object getValueAt(int linhas, int colunas) {
         switch(colunas)
@@ -52,30 +59,35 @@ public class ProjetoPesquisaTableModel extends AbstractTableModel implements IPr
         return null;
     }
 
+    // método que adiciona um elemento na linha da tabela.
     public void addElement(ProjetoPesquisa entidade)
     {
         ProjetoPesquisaTableModel.lista.add(entidade);
         this.fireTableDataChanged();
     }
     
+    // método que adiciona um elemento na linha da tabela, sendo que o usuário precisa especificar a posicao dessa linha na tabela.
     public void addElementIndex(int posicao, ProjetoPesquisa entidade)
     {
         ProjetoPesquisaTableModel.lista.add(posicao, entidade);
         this.fireTableDataChanged();
     }
     
+    //metodo que remove de uma posicao em especifica da linha todas informações.
     public void removeElement(int posicao)
     {
         ProjetoPesquisaTableModel.lista.remove(posicao);
         this.fireTableDataChanged();
     }
     
+    //metodo responsavel por limpar as informações da nossa tabela.
     public void clerTable()
     {
         ProjetoPesquisaTableModel.lista.clear();
         this.fireTableDataChanged();
     }
     
+    //metodo responsável por atualizar a lista coma as informações da base de dados.
     public void updateTableList(List<ProjetoPesquisa> lista)
     {
         ProjetoPesquisaTableModel.lista.clear();
