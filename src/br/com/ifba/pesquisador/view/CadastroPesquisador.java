@@ -5,6 +5,7 @@
  */
 package br.com.ifba.pesquisador.view;
 
+import br.com.ifba.scop.pesquisador.model.Pesquisador;
 import javax.swing.JOptionPane;
 
 /**
@@ -291,18 +292,22 @@ public class CadastroPesquisador extends javax.swing.JFrame {
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // TODO add your handling code here:
         // Verificação de campos vazios
-        if (txtNome.getText().isEmpty()        || 
-            txtRG.getText().isEmpty()          ||
-            txtCPF.getText().isEmpty()         || 
-            txtEmail.getText().isEmpty()       ||
-            txtInstituicao.getText().isEmpty() ||
-            txtMatricula.getText().isEmpty()   ||
-            txtTitulacao.getText().isEmpty()   ||
-            txtOrg_emissor.getText().isEmpty() ||
-            txtLocacao.getText().isEmpty()){
-            
-            JOptionPane.showMessageDialog(null,"Existe(m) campo(s) vazio(s). Por favor, preencha-os");
-        }
+        Pesquisador pesquisador = null;
+        
+        
+        pesquisador.setCpf(txtCPF.getText());
+        pesquisador.setEmail(txtEmail.getText());
+        pesquisador.setInstituição(txtInstituicao.getText());
+        pesquisador.setLocação(txtLocacao.getText());
+        pesquisador.setMatricula(txtMatricula.getText());
+        pesquisador.setNome(txtNome.getText());
+        pesquisador.setOrgaoEmisor(txtOrg_emissor.getText());
+        pesquisador.setRg(txtRG.getText());
+        pesquisador.setTitulação(txtTitulacao.getText());
+        
+        
+        
+       
         
         
     }//GEN-LAST:event_btnConfirmActionPerformed
