@@ -352,9 +352,8 @@ public class CentroPatente extends javax.swing.JFrame {
             forID = this.patenteModel.getValueAt(this.tblPatentes.getSelectedRow(), 0);
             forNum = this.patenteModel.getValueAt(this.tblPatentes.getSelectedRow(), 1);
         } catch (java.lang.ArrayIndexOutOfBoundsException ex) {
-            javax.swing.JOptionPane.showMessageDialog(null,
-                    "Impossível Deletar! Registro não Selecionado.");
-            return;
+            forID = 0;
+            forNum = 0;
         }
         // Convert to string
         String id = String.valueOf(forID);
