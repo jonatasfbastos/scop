@@ -81,7 +81,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
@@ -362,7 +362,8 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
             ProjetoPesquisa projeto = new ProjetoPesquisa();
             
             if(validaCampos() == true){
-
+                
+                // Atribuindo os dados dos campos aos atributos do objeto
                 projeto.setCampus(this.txtCampus.getText());
                 projeto.setDataInicio((Date) this.jspDataInicio.getValue());
                 projeto.setDataTermino((Date) this.jspDataTermino.getValue());
@@ -373,11 +374,16 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
                 projeto.setTitulo(this.txtTituloProjeto.getText());
                 projeto.setViabilidadeTec(this.txtViabilidadeTecnica.getText());
 
-
+                // Salvo com sucesso
                 if(fachada.saveProjetoPesquisa(projeto) == projeto){
-                    JOptionPane.showMessageDialog(null, "Deu certo, doido");
+                    
+                    JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
+                    
+                    // Fecha a janela
+                    this.dispose();
+                    
                 }else{
-                    JOptionPane.showMessageDialog(null, "Loser!");
+                    JOptionPane.showMessageDialog(null, "Erro ao salvar");
                 }
 
             }
@@ -420,6 +426,10 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailActionPerformed
 
+    /**
+     * 
+     * @return true se todos os campos obrigatórios estiverem preenchidos
+     */
     
     private boolean validaCampos(){
         

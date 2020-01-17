@@ -6,6 +6,7 @@
 package br.com.ifba.scop.infraestructure.view;
 
 import br.com.ifba.scop.patente.view.CentroPatente;
+import br.com.ifba.scop.projetopesquisa.view.CadastrarProjetoPesquisa;
 
 /**
  *
@@ -59,6 +60,11 @@ public class TelaInicial extends javax.swing.JFrame {
 
         btnCadPesquisa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnCadPesquisa.setText("Pesquisa");
+        btnCadPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadPesquisaActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnCadPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 210, 170, 30));
 
         btnCadPatente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -119,6 +125,12 @@ public class TelaInicial extends javax.swing.JFrame {
         CentroPatente centroPatente = new CentroPatente();
         centroPatente.setVisible(true);
     }//GEN-LAST:event_btnCadPatenteActionPerformed
+
+    private void btnCadPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadPesquisaActionPerformed
+        // TODO add your handling code here:
+        CadastrarProjetoPesquisa cadastrarProjeto = new CadastrarProjetoPesquisa();
+        cadastrarProjeto.setVisible(true);
+    }//GEN-LAST:event_btnCadPesquisaActionPerformed
 
     /**
      * @param args the command line arguments
