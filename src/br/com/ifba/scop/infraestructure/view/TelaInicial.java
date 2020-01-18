@@ -5,7 +5,10 @@
  */
 package br.com.ifba.scop.infraestructure.view;
 
+import br.com.ifba.pesquisador.view.AtualizacaoPesquisador;
+import br.com.ifba.pesquisador.view.CadastroPesquisador;
 import br.com.ifba.scop.patente.view.CentroPatente;
+import br.com.ifba.scop.projetopesquisa.view.BuscarProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.view.CadastrarProjetoPesquisa;
 
 /**
@@ -55,7 +58,12 @@ public class TelaInicial extends javax.swing.JFrame {
         getContentPane().add(lblCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, 120, 30));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setText("Pesquisador");
+        jButton1.setText("Pesquisa");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 210, 170, 30));
 
         btnCadPesquisa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -83,10 +91,15 @@ public class TelaInicial extends javax.swing.JFrame {
 
         btnCadPesquisador.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnCadPesquisador.setText("Pesquisador");
+        btnCadPesquisador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadPesquisadorActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnCadPesquisador, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 270, 170, 30));
 
         jButton6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton6.setText("Pesquisa");
+        jButton6.setText("Pesquisador");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -112,6 +125,8 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        AtualizacaoPesquisador atualizarPesquisador = new AtualizacaoPesquisador();
+        atualizarPesquisador.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
@@ -131,6 +146,18 @@ public class TelaInicial extends javax.swing.JFrame {
         CadastrarProjetoPesquisa cadastrarProjeto = new CadastrarProjetoPesquisa();
         cadastrarProjeto.setVisible(true);
     }//GEN-LAST:event_btnCadPesquisaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        BuscarProjetoPesquisa buscarProjeto = new BuscarProjetoPesquisa();
+        buscarProjeto.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnCadPesquisadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadPesquisadorActionPerformed
+        // TODO add your handling code here:
+        CadastroPesquisador cadastrarPesquisador = new CadastroPesquisador();
+        cadastrarPesquisador.setVisible(true);
+    }//GEN-LAST:event_btnCadPesquisadorActionPerformed
 
     /**
      * @param args the command line arguments
