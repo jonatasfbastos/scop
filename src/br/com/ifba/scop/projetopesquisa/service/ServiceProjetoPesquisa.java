@@ -99,8 +99,8 @@ public class ServiceProjetoPesquisa implements IServiceProjetoPesquisa{
     // Busca Projeto de Pesquisa pelo título. Retorna um Projeto de Pesquisa.
     // Ainda não foi implementado.
     @Override
-    public ProjetoPesquisa findByTitulo(ProjetoPesquisa projetoPesquisa) {
-        return (ProjetoPesquisa) daoProjetoPesquisa.findByTitulo(projetoPesquisa);
+    public List<ProjetoPesquisa> findByTitulo(String titulo) {
+        return daoProjetoPesquisa.findByTitulo(titulo);
     }
 
     
@@ -154,6 +154,17 @@ public class ServiceProjetoPesquisa implements IServiceProjetoPesquisa{
         
         return true;
         
+    }
+
+    @Override
+    public ProjetoPesquisa getByIdProjeto(Long id) {
+       return this.daoProjetoPesquisa.findById(id);
+        
+//        try{
+//            
+//        }catch(Exception e){
+//            throw new BusinessException("Erro ao buscar por Id");
+//        }
     }
     
 }

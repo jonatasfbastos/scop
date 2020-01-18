@@ -23,11 +23,36 @@ import javax.swing.JOptionPane;
  */
 public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
 
+    ProjetoPesquisa projeto;
+    
+    
+    // Esse contrutor é chamado quando a operação for salvar
     /**
      * Creates new form CadastrarProjetoPesquisa
      */
     public CadastrarProjetoPesquisa() {
         initComponents();
+        this.projeto = new ProjetoPesquisa();
+    }
+    
+    // Esse contrutor é chamado quando a operação for aualizar
+    public CadastrarProjetoPesquisa(ProjetoPesquisa editado) {
+        initComponents();
+        
+        btnCadastrar.setText("Atualizar");
+        
+        this.projeto = editado;
+        
+        this.txtTituloProjeto.setText(editado.getTitulo());
+        this.txtSubarea.setText(editado.getSubArea());
+        this.txtLinhaPesquisa.setText(editado.getLinhaPesquisa());
+        this.txtCampus.setText(editado.getCampus());
+        this.txtLocalDesenvolvimento.setText(editado.getEspaco());
+        this.txtViabilidadeTecnica.setText(editado.getViabilidadeTec());
+        this.txtFonte.setText(editado.getFinaciamento());
+        this.jspDataInicio.setValue(editado.getDataInicio());
+        this.jspDataTermino.setValue(editado.getDataTermino());
+        
     }
 
     /**
@@ -351,16 +376,19 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
     private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField9ActionPerformed
 
+    
+    
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        // TODO add your handling code here:
             
             IFachada fachada = new Fachada();
-            ProjetoPesquisa projeto = new ProjetoPesquisa();
             
+            // Verifica se o projeto é valido
             if(validaCampos() == true){
                 
                 // Atribuindo os dados dos campos aos atributos do objeto
@@ -373,23 +401,45 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
                 projeto.setSubArea(this.txtSubarea.getText());
                 projeto.setTitulo(this.txtTituloProjeto.getText());
                 projeto.setViabilidadeTec(this.txtViabilidadeTecnica.getText());
+                System.out.println("id = " + projeto.getId());
+                System.out.println(projeto.getTitulo());
+                
+                // Já existe na base. Updade nele!
+                if(fachada.getByIdProjeto(projeto.getId()) == projeto){
+                    
+                    // Atualixzado com sucesso
+                    if(fachada.updateProjetoPesquisa(projeto) == projeto){
 
-                // Salvo com sucesso
-                if(fachada.saveProjetoPesquisa(projeto) == projeto){
-                    
-                    JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
-                    
-                    // Fecha a janela
-                    this.dispose();
+                        JOptionPane.showMessageDialog(null, "Editado com sucesso!");
+
+                        // Fecha a janela
+                        this.dispose();
+
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Erro ao editar");
+                    }
                     
                 }else{
-                    JOptionPane.showMessageDialog(null, "Erro ao salvar");
-                }
+                    // Ainda não existe na base
+                    
+                    // Salvo com sucesso
+                    if(fachada.saveProjetoPesquisa(projeto) == projeto){
 
+                        JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
+
+                        // Fecha a janela
+                        this.dispose();
+
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Erro ao salvar");
+                    }
+                }
             }
         
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
+    
+    
     private void txtCampusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCampusActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCampusActionPerformed
@@ -426,6 +476,8 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailActionPerformed
 
+    
+    
     /**
      * 
      * @return true se todos os campos obrigatórios estiverem preenchidos
@@ -433,43 +485,45 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
     
     private boolean validaCampos(){
         
+        StringUtil util = StringUtil.getInstance();
         
-        if(txtTituloProjeto.getText() == null){
+        
+        if(util.isNullOrEmpty(txtTituloProjeto.getText())){
             
             JOptionPane.showMessageDialog(null, "Campo obrigatório vazio! (Titulo do projeto)");
             
             return false;
         }
         
-        if(txtSubarea.getText() == null){
+        if(util.isNullOrEmpty(txtSubarea.getText())){
             
             JOptionPane.showMessageDialog(null, "Campo obrigatório vazio! (Subárea)");
             
             return false;
         }
         
-        if(txtLinhaPesquisa.getText() == null){
+        if(util.isNullOrEmpty(txtLinhaPesquisa.getText())){
             
             JOptionPane.showMessageDialog(null, "Campo obrigatório vazio! (Linha de pesquisa)");
             
             return false;
         }
         
-        if(txtCampus.getText() == null){
+        if(util.isNullOrEmpty(txtCampus.getText())){
             
             JOptionPane.showMessageDialog(null, "Campo obrigatório vazio! (Campus)");
             
             return false;
         }
        
-        if(txtLocalDesenvolvimento.getText() == null){
+        if(util.isNullOrEmpty(txtLocalDesenvolvimento.getText())){
             
             JOptionPane.showMessageDialog(null, "Campo obrigatório vazio! (Local de desenvolvimento)");
             
             return false;
         }
        
-        if(txtViabilidadeTecnica.getText() == null){
+        if(util.isNullOrEmpty(txtViabilidadeTecnica.getText())){
             
             JOptionPane.showMessageDialog(null, "Campo obrigatório vazio! (Viabilidade tecnica)");
             

@@ -16,11 +16,11 @@ import java.util.List;
 public class DaoProjetoPesquisa extends BaseDao<ProjetoPesquisa> implements IDaoProjetoPesquisa{
 
     @Override
-    public List<ProjetoPesquisa> findByTitulo(ProjetoPesquisa projetoPesquisa) {
+    public List<ProjetoPesquisa> findByTitulo(String titulo) {
         
-        String query = "FROM ProjetoPesquisa WHERE upper(titulo) like upper('" + projetoPesquisa.getTitulo() +"'%";
+        String query = "select pp from ProjetoPesquisa pp WHERE upper(pp.titulo) like upper('" + titulo +"%')";
         
-        return BaseDao.entityManager.createNamedQuery(query).getResultList();
+        return BaseDao.entityManager.createQuery(query).getResultList();
     }
 
     

@@ -19,7 +19,7 @@ import javax.persistence.MappedSuperclass;
 //classe que as entidades irão herdar
 @MappedSuperclass
 public class AbstractEntity {
-        private Long id;
+        private long id;
         
         @Id @GeneratedValue
         public Long getId() {

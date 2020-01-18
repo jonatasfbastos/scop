@@ -17,8 +17,10 @@ public interface IFachada {
     public abstract void deleteProjetoPesquisa (ProjetoPesquisa projetoPesquisa);
     // Metodo que retorna todos os Projeto de Pesquisa da base de dados
     public abstract List<ProjetoPesquisa> getAll();
+    // Método que retorna um ProjetoPesquisa pelo Id
+    public abstract ProjetoPesquisa getByIdProjeto(Long id);
     // Metodo que busca um Projeto de Pesquisa na base de dados através do titulo
-    public abstract ProjetoPesquisa findByTitulo (ProjetoPesquisa projetoPesquisa);
+    public abstract List<ProjetoPesquisa> findByTitulo (String titulo);
     
     // ---------- Patente ----------------------------------
     // valida savePatente

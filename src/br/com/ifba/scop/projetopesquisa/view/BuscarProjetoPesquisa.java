@@ -1,8 +1,11 @@
 package br.com.ifba.scop.projetopesquisa.view;
 
+import br.com.ifba.scop.infraestructure.service.Fachada;
+import br.com.ifba.scop.infraestructure.service.IFachada;
 import br.com.ifba.scop.projetopesquisa.dao.DaoProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.tableModel.ProjetoPesquisaTableModel;
+import java.util.List;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -18,7 +21,8 @@ import br.com.ifba.scop.projetopesquisa.tableModel.ProjetoPesquisaTableModel;
 public class BuscarProjetoPesquisa extends javax.swing.JFrame {
 
     private ProjetoPesquisaTableModel modelo = new ProjetoPesquisaTableModel();
-    private DaoProjetoPesquisa dao = new DaoProjetoPesquisa();
+    private IFachada fachada = new Fachada();
+    int selecionado;
     
     /**
      * Creates new form BuscarProjetoPesquisa
@@ -27,7 +31,7 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
         
         initComponents();
         this.jtProjetosPesquisa.setModel(modelo);
-        this.modelo.updateTableList(this.dao.findAll());
+        this.modelo.updateTableList(this.fachada.getAll());
         
     }
 
@@ -49,8 +53,20 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
         btnExcluir = new javax.swing.JButton();
         btnAtualizar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
+        addHierarchyListener(new java.awt.event.HierarchyListener() {
+            public void hierarchyChanged(java.awt.event.HierarchyEvent evt) {
+                formHierarchyChanged(evt);
+            }
+        });
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Pesquisar Projeto de Pesquisa");
@@ -61,10 +77,20 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
                 txtNomeProjetoActionPerformed(evt);
             }
         });
+        txtNomeProjeto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNomeProjetoKeyReleased(evt);
+            }
+        });
 
         jLabel2.setText("Nome do projeto");
 
         btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
 
         jtProjetosPesquisa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -74,11 +100,26 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
 
             }
         ));
+        jtProjetosPesquisa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtProjetosPesquisaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jtProjetosPesquisa);
 
         btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
 
         btnAtualizar.setText("Atualizar");
+        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtualizarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -89,9 +130,6 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(250, 250, 250)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(330, 330, 330)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(240, 240, 240)
                         .addComponent(txtNomeProjeto, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -104,7 +142,10 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
                                 .addComponent(btnAtualizar)
                                 .addGap(405, 405, 405)
                                 .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(330, 330, 330)
+                        .addComponent(jLabel2)))
                 .addContainerGap(90, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -131,9 +172,60 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
     private void txtNomeProjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeProjetoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeProjetoActionPerformed
+
+    
+    // Ação que é disparada quando algo é diditado no txtNomeProjeto
+    private void txtNomeProjetoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeProjetoKeyReleased
+        
+        //Busca por titulo
+        this.modelo.updateTableList(this.fachada.findByTitulo(this.txtNomeProjeto.getText()));
+        
+    }//GEN-LAST:event_txtNomeProjetoKeyReleased
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        
+        this.modelo.updateTableList(this.fachada.findByTitulo(this.txtNomeProjeto.getText()));
+        
+    }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        
+        // Deleta o projeto selecionado e atualisa a tabela
+        this.fachada.deleteProjetoPesquisa(this.fachada.getAll().get(this.selecionado));
+        this.modelo.updateTableList(this.fachada.getAll());
+        
+    }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
+        
+        // Abre a tela para a edição
+        new CadastrarProjetoPesquisa(this.fachada.getAll().get(this.selecionado)).setVisible(true);
+        
+    }//GEN-LAST:event_btnAtualizarActionPerformed
+
+    // Ação que é disparada quando houver um click na tabela
+    private void jtProjetosPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtProjetosPesquisaMouseClicked
+        // selecionado recebe o numero da linha que está selecionada
+        this.selecionado = this.jtProjetosPesquisa.getSelectedRow();
+        
+    }//GEN-LAST:event_jtProjetosPesquisaMouseClicked
+
+    // Ação que é disparada quando a tela de cima for fechada
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        
+        this.modelo.updateTableList(this.fachada.getAll());
+        
+    }//GEN-LAST:event_formWindowGainedFocus
+
+    private void formHierarchyChanged(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_formHierarchyChanged
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_formHierarchyChanged
 
     /**
      * @param args the command line arguments

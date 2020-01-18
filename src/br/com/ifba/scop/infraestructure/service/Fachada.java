@@ -33,10 +33,15 @@ public class Fachada implements IFachada {
     public List<ProjetoPesquisa> getAll() {
         return this.serviceProjeto.getAll();
     }
+    
+    @Override
+    public ProjetoPesquisa getByIdProjeto(Long id) {
+        return this.serviceProjeto.getByIdProjeto(id);
+    }
 
     @Override
-    public ProjetoPesquisa findByTitulo(ProjetoPesquisa projetoPesquisa) {
-        return this.serviceProjeto.findByTitulo(projetoPesquisa);
+    public List<ProjetoPesquisa> findByTitulo(String titulo) {
+        return this.serviceProjeto.findByTitulo(titulo);
     }
 
 
@@ -114,5 +119,5 @@ public class Fachada implements IFachada {
         return this.servicePatente.searchPatenteNumber(patente);
     }
     //--------------------------------------------------------------------------
-    
+
 }

@@ -16,6 +16,6 @@ import java.util.List;
 public interface IDaoProjetoPesquisa extends IBaseDao<ProjetoPesquisa>{
     
     //Busca um Projeto de Pesquisa pelo título.
-    public abstract List<ProjetoPesquisa> findByTitulo(ProjetoPesquisa projetoPesquisa);
+    public abstract List<ProjetoPesquisa> findByTitulo(String titulo);
     
 }
