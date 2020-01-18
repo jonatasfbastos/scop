@@ -62,7 +62,6 @@ public class DAOPatente extends BaseDao<Patente> implements IDAOPatente {
             this.delete(patente);
             return true;
         } catch (Exception e) {
-            System.err.println(e);
             return false;
         }
     }
