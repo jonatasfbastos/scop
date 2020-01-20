@@ -84,8 +84,8 @@ public class Fachada implements IFachada {
      * @return A List of Patente instances
      */
     @Override
-    public List<Patente> takeAllPatente() {
-        return this.servicePatente.takeAllPatente();
+    public List<Patente> getAllPatente() {
+        return this.servicePatente.getAllPatente();
     }
     
     /**
