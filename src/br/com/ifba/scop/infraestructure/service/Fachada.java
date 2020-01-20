@@ -30,8 +30,8 @@ public class Fachada implements IFachada {
     }
 
     @Override
-    public List<ProjetoPesquisa> getAll() {
-        return this.serviceProjeto.getAll();
+    public List<ProjetoPesquisa> getAllProjetos() {
+        return this.serviceProjeto.getAllProjetos();
     }
     
     @Override

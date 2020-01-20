@@ -31,7 +31,7 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
         
         initComponents();
         this.jtProjetosPesquisa.setModel(modelo);
-        this.modelo.updateTableList(this.fachada.getAll());
+        this.modelo.updateTableList(this.fachada.getAllProjetos());
         
     }
 
@@ -149,15 +149,15 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         
         // Deleta o projeto selecionado e atualisa a tabela
-        this.fachada.deleteProjetoPesquisa(this.fachada.getAll().get(this.selecionado));
-        this.modelo.updateTableList(this.fachada.getAll());
+        this.fachada.deleteProjetoPesquisa(this.fachada.getAllProjetos().get(this.selecionado));
+        this.modelo.updateTableList(this.fachada.getAllProjetos());
         
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
         
         // Abre a tela para a edição
-        new CadastrarProjetoPesquisa(this.fachada.getAll().get(this.selecionado)).setVisible(true);
+        new CadastrarProjetoPesquisa(this.fachada.getAllProjetos().get(this.selecionado)).setVisible(true);
         
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
@@ -171,7 +171,7 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
     // Ação que é disparada quando a tela de cima for fechada
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
         
-        this.modelo.updateTableList(this.fachada.getAll());
+        this.modelo.updateTableList(this.fachada.getAllProjetos());
         
     }//GEN-LAST:event_formWindowGainedFocus
 

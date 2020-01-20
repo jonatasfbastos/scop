@@ -92,7 +92,7 @@ public class ServiceProjetoPesquisa implements IServiceProjetoPesquisa{
 
     // Busca todos os Projetos de Pesquisa salvos. Retorna uma lista de Projetos.
     @Override
-    public List<ProjetoPesquisa> getAll() {
+    public List<ProjetoPesquisa> getAllProjetos() {
         return daoProjetoPesquisa.findAll();
     }
 

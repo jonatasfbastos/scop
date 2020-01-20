@@ -21,7 +21,7 @@ public interface IServiceProjetoPesquisa {
     // Metodo que deleta um Projeto de Pesquisa da base de dados
     public abstract void deleteProjetoPesquisa (ProjetoPesquisa projetoPesquisa);
     // Metodo que retorna todos os Projeto de Pesquisa da base de dados
-    public abstract List<ProjetoPesquisa> getAll();
+    public abstract List<ProjetoPesquisa> getAllProjetos();
     // Método que retorna um ProjetoPesquisa pelo Id
     public abstract ProjetoPesquisa getByIdProjeto(Long id);
     // Metodo que busca um Projeto de Pesquisa na base de dados através do nome
