@@ -109,12 +109,6 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
-        txtEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmailActionPerformed(evt);
-            }
-        });
-
         lblEmail.setText("Email");
 
         lblTelefone.setText("Telefone");
@@ -128,43 +122,14 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
 
         lblLinhaPesquisa.setText("Linha de pesquisa");
 
-        txtTituloProjeto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTituloProjetoActionPerformed(evt);
-            }
-        });
-
-        txtSubarea.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSubareaActionPerformed(evt);
-            }
-        });
-
-        txtLinhaPesquisa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLinhaPesquisaActionPerformed(evt);
-            }
-        });
-
         chkSim.setSelected(true);
         chkSim.setText("Sim");
-        chkSim.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkSimActionPerformed(evt);
-            }
-        });
 
         lblFinanciamento.setText("Financiamento");
 
         chkNao.setText("Não");
 
         lblFonte.setText("Fonte");
-
-        txtFonte.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFonteActionPerformed(evt);
-            }
-        });
 
         lblDataInicio.setText("Data de inicio");
 
@@ -178,25 +143,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
 
         lblCampus.setText("Campus");
 
-        txtLocalDesenvolvimento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLocalDesenvolvimentoActionPerformed(evt);
-            }
-        });
-
-        txtGrupoPesquisa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtGrupoPesquisaActionPerformed(evt);
-            }
-        });
-
         lblLocalDesensolvimento.setText("Local de desenvolvimento da pesquisa (espaço físico)");
-
-        txtCampus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCampusActionPerformed(evt);
-            }
-        });
 
         lblViabilidadeTecnica.setText("Viabilidade técnica");
 
@@ -362,7 +309,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -440,42 +387,6 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
 
     
     
-    private void txtCampusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCampusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCampusActionPerformed
-
-    private void txtGrupoPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGrupoPesquisaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtGrupoPesquisaActionPerformed
-
-    private void txtLocalDesenvolvimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLocalDesenvolvimentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLocalDesenvolvimentoActionPerformed
-
-    private void txtFonteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFonteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFonteActionPerformed
-
-    private void chkSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkSimActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkSimActionPerformed
-
-    private void txtLinhaPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLinhaPesquisaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLinhaPesquisaActionPerformed
-
-    private void txtSubareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSubareaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSubareaActionPerformed
-
-    private void txtTituloProjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTituloProjetoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTituloProjetoActionPerformed
-
-    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmailActionPerformed
-
     
     
     /**

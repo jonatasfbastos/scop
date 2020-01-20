@@ -53,15 +53,9 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
         btnExcluir = new javax.swing.JButton();
         btnAtualizar = new javax.swing.JButton();
         lblLogo = new javax.swing.JLabel();
-        lblFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
-        addHierarchyListener(new java.awt.event.HierarchyListener() {
-            public void hierarchyChanged(java.awt.event.HierarchyEvent evt) {
-                formHierarchyChanged(evt);
-            }
-        });
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
                 formWindowGainedFocus(evt);
@@ -76,11 +70,6 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 250, 30));
 
         txtNomeProjeto.setMinimumSize(new java.awt.Dimension(6, 27));
-        txtNomeProjeto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeProjetoActionPerformed(evt);
-            }
-        });
         txtNomeProjeto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtNomeProjetoKeyReleased(evt);
@@ -136,19 +125,12 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/projetopesquisa/view/imagens/logo_tela_buscar.png"))); // NOI18N
         getContentPane().add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 180, 110));
 
-        lblFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/projetopesquisa/view/imagens/fundo_tela_buscarr.png"))); // NOI18N
-        getContentPane().add(lblFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 710));
-
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     
     
-    private void txtNomeProjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeProjetoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeProjetoActionPerformed
-
     
     // Ação que é disparada quando algo é diditado no txtNomeProjeto
     private void txtNomeProjetoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeProjetoKeyReleased
@@ -192,11 +174,6 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
         this.modelo.updateTableList(this.fachada.getAll());
         
     }//GEN-LAST:event_formWindowGainedFocus
-
-    private void formHierarchyChanged(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_formHierarchyChanged
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_formHierarchyChanged
 
     /**
      * @param args the command line arguments
@@ -242,7 +219,6 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jtProjetosPesquisa;
-    private javax.swing.JLabel lblFundo;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JTextField txtNomeProjeto;
     // End of variables declaration//GEN-END:variables
