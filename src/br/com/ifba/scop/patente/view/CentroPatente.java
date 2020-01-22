@@ -35,61 +35,51 @@ public class CentroPatente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
         panSearch = new javax.swing.JPanel();
         lblPesquisar = new javax.swing.JLabel();
         txtPesquisar = new javax.swing.JTextField();
-        chkArea = new javax.swing.JCheckBox();
-        chkNum = new javax.swing.JCheckBox();
-        chkTitle = new javax.swing.JCheckBox();
+        radArea = new javax.swing.JRadioButton();
+        radNumero = new javax.swing.JRadioButton();
+        radTitulo = new javax.swing.JRadioButton();
         panJanelaTitulo = new javax.swing.JPanel();
         lblJanelaTitulo = new javax.swing.JLabel();
         panTableData = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblPatentes = new javax.swing.JTable();
         panButton = new javax.swing.JPanel();
-        btnAtualizar = new javax.swing.JButton();
         btnDeletar = new javax.swing.JButton();
         btnNovo = new javax.swing.JButton();
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jList1);
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(674, 501));
+        setResizable(false);
 
         lblPesquisar.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         lblPesquisar.setText("Pesquisa:");
 
-        txtPesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPesquisarActionPerformed(evt);
+        txtPesquisar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPesquisarKeyPressed(evt);
             }
         });
 
-        chkArea.setText("Por Area");
-        chkArea.addMouseListener(new java.awt.event.MouseAdapter() {
+        radArea.setText("Por Área");
+        radArea.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                chkAreaMouseClicked(evt);
+                radAreaMouseClicked(evt);
             }
         });
 
-        chkNum.setText("Por Numero");
-        chkNum.addMouseListener(new java.awt.event.MouseAdapter() {
+        radNumero.setText("Por Número");
+        radNumero.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                chkNumMouseClicked(evt);
+                radNumeroMouseClicked(evt);
             }
         });
 
-        chkTitle.setText("Por Titulo");
-        chkTitle.addMouseListener(new java.awt.event.MouseAdapter() {
+        radTitulo.setText("Por Título");
+        radTitulo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                chkTitleMouseClicked(evt);
+                radTituloMouseClicked(evt);
             }
         });
 
@@ -105,12 +95,12 @@ public class CentroPatente extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtPesquisar))
                     .addGroup(panSearchLayout.createSequentialGroup()
-                        .addComponent(chkArea)
+                        .addComponent(radArea)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chkNum)
+                        .addComponent(radNumero)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chkTitle)
-                        .addGap(0, 38, Short.MAX_VALUE)))
+                        .addComponent(radTitulo)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         panSearchLayout.setVerticalGroup(
@@ -122,9 +112,9 @@ public class CentroPatente extends javax.swing.JFrame {
                     .addComponent(txtPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(chkArea)
-                    .addComponent(chkNum)
-                    .addComponent(chkTitle))
+                    .addComponent(radArea)
+                    .addComponent(radNumero)
+                    .addComponent(radTitulo))
                 .addContainerGap())
         );
 
@@ -138,15 +128,15 @@ public class CentroPatente extends javax.swing.JFrame {
             panJanelaTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panJanelaTituloLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblJanelaTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE)
+                .addComponent(lblJanelaTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panJanelaTituloLayout.setVerticalGroup(
             panJanelaTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panJanelaTituloLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(27, 27, 27)
                 .addComponent(lblJanelaTitulo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         tblPatentes.setModel(new javax.swing.table.DefaultTableModel(
@@ -182,31 +172,29 @@ public class CentroPatente extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblPatentes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblPatentesMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(tblPatentes);
 
         javax.swing.GroupLayout panTableDataLayout = new javax.swing.GroupLayout(panTableData);
         panTableData.setLayout(panTableDataLayout);
         panTableDataLayout.setHorizontalGroup(
             panTableDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panTableDataLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 772, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(panTableDataLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         panTableDataLayout.setVerticalGroup(
             panTableDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panTableDataLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panTableDataLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
-
-        btnAtualizar.setText("Atualizar");
-        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAtualizarActionPerformed(evt);
-            }
-        });
 
         btnDeletar.setText("Deletar");
         btnDeletar.addActionListener(new java.awt.event.ActionListener() {
@@ -220,20 +208,16 @@ public class CentroPatente extends javax.swing.JFrame {
         panButtonLayout.setHorizontalGroup(
             panButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panButtonLayout.createSequentialGroup()
-                .addGap(296, 296, 296)
-                .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(413, 413, 413)
                 .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
         panButtonLayout.setVerticalGroup(
             panButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panButtonLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAtualizar)
-                    .addComponent(btnDeletar))
-                .addContainerGap())
+                .addComponent(btnDeletar)
+                .addGap(41, 41, 41))
         );
 
         btnNovo.setText("Novo");
@@ -247,33 +231,34 @@ public class CentroPatente extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addComponent(panJanelaTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(panButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
             .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(panTableData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(panButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addComponent(panTableData, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panJanelaTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panJanelaTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panTableData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addComponent(panTableData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btnNovo)
-                .addGap(34, 34, 34))
+                .addContainerGap())
         );
 
         pack();
@@ -321,80 +306,63 @@ public class CentroPatente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeletarActionPerformed
 
     /**
-     * This button calls update screen.
-     * @param evt Action Event
+     * This method calls cadastro patente screen.
+     * @param evt Action event
      */
-    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
+    private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         // TODO add your handling code here:
-        // valores selecionados
-        Object forID;
-        Object forNum;
-        // tratando exceção no modelo da tabela
-        try {
-            forID = this.patenteModel.getValueAt(this.tblPatentes.getSelectedRow(), 0);
-            forNum = this.patenteModel.getValueAt(this.tblPatentes.getSelectedRow(), 1);
-        } catch (java.lang.ArrayIndexOutOfBoundsException ex) {
-            forID = 0;
-            forNum = 0;
-        }
-        // Convert to string
-        String id = String.valueOf(forID);
-        String num = String.valueOf(forNum);
-        // instanciando atualizar e enviando valores
-        AtualizaPatente atualiza = new AtualizaPatente(id,num); // instanciando nova tela
-        atualiza.setVisible(true); // tornando visível
-    }//GEN-LAST:event_btnAtualizarActionPerformed
+        CadastroPatente casdastro = new CadastroPatente(); // instanciando nova tela
+        casdastro.setVisible(true); // tornando tela de cadastro visivel
+    }//GEN-LAST:event_btnNovoActionPerformed
 
     /**
-     * Search by ID.
+     * Search by Area.
      * @param evt Mouse event
      */
-    private void chkAreaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkAreaMouseClicked
+    private void radAreaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_radAreaMouseClicked
         // TODO add your handling code here:
         // desmarcando demais campos
-        if (this.chkNum.isSelected()) {
-            this.chkNum.setSelected(false);
+        if (this.radNumero.isSelected()) {
+            this.radNumero.setSelected(false);
         }
-        if (this.chkTitle.isSelected()) {
-            this.chkTitle.setSelected(false);
+        if (this.radTitulo.isSelected()) {
+            this.radTitulo.setSelected(false);
         }
-    }//GEN-LAST:event_chkAreaMouseClicked
+    }//GEN-LAST:event_radAreaMouseClicked
 
     /**
      * Search by Number.
      * @param evt Mouse event
      */
-    private void chkNumMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkNumMouseClicked
+    private void radNumeroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_radNumeroMouseClicked
         // TODO add your handling code here:
-        // desmarcando demais campos
-        if (this.chkArea.isSelected()) {
-            this.chkArea.setSelected(false);
+        if (this.radArea.isSelected()) {
+            this.radArea.setSelected(false);
         }
-        if (this.chkTitle.isSelected()) {
-            this.chkTitle.setSelected(false);
+        if (this.radTitulo.isSelected()) {
+            this.radTitulo.setSelected(false);
         }
-    }//GEN-LAST:event_chkNumMouseClicked
+    }//GEN-LAST:event_radNumeroMouseClicked
 
     /**
-     * Search by title.patente
+     * Search by Title.
      * @param evt Mouse Event
      */
-    private void chkTitleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkTitleMouseClicked
+    private void radTituloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_radTituloMouseClicked
         // TODO add your handling code here:
-        // desmarcando demais campos
-        if (this.chkArea.isSelected()) {
-            this.chkArea.setSelected(false);
+        if (this.radNumero.isSelected()) {
+            this.radNumero.setSelected(false);
         }
-        if (this.chkNum.isSelected()) {
-            this.chkNum.setSelected(false);
+        if (this.radArea.isSelected()) {
+            this.radArea.setSelected(false);
         }
-    }//GEN-LAST:event_chkTitleMouseClicked
+    }//GEN-LAST:event_radTituloMouseClicked
 
     /**
-     * This event is for search.
-     * @param evt Action Event
+     * Search when the user press a key.
+     * @param evt Key event.
      */
-    private void txtPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisarActionPerformed
+    private void txtPesquisarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisarKeyPressed
         // TODO add your handling code here:
         // instanciando patente entidade
         Patente patente = new Patente();
@@ -402,7 +370,7 @@ public class CentroPatente extends javax.swing.JFrame {
         IFachada fachada = 
                 new br.com.ifba.scop.infraestructure.service.Fachada();
         // qual o tipo de pesquisa
-        if (this.chkArea.isSelected()) {
+        if (this.radArea.isSelected()) {
             // area
             patente.setAreaInvencao(this.txtPesquisar.getText());
             // retorna pesquisa de área
@@ -418,7 +386,8 @@ public class CentroPatente extends javax.swing.JFrame {
             dados.forEach((c) -> {
                 this.patenteModel.addRow(c);
             });
-        } else if (this.chkNum.isSelected()) {
+        } 
+        else if (this.radNumero.isSelected()) {
             // numero
             // evita erro de string não poder ser convertida para numero
             long num = (long) this.stringBeNumber(this.txtPesquisar.getText());
@@ -436,7 +405,7 @@ public class CentroPatente extends javax.swing.JFrame {
             dados.forEach((c) -> {
                 this.patenteModel.addRow(c);
             });
-        } else if (this.chkTitle.isSelected()) {
+        } else if (this.radTitulo.isSelected()) {
             // titulo
             patente.setTituloInvencao(this.txtPesquisar.getText());
             // retorna pesquisa de titulo
@@ -453,17 +422,30 @@ public class CentroPatente extends javax.swing.JFrame {
                 this.patenteModel.addRow(c);
             });
         }
-    }//GEN-LAST:event_txtPesquisarActionPerformed
+    }//GEN-LAST:event_txtPesquisarKeyPressed
 
-    /**
-     * This method calls cadastro patente screen.
-     * @param evt Action event
-     */
-    private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
+    private void tblPatentesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPatentesMouseClicked
         // TODO add your handling code here:
-        CadastroPatente casdastro = new CadastroPatente(); // instanciando nova tela
-        casdastro.setVisible(true); // tornando tela de cadastro visivel
-    }//GEN-LAST:event_btnNovoActionPerformed
+        if (evt.getClickCount() == 2) {
+            // valores selecionados
+            Object forID;
+            Object forNum;
+            // tratando exceção no modelo da tabela
+            try {
+                forID = this.patenteModel.getValueAt(this.tblPatentes.getSelectedRow(), 0);
+                forNum = this.patenteModel.getValueAt(this.tblPatentes.getSelectedRow(), 1);
+            } catch (java.lang.ArrayIndexOutOfBoundsException ex) {
+                forID = 0;
+                forNum = 0;
+            }
+            // Convert to string
+            String id = String.valueOf(forID);
+            String num = String.valueOf(forNum);
+            // instanciando atualizar e enviando valores
+            AtualizaPatente atualiza = new AtualizaPatente(id,num); // instanciando nova tela
+            atualiza.setVisible(true); // tornando visível
+        }
+    }//GEN-LAST:event_tblPatentesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -501,14 +483,8 @@ public class CentroPatente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAtualizar;
     private javax.swing.JButton btnDeletar;
     private javax.swing.JButton btnNovo;
-    private javax.swing.JCheckBox chkArea;
-    private javax.swing.JCheckBox chkNum;
-    private javax.swing.JCheckBox chkTitle;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblJanelaTitulo;
     private javax.swing.JLabel lblPesquisar;
@@ -516,6 +492,9 @@ public class CentroPatente extends javax.swing.JFrame {
     private javax.swing.JPanel panJanelaTitulo;
     private javax.swing.JPanel panSearch;
     private javax.swing.JPanel panTableData;
+    private javax.swing.JRadioButton radArea;
+    private javax.swing.JRadioButton radNumero;
+    private javax.swing.JRadioButton radTitulo;
     private javax.swing.JTable tblPatentes;
     private javax.swing.JTextField txtPesquisar;
     // End of variables declaration//GEN-END:variables

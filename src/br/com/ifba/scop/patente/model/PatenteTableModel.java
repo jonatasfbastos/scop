@@ -16,7 +16,7 @@ import javax.swing.table.AbstractTableModel;
 public class PatenteTableModel extends AbstractTableModel {
     
     private final List<Patente> data = new ArrayList<>();
-    private final String[] columns = {"ID","Número","Título","Área","Dia","Mês","Ano"};
+    private final String[] columns = {"ID","Número","Título","Área","Deletar"};
 
     /**
      * Inserts column name.
@@ -46,6 +46,12 @@ public class PatenteTableModel extends AbstractTableModel {
         return this.columns.length;
     }
 
+    /**
+     * When updates, it is for insert column by column.
+     * @param line
+     * @param col
+     * @return 
+     */
     @Override
     public Object getValueAt(int line, int col) {
         switch (col) {
@@ -57,12 +63,6 @@ public class PatenteTableModel extends AbstractTableModel {
                 return this.data.get(line).getTituloInvencao();
             case 3:
                 return this.data.get(line).getAreaInvencao();
-            case 4:
-                return this.data.get(line).getDia();
-            case 5:
-                return this.data.get(line).getMes();
-            case 6:
-                return this.data.get(line).getAno();
         }
         return null;
     }
