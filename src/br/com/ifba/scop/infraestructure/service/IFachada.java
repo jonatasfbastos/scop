@@ -30,7 +30,7 @@ public interface IFachada {
     // valida deletePatente
     public abstract boolean deletePatente(Patente patente);
     // esse metodo retorna todas as patentes registradas
-    public abstract List<Patente> takeAllPatente();
+    public abstract List<Patente> getAllPatente();
     // esse metodo retorna pela area - pesquisa
     public abstract List<Patente> searchPatenteArea(Patente patente);
     // esse metodo retorna pelo titulo - pesquisa

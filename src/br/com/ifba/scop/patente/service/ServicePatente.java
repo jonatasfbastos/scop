@@ -156,7 +156,7 @@ public class ServicePatente implements IServicePatente {
      * @return a list of Patente Object.
      */
     @Override
-    public List<Patente> takeAllPatente() {
+    public List<Patente> getAllPatente() {
         return this.getDaoPatente().takeAll();
     }
     
