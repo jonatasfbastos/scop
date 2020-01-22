@@ -386,7 +386,70 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     
+     /*private boolean validaTodos(){
+        if(txtTituloProjeto.getText().equals("") && txtEmail.getText().equals("")){
+            if(txtSubarea.getText().equals("") && txtTelefone.getText() == null){
+                if(txtLinhaPesquisa.getText().equals("") && txtGrupoPesquisa.getText().equals("")){
+                    if(txtCampus.getText().equals("") && txtLocalDesenvolvimento.getText().equals("")){
+                        if(txtViabilidadeTecnica.getText().equals("") && txtFonte.getText().equals("")){
+                           JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios.", "CAMPOS OBRIGATÓRIOS", JOptionPane.ERROR_MESSAGE);
+                            return false;
+                        }
+                    }               
+                }
+            }
+        }
+        return true;
+    }
     
+     private boolean validaIndividual(){
+        if(txtTituloProjeto.getText().equals("")|| txtEmail.getText().equals("")){
+            if(txtTituloProjeto.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+                return false;
+            }else{
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+                return false;
+            }
+        }
+        else if(txtSubarea.getText().equals("") || txtTelefone.getText().equals("")){
+          if(txtSubarea.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+                return false;
+          }else{
+               JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+               return false;
+          }
+        }
+        else if(txtLinhaPesquisa.getText().equals("") || txtGrupoPesquisa.getText().equals("")){
+           if(txtLinhaPesquisa.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+                return false;
+           }else{
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+                return false;
+           }
+        }
+        else if(txtCampus.getText().equals("") || txtLocalDesenvolvimento.getText().equals("")){
+           if(txtCampus.getText().equals("")){
+              JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+              return false;
+           }else{
+              JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+              return false;
+           }
+        }
+        else if(txtViabilidadeTecnica.getText().equals("") || txtFonte.getText().equals("")){
+           if(txtViabilidadeTecnica.getText().equals("")){
+              JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+              return false;
+           }else{
+              JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+              return false;
+           }
+        }
+        return true;
+    }*/
     
     
     /**
