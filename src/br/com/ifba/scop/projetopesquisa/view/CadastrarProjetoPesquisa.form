@@ -122,7 +122,7 @@
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
-                          <Component id="lblLocalDesensolvimento" min="-2" pref="360" max="-2" attributes="0"/>
+                          <Component id="lblLocalDesenvolvimento" min="-2" pref="360" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
@@ -236,7 +236,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="txtCampus" min="-2" pref="27" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lblLocalDesensolvimento" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblLocalDesenvolvimento" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="txtLocalDesenvolvimento" min="-2" pref="27" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
@@ -349,7 +349,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtGrupoPesquisa">
         </Component>
-        <Component class="javax.swing.JLabel" name="lblLocalDesensolvimento">
+        <Component class="javax.swing.JLabel" name="lblLocalDesenvolvimento">
           <Properties>
             <Property name="text" type="java.lang.String" value="Local de desenvolvimento da pesquisa (espa&#xe7;o f&#xed;sico)"/>
           </Properties>

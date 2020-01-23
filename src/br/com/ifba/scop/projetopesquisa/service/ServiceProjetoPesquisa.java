@@ -124,7 +124,13 @@ public class ServiceProjetoPesquisa implements IServiceProjetoPesquisa{
     public boolean validaProjetoPesquisa(ProjetoPesquisa projetoPesquisa) {
         
         StringUtil util = StringUtil.getInstance();
-        
+                /*PRECISA IMPLEMENTAR
+                  txtEmail.getText().equals("")
+                  txtTelefone.getText().equals("")
+                  txtGrupoPesquisa.getText().equals("")
+                  txtLocalDesenvolvimento.getText().equals("")
+                  txtViabilidadeTecnica.getText().equals("")
+                  txtFonte.getText().equals("")*/
         if(projetoPesquisa == null) {
             return false;
         }
