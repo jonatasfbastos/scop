@@ -391,10 +391,18 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
+        
+    /**
+     * 
+     * @return true se todos os campos obrigatórios estiverem preenchidos
+     */
     
-     /*private boolean validaTodos(){
+    private boolean validaCampos(){
+        
+        StringUtil util = StringUtil.getInstance();
+       
         if(txtTituloProjeto.getText().equals("") && txtEmail.getText().equals("")){
-            if(txtSubarea.getText().equals("") && txtTelefone.getText() == null){
+            if(txtSubarea.getText().equals("") && txtTelefone.getText().equals("(  )-     -    ")){
                 if(txtLinhaPesquisa.getText().equals("") && txtGrupoPesquisa.getText().equals("")){
                     if(txtCampus.getText().equals("") && txtLocalDesenvolvimento.getText().equals("")){
                         if(txtViabilidadeTecnica.getText().equals("") && txtFonte.getText().equals("")){
@@ -404,127 +412,56 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
                     }               
                 }
             }
-        }
-        return true;
-    }
-    
-     private boolean validaIndividual(){
-        if(txtTituloProjeto.getText().equals("")|| txtEmail.getText().equals("")){
-            if(txtTituloProjeto.getText().equals("")){
-                JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
-                return false;
-            }else{
-                JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
-                return false;
-            }
-        }
-        else if(txtSubarea.getText().equals("") || txtTelefone.getText().equals("")){
-          if(txtSubarea.getText().equals("")){
-                JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
-                return false;
-          }else{
-               JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
-               return false;
-          }
-        }
-        else if(txtLinhaPesquisa.getText().equals("") || txtGrupoPesquisa.getText().equals("")){
-           if(txtLinhaPesquisa.getText().equals("")){
-                JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
-                return false;
-           }else{
-                JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
-                return false;
-           }
-        }
-        else if(txtCampus.getText().equals("") || txtLocalDesenvolvimento.getText().equals("")){
-           if(txtCampus.getText().equals("")){
-              JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
-              return false;
-           }else{
-              JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
-              return false;
-           }
-        }
-        else if(txtViabilidadeTecnica.getText().equals("") || txtFonte.getText().equals("")){
-           if(txtViabilidadeTecnica.getText().equals("")){
-              JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
-              return false;
-           }else{
-              JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
-              return false;
-           }
-        }
-        return true;
-    }*/
-    
-    
-    /**
-     * 
-     * @return true se todos os campos obrigatórios estiverem preenchidos
-     */
-    
-    private boolean validaCampos(){
-        
-        StringUtil util = StringUtil.getInstance();
-        
+        }        
         
         if(util.isNullOrEmpty(txtTituloProjeto.getText())){
-            
-            JOptionPane.showMessageDialog(null, "Campo obrigatório vazio! (Titulo do projeto)");
-            
+           JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+              
             return false;
         }
         
         if(util.isNullOrEmpty(txtSubarea.getText())){
-            
-            JOptionPane.showMessageDialog(null, "Campo obrigatório vazio! (Subárea)");
-            
+           JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+              
             return false;
         }
         
         if(util.isNullOrEmpty(txtLinhaPesquisa.getText())){
-            
-            JOptionPane.showMessageDialog(null, "Campo obrigatório vazio! (Linha de pesquisa)");
-            
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+              
             return false;
         }
         
         if(util.isNullOrEmpty(txtCampus.getText())){
-            
-            JOptionPane.showMessageDialog(null, "Campo obrigatório vazio! (Campus)");
-            
+           JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+              
             return false;
         }
        
         if(util.isNullOrEmpty(txtLocalDesenvolvimento.getText())){
-            
-            JOptionPane.showMessageDialog(null, "Campo obrigatório vazio! (Local de desenvolvimento)");
-            
+           JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+              
             return false;
         }
        
         if(util.isNullOrEmpty(txtViabilidadeTecnica.getText())){
-            
-            JOptionPane.showMessageDialog(null, "Campo obrigatório vazio! (Viabilidade tecnica)");
-            
+           JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+              
             return false;
         }
         
         if(jspDataInicio.getValue() == null){
             
-            JOptionPane.showMessageDialog(null, "Campo obrigatório vazio! (Data início)");
-            
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+              
             return false;
         }
         
         if(jspDataTermino.getValue() == null){
-
-              JOptionPane.showMessageDialog(null, "Campo obrigatório vazio! (Data termino)");
-
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+              
               return false;
           }
-        
-        
         return true;
     }
     
