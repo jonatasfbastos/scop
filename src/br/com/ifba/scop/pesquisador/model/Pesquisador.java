@@ -19,16 +19,16 @@ import javax.persistence.Entity;
 public class Pesquisador extends AbstractEntity implements Serializable {
     
     // atributos
-    String nome;
-    String matricula;
-    String titulação;
-    String Instituição;
-    String cpf;
-    String locação;
-    String rg;
-    String orgaoEmisor;
-    String email;
-    String nda;
+    private String nome;
+    private String matricula;
+    private String titulação;
+    private String Instituição;
+    private String cpf;
+    private String locação;
+    private String rg;
+    private String orgaoEmisor;
+    private String email;
+    private String nda;
     // devera conter tambem endereço, data de emisão do RG e telefone
     
     //Construtor

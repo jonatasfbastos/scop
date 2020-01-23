@@ -1,4 +1,4 @@
-package br.com.ifba.pesquisador.view;
+package br.com.ifba.scop.pesquisador.view;
 
 import br.com.ifba.scop.projetopesquisa.view.*;
 import br.com.ifba.scop.infraestructure.service.Fachada;
@@ -58,7 +58,6 @@ public class CentroPesquisador extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Centro de pesquisador - SCOP");
-        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {

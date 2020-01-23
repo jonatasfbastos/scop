@@ -5,8 +5,8 @@
  */
 package br.com.ifba.scop.infraestructure.view;
 
-import br.com.ifba.pesquisador.view.AtualizacaoPesquisador;
-import br.com.ifba.pesquisador.view.CadastroPesquisador;
+import br.com.ifba.scop.pesquisador.view.AtualizacaoPesquisador;
+import br.com.ifba.scop.pesquisador.view.CadastroPesquisador;
 import br.com.ifba.scop.patente.view.CentroPatente;
 import br.com.ifba.scop.projetopesquisa.view.BuscarProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.view.CadastrarProjetoPesquisa;

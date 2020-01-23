@@ -21,8 +21,8 @@ public interface IServicePesquisador {
     // Metodo que deleta um Projeto de Pesquisa da base de dados
     public abstract void deletePesquisador  (Pesquisador  pesquisador);
     // Metodo que retorna todos os Projeto de Pesquisa da base de dados
-    public abstract List<Pesquisador> getAll();
+    public abstract List<Pesquisador> getAllPesquisador();
     // Metodo que busca um Projeto de Pesquisa na base de dados através do nome
-    public abstract Pesquisador findByMatricula(Pesquisador pesquisador);
+    public abstract Pesquisador findByMatricula(String matricula);
     
 }

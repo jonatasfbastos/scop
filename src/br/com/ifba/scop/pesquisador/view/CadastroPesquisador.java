@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.ifba.pesquisador.view;
+package br.com.ifba.scop.pesquisador.view;
 
+import br.com.ifba.scop.infraestructure.service.Fachada;
+import br.com.ifba.scop.infraestructure.service.IFachada;
 import br.com.ifba.scop.pesquisador.model.Pesquisador;
 import javax.swing.JOptionPane;
 
@@ -45,7 +47,7 @@ public class CadastroPesquisador extends javax.swing.JFrame {
         txtInstituicao = new javax.swing.JTextField();
         txtMatricula = new javax.swing.JTextField();
         txtTitulacao = new javax.swing.JTextField();
-        txtOrg_emissor = new javax.swing.JTextField();
+        txtOrgaoEmissor = new javax.swing.JTextField();
         lblInstituicao = new javax.swing.JLabel();
         lblMatricula = new javax.swing.JLabel();
         lblTitulacao = new javax.swing.JLabel();
@@ -57,9 +59,8 @@ public class CadastroPesquisador extends javax.swing.JFrame {
         btnConfirm = new javax.swing.JButton();
         lblAviso = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de pesquisador - SCOP");
-        setPreferredSize(new java.awt.Dimension(800, 600));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Cadastro de Pesquisador");
@@ -113,9 +114,9 @@ public class CadastroPesquisador extends javax.swing.JFrame {
             }
         });
 
-        txtOrg_emissor.addActionListener(new java.awt.event.ActionListener() {
+        txtOrgaoEmissor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtOrg_emissorActionPerformed(evt);
+                txtOrgaoEmissorActionPerformed(evt);
             }
         });
 
@@ -181,7 +182,7 @@ public class CadastroPesquisador extends javax.swing.JFrame {
                             .addComponent(txtLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtInstituicao, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtTitulacao, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtOrg_emissor, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtOrgaoEmissor, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblInstituicao)
                             .addComponent(lblMatricula)
                             .addComponent(lblTitulacao)
@@ -225,7 +226,7 @@ public class CadastroPesquisador extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtOrg_emissor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtOrgaoEmissor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblLocacao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -283,9 +284,9 @@ public class CadastroPesquisador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTitulacaoActionPerformed
 
-    private void txtOrg_emissorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOrg_emissorActionPerformed
+    private void txtOrgaoEmissorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOrgaoEmissorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtOrg_emissorActionPerformed
+    }//GEN-LAST:event_txtOrgaoEmissorActionPerformed
 
     private void txtLocacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLocacaoActionPerformed
         // TODO add your handling code here:
@@ -294,26 +295,40 @@ public class CadastroPesquisador extends javax.swing.JFrame {
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // TODO add your handling code here:
         // Verificação de campos vazios
-        Pesquisador pesquisador = null;
+        Pesquisador pesquisador = new Pesquisador();
+        IFachada fachada = new Fachada();
         
-        
-        pesquisador.setCpf(txtCPF.getText());
-        pesquisador.setEmail(txtEmail.getText());
-        pesquisador.setInstituição(txtInstituicao.getText());
-        pesquisador.setLocação(txtLocacao.getText());
-        pesquisador.setMatricula(txtMatricula.getText());
-        pesquisador.setNome(txtNome.getText());
-        pesquisador.setOrgaoEmisor(txtOrg_emissor.getText());
-        pesquisador.setRg(txtRG.getText());
-        pesquisador.setTitulação(txtTitulacao.getText());
-        
-        
-        
-       
+        if(validaCampos() == true){
+            pesquisador.setCpf(txtCPF.getText());
+            pesquisador.setEmail(txtEmail.getText());
+            pesquisador.setInstituição(txtInstituicao.getText());
+            pesquisador.setLocação(txtLocacao.getText());
+            pesquisador.setMatricula(txtMatricula.getText());
+            pesquisador.setNome(txtNome.getText());
+            pesquisador.setOrgaoEmisor(txtOrgaoEmissor.getText());
+            pesquisador.setRg(txtRG.getText());
+            pesquisador.setTitulação(txtTitulacao.getText());
+
+            fachada.savePesquisador(pesquisador);
+        }
         
         
     }//GEN-LAST:event_btnConfirmActionPerformed
 
+    private boolean validaCampos(){
+        if(txtNome.getText().equals("") && txtRG.getText().equals("")){
+            if(txtCPF.getText().equals("") && txtEmail.getText().equals("")){
+                if(txtInstituicao.getText().equals("") && txtMatricula.getText().equals("")){
+                    if (txtTitulacao.getText().equals("") && txtOrgaoEmissor.getText().equals("") && txtLocacao.getText().equals("")){
+                        JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios.", "CAMPOS OBRIGATÓRIOS", JOptionPane.ERROR_MESSAGE);
+                        return false;                        
+                    }
+                }
+            }
+        }
+        return true;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -372,7 +387,7 @@ public class CadastroPesquisador extends javax.swing.JFrame {
     private javax.swing.JTextField txtLocacao;
     private javax.swing.JTextField txtMatricula;
     private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtOrg_emissor;
+    private javax.swing.JTextField txtOrgaoEmissor;
     private javax.swing.JTextField txtRG;
     private javax.swing.JTextField txtTitulacao;
     // End of variables declaration//GEN-END:variables

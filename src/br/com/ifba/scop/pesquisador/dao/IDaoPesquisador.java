@@ -14,6 +14,6 @@ import java.util.List;
  * @author Bessa
  */
 public interface IDaoPesquisador extends IBaseDao<Pesquisador>{
-    public abstract List<Pesquisador> findByMatricula(Pesquisador pesquisador);
+    public abstract List<Pesquisador> findByMatricula(String matricula);
     
 }

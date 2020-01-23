@@ -88,15 +88,15 @@ public class ServicePesquisador implements IServicePesquisador{
 
     // Busca todos os Projetos de Pesquisa salvos. Retorna uma lista de Projetos.
     @Override
-    public List<Pesquisador> getAll() {
+    public List<Pesquisador> getAllPesquisador() {
         return daoPesquisador.findAll();
     }
 
     // Busca Projeto de Pesquisa pelo nome. Retorna um Projeto de Pesquisa.
     // Ainda não foi implementado.
     @Override
-    public Pesquisador findByMatricula(Pesquisador pesquisador) {
-        return (Pesquisador) daoPesquisador.findByMatricula(pesquisador);
+    public Pesquisador findByMatricula(String matricula) {
+        return (Pesquisador) daoPesquisador.findByMatricula(matricula);
     }
 
     
@@ -141,7 +141,5 @@ public class ServicePesquisador implements IServicePesquisador{
         
         return true;
         
-    }
-    
-       
+    }   
 }

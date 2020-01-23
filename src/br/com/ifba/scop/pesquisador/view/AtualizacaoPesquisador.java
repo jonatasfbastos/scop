@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.ifba.pesquisador.view;
+package br.com.ifba.scop.pesquisador.view;
 
 /**
  *
@@ -54,9 +54,8 @@ public class AtualizacaoPesquisador extends javax.swing.JFrame {
         btnConfirm = new javax.swing.JButton();
         lblAviso = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Atualização de pesquisador - SCOP");
-        setPreferredSize(new java.awt.Dimension(800, 600));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Atualização de pesquisador");

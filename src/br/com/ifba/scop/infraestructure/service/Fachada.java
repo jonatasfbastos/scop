@@ -2,9 +2,13 @@ package br.com.ifba.scop.infraestructure.service;
 
 import br.com.ifba.scop.patente.model.Patente;
 import br.com.ifba.scop.patente.service.IServicePatente;
+import br.com.ifba.scop.pesquisador.model.Pesquisador;
+import br.com.ifba.scop.pesquisador.service.IServicePesquisador;
+import br.com.ifba.scop.pesquisador.service.ServicePesquisador;
 import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.service.IServiceProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.service.ServiceProjetoPesquisa;
+import java.security.Provider.Service;
 import java.util.List;
 
 
@@ -119,5 +123,34 @@ public class Fachada implements IFachada {
         return this.servicePatente.searchPatenteNumber(patente);
     }
     //--------------------------------------------------------------------------
+
+    //---------------------- [PESQUISADOR] --------------------------------------
+    
+    IServicePesquisador servicePesquisador = new ServicePesquisador();
+    
+    @Override
+    public Pesquisador savePesquisador(Pesquisador pesquisador) {
+        return this.servicePesquisador.savePesquisador(pesquisador);
+    }
+
+    @Override
+    public Pesquisador updatePesquisador(Pesquisador pesquisador) {
+        return this.servicePesquisador.updatePesquisador(pesquisador);
+    }
+
+    @Override
+    public void deletePesquisador(Pesquisador pesquisador) {
+        this.servicePesquisador.deletePesquisador(pesquisador);
+    }
+
+    @Override
+    public List<Pesquisador> getAllPesquisador() {
+        return this.servicePesquisador.getAllPesquisador();
+    }
+
+    @Override
+    public Pesquisador findByMatricula(String matricula) {
+        return this.servicePesquisador.findByMatricula(matricula);
+    }
 
 }

@@ -19,12 +19,12 @@ public class DaoPesquisador extends BaseDao<Pesquisador> implements IDaoPesquisa
          //To change body of generated methods, choose Tools | Templates.
     }
     @Override
-    public List<Pesquisador> findByMatricula(Pesquisador pesquisador){
+    public List<Pesquisador> findByMatricula(String matricula){
         
-        return null;
+        String query = "select p from Pesquisador p WHERE upper(p.matricula) like upper('" + matricula +"%')";
+        
+        return BaseDao.entityManager.createQuery(query).getResultList();
         
     }
-    
-    
-    
+
 }
