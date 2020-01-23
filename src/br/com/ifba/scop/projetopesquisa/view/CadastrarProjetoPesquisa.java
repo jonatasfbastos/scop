@@ -68,7 +68,6 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox();
         jPanel1 = new javax.swing.JPanel();
         txtEmail = new javax.swing.JTextField();
-        txtTelefone = new javax.swing.JTextField();
         lblEmail = new javax.swing.JLabel();
         lblTelefone = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -97,6 +96,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtViabilidadeTecnica = new javax.swing.JTextArea();
         btnCadastrar = new javax.swing.JButton();
+        txtTelefone = new javax.swing.JFormattedTextField();
 
         jTextField9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,6 +158,12 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
             }
         });
 
+        try {
+            txtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)-#####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -184,10 +190,10 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblSubarea, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtSubarea, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtSubarea, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(74, 74, 74)
-                                .addComponent(lblDataTermino, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(lblDataTermino, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(284, 284, 284)
                         .addComponent(jLabel4))
@@ -268,8 +274,8 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
                         .addComponent(txtFonte, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblTelefone)
-                        .addGap(8, 8, 8)
-                        .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblSubarea)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -591,7 +597,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
     private javax.swing.JTextField txtLinhaPesquisa;
     private javax.swing.JTextField txtLocalDesenvolvimento;
     private javax.swing.JTextField txtSubarea;
-    private javax.swing.JTextField txtTelefone;
+    private javax.swing.JFormattedTextField txtTelefone;
     private javax.swing.JTextField txtTituloProjeto;
     private javax.swing.JTextArea txtViabilidadeTecnica;
     // End of variables declaration//GEN-END:variables
