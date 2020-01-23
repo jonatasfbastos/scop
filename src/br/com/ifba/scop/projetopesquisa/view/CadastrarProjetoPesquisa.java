@@ -415,24 +415,8 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
             }
         }     
              
-        /* if(txtTituloProjeto.getText().equals("") || txtEmail.getText().equals("")){
-            if(txtSubarea.getText().equals("") || txtTelefone.getText().equals("(  )-     -    ")){
-                if(txtLinhaPesquisa.getText().equals("") || txtGrupoPesquisa.getText().equals("")){
-                    if(txtCampus.getText().equals("") || txtLocalDesenvolvimento.getText().equals("")){
-                        if(txtViabilidadeTecnica.getText().equals("") || txtFonte.getText().equals("")){
-                           lblTituloProjeto.setText("Título do Projeto*");
-                           lblTituloProjeto.setForeground(Color.red);
-                           lblSubarea.setText("Subárea*");
-                           lblSubarea.setForeground(Color.red);
-                           
-                           
-                            return false;
-                        }
-                    }               
-                }
-            }
-        }*/
-                
+  //while(txtTituloProjeto.getText().equals("") || txtEmail.getText().equals("") || txtSubarea.getText().equals("") || txtTelefone.getText().equals("(  )-     -    ") || txtLinhaPesquisa.getText().equals("") || txtGrupoPesquisa.getText().equals("") || txtCampus.getText().equals("") || txtLocalDesenvolvimento.getText().equals("") || txtViabilidadeTecnica.getText().equals("") || txtFonte.getText().equals("")){
+                        
         if(util.isNullOrEmpty(txtTituloProjeto.getText())){
            lblTituloProjeto.setText("Título do Projeto*");
            lblTituloProjeto.setForeground(Color.red);
@@ -517,6 +501,9 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null, "Preencha o campo Fonte.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
             return false;
         }
+               
+  //      }
+       
         
         return true;
     }

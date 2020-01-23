@@ -6,6 +6,7 @@ import br.com.ifba.scop.projetopesquisa.dao.DaoProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.tableModel.ProjetoPesquisaTableModel;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -22,7 +23,7 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
 
     private ProjetoPesquisaTableModel modelo = new ProjetoPesquisaTableModel();
     private IFachada fachada = new Fachada();
-    int selecionado;
+    int selecionado = -1;
     
     /**
      * Creates new form BuscarProjetoPesquisa
@@ -33,6 +34,7 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
         this.jtProjetosPesquisa.setModel(modelo);
         this.modelo.updateTableList(this.fachada.getAllProjetos());
         
+        System.out.println("aaaaaaaaaaaaaa selecionad" + selecionado);
     }
 
     /**
@@ -52,7 +54,6 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
         jtProjetosPesquisa = new javax.swing.JTable();
         btnExcluir = new javax.swing.JButton();
         btnAtualizar = new javax.swing.JButton();
-        lblLogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -122,9 +123,6 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
         });
         getContentPane().add(btnAtualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 472, -1, -1));
 
-        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/projetopesquisa/view/imagens/logo_tela_buscar.png"))); // NOI18N
-        getContentPane().add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 180, 110));
-
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -149,9 +147,26 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         
         // Deleta o projeto selecionado e atualisa a tabela
-        this.fachada.deleteProjetoPesquisa(this.fachada.getAllProjetos().get(this.selecionado));
-        this.modelo.updateTableList(this.fachada.getAllProjetos());
         
+        System.out.println("selecionado ooo ooo  " + this.selecionado);
+        
+       if(this.selecionado != -1){           
+            int confirmacao = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja remover este projeto pesquisa?", "REMOVER PROJETO PESQUISA", JOptionPane.INFORMATION_MESSAGE);
+            //inteiro igualado ao joptionpane  para pegar se o usuário tem certeza de excluir o projeto
+            if(confirmacao == 1){
+                //se a confirmação é 1, o usuário escolheu "não" ou "cancelar" e retorna para a a tela de busca
+                this.selecionado = -1;
+            }else if(confirmacao == 0){
+            //se a confirmação é zero, o usuário quer realmente excluir o projeto e os seus dados       
+                this.fachada.deleteProjetoPesquisa(this.fachada.getAllProjetos().get(this.selecionado));
+                this.modelo.updateTableList(this.fachada.getAllProjetos());
+                this.selecionado = -1;
+            }
+       }else{
+           //caso não clique em algo
+           JOptionPane.showMessageDialog(null, "Para remover um cadastro, selecione um campo na tabela.", "SELECIONE UM CAMPO", JOptionPane.WARNING_MESSAGE);
+           this.selecionado = -1;
+       } 
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
@@ -219,7 +234,6 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jtProjetosPesquisa;
-    private javax.swing.JLabel lblLogo;
     private javax.swing.JTextField txtNomeProjeto;
     // End of variables declaration//GEN-END:variables
 }
