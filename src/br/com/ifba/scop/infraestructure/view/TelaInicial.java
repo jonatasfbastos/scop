@@ -34,100 +34,63 @@ public class TelaInicial extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton2 = new javax.swing.JButton();
-        lblCadastrar = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         btnCadPesquisa = new javax.swing.JButton();
         btnCadPatente = new javax.swing.JButton();
-        lblPesquisar = new javax.swing.JLabel();
         btnCadPesquisador = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
         lblLogo = new javax.swing.JLabel();
         lblFundo = new javax.swing.JLabel();
 
         jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Início");
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblCadastrar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblCadastrar.setForeground(new java.awt.Color(255, 255, 255));
-        lblCadastrar.setText("CADASTRAR");
-        lblCadastrar.setPreferredSize(new java.awt.Dimension(80, 14));
-        getContentPane().add(lblCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, 120, 30));
-
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setText("Pesquisa");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 210, 170, 30));
-
         btnCadPesquisa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnCadPesquisa.setText("Pesquisa");
+        btnCadPesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/infraestructure/view/bota_icone_pesquisar.png"))); // NOI18N
+        btnCadPesquisa.setBorder(null);
+        btnCadPesquisa.setContentAreaFilled(false);
         btnCadPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadPesquisaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCadPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 210, 170, 30));
+        getContentPane().add(btnCadPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 360, 340, 120));
 
         btnCadPatente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnCadPatente.setText("Patente");
+        btnCadPatente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/infraestructure/view/botao_icone_patente.png"))); // NOI18N
+        btnCadPatente.setBorder(null);
+        btnCadPatente.setContentAreaFilled(false);
         btnCadPatente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadPatenteActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCadPatente, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 330, 170, 30));
-
-        lblPesquisar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblPesquisar.setForeground(new java.awt.Color(255, 255, 255));
-        lblPesquisar.setText("PESQUISAR");
-        getContentPane().add(lblPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 139, 130, 30));
+        getContentPane().add(btnCadPatente, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 220, 330, 120));
 
         btnCadPesquisador.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnCadPesquisador.setText("Pesquisador");
+        btnCadPesquisador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/infraestructure/view/botao_icone_pesquisador.png"))); // NOI18N
+        btnCadPesquisador.setBorder(null);
+        btnCadPesquisador.setBorderPainted(false);
+        btnCadPesquisador.setContentAreaFilled(false);
         btnCadPesquisador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadPesquisadorActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCadPesquisador, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 270, 170, 30));
+        getContentPane().add(btnCadPesquisador, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, 340, -1));
 
-        jButton6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton6.setText("Pesquisador");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 270, 170, 30));
-
-        jButton7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton7.setText("Patente");
-        jButton7.setPreferredSize(new java.awt.Dimension(70, 23));
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 330, 170, 30));
-
-        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/infraestructure/view/logo_scop.png"))); // NOI18N
-        getContentPane().add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 400, 270));
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/infraestructure/view/logo_central.png"))); // NOI18N
+        getContentPane().add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 410, 350));
 
         lblFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/infraestructure/view/fundo_roxo.png"))); // NOI18N
         lblFundo.setText("lblFundo");
-        getContentPane().add(lblFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -90, 1060, 630));
+        getContentPane().add(lblFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -80, 1060, 630));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-        AtualizacaoPesquisador atualizarPesquisador = new AtualizacaoPesquisador();
-        atualizarPesquisador.setVisible(true);
-    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * This method calls patente screen main.
@@ -143,15 +106,9 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void btnCadPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadPesquisaActionPerformed
         // TODO add your handling code here:
-        CadastrarProjetoPesquisa cadastrarProjeto = new CadastrarProjetoPesquisa();
-        cadastrarProjeto.setVisible(true);
-    }//GEN-LAST:event_btnCadPesquisaActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
         BuscarProjetoPesquisa buscarProjeto = new BuscarProjetoPesquisa();
         buscarProjeto.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnCadPesquisaActionPerformed
 
     private void btnCadPesquisadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadPesquisadorActionPerformed
         // TODO add your handling code here:
@@ -198,13 +155,8 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JButton btnCadPatente;
     private javax.swing.JButton btnCadPesquisa;
     private javax.swing.JButton btnCadPesquisador;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JLabel lblCadastrar;
     private javax.swing.JLabel lblFundo;
     private javax.swing.JLabel lblLogo;
-    private javax.swing.JLabel lblPesquisar;
     // End of variables declaration//GEN-END:variables
 }
