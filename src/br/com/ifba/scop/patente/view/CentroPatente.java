@@ -54,11 +54,12 @@ public class CentroPatente extends javax.swing.JFrame {
         panTableData = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblPatentes = new javax.swing.JTable();
-        panButton = new javax.swing.JPanel();
-        btnDeletar = new javax.swing.JButton();
+        lblInfoAtualizar = new javax.swing.JLabel();
+        lblInfoDeletar = new javax.swing.JLabel();
         btnNovo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Centro de Patentes");
         setResizable(false);
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
@@ -194,45 +195,33 @@ public class CentroPatente extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(tblPatentes);
 
+        lblInfoAtualizar.setText("Para Atualizar, dê 2 (dois) cliques sobre a linha.");
+
+        lblInfoDeletar.setText("Para Deletar, clique na coluna correspondente a linha.");
+
         javax.swing.GroupLayout panTableDataLayout = new javax.swing.GroupLayout(panTableData);
         panTableData.setLayout(panTableDataLayout);
         panTableDataLayout.setHorizontalGroup(
             panTableDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panTableDataLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panTableDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panTableDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(lblInfoAtualizar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblInfoDeletar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         panTableDataLayout.setVerticalGroup(
             panTableDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panTableDataLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(lblInfoAtualizar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblInfoDeletar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-        );
-
-        btnDeletar.setText("Deletar");
-        btnDeletar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeletarActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panButtonLayout = new javax.swing.GroupLayout(panButton);
-        panButton.setLayout(panButtonLayout);
-        panButtonLayout.setHorizontalGroup(
-            panButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panButtonLayout.createSequentialGroup()
-                .addGap(413, 413, 413)
-                .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(131, Short.MAX_VALUE))
-        );
-        panButtonLayout.setVerticalGroup(
-            panButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panButtonLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnDeletar)
-                .addGap(41, 41, 41))
         );
 
         btnNovo.setText("Novo");
@@ -251,13 +240,8 @@ public class CentroPatente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(panButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addComponent(panTableData, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -268,8 +252,6 @@ public class CentroPatente extends javax.swing.JFrame {
                     .addComponent(panJanelaTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panTableData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(btnNovo)
@@ -278,47 +260,6 @@ public class CentroPatente extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    /**
-     * This button deletes a register.
-     * @param evt 
-     */
-    private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
-        // TODO add your handling code here:
-        int idx;
-        Object forID;
-        // tratando exceção no modelo da tabela
-        try {
-            idx = this.tblPatentes.getSelectedRow(); // selected row index
-            forID = this.patenteModel.getValueAt(idx, 0);
-        } catch (java.lang.ArrayIndexOutOfBoundsException ex) {
-            javax.swing.JOptionPane.showMessageDialog(null,
-                    "Impossível Deletar! Registro não Selecionado.");
-            return;
-        }
-        String id = String.valueOf(forID);
-        // confirme exclusão messagem
-        int choose = javax.swing.JOptionPane.showConfirmDialog(null, "Deletar Patente ID: "+id
-                + "\nTem Certeza?");
-        if (choose < 0 || choose > 0) {
-            return; // o usuario desistiu de excluir, encerra.
-        }
-        // instanciando patente
-        Patente patente = new Patente();
-        patente.setId((long) this.stringBeNumber(id)); // setando na entidade
-        // instanciando fachada
-        IFachada fachada = new 
-            br.com.ifba.scop.infraestructure.service.Fachada();
-        // enviando valores e testando sucesso ou não
-        if (fachada.deletePatente(patente)) {
-            javax.swing.JOptionPane.showMessageDialog(null, 
-                    "Patente Encontrada e Deletada.");
-            this.patenteModel.removeRow(idx);
-        } else {
-            javax.swing.JOptionPane.showMessageDialog(null, 
-                    "Erro ao Deletar: Patente Não Encontrada!");
-        }
-    }//GEN-LAST:event_btnDeletarActionPerformed
 
     /**
      * This method calls cadastro patente screen.
@@ -439,6 +380,10 @@ public class CentroPatente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtPesquisarKeyPressed
 
+    /**
+     * update or delete.
+     * @param evt Mouse Event
+     */
     private void tblPatentesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPatentesMouseClicked
         // TODO add your handling code here:
         if (evt.getClickCount() == 2) {
@@ -447,8 +392,8 @@ public class CentroPatente extends javax.swing.JFrame {
             Object forNum;
             // tratando exceção no modelo da tabela
             try {
-                forID = this.patenteModel.getValueAt(this.tblPatentes.getSelectedRow(), 0);
-                forNum = this.patenteModel.getValueAt(this.tblPatentes.getSelectedRow(), 1);
+                forID = this.getPatenteModel().getValueAt(this.tblPatentes.getSelectedRow(), 0);
+                forNum = this.getPatenteModel().getValueAt(this.tblPatentes.getSelectedRow(), 1);
             } catch (java.lang.ArrayIndexOutOfBoundsException ex) {
                 forID = 0;
                 forNum = 0;
@@ -459,6 +404,9 @@ public class CentroPatente extends javax.swing.JFrame {
             // instanciando atualizar e enviando valores
             AtualizaPatente atualiza = new AtualizaPatente(id,num); // instanciando nova tela
             atualiza.setVisible(true); // tornando visível
+        }
+        else if (this.tblPatentes.getSelectedColumn() == 4) {
+            this.deleteRegister();
         }
     }//GEN-LAST:event_tblPatentesMouseClicked
 
@@ -508,12 +456,12 @@ public class CentroPatente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDeletar;
     private javax.swing.JButton btnNovo;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lblInfoAtualizar;
+    private javax.swing.JLabel lblInfoDeletar;
     private javax.swing.JLabel lblJanelaTitulo;
     private javax.swing.JLabel lblPesquisar;
-    private javax.swing.JPanel panButton;
     private javax.swing.JPanel panJanelaTitulo;
     private javax.swing.JPanel panSearch;
     private javax.swing.JPanel panTableData;
@@ -555,5 +503,45 @@ public class CentroPatente extends javax.swing.JFrame {
         patentes.forEach((p) -> {
             this.getPatenteModel().addRow(p);
         });
+    }
+    
+    /**
+     * This method is for delete a register from jtable.
+     */
+    private void deleteRegister() {
+        // TODO add your handling code here:
+        int idx;
+        Object forID;
+        // tratando exceção no modelo da tabela
+        try {
+            idx = this.tblPatentes.getSelectedRow(); // selected row index
+            forID = this.patenteModel.getValueAt(idx, 0);
+        } catch (java.lang.ArrayIndexOutOfBoundsException ex) {
+            javax.swing.JOptionPane.showMessageDialog(null,
+                    "Impossível Deletar! Registro não Selecionado.");
+            return;
+        }
+        String id = String.valueOf(forID);
+        // confirme exclusão messagem
+        int choose = javax.swing.JOptionPane.showConfirmDialog(null, "Deletar Patente ID: "+id
+                + "\nTem Certeza?");
+        if (choose < 0 || choose > 0) {
+            return; // o usuario desistiu de excluir, encerra.
+        }
+        // instanciando patente
+        Patente patente = new Patente();
+        patente.setId((long) this.stringBeNumber(id)); // setando na entidade
+        // instanciando fachada
+        IFachada fachada = new 
+            br.com.ifba.scop.infraestructure.service.Fachada();
+        // enviando valores e testando sucesso ou não
+        if (fachada.deletePatente(patente)) {
+            javax.swing.JOptionPane.showMessageDialog(null, 
+                    "Patente Encontrada e Deletada.");
+            this.patenteModel.removeRow(idx);
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(null, 
+                    "Erro ao Deletar: Patente Não Encontrada!");
+        }
     }
 }
