@@ -9,6 +9,7 @@ import br.com.ifba.scop.infraestructure.model.AbstractEntity;
 import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
@@ -19,33 +20,55 @@ import javax.persistence.OneToMany;
  */
 @Entity
 public class GrupoPesquisa extends AbstractEntity implements Serializable {
-
-    /*
-    @ManyToMany(mappedBy = "gruposPesquisa")
-    private List<ProjetoPesquisa> projetoPesquisas;
-    */
-    
+    //FALTA VER ISSO AQUI    
 //  private int identificacao;
-    private String nome;
 //  private String departamento;
 //  identificacao do grupo de pesquisa (integrantes)
 // herdar de pesquisador
 // herdar de alunos ou pesquisador (integrantes)
-    private String atividadeGrupo;
-    private String linhaPesquisa;
-    private String palavraChave;
-    private String areaConhecimento;
-    private String subarea;
-    private String local;
 //  lista private String projetosExecucao;
-    private String resumoAtividades;
-    private String resultadosEsperados;
-    private boolean infraEstrutura;
-    private String descricaoIE;
 // lista de equipes cooperantes
 // lista de projetos
-    private String comentariosAdicionais;
 //  lista de pesquisadores (responsaveis)
+/* @ManyToMany(mappedBy = "gruposPesquisa")
+    private List<ProjetoPesquisa> projetoPesquisas;
+    */
+    
+    @Column(name= "NOME", length=100, nullable=false) //not null
+    private String nome;
+    
+    @Column(name="ATIVIDADE_GRUPO", length=100, nullable=false) //not null
+    private String atividadeGrupo;
+    
+    @Column(name="LINHA_PESQUISA", length=100, nullable=false) //not null
+    private String linhaPesquisa;
+    
+    @Column(name="PALAVRA_CHAVE", length=100, nullable=false) //not null
+    private String palavraChave;
+    
+    @Column(name="AREA_CONHEC", length=100, nullable=false) //not null
+    private String areaConhecimento;
+    
+    @Column(name="SUBAREA", length=100, nullable=false) //not null
+    private String subarea;
+    
+    @Column(name="LOCAL", length=100, nullable=false) //not null
+    private String local;
+    
+    @Column(name="RESUMO_ATV", length=100, nullable=false) //not null
+    private String resumoAtividades;
+    
+    @Column(name="RESULTADOS_ESP", length=100, nullable=false) //not null
+    private String resultadosEsperados;
+    
+    @Column(name="INFRAESTRUTURA", length=100, nullable=false) //not null
+    private boolean infraEstrutura;
+    
+    @Column(name="DESCRICAO_IE", length=100, nullable=false) //not null
+    private String descricaoIE;
+    
+    @Column(name="COMENTARIOS_ADD", length=100, nullable=false) //not null
+    private String comentariosAdicionais;
     
     //métodos acessores
 

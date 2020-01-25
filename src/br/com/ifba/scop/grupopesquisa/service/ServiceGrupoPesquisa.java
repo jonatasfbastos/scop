@@ -107,9 +107,7 @@ public class ServiceGrupoPesquisa implements IServiceGrupoPesquisa{
     public List<GrupoPesquisa> findByTituloGrupoPesquisa(String titulo) {
          return daoGrupoPesquisa.findByTitulo(titulo);
     }
-    
-    
-    
+      
     //precisa implementar
     public boolean validaGrupoPesquisa(GrupoPesquisa grupoPesquisa) {
         return true;
