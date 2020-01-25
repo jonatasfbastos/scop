@@ -7,11 +7,18 @@ package br.com.ifba.scop.grupopesquisa.dao;
 
 import br.com.ifba.scop.grupopesquisa.model.GrupoPesquisa;
 import br.com.ifba.scop.infraestructure.dao.BaseDao;
+import java.util.List;
 
 /**
  *
  * @author beatriz
  */
 public class DaoGrupoPesquisa extends BaseDao<GrupoPesquisa> implements IDaoGrupoPesquisa{
-
+    @Override
+    public List<GrupoPesquisa> findByTitulo(String titulo) {
+        
+        String query = "select pp from ProjetoPesquisa pp WHERE upper(pp.titulo) like upper('" + titulo +"%')";
+        
+        return BaseDao.entityManager.createQuery(query).getResultList();
+    }
 }

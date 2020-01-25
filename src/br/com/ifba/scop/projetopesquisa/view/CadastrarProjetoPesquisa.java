@@ -280,7 +280,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
     private boolean validaCampos(){
         
         StringUtil util = StringUtil.getInstance();
-       
+       //se todos os campos não estiverem preenchidos
         if(txtTituloProjeto.getText().equals("") && txtEmail.getText().equals("")){
             if(txtSubarea.getText().equals("") && txtTelefone.getText().equals("(  )-     -    ")){
                 if(txtLinhaPesquisa.getText().equals("") && txtGrupoPesquisa.getText().equals("")){
@@ -295,7 +295,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         }     
              
   //while(txtTituloProjeto.getText().equals("") || txtEmail.getText().equals("") || txtSubarea.getText().equals("") || txtTelefone.getText().equals("(  )-     -    ") || txtLinhaPesquisa.getText().equals("") || txtGrupoPesquisa.getText().equals("") || txtCampus.getText().equals("") || txtLocalDesenvolvimento.getText().equals("") || txtViabilidadeTecnica.getText().equals("") || txtFonte.getText().equals("")){
-                        
+    //checa cada campo individualmente                   
         if(util.isNullOrEmpty(txtTituloProjeto.getText())){
            lblTituloProjeto.setText("Título do Projeto*");
            lblTituloProjeto.setForeground(Color.red);

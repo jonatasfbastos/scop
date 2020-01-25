@@ -21,7 +21,7 @@ public class ServiceProjetoPesquisa implements IServiceProjetoPesquisa{
     // Representa a mensagem de erro se o Projeto de Pesquisa for nulo.
     public final static String PROJ_NULL = "Projeto de Pesquisa null";
     // Representa a mensagem de erro se o Projeto de Pesquisa já existir.
-    public final static String PROJ_EXISTE = "O Projeto de Pesquisa já existe, sua operação não pode ser complitada";
+    public final static String PROJ_EXISTE = "O Projeto de Pesquisa já existe, sua operação não pode ser completada";
     // Representa a mensagem de erro se o Projeto de Pesquisa não existir na base de dados (na hora do update).
     public final static String PROJ_NAO_EXISTE = "O Projeto de Pesquisa NÃO existe na base de dados";
     // Representa a mensagem de erro se o Projeto de Pesquisa for inválido.
