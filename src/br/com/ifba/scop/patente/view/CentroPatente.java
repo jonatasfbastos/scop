@@ -52,6 +52,13 @@ public class CentroPatente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+            }
+        });
 
         lblPesquisar.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         lblPesquisar.setText("Pesquisa:");
@@ -448,6 +455,15 @@ public class CentroPatente extends javax.swing.JFrame {
     }//GEN-LAST:event_tblPatentesMouseClicked
 
     /**
+     * always list all elements when windows focus was found.
+     * @param evt WindowEvent
+     */
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        // TODO add your handling code here:
+        this.forListagemAll(); // atualiza todos os elementos vistos na tabela.
+    }//GEN-LAST:event_formWindowGainedFocus
+
+    /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -524,8 +540,6 @@ public class CentroPatente extends javax.swing.JFrame {
         // inserindo numa lista
         List<Patente> patentes = fachada.getAllPatente();
         if (patentes == null || patentes.isEmpty()) {
-            javax.swing.JOptionPane.showMessageDialog(null, 
-                    "Erro: Nenhuma Patente Encontrada.");
             return;
         }
         // inserindo linha/s na tabela
