@@ -88,33 +88,57 @@ public class AtualizaPatente extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        lblID.setText("ID");
+        lblID.setText("ID*");
 
         txtID.setText(" ");
+        txtID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtIDKeyReleased(evt);
+            }
+        });
 
-        lblNumPatente.setText("N° PATENTE");
+        lblNumPatente.setText("N° PATENTE*");
 
         txtNumPatente.setText(" ");
+        txtNumPatente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNumPatenteKeyReleased(evt);
+            }
+        });
 
         lblData.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        lblData.setText("DATA");
+        lblData.setText("DATA*");
 
         lblDay.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        lblDay.setText("DIA");
+        lblDay.setText("DIA*");
 
         lblMonth.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        lblMonth.setText("MÊS");
+        lblMonth.setText("MÊS*");
 
         lblYear.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        lblYear.setText("ANO");
+        lblYear.setText("ANO*");
 
-        lblTituloPatente.setText("TÍTULO:");
+        txtDia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtDiaKeyReleased(evt);
+            }
+        });
 
-        txtTituloPatente.setText(" ");
+        txtMes.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtMesKeyReleased(evt);
+            }
+        });
 
-        lblAreaPatente.setText("AREA");
+        txtAno.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtAnoKeyReleased(evt);
+            }
+        });
 
-        txtAreaPatente.setText(" ");
+        lblTituloPatente.setText("TÍTULO:*");
+
+        lblAreaPatente.setText("AREA*");
 
         btnAtualizar.setText("Atualizar");
         btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -268,6 +292,61 @@ public class AtualizaPatente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
     /**
+     * It Doesn't allow character that can not be change to number.
+     * @param evt 
+     */
+    private void txtDiaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDiaKeyReleased
+        // TODO add your handling code here:
+        if (!this.stringBeNumberBool(this.txtDia.getText())) {
+            this.txtDia.setText("0");
+        }
+    }//GEN-LAST:event_txtDiaKeyReleased
+
+    /**
+     * It Doesn't allow character that can not be change to number.
+     * @param evt 
+     */
+    private void txtMesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMesKeyReleased
+        // TODO add your handling code here:
+        if (!this.stringBeNumberBool(this.txtDia.getText())) {
+            this.txtMes.setText("0");
+        }
+    }//GEN-LAST:event_txtMesKeyReleased
+
+    /**
+     * It Doesn't allow character that can not be change to number.
+     * @param evt 
+     */
+    private void txtAnoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAnoKeyReleased
+        // TODO add your handling code here:
+        if (!this.stringBeNumberBool(this.txtDia.getText())) {
+            this.txtAno.setText("0");
+        }
+    }//GEN-LAST:event_txtAnoKeyReleased
+
+    /**
+     * It Doesn't allow character that can not be change to number.
+     * @param evt 
+     */
+    private void txtIDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIDKeyReleased
+        // TODO add your handling code here:
+        if (!this.stringBeNumberBool(this.txtDia.getText())) {
+            this.txtID.setText("0");
+        }
+    }//GEN-LAST:event_txtIDKeyReleased
+
+    /**
+     * It Doesn't allow character that can not be change to number.
+     * @param evt 
+     */
+    private void txtNumPatenteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumPatenteKeyReleased
+        // TODO add your handling code here:
+        if (!this.stringBeNumberBool(this.txtDia.getText())) {
+            this.txtNumPatente.setText("0");
+        }
+    }//GEN-LAST:event_txtNumPatenteKeyReleased
+
+    /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -332,11 +411,22 @@ public class AtualizaPatente extends javax.swing.JFrame {
      */
     private int stringBeNumber(String value) {
         int number;
+        number = this.stringBeNumberBool(value) ? Integer.parseInt(value) : 0;
+        return number;
+    }
+    
+    /**
+     * This Method verifies if a string can be a number or not.
+     * @param value String.
+     * @return Boolean.
+     */
+    private boolean stringBeNumberBool(String value) {
+        int number;
         try {
             number = Integer.parseInt(value);
+            return true;
         } catch (NumberFormatException ex) {
-            number = 0;
+            return false;
         }
-        return number;
     }
 }

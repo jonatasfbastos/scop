@@ -178,30 +178,36 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="lblID">
           <Properties>
-            <Property name="text" type="java.lang.String" value="ID"/>
+            <Property name="text" type="java.lang.String" value="ID*"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtID">
           <Properties>
             <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtIDKeyReleased"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblNumPatente">
           <Properties>
-            <Property name="text" type="java.lang.String" value="N&#xb0; PATENTE"/>
+            <Property name="text" type="java.lang.String" value="N&#xb0; PATENTE*"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtNumPatente">
           <Properties>
             <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtNumPatenteKeyReleased"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblData">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lucida Grande" size="15" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="DATA"/>
+            <Property name="text" type="java.lang.String" value="DATA*"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblDay">
@@ -209,7 +215,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lucida Grande" size="15" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="DIA"/>
+            <Property name="text" type="java.lang.String" value="DIA*"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblMonth">
@@ -217,7 +223,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lucida Grande" size="15" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="M&#xca;S"/>
+            <Property name="text" type="java.lang.String" value="M&#xca;S*"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblYear">
@@ -225,34 +231,37 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lucida Grande" size="15" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="ANO"/>
+            <Property name="text" type="java.lang.String" value="ANO*"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtDia">
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtDiaKeyReleased"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtMes">
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtMesKeyReleased"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtAno">
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtAnoKeyReleased"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTituloPatente">
           <Properties>
-            <Property name="text" type="java.lang.String" value="T&#xcd;TULO:"/>
+            <Property name="text" type="java.lang.String" value="T&#xcd;TULO:*"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtTituloPatente">
-          <Properties>
-            <Property name="text" type="java.lang.String" value=" "/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblAreaPatente">
           <Properties>
-            <Property name="text" type="java.lang.String" value="AREA"/>
+            <Property name="text" type="java.lang.String" value="AREA*"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtAreaPatente">
-          <Properties>
-            <Property name="text" type="java.lang.String" value=" "/>
-          </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="panButton">
 

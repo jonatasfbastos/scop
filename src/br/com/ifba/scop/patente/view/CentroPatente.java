@@ -19,6 +19,14 @@ public class CentroPatente extends javax.swing.JFrame {
     private final PatenteTableModel patenteModel = new PatenteTableModel();
 
     /**
+     * It Returns the patente table model (jtable).
+     * @return PatenteTableModel
+     */
+    private PatenteTableModel getPatenteModel() {
+        return patenteModel;
+    }
+
+    /**
      * Creates new form CentroPatente
      */
     public CentroPatente() {
@@ -460,6 +468,7 @@ public class CentroPatente extends javax.swing.JFrame {
      */
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
         // TODO add your handling code here:
+        this.getPatenteModel().removeAllRows();
         this.forListagemAll(); // atualiza todos os elementos vistos na tabela.
     }//GEN-LAST:event_formWindowGainedFocus
 
@@ -544,7 +553,7 @@ public class CentroPatente extends javax.swing.JFrame {
         }
         // inserindo linha/s na tabela
         patentes.forEach((p) -> {
-            this.patenteModel.addRow(p);
+            this.getPatenteModel().addRow(p);
         });
     }
 }
