@@ -9,6 +9,7 @@ import br.com.ifba.scop.infraestructure.dao.BaseDao;
 import br.com.ifba.scop.infraestructure.dao.IBaseDao;
 import br.com.ifba.scop.infraestructure.service.Fachada;
 import br.com.ifba.scop.infraestructure.service.IFachada;
+import br.com.ifba.scop.infraestructure.support.DateUtil;
 import br.com.ifba.scop.infraestructure.support.StringUtil;
 import br.com.ifba.scop.projetopesquisa.dao.DaoProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.dao.IDaoProjetoPesquisa;
@@ -25,6 +26,7 @@ import javax.swing.JOptionPane;
 public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
 
     ProjetoPesquisa projeto;
+    DateUtil utilDate = new DateUtil();
     
     
     // Esse contrutor é chamado quando a operação for salvar
@@ -51,8 +53,8 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         this.txtLocalDesenvolvimento.setText(editado.getEspaco());
         this.txtViabilidadeTecnica.setText(editado.getViabilidadeTec());
         this.txtFonte.setText(editado.getFinaciamento());
-        this.jspDataInicio.setValue(editado.getDataInicio());
-        this.jspDataTermino.setValue(editado.getDataTermino());
+        this.txtForDataInicio.setText(this.utilDate.toString(editado.getDataInicio()));
+        this.txtForDataTermino.setText(this.utilDate.toString(editado.getDataTermino()));
         
     }
 
@@ -83,9 +85,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         lblFonte = new javax.swing.JLabel();
         txtFonte = new javax.swing.JTextField();
         lblDataInicio = new javax.swing.JLabel();
-        jspDataInicio = new javax.swing.JSpinner();
         lblDataTermino = new javax.swing.JLabel();
-        jspDataTermino = new javax.swing.JSpinner();
         lblGrupoPesquisa = new javax.swing.JLabel();
         lblCampus = new javax.swing.JLabel();
         txtLocalDesenvolvimento = new javax.swing.JTextField();
@@ -98,6 +98,8 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         btnCadastrar = new javax.swing.JButton();
         txtTelefone = new javax.swing.JFormattedTextField();
         jLabel2 = new javax.swing.JLabel();
+        txtForDataInicio = new javax.swing.JFormattedTextField();
+        txtForDataTermino = new javax.swing.JFormattedTextField();
         jLabel1 = new javax.swing.JLabel();
 
         jTextField9.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +111,6 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(760, 710));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -152,14 +153,8 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         lblDataInicio.setText("Data de inicio");
         jPanel1.add(lblDataInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(408, 259, 140, -1));
 
-        jspDataInicio.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), null, new java.util.Date(), java.util.Calendar.DAY_OF_MONTH));
-        jPanel1.add(jspDataInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 251, 153, 30));
-
         lblDataTermino.setText("Data de Término prevista");
-        jPanel1.add(lblDataTermino, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 297, 152, -1));
-
-        jspDataTermino.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), new java.util.Date(), null, java.util.Calendar.DAY_OF_MONTH));
-        jPanel1.add(jspDataTermino, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 289, 153, 30));
+        jPanel1.add(lblDataTermino, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 297, 180, -1));
 
         lblGrupoPesquisa.setText("Grupo de pesquisa");
         jPanel1.add(lblGrupoPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 391, 130, -1));
@@ -200,6 +195,20 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/projetopesquisa/view/imagens/Logo_scop_projeto.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 190, 120));
 
+        try {
+            txtForDataInicio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jPanel1.add(txtForDataInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 250, 110, -1));
+
+        try {
+            txtForDataTermino.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jPanel1.add(txtForDataTermino, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 290, 110, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/projetopesquisa/view/imagens/fundo_tela_buscarr.png"))); // NOI18N
@@ -210,64 +219,60 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    
     private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField9ActionPerformed
 
     
-    
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
             
-            IFachada fachada = new Fachada();
-            
-            // Verifica se o projeto é valido
-            if(validaCampos() == true){
-                
-                // Atribuindo os dados dos campos aos atributos do objeto
-                projeto.setCampus(this.txtCampus.getText());
-                projeto.setDataInicio((Date) this.jspDataInicio.getValue());
-                projeto.setDataTermino((Date) this.jspDataTermino.getValue());
-                projeto.setEspaco(this.txtLocalDesenvolvimento.getText());
-                projeto.setFinaciamento(this.txtFonte.getText());
-                projeto.setLinhaPesquisa(this.txtLinhaPesquisa.getText());
-                projeto.setSubArea(this.txtSubarea.getText());
-                projeto.setTitulo(this.txtTituloProjeto.getText());
-                projeto.setViabilidadeTec(this.txtViabilidadeTecnica.getText());
-                System.out.println("id = " + projeto.getId());
-                System.out.println(projeto.getTitulo());
-                
-                // Já existe na base. Updade nele!
-                if(fachada.getByIdProjeto(projeto.getId()) == projeto){
-                    
-                    // Atualixzado com sucesso
-                    if(fachada.updateProjetoPesquisa(projeto) == projeto){
+        IFachada fachada = new Fachada();
 
-                        JOptionPane.showMessageDialog(null, "Editado com sucesso!");
+        // Verifica se o projeto é valido
+        if(validaCampos() == true){
 
-                        // Fecha a janela
-                        this.dispose();
+            // Atribuindo os dados dos campos aos atributos do objeto
+            projeto.setCampus(this.txtCampus.getText());
+            projeto.setDataInicio(this.utilDate.toDate(this.txtForDataInicio.getText()));
+            projeto.setDataTermino(this.utilDate.toDate(this.txtForDataTermino.getText()));
+            projeto.setEspaco(this.txtLocalDesenvolvimento.getText());
+            projeto.setFinaciamento(this.txtFonte.getText());
+            projeto.setLinhaPesquisa(this.txtLinhaPesquisa.getText());
+            projeto.setSubArea(this.txtSubarea.getText());
+            projeto.setTitulo(this.txtTituloProjeto.getText());
+            projeto.setViabilidadeTec(this.txtViabilidadeTecnica.getText());
 
-                    }else{
-                        JOptionPane.showMessageDialog(null, "Erro ao editar");
-                    }
-                    
+            // Já existe na base. Updade nele!
+            if(fachada.getByIdProjeto(projeto.getId()) == projeto){
+
+                // Atualixzado com sucesso
+                if(fachada.updateProjetoPesquisa(projeto) == projeto){
+
+                    JOptionPane.showMessageDialog(null, "Editado com sucesso!");
+
+                    // Fecha a janela
+                    this.dispose();
+
                 }else{
-                    // Ainda não existe na base
-                    
-                    // Salvo com sucesso
-                    if(fachada.saveProjetoPesquisa(projeto) == projeto){
+                    JOptionPane.showMessageDialog(null, "Erro ao editar");
+                }
 
-                        JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
+            }else{
+                // Ainda não existe na base
 
-                        // Fecha a janela
-                        this.dispose();
+                // Salvo com sucesso
+                if(fachada.saveProjetoPesquisa(projeto) == projeto){
 
-                    }else{
-                        JOptionPane.showMessageDialog(null, "Erro ao salvar");
-                    }
+                    JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
+
+                    // Fecha a janela
+                    this.dispose();
+
+                }else{
+                    JOptionPane.showMessageDialog(null, "Erro ao salvar");
                 }
             }
+        }
         
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
@@ -359,7 +364,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
             return false;
         }
         
-        if(jspDataInicio.getValue() == null){
+        if(this.txtForDataInicio.getText().equals("  /  /    ")){
             lblDataInicio.setText("Data de Início*");
             lblDataInicio.setForeground(Color.red);
             JOptionPane.showMessageDialog(null, "Preencha o campo Data de Início.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
@@ -367,7 +372,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
             return false;
         }
         
-        if(jspDataTermino.getValue() == null){
+        if(this.txtForDataTermino.getText().equals("  /  /    ")){
             lblDataTermino.setText("Data de Término*");
             lblDataTermino.setForeground(Color.red);
             JOptionPane.showMessageDialog(null, "Preencha o campo Data de Término.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
@@ -435,8 +440,6 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField9;
-    private javax.swing.JSpinner jspDataInicio;
-    private javax.swing.JSpinner jspDataTermino;
     private javax.swing.JLabel lblCampus;
     private javax.swing.JLabel lblDataInicio;
     private javax.swing.JLabel lblDataTermino;
@@ -453,6 +456,8 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
     private javax.swing.JTextField txtCampus;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtFonte;
+    private javax.swing.JFormattedTextField txtForDataInicio;
+    private javax.swing.JFormattedTextField txtForDataTermino;
     private javax.swing.JTextField txtGrupoPesquisa;
     private javax.swing.JTextField txtLinhaPesquisa;
     private javax.swing.JTextField txtLocalDesenvolvimento;
