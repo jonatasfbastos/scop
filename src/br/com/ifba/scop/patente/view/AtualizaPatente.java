@@ -90,7 +90,6 @@ public class AtualizaPatente extends javax.swing.JFrame {
 
         lblID.setText("ID*");
 
-        txtID.setText(" ");
         txtID.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtIDKeyReleased(evt);
@@ -99,7 +98,6 @@ public class AtualizaPatente extends javax.swing.JFrame {
 
         lblNumPatente.setText("N° PATENTE*");
 
-        txtNumPatente.setText(" ");
         txtNumPatente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtNumPatenteKeyReleased(evt);
@@ -298,7 +296,7 @@ public class AtualizaPatente extends javax.swing.JFrame {
     private void txtDiaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDiaKeyReleased
         // TODO add your handling code here:
         if (!this.stringBeNumberBool(this.txtDia.getText())) {
-            this.txtDia.setText("0");
+            this.txtDia.setText("");
         }
     }//GEN-LAST:event_txtDiaKeyReleased
 
@@ -308,8 +306,8 @@ public class AtualizaPatente extends javax.swing.JFrame {
      */
     private void txtMesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMesKeyReleased
         // TODO add your handling code here:
-        if (!this.stringBeNumberBool(this.txtDia.getText())) {
-            this.txtMes.setText("0");
+        if (!this.stringBeNumberBool(this.txtMes.getText())) {
+            this.txtMes.setText("");
         }
     }//GEN-LAST:event_txtMesKeyReleased
 
@@ -319,8 +317,8 @@ public class AtualizaPatente extends javax.swing.JFrame {
      */
     private void txtAnoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAnoKeyReleased
         // TODO add your handling code here:
-        if (!this.stringBeNumberBool(this.txtDia.getText())) {
-            this.txtAno.setText("0");
+        if (!this.stringBeNumberBool(this.txtAno.getText())) {
+            this.txtAno.setText("");
         }
     }//GEN-LAST:event_txtAnoKeyReleased
 
@@ -330,8 +328,8 @@ public class AtualizaPatente extends javax.swing.JFrame {
      */
     private void txtIDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIDKeyReleased
         // TODO add your handling code here:
-        if (!this.stringBeNumberBool(this.txtDia.getText())) {
-            this.txtID.setText("0");
+        if (!this.stringBeNumberBool(this.txtID.getText())) {
+            this.txtID.setText("");
         }
     }//GEN-LAST:event_txtIDKeyReleased
 
@@ -341,8 +339,8 @@ public class AtualizaPatente extends javax.swing.JFrame {
      */
     private void txtNumPatenteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumPatenteKeyReleased
         // TODO add your handling code here:
-        if (!this.stringBeNumberBool(this.txtDia.getText())) {
-            this.txtNumPatente.setText("0");
+        if (!this.stringBeNumberBool(this.txtNumPatente.getText())) {
+            this.txtNumPatente.setText("");
         }
     }//GEN-LAST:event_txtNumPatenteKeyReleased
 
@@ -421,12 +419,12 @@ public class AtualizaPatente extends javax.swing.JFrame {
      * @return Boolean.
      */
     private boolean stringBeNumberBool(String value) {
-        int number;
         try {
-            number = Integer.parseInt(value);
+            Integer.parseInt(value);
             return true;
         } catch (NumberFormatException ex) {
             return false;
         }
     }
+    
 }

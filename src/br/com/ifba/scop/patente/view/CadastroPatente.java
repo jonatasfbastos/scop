@@ -30,37 +30,29 @@ public class CadastroPatente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblTitulo = new javax.swing.JLabel();
-        lblNumber = new javax.swing.JLabel();
-        txtNumber = new javax.swing.JTextField();
-        lblData = new javax.swing.JLabel();
-        txtDay = new javax.swing.JTextField();
-        lblTituloPatente = new javax.swing.JLabel();
-        txtTituloPatente = new javax.swing.JTextField();
-        lblAreaLinhaPatente = new javax.swing.JLabel();
-        txtAreaLinhaPatente = new javax.swing.JTextField();
+        panButton = new javax.swing.JPanel();
         btnConfirmar = new javax.swing.JButton();
-        lblDia = new javax.swing.JLabel();
-        lblMes = new javax.swing.JLabel();
-        txtMonth = new javax.swing.JTextField();
+        panData = new javax.swing.JPanel();
+        txtAreaLinhaPatente = new javax.swing.JTextField();
+        lblAreaLinhaPatente = new javax.swing.JLabel();
+        txtTituloPatente = new javax.swing.JTextField();
+        lblTituloPatente = new javax.swing.JLabel();
         txtYear = new javax.swing.JTextField();
         lblAno = new javax.swing.JLabel();
+        lblMes = new javax.swing.JLabel();
+        txtMonth = new javax.swing.JTextField();
+        txtDay = new javax.swing.JTextField();
+        lblDia = new javax.swing.JLabel();
+        lblData = new javax.swing.JLabel();
+        txtNumber = new javax.swing.JTextField();
+        lblNumber = new javax.swing.JLabel();
+        panHead = new javax.swing.JPanel();
+        lblTitulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Patente");
         setResizable(false);
-
-        lblTitulo.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo.setText("FORMULARIO PARA PEDIDO DE PATENTE");
-
-        lblNumber.setText("N°*");
-
-        lblData.setText("Data*");
-
-        lblTituloPatente.setText("1- TÍTULO DA PATENTE*");
-
-        lblAreaLinhaPatente.setText("2- ÁREA/LINHA DA PATENTE*");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnConfirmar.setText("Confirmar");
         btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
@@ -69,79 +61,113 @@ public class CadastroPatente extends javax.swing.JFrame {
             }
         });
 
-        lblDia.setText("Dia*");
+        javax.swing.GroupLayout panButtonLayout = new javax.swing.GroupLayout(panButton);
+        panButton.setLayout(panButtonLayout);
+        panButtonLayout.setHorizontalGroup(
+            panButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panButtonLayout.createSequentialGroup()
+                .addGap(199, 199, 199)
+                .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(206, Short.MAX_VALUE))
+        );
+        panButtonLayout.setVerticalGroup(
+            panButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panButtonLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnConfirmar)
+                .addContainerGap())
+        );
 
-        lblMes.setText("Mês*");
+        getContentPane().add(panButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 314, 507, -1));
+
+        lblAreaLinhaPatente.setText("2- ÁREA/LINHA DA PATENTE*");
+
+        lblTituloPatente.setText("1- TÍTULO DA PATENTE*");
+
+        txtYear.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtYearKeyReleased(evt);
+            }
+        });
 
         lblAno.setText("Ano*");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTituloPatente)
-                            .addComponent(txtAreaLinhaPatente)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(lblAreaLinhaPatente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE)
-                                    .addComponent(lblTituloPatente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addComponent(lblNumber)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblData)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtDay, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblDia))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblMes))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblAno)
-                                    .addComponent(txtYear, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 6, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+        lblMes.setText("Mês*");
+
+        txtMonth.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtMonthKeyReleased(evt);
+            }
+        });
+
+        txtDay.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtDayKeyReleased(evt);
+            }
+        });
+
+        lblDia.setText("Dia*");
+
+        lblData.setText("Data*");
+
+        txtNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNumberKeyReleased(evt);
+            }
+        });
+
+        lblNumber.setText("N°*");
+
+        javax.swing.GroupLayout panDataLayout = new javax.swing.GroupLayout(panData);
+        panData.setLayout(panDataLayout);
+        panDataLayout.setHorizontalGroup(
+            panDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panDataLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtAreaLinhaPatente)
+                    .addComponent(lblAreaLinhaPatente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
+                    .addComponent(txtTituloPatente)
+                    .addComponent(lblTituloPatente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(203, 203, 203))
+            .addGroup(panDataLayout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(lblNumber)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblData)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtDay, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDia))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMes))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAno)
+                    .addComponent(txtYear, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        panDataLayout.setVerticalGroup(
+            panDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panDataLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(panDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDia)
                     .addComponent(lblMes)
                     .addComponent(lblAno))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNumber)
                     .addComponent(txtNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblData)
                     .addComponent(txtDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addComponent(lblTituloPatente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTituloPatente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -149,10 +175,33 @@ public class CadastroPatente extends javax.swing.JFrame {
                 .addComponent(lblAreaLinhaPatente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtAreaLinhaPatente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
-                .addComponent(btnConfirmar)
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(panData, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 55, -1, -1));
+
+        lblTitulo.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo.setText("FORMULARIO PARA CADASTRO DE PATENTE");
+
+        javax.swing.GroupLayout panHeadLayout = new javax.swing.GroupLayout(panHead);
+        panHead.setLayout(panHeadLayout);
+        panHeadLayout.setHorizontalGroup(
+            panHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panHeadLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
                 .addContainerGap())
         );
+        panHeadLayout.setVerticalGroup(
+            panHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panHeadLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(panHead, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -170,7 +219,7 @@ public class CadastroPatente extends javax.swing.JFrame {
         String mes =    txtMonth.getText();
         String ano =    txtYear.getText();
         String titulo = txtTituloPatente.getText();
-        String area_linha= txtAreaLinhaPatente.getText();
+        String areaLinha= txtAreaLinhaPatente.getText();
         // inserindo valores na entidade
         patente.setNumero(this.stringBeNumber(numero));
         // data
@@ -179,7 +228,7 @@ public class CadastroPatente extends javax.swing.JFrame {
         patente.setAno(this.stringBeNumber(ano));
         // titulo e area
         patente.setTituloInvencao(titulo);
-        patente.setAreaInvencao(area_linha);
+        patente.setAreaInvencao(areaLinha);
         // acessando a fachada
         IFachada fachada = 
                 new br.com.ifba.scop.infraestructure.service.Fachada();
@@ -194,6 +243,50 @@ public class CadastroPatente extends javax.swing.JFrame {
                     "Patente Cadastrada com Sucesso.");
         }
     }//GEN-LAST:event_btnConfirmarActionPerformed
+
+    /**
+     * It doesn't allow user to type anything different of number.
+     * @param evt 
+     */
+    private void txtNumberKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumberKeyReleased
+        // TODO add your handling code here:
+        if (!this.stringBeNumberBool(this.txtNumber.getText())) {
+            this.txtNumber.setText("");
+        }
+    }//GEN-LAST:event_txtNumberKeyReleased
+
+    /**
+     * It doesn't allow user to type anything different of number.
+     * @param evt 
+     */
+    private void txtDayKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDayKeyReleased
+        // TODO add your handling code here:
+        if (!this.stringBeNumberBool(this.txtDay.getText())) {
+            this.txtDay.setText("");
+        }
+    }//GEN-LAST:event_txtDayKeyReleased
+
+    /**
+     * It doesn't allow user to type anything different of number.
+     * @param evt 
+     */
+    private void txtMonthKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMonthKeyReleased
+        // TODO add your handling code here:
+        if (!this.stringBeNumberBool(this.txtMonth.getText())) {
+            this.txtMonth.setText("");
+        }
+    }//GEN-LAST:event_txtMonthKeyReleased
+
+    /**
+     * It doesn't allow user to type anything different of number.
+     * @param evt 
+     */
+    private void txtYearKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtYearKeyReleased
+        // TODO add your handling code here:
+        if (!this.stringBeNumberBool(this.txtYear.getText())) {
+            this.txtYear.setText("");
+        }
+    }//GEN-LAST:event_txtYearKeyReleased
 
     /**
      * @param args the command line arguments
@@ -240,6 +333,9 @@ public class CadastroPatente extends javax.swing.JFrame {
     private javax.swing.JLabel lblNumber;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblTituloPatente;
+    private javax.swing.JPanel panButton;
+    private javax.swing.JPanel panData;
+    private javax.swing.JPanel panHead;
     private javax.swing.JTextField txtAreaLinhaPatente;
     private javax.swing.JTextField txtDay;
     private javax.swing.JTextField txtMonth;
@@ -254,12 +350,22 @@ public class CadastroPatente extends javax.swing.JFrame {
      * @return Integer.
      */
     private int stringBeNumber(String value) {
-        int number;
-        try {
-            number = Integer.parseInt(value);
-        } catch (NumberFormatException ex) {
-            number = 0;
-        }
+        int number = this.stringBeNumberBool(value) ? Integer.parseInt(value) : 0;
         return number;
     }
+    
+    /**
+     * This Method verifies if a string can be a number or not.
+     * @param value String.
+     * @return Boolean.
+     */
+    private boolean stringBeNumberBool(String value) {
+        try {
+            Integer.parseInt(value); // tenta converter
+            return true;
+        } catch (NumberFormatException ex) {
+            return false;
+        }
+    }
+    
 }

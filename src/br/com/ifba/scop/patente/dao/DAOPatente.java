@@ -33,7 +33,7 @@ public class DAOPatente extends BaseDao<Patente> implements IDAOPatente {
     public boolean savePatente(Patente patente) {
         // setting sql command
         this.setSql("SELECT c.id FROM Patente AS c WHERE c.numero=:numero "
-                + "OR c.tituloInvencao=:title OR c.areaInvencao=:area");
+                + "OR (c.tituloInvencao=:title AND c.areaInvencao=:area)");
         // mandando query // inserindo comando na querry e inserindo os dados
         Query query = entityManager.createQuery(this.getSql());
         query.setParameter("numero", patente.getNumero());
@@ -86,7 +86,7 @@ public class DAOPatente extends BaseDao<Patente> implements IDAOPatente {
         }
         // setting sql command again, anothe context
         this.setSql("SELECT c.id FROM Patente AS c WHERE "
-                + "c.tituloInvencao=:title OR c.areaInvencao=:area");
+                + "c.tituloInvencao=:title AND c.areaInvencao=:area");
         // inserindo comando na querry e inserindo os dados
         query = entityManager.createQuery(this.getSql());
         query.setParameter("title", patente.getTituloInvencao());

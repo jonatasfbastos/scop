@@ -6,6 +6,7 @@
 package br.com.ifba.scop.patente.view;
 
 import br.com.ifba.scop.infraestructure.service.IFachada;
+import br.com.ifba.scop.patente.model.ButtonTable;
 import br.com.ifba.scop.patente.model.Patente;
 import br.com.ifba.scop.patente.model.PatenteTableModel;
 import java.util.List;
@@ -16,6 +17,15 @@ import java.util.List;
  */
 public class CentroPatente extends javax.swing.JFrame {
     private final PatenteTableModel patenteModel = new PatenteTableModel();
+    private final ButtonTable buttonTable;
+    
+    /**
+     * It Returns a Button Table instance.
+     * @return ButtonTable Instance
+     */
+    private ButtonTable getButtonTable() {
+        return this.buttonTable;
+    }
 
     /**
      * It Returns the patente table model (jtable).
@@ -31,6 +41,8 @@ public class CentroPatente extends javax.swing.JFrame {
     public CentroPatente() {
         initComponents();
         this.tblPatentes.setModel(patenteModel);
+        this.buttonTable = new ButtonTable(this.tblPatentes, 4);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -55,6 +67,7 @@ public class CentroPatente extends javax.swing.JFrame {
         tblPatentes = new javax.swing.JTable();
         lblInfoAtualizar = new javax.swing.JLabel();
         lblInfoDeletar = new javax.swing.JLabel();
+        panButton = new javax.swing.JPanel();
         btnNovo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -67,6 +80,7 @@ public class CentroPatente extends javax.swing.JFrame {
             public void windowLostFocus(java.awt.event.WindowEvent evt) {
             }
         });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblPesquisar.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         lblPesquisar.setText("Pesquisa:");
@@ -133,6 +147,8 @@ public class CentroPatente extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        getContentPane().add(panSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 0, 362, -1));
+
         lblJanelaTitulo.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         lblJanelaTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblJanelaTitulo.setText("Centro de Patentes");
@@ -153,6 +169,8 @@ public class CentroPatente extends javax.swing.JFrame {
                 .addComponent(lblJanelaTitulo)
                 .addContainerGap(29, Short.MAX_VALUE))
         );
+
+        getContentPane().add(panJanelaTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         tblPatentes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -196,7 +214,7 @@ public class CentroPatente extends javax.swing.JFrame {
 
         lblInfoAtualizar.setText("Para Atualizar, dê 2 (dois) cliques sobre a linha.");
 
-        lblInfoDeletar.setText("Para Deletar, clique na coluna correspondente a linha.");
+        lblInfoDeletar.setText("Para Deletar, clique na coluna Delete correspondente a linha.");
 
         javax.swing.GroupLayout panTableDataLayout = new javax.swing.GroupLayout(panTableData);
         panTableData.setLayout(panTableDataLayout);
@@ -223,6 +241,8 @@ public class CentroPatente extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        getContentPane().add(panTableData, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 88, -1, 550));
+
         btnNovo.setText("Novo");
         btnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -230,45 +250,27 @@ public class CentroPatente extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panJanelaTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
+        javax.swing.GroupLayout panButtonLayout = new javax.swing.GroupLayout(panButton);
+        panButton.setLayout(panButtonLayout);
+        panButtonLayout.setHorizontalGroup(
+            panButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panButtonLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addComponent(panTableData, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panJanelaTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panTableData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+        panButtonLayout.setVerticalGroup(
+            panButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panButtonLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnNovo)
                 .addContainerGap())
         );
 
+        getContentPane().add(panButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 639, 725, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    /**
-     * This method calls cadastro patente screen.
-     * @param evt Action event
-     */
-    private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
-        // TODO add your handling code here:
-        CadastroPatente casdastro = new CadastroPatente(); // instanciando nova tela
-        casdastro.setVisible(true); // tornando tela de cadastro visivel
-    }//GEN-LAST:event_btnNovoActionPerformed
 
     /**
      * Search by Area.
@@ -380,7 +382,10 @@ public class CentroPatente extends javax.swing.JFrame {
             // insert data
             for (int i = 0; i < dados.size(); i++) {
                 this.getPatenteModel().addRow(dados.get(i),i);
+                this.getButtonTable().getTableCellEditorComponent(this.tblPatentes, "Delete", 
+                    false, i, 4); // 4 é a coluna que eu quero inserir um label pra delete.
             }
+            javax.swing.JOptionPane.showMessageDialog(null, "Patente Encontrada.");
         } 
         else if (this.radNumero.isSelected()) {
             // numero
@@ -397,7 +402,10 @@ public class CentroPatente extends javax.swing.JFrame {
             // insert data
             for (int i = 0; i < dados.size(); i++) {
                 this.getPatenteModel().addRow(dados.get(i),i);
+                this.getButtonTable().getTableCellEditorComponent(this.tblPatentes, "Delete", 
+                    false, i, 4); // 4 é a coluna que eu quero inserir um label pra delete.
             }
+            javax.swing.JOptionPane.showMessageDialog(null, "Patente Encontrada.");
         } else if (this.radTitulo.isSelected()) {
             // titulo
             patente.setTituloInvencao(this.txtPesquisar.getText());
@@ -411,9 +419,22 @@ public class CentroPatente extends javax.swing.JFrame {
             // insert data
             for (int i = 0; i < dados.size(); i++) {
                 this.getPatenteModel().addRow(dados.get(i),i);
+                this.getButtonTable().getTableCellEditorComponent(this.tblPatentes, "Delete", 
+                    false, i, 4); // 4 é a coluna que eu quero inserir um label pra delete.
             }
+            javax.swing.JOptionPane.showMessageDialog(null, "Patente Encontrada.");
         }
     }//GEN-LAST:event_txtPesquisarKeyReleased
+
+    /**
+     * This method calls cadastro patente screen.
+     * @param evt Action event
+     */
+    private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
+        // TODO add your handling code here:
+        CadastroPatente casdastro = new CadastroPatente(); // instanciando nova tela
+        casdastro.setVisible(true); // tornando tela de cadastro visivel
+    }//GEN-LAST:event_btnNovoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -457,6 +478,7 @@ public class CentroPatente extends javax.swing.JFrame {
     private javax.swing.JLabel lblInfoDeletar;
     private javax.swing.JLabel lblJanelaTitulo;
     private javax.swing.JLabel lblPesquisar;
+    private javax.swing.JPanel panButton;
     private javax.swing.JPanel panJanelaTitulo;
     private javax.swing.JPanel panSearch;
     private javax.swing.JPanel panTableData;
@@ -497,6 +519,8 @@ public class CentroPatente extends javax.swing.JFrame {
         // inserindo linha/s na tabela
         for (int i = 0; i < patentes.size(); i++) {
             this.getPatenteModel().addRow(patentes.get(i),i);
+            this.buttonTable.getTableCellEditorComponent(this.tblPatentes, "Delete", 
+                    false, i, 4); // 4 é a coluna que eu quero inserir um label pra delete.
         }
     }
     
