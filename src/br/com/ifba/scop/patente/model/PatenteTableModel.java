@@ -91,6 +91,7 @@ public class PatenteTableModel extends AbstractTableModel {
      */
     public void removeRow(int indx) {
         this.data.remove(indx);
+        this.logo.remove(indx);
         this.fireTableRowsDeleted(indx, indx);
     }
     
@@ -100,6 +101,7 @@ public class PatenteTableModel extends AbstractTableModel {
     public void removeAllRows() {
         int end = this.getRowCount();
         this.data.clear();
+        this.logo.clear();
         this.fireTableRowsDeleted(0, end);
     }
     
