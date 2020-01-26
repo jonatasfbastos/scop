@@ -59,6 +59,11 @@ public class ServicePatente implements IServicePatente {
             this.setSuccess(false);
             return this.patenteSuccess();
         }
+        // testa inconsistencia de dia e mês
+        if (patente.getDia() > 31 || patente.getMes() > 12) {
+            this.setSuccess(false);
+            return this.patenteSuccess();
+        }
         // se chegou até aqui, dados aprovados
         /*
         Aqui é enviado os dados para o dao que, se retornar true,
@@ -101,6 +106,11 @@ public class ServicePatente implements IServicePatente {
             return this.patenteSuccess();
         }
         if (StringUtil.getInstance().isNull(patente.getAreaInvencao())) {
+            this.setSuccess(false);
+            return this.patenteSuccess();
+        }
+        // testa inconsistencia de dia e mês
+        if (patente.getDia() > 31 || patente.getMes() > 12) {
             this.setSuccess(false);
             return this.patenteSuccess();
         }
