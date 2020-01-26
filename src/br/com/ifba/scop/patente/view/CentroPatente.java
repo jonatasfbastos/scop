@@ -6,7 +6,7 @@
 package br.com.ifba.scop.patente.view;
 
 import br.com.ifba.scop.infraestructure.service.IFachada;
-import br.com.ifba.scop.patente.model.ButtonTable;
+import br.com.ifba.scop.infraestructure.model.ButtonTable;
 import br.com.ifba.scop.patente.model.Patente;
 import br.com.ifba.scop.patente.model.PatenteTableModel;
 import java.util.List;
@@ -129,7 +129,7 @@ public class CentroPatente extends javax.swing.JFrame {
                         .addComponent(radNumero)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(radTitulo)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 38, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         panSearchLayout.setVerticalGroup(
@@ -236,7 +236,7 @@ public class CentroPatente extends javax.swing.JFrame {
                 .addComponent(lblInfoAtualizar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblInfoDeletar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -255,7 +255,7 @@ public class CentroPatente extends javax.swing.JFrame {
         panButtonLayout.setHorizontalGroup(
             panButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panButtonLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(602, Short.MAX_VALUE)
                 .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );

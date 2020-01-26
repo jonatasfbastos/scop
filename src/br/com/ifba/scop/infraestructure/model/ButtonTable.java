@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.ifba.scop.patente.model;
+package br.com.ifba.scop.infraestructure.model;
 
 import java.awt.Component;
 import java.awt.event.ActionEvent;
@@ -17,8 +17,9 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumnModel;
 
 /**
- *
- * @author work
+ * This class is for inserts a button inside a cell on JTable.
+ * @author Abel
+ * @see #ButtonTable
  */
 public class ButtonTable extends AbstractCellEditor implements 
         TableCellRenderer, TableCellEditor, ActionListener {
