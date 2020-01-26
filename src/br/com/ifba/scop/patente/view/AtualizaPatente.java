@@ -31,6 +31,7 @@ public class AtualizaPatente extends javax.swing.JFrame {
         // inserindo valores
         this.txtID.setText(id);
         this.txtNumPatente.setText(num);
+        this.setLocationRelativeTo(null);
     }
 
     /**

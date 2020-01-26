@@ -19,6 +19,7 @@ public class CadastroPatente extends javax.swing.JFrame {
      */
     public CadastroPatente() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
