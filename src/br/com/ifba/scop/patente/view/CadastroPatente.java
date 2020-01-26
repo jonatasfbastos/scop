@@ -54,13 +54,13 @@ public class CadastroPatente extends javax.swing.JFrame {
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitulo.setText("FORMULARIO PARA PEDIDO DE PATENTE");
 
-        lblNumber.setText("N°");
+        lblNumber.setText("N°*");
 
-        lblData.setText("Data:");
+        lblData.setText("Data*");
 
-        lblTituloPatente.setText("1- TÍTULO DA PATENTE");
+        lblTituloPatente.setText("1- TÍTULO DA PATENTE*");
 
-        lblAreaLinhaPatente.setText("2- ÁREA/LINHA DA PATENTE");
+        lblAreaLinhaPatente.setText("2- ÁREA/LINHA DA PATENTE*");
 
         btnConfirmar.setText("Confirmar");
         btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
@@ -69,11 +69,11 @@ public class CadastroPatente extends javax.swing.JFrame {
             }
         });
 
-        lblDia.setText("Dia");
+        lblDia.setText("Dia*");
 
-        lblMes.setText("Mês");
+        lblMes.setText("Mês*");
 
-        lblAno.setText("Ano");
+        lblAno.setText("Ano*");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

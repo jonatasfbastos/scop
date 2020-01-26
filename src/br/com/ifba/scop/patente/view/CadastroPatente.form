@@ -131,28 +131,28 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblNumber">
       <Properties>
-        <Property name="text" type="java.lang.String" value="N&#xb0;"/>
+        <Property name="text" type="java.lang.String" value="N&#xb0;*"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtNumber">
     </Component>
     <Component class="javax.swing.JLabel" name="lblData">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Data:"/>
+        <Property name="text" type="java.lang.String" value="Data*"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtDay">
     </Component>
     <Component class="javax.swing.JLabel" name="lblTituloPatente">
       <Properties>
-        <Property name="text" type="java.lang.String" value="1- T&#xcd;TULO DA PATENTE"/>
+        <Property name="text" type="java.lang.String" value="1- T&#xcd;TULO DA PATENTE*"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtTituloPatente">
     </Component>
     <Component class="javax.swing.JLabel" name="lblAreaLinhaPatente">
       <Properties>
-        <Property name="text" type="java.lang.String" value="2- &#xc1;REA/LINHA DA PATENTE"/>
+        <Property name="text" type="java.lang.String" value="2- &#xc1;REA/LINHA DA PATENTE*"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtAreaLinhaPatente">
@@ -167,12 +167,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblDia">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Dia"/>
+        <Property name="text" type="java.lang.String" value="Dia*"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblMes">
       <Properties>
-        <Property name="text" type="java.lang.String" value="M&#xea;s"/>
+        <Property name="text" type="java.lang.String" value="M&#xea;s*"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtMonth">
@@ -181,7 +181,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblAno">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ano"/>
+        <Property name="text" type="java.lang.String" value="Ano*"/>
       </Properties>
     </Component>
   </SubComponents>

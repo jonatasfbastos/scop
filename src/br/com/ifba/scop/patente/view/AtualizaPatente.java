@@ -136,7 +136,7 @@ public class AtualizaPatente extends javax.swing.JFrame {
             }
         });
 
-        lblTituloPatente.setText("TÍTULO:*");
+        lblTituloPatente.setText("TÍTULO*");
 
         lblAreaPatente.setText("AREA*");
 

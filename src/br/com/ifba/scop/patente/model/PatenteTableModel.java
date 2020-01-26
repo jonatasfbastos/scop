@@ -73,8 +73,9 @@ public class PatenteTableModel extends AbstractTableModel {
     /**
      * Inserts a new line.
      * @param patente Patente Object
+     * @param line Line number
      */
-    public void addRow(Patente patente) {
+    public void addRow(Patente patente, int line) {
         // creating icon
         final String path =
                 "/br/com/ifba/scop/projetopesquisa/view/imagens/icon_excluirr.png";
@@ -82,6 +83,7 @@ public class PatenteTableModel extends AbstractTableModel {
         icon.setDescription("Delete Patente");
         this.logo.add(icon);
         this.data.add(patente);
+        this.setValueAt(this.logo.get(line), line, 4);
         this.fireTableDataChanged(); // atualiza tabela
     }
     

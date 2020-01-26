@@ -9,7 +9,6 @@ import br.com.ifba.scop.infraestructure.service.IFachada;
 import br.com.ifba.scop.patente.model.Patente;
 import br.com.ifba.scop.patente.model.PatenteTableModel;
 import java.util.List;
-import javax.swing.ImageIcon;
 
 /**
  * This is the main screen of patente part.
@@ -73,8 +72,8 @@ public class CentroPatente extends javax.swing.JFrame {
         lblPesquisar.setText("Pesquisa:");
 
         txtPesquisar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtPesquisarKeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPesquisarKeyReleased(evt);
             }
         });
 
@@ -314,72 +313,7 @@ public class CentroPatente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_radTituloMouseClicked
 
-    /**
-     * Search when the user press a key.
-     * @param evt Key event.
-     */
-    private void txtPesquisarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisarKeyPressed
-        // TODO add your handling code here:
-        // instanciando patente entidade
-        Patente patente = new Patente();
-        // instanciando fachada
-        IFachada fachada = 
-                new br.com.ifba.scop.infraestructure.service.Fachada();
-        // qual o tipo de pesquisa
-        if (this.radArea.isSelected()) {
-            // area
-            patente.setAreaInvencao(this.txtPesquisar.getText());
-            // retorna pesquisa de área
-            List<Patente> dados = fachada.searchPatenteArea(patente);
-            // testa se houve erro
-            if (dados == null || dados.isEmpty()) {
-                javax.swing.JOptionPane.showConfirmDialog(null, 
-                        "Erro de Busca por Área! Nada Encontrado.");
-                return;
-            }
-            this.patenteModel.removeAllRows(); // remove all rows
-            // insert data
-            dados.forEach((c) -> {
-                this.patenteModel.addRow(c);
-            });
-        } 
-        else if (this.radNumero.isSelected()) {
-            // numero
-            // evita erro de string não poder ser convertida para numero
-            long num = (long) this.stringBeNumber(this.txtPesquisar.getText());
-            patente.setNumero(num);
-            // retorna pesquisa de numero
-            List<Patente> dados = fachada.searchPatenteNumber(patente);
-            // testa se houve erro
-            if (dados == null || dados.isEmpty()) {
-                javax.swing.JOptionPane.showConfirmDialog(null, 
-                        "Erro de Busca por Número! Nada Encontrado.");
-                return;
-            }
-            this.patenteModel.removeAllRows(); // remove all rows
-            // insert data
-            dados.forEach((c) -> {
-                this.patenteModel.addRow(c);
-            });
-        } else if (this.radTitulo.isSelected()) {
-            // titulo
-            patente.setTituloInvencao(this.txtPesquisar.getText());
-            // retorna pesquisa de titulo
-            List<Patente> dados = fachada.searchPatenteTitle(patente);
-            // testa se houve erro
-            if (dados == null || dados.isEmpty()) {
-                javax.swing.JOptionPane.showConfirmDialog(null, 
-                        "Erro de Busca por Título! Nada Encontrado.");
-                return;
-            }
-            this.patenteModel.removeAllRows(); // remove all rows
-            // insert data
-            dados.forEach((c) -> {
-                this.patenteModel.addRow(c);
-            });
-        }
-    }//GEN-LAST:event_txtPesquisarKeyPressed
-
+    
     /**
      * update or delete.
      * @param evt Mouse Event
@@ -419,6 +353,67 @@ public class CentroPatente extends javax.swing.JFrame {
         this.getPatenteModel().removeAllRows();
         this.forListagemAll(); // atualiza todos os elementos vistos na tabela.
     }//GEN-LAST:event_formWindowGainedFocus
+
+    
+    /**
+     * Search when the user released a key.
+     * @param evt Key event.
+     */
+    private void txtPesquisarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisarKeyReleased
+        // TODO add your handling code here:
+        // instanciando patente entidade
+        Patente patente = new Patente();
+        // instanciando fachada
+        IFachada fachada = 
+                new br.com.ifba.scop.infraestructure.service.Fachada();
+        // qual o tipo de pesquisa
+        if (this.radArea.isSelected()) {
+            // area
+            patente.setAreaInvencao(this.txtPesquisar.getText());
+            // retorna pesquisa de área
+            List<Patente> dados = fachada.searchPatenteArea(patente);
+            // testa se houve erro
+            if (dados == null || dados.isEmpty()) {
+                return; // stop here
+            }
+            this.getPatenteModel().removeAllRows(); // remove all rows
+            // insert data
+            for (int i = 0; i < dados.size(); i++) {
+                this.getPatenteModel().addRow(dados.get(i),i);
+            }
+        } 
+        else if (this.radNumero.isSelected()) {
+            // numero
+            // evita erro de string não poder ser convertida para numero
+            long num = (long) this.stringBeNumber(this.txtPesquisar.getText());
+            patente.setNumero(num);
+            // retorna pesquisa de numero
+            List<Patente> dados = fachada.searchPatenteNumber(patente);
+            // testa se houve erro
+            if (dados == null || dados.isEmpty()) {
+                return; //stop here
+            }
+            this.getPatenteModel().removeAllRows(); // remove all rows
+            // insert data
+            for (int i = 0; i < dados.size(); i++) {
+                this.getPatenteModel().addRow(dados.get(i),i);
+            }
+        } else if (this.radTitulo.isSelected()) {
+            // titulo
+            patente.setTituloInvencao(this.txtPesquisar.getText());
+            // retorna pesquisa de titulo
+            List<Patente> dados = fachada.searchPatenteTitle(patente);
+            // testa se houve erro
+            if (dados == null || dados.isEmpty()) {
+                return; // stop here
+            }
+            this.getPatenteModel().removeAllRows(); // remove all rows
+            // insert data
+            for (int i = 0; i < dados.size(); i++) {
+                this.getPatenteModel().addRow(dados.get(i),i);
+            }
+        }
+    }//GEN-LAST:event_txtPesquisarKeyReleased
 
     /**
      * @param args the command line arguments
@@ -501,7 +496,7 @@ public class CentroPatente extends javax.swing.JFrame {
         }
         // inserindo linha/s na tabela
         for (int i = 0; i < patentes.size(); i++) {
-            this.getPatenteModel().addRow(patentes.get(i));
+            this.getPatenteModel().addRow(patentes.get(i),i);
         }
     }
     
