@@ -207,6 +207,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtForDataTermino.setToolTipText("");
         jPanel1.add(txtForDataTermino, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 290, 110, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
@@ -291,21 +292,50 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
                 if(txtLinhaPesquisa.getText().equals("") && txtGrupoPesquisa.getText().equals("")){
                     if(txtCampus.getText().equals("") && txtLocalDesenvolvimento.getText().equals("")){
                         if(txtViabilidadeTecnica.getText().equals("") && txtFonte.getText().equals("")){
-                           JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios.", "CAMPOS OBRIGATÓRIOS", JOptionPane.ERROR_MESSAGE);
-                            return false;
+                            if(txtForDataInicio.getText().equals("  /  /    ") && txtForDataTermino.getText().equals("  /  /    ")){
+                                lblTituloProjeto.setText("Título do Projeto*");
+                                lblTituloProjeto.setForeground(Color.red);
+                                lblEmail.setText("Email*");
+                                lblEmail.setForeground(Color.red);
+                                lblTelefone.setText("Telefone*");
+                                lblTelefone.setForeground(Color.red);
+                                lblSubarea.setText("Subárea*");
+                                lblSubarea.setForeground(Color.red);
+                                lblLinhaPesquisa.setText("Linha de Pesquisa*");
+                                lblLinhaPesquisa.setForeground(Color.red);
+                                lblGrupoPesquisa.setText("Grupo de Pesquisa*");
+                                lblGrupoPesquisa.setForeground(Color.red);
+                                lblCampus.setText("Campus*");
+                                lblCampus.setForeground(Color.red);
+                                lblLocalDesenvolvimento.setText("Local de Desenvolvimento*");
+                                lblLocalDesenvolvimento.setForeground(Color.red);
+                                lblViabilidadeTecnica.setText("Viabilidade Técnica*");
+                                lblViabilidadeTecnica.setForeground(Color.red);
+                                lblDataInicio.setText("Data de Início*");
+                                lblDataInicio.setForeground(Color.red);
+                                lblDataTermino.setText("Data de Término*");
+                                lblDataTermino.setForeground(Color.red);
+                                lblFonte.setText("Fonte*");
+                                lblFonte.setForeground(Color.red);
+                                
+                                JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios.", "CAMPOS OBRIGATÓRIOS", JOptionPane.ERROR_MESSAGE);
+                                return false;
+                            } 
                         }
                     }               
                 }
             }
         }     
              
-  //while(txtTituloProjeto.getText().equals("") || txtEmail.getText().equals("") || txtSubarea.getText().equals("") || txtTelefone.getText().equals("(  )-     -    ") || txtLinhaPesquisa.getText().equals("") || txtGrupoPesquisa.getText().equals("") || txtCampus.getText().equals("") || txtLocalDesenvolvimento.getText().equals("") || txtViabilidadeTecnica.getText().equals("") || txtFonte.getText().equals("")){
-    //checa cada campo individualmente                   
+  //checa cada campo individualmente                   
         if(util.isNullOrEmpty(txtTituloProjeto.getText())){
            lblTituloProjeto.setText("Título do Projeto*");
            lblTituloProjeto.setForeground(Color.red);
            JOptionPane.showMessageDialog(null, "Preencha o campo Título de Projeto.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
             return false;
+        }else{
+           lblTituloProjeto.setText("Título do Projeto");
+           lblTituloProjeto.setForeground(Color.black);
         }
         
         if(util.isNullOrEmpty(txtEmail.getText())){
@@ -313,6 +343,9 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
            lblEmail.setForeground(Color.red);
            JOptionPane.showMessageDialog(null, "Preencha o campo Email.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
             return false;
+        }else{
+           lblEmail.setText("Email");
+           lblEmail.setForeground(Color.black);
         }
         
         if(txtTelefone.getText().equals("(  )-     -    ")){
@@ -320,6 +353,9 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
            lblTelefone.setForeground(Color.red);
            JOptionPane.showMessageDialog(null, "Preencha o campo Telefone.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
             return false;
+        }else{
+           lblTelefone.setText("Telefone");
+           lblTelefone.setForeground(Color.black);
         }
         
         if(util.isNullOrEmpty(txtSubarea.getText())){
@@ -327,6 +363,9 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
            lblSubarea.setForeground(Color.red);   
            JOptionPane.showMessageDialog(null, "Preencha o campo Subárea.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
             return false;
+        }else{
+           lblSubarea.setText("Subárea");
+           lblSubarea.setForeground(Color.black);
         }
         
         if(util.isNullOrEmpty(txtLinhaPesquisa.getText())){
@@ -334,6 +373,9 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
             lblLinhaPesquisa.setForeground(Color.red);  
             JOptionPane.showMessageDialog(null, "Preencha o campo Linha de Pesquisa.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
             return false;
+        }else{
+            lblLinhaPesquisa.setText("Linha de Pesquisa");
+            lblLinhaPesquisa.setForeground(Color.black);
         }
         
         if(util.isNullOrEmpty(txtGrupoPesquisa.getText())){
@@ -341,6 +383,9 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
            lblGrupoPesquisa.setForeground(Color.red);
            JOptionPane.showMessageDialog(null, "Preencha o campo Grupo de Pesquisa.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
             return false;
+        }else{
+           lblGrupoPesquisa.setText("Grupo de Pesquisa");
+           lblGrupoPesquisa.setForeground(Color.black);
         }
         
         if(util.isNullOrEmpty(txtCampus.getText())){
@@ -348,6 +393,9 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
            lblCampus.setForeground(Color.red);  
             JOptionPane.showMessageDialog(null, "Preencha o campo Campus.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
            return false;
+        }else{
+           lblCampus.setText("Campus");
+           lblCampus.setForeground(Color.black);  
         }
        
         if(util.isNullOrEmpty(txtLocalDesenvolvimento.getText())){
@@ -355,6 +403,9 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
            lblLocalDesenvolvimento.setForeground(Color.red); 
            JOptionPane.showMessageDialog(null, "Preencha o campo Local de Desenvolvimento.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
             return false;
+        }else{
+           lblLocalDesenvolvimento.setText("Local de Desenvolvimento");
+           lblLocalDesenvolvimento.setForeground(Color.black);
         }
        
         if(util.isNullOrEmpty(txtViabilidadeTecnica.getText())){
@@ -362,14 +413,19 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
            lblViabilidadeTecnica.setForeground(Color.red);  
            JOptionPane.showMessageDialog(null, "Preencha o campo Viabilidade Técnica.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
             return false;
+        }else{
+           lblViabilidadeTecnica.setText("Viabilidade Técnica");
+           lblViabilidadeTecnica.setForeground(Color.black);
         }
         
         if(this.txtForDataInicio.getText().equals("  /  /    ")){
             lblDataInicio.setText("Data de Início*");
             lblDataInicio.setForeground(Color.red);
-            JOptionPane.showMessageDialog(null, "Preencha o campo Data de Início.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
-              
+            JOptionPane.showMessageDialog(null, "Preencha o campo Data de Início.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE); 
             return false;
+        }else{
+            lblDataInicio.setText("Data de Início");
+            lblDataInicio.setForeground(Color.black);
         }
         
         if(this.txtForDataTermino.getText().equals("  /  /    ")){
@@ -377,18 +433,20 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
             lblDataTermino.setForeground(Color.red);
             JOptionPane.showMessageDialog(null, "Preencha o campo Data de Término.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
             return false;
-          }
+        }else{
+            lblDataTermino.setText("Data de Término");
+            lblDataTermino.setForeground(Color.black);
+        }
         
         if(util.isNullOrEmpty(txtFonte.getText())){
            lblFonte.setText("Fonte*");
            lblFonte.setForeground(Color.red);
            JOptionPane.showMessageDialog(null, "Preencha o campo Fonte.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
             return false;
-        }
-               
-  //      }
-       
-        
+        }else{
+           lblFonte.setText("Fonte");
+           lblFonte.setForeground(Color.black);
+        }        
         return true;
     }
     
