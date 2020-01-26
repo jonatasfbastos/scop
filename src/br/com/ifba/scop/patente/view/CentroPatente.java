@@ -16,7 +16,6 @@ import javax.swing.ImageIcon;
  * @author Igor Lopes
  */
 public class CentroPatente extends javax.swing.JFrame {
-    private ImageIcon logo = new ImageIcon();
     private final PatenteTableModel patenteModel = new PatenteTableModel();
 
     /**
@@ -501,9 +500,9 @@ public class CentroPatente extends javax.swing.JFrame {
             return;
         }
         // inserindo linha/s na tabela
-        patentes.forEach((p) -> {
-            this.getPatenteModel().addRow(p);
-        });
+        for (int i = 0; i < patentes.size(); i++) {
+            this.getPatenteModel().addRow(patentes.get(i));
+        }
     }
     
     /**

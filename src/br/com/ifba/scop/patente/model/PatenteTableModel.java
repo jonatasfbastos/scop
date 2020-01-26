@@ -7,6 +7,7 @@ package br.com.ifba.scop.patente.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -14,7 +15,7 @@ import javax.swing.table.AbstractTableModel;
  * @author abel
  */
 public class PatenteTableModel extends AbstractTableModel {
-    
+    private final List<ImageIcon> logo = new ArrayList<>();
     private final List<Patente> data = new ArrayList<>();
     private final String[] columns = {"ID","Número","Título","Área","Deletar"};
 
@@ -63,6 +64,8 @@ public class PatenteTableModel extends AbstractTableModel {
                 return this.data.get(line).getTituloInvencao();
             case 3:
                 return this.data.get(line).getAreaInvencao();
+            case 4:
+                return this.logo.get(line);
         }
         return null;
     }
@@ -72,6 +75,12 @@ public class PatenteTableModel extends AbstractTableModel {
      * @param patente Patente Object
      */
     public void addRow(Patente patente) {
+        // creating icon
+        final String path =
+                "/br/com/ifba/scop/projetopesquisa/view/imagens/icon_excluirr.png";
+        ImageIcon icon = new ImageIcon(path);
+        icon.setDescription("Delete Patente");
+        this.logo.add(icon);
         this.data.add(patente);
         this.fireTableDataChanged(); // atualiza tabela
     }
