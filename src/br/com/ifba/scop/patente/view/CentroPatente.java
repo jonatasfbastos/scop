@@ -9,13 +9,14 @@ import br.com.ifba.scop.infraestructure.service.IFachada;
 import br.com.ifba.scop.patente.model.Patente;
 import br.com.ifba.scop.patente.model.PatenteTableModel;
 import java.util.List;
+import javax.swing.ImageIcon;
 
 /**
  * This is the main screen of patente part.
  * @author Igor Lopes
  */
 public class CentroPatente extends javax.swing.JFrame {
-    
+    private ImageIcon logo = new ImageIcon();
     private final PatenteTableModel patenteModel = new PatenteTableModel();
 
     /**
@@ -544,4 +545,5 @@ public class CentroPatente extends javax.swing.JFrame {
                     "Erro ao Deletar: Patente Não Encontrada!");
         }
     }
+    
 }
