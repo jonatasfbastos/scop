@@ -6,7 +6,7 @@
 package br.com.ifba.scop.patente.view;
 
 import br.com.ifba.scop.infraestructure.service.IFachada;
-import br.com.ifba.scop.infraestructure.model.ButtonTable;
+import br.com.ifba.scop.infraestructure.model.ColumnDeleteLabel;
 import br.com.ifba.scop.patente.model.Patente;
 import br.com.ifba.scop.patente.model.PatenteTableModel;
 import java.util.List;
@@ -17,14 +17,14 @@ import java.util.List;
  */
 public class CentroPatente extends javax.swing.JFrame {
     private final PatenteTableModel patenteModel = new PatenteTableModel();
-    private final ButtonTable buttonTable;
+    private final ColumnDeleteLabel deleteLabel;
     
     /**
      * It Returns a Button Table instance.
      * @return ButtonTable Instance
      */
-    private ButtonTable getButtonTable() {
-        return this.buttonTable;
+    private ColumnDeleteLabel getDeleteLabel() {
+        return this.deleteLabel;
     }
 
     /**
@@ -42,7 +42,7 @@ public class CentroPatente extends javax.swing.JFrame {
         initComponents();
         this.tblPatentes.setModel(patenteModel); // setando modelo abstrato de jtable
         // enviando jtable para classe que contruirá o molde para coluna delete
-        this.buttonTable = new ButtonTable(this.tblPatentes, 4);
+        this.deleteLabel = new ColumnDeleteLabel(this.tblPatentes, 4);
         this.setLocationRelativeTo(null); // centralizando
     }
 
@@ -385,7 +385,7 @@ public class CentroPatente extends javax.swing.JFrame {
                 // enviando dados retornados do banco
                 this.getPatenteModel().addRow(dados.get(i),i);
                 // inserindo elementos da coluna delete
-                this.getButtonTable().getTableCellEditorComponent(this.tblPatentes, "Delete", 
+                this.getDeleteLabel().getTableCellEditorComponent(this.tblPatentes, "Delete", 
                     false, i, 4); // 4 é a coluna que eu quero inserir um label pra delete.
             }
             javax.swing.JOptionPane.showMessageDialog(null, "Patente Encontrada.");
@@ -407,7 +407,7 @@ public class CentroPatente extends javax.swing.JFrame {
                 // enviando dados retornados do baco
                 this.getPatenteModel().addRow(dados.get(i),i);
                 // inserindo elementos da coluna delete
-                this.getButtonTable().getTableCellEditorComponent(this.tblPatentes, "Delete", 
+                this.getDeleteLabel().getTableCellEditorComponent(this.tblPatentes, "Delete", 
                     false, i, 4); // 4 é a coluna que eu quero inserir um label pra delete.
             }
             javax.swing.JOptionPane.showMessageDialog(null, "Patente Encontrada.");
@@ -426,7 +426,7 @@ public class CentroPatente extends javax.swing.JFrame {
                 // enviando dados retornados do banco
                 this.getPatenteModel().addRow(dados.get(i),i);
                 // inserindo elementos da coluna delete
-                this.getButtonTable().getTableCellEditorComponent(this.tblPatentes, "Delete", 
+                this.getDeleteLabel().getTableCellEditorComponent(this.tblPatentes, "Delete", 
                     false, i, 4); // 4 é a coluna que eu quero inserir um label pra delete.
             }
             javax.swing.JOptionPane.showMessageDialog(null, "Patente Encontrada.");
@@ -525,8 +525,10 @@ public class CentroPatente extends javax.swing.JFrame {
         }
         // inserindo linha/s na tabela
         for (int i = 0; i < patentes.size(); i++) {
+            // inserindo valores do banco de dados
             this.getPatenteModel().addRow(patentes.get(i),i);
-            this.buttonTable.getTableCellEditorComponent(this.tblPatentes, "Delete", 
+            // inserindo label delete na tabela - jtable
+            this.getDeleteLabel().getTableCellEditorComponent(this.tblPatentes, "Delete", 
                     false, i, 4); // 4 é a coluna que eu quero inserir um label pra delete.
         }
     }
