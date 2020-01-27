@@ -40,9 +40,10 @@ public class CentroPatente extends javax.swing.JFrame {
      */
     public CentroPatente() {
         initComponents();
-        this.tblPatentes.setModel(patenteModel);
+        this.tblPatentes.setModel(patenteModel); // setando modelo abstrato de jtable
+        // enviando jtable para classe que contruirá o molde para coluna delete
         this.buttonTable = new ButtonTable(this.tblPatentes, 4);
-        this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null); // centralizando
     }
 
     /**
@@ -381,7 +382,9 @@ public class CentroPatente extends javax.swing.JFrame {
             this.getPatenteModel().removeAllRows(); // remove all rows
             // insert data
             for (int i = 0; i < dados.size(); i++) {
+                // enviando dados retornados do banco
                 this.getPatenteModel().addRow(dados.get(i),i);
+                // inserindo elementos da coluna delete
                 this.getButtonTable().getTableCellEditorComponent(this.tblPatentes, "Delete", 
                     false, i, 4); // 4 é a coluna que eu quero inserir um label pra delete.
             }
@@ -401,7 +404,9 @@ public class CentroPatente extends javax.swing.JFrame {
             this.getPatenteModel().removeAllRows(); // remove all rows
             // insert data
             for (int i = 0; i < dados.size(); i++) {
+                // enviando dados retornados do baco
                 this.getPatenteModel().addRow(dados.get(i),i);
+                // inserindo elementos da coluna delete
                 this.getButtonTable().getTableCellEditorComponent(this.tblPatentes, "Delete", 
                     false, i, 4); // 4 é a coluna que eu quero inserir um label pra delete.
             }
@@ -418,7 +423,9 @@ public class CentroPatente extends javax.swing.JFrame {
             this.getPatenteModel().removeAllRows(); // remove all rows
             // insert data
             for (int i = 0; i < dados.size(); i++) {
+                // enviando dados retornados do banco
                 this.getPatenteModel().addRow(dados.get(i),i);
+                // inserindo elementos da coluna delete
                 this.getButtonTable().getTableCellEditorComponent(this.tblPatentes, "Delete", 
                     false, i, 4); // 4 é a coluna que eu quero inserir um label pra delete.
             }

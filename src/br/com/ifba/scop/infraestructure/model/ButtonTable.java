@@ -5,6 +5,7 @@
  */
 package br.com.ifba.scop.infraestructure.model;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,9 +24,9 @@ import javax.swing.table.TableColumnModel;
  */
 public class ButtonTable extends AbstractCellEditor implements 
         TableCellRenderer, TableCellEditor, ActionListener {
-    JTable table;
-    JLabel delete;
-    String text;
+    private final JTable table;
+    private final JLabel delete;
+    private String text;
 
     /**
      * Builder.
@@ -42,6 +43,7 @@ public class ButtonTable extends AbstractCellEditor implements
                 "/br/com/ifba/scop/projetopesquisa/view/imagens/icon_excluirr.png";
         ImageIcon icon = new ImageIcon(getClass().getResource(path));
         this.delete.setIcon(icon);
+        this.delete.setForeground(Color.blue);
         
         TableColumnModel columnModel = table.getColumnModel();
         columnModel.getColumn(column).setCellRenderer(this);
