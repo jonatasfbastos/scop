@@ -60,7 +60,10 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
         
         initComponents();
         btnNovo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnNovo.setToolTipText("Clique neste botão para cadastrar um novo Projeto de Pesquisa");
         btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMenu.setToolTipText("Clique neste botão para voltar para a tela inicial");
+        txtNomeProjeto.setToolTipText("Digite algo para pesquisar");
         
         this.jtProjetosPesquisa.setModel(modelo);
         this.modelo.updateTableList(this.fachada.getAllProjetos());
@@ -216,6 +219,7 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         // TODO add your handling code here:
         new CadastrarProjetoPesquisa().setVisible(true);
+        
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
