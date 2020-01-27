@@ -9,9 +9,6 @@ import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
-
-
-
 /**
  *
  * @author mvictor
@@ -55,6 +52,7 @@ public class ProjetoPesquisaTableModel extends AbstractTableModel implements IPr
                 return ProjetoPesquisaTableModel.lista.get(linhas).getCampus();
             case 3:
                 return ProjetoPesquisaTableModel.lista.get(linhas).getEspaco();
+          
         }
         return null;
     }
@@ -67,8 +65,7 @@ public class ProjetoPesquisaTableModel extends AbstractTableModel implements IPr
     }
     
     // método que adiciona um elemento na linha da tabela, sendo que o usuário precisa especificar a posicao dessa linha na tabela.
-    public void addElementIndex(int posicao, ProjetoPesquisa entidade)
-    {
+    public void addElementIndex(int posicao, ProjetoPesquisa entidade){
         ProjetoPesquisaTableModel.lista.add(posicao, entidade);
         this.fireTableDataChanged();
     }
@@ -81,7 +78,7 @@ public class ProjetoPesquisaTableModel extends AbstractTableModel implements IPr
     }
     
     //metodo responsavel por limpar as informações da nossa tabela.
-    public void clerTable()
+    public void clearTable()
     {
         ProjetoPesquisaTableModel.lista.clear();
         this.fireTableDataChanged();
@@ -94,5 +91,4 @@ public class ProjetoPesquisaTableModel extends AbstractTableModel implements IPr
         ProjetoPesquisaTableModel.lista.addAll(lista);
         this.fireTableDataChanged();
     }
-
 }

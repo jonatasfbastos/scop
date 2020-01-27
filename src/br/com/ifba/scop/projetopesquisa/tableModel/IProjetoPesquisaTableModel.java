@@ -30,7 +30,9 @@ public interface IProjetoPesquisaTableModel{
         "Projeto Pesquisa",
         "Coordenador(a)",
         "Campos",
-        "Local"
+        "Local",
+        "Deletar",
+        "Editar"
     };
     
     

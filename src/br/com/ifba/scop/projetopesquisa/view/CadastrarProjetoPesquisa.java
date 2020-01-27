@@ -352,6 +352,17 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
            lblEmail.setForeground(Color.black);
         }
         
+        //verifica se o Email é válido.
+        if(emailValido.isEmailValid(txtEmail.getText())){
+            lblEmail.setText("Email");
+            lblEmail.setForeground(Color.BLACK);
+        }else{
+            lblEmail.setText("Email*");
+            lblEmail.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Digite um Email válido.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        
         if(txtTelefone.getText().equals("(  )-     -    ")){
            lblTelefone.setText("Telefone*");
            lblTelefone.setForeground(Color.red);
@@ -450,21 +461,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         }else{
            lblFonte.setText("Fonte");
            lblFonte.setForeground(Color.black);
-        }
-
-        //verifica se o Email é válido.
-        if(emailValido.isEmailValid(txtEmail.getText()))
-        {
-            lblEmail.setText("Email Válido!");
-            lblEmail.setForeground(Color.BLACK);
-        }
-        else
-        {
-            lblEmail.setText("Email Inválido!");
-            lblEmail.setForeground(Color.red);
-            JOptionPane.showMessageDialog(null, "Digite um Email Válido.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
-            return false;
-        }
+        }        
         return true;
     }
     

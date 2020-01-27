@@ -1,10 +1,13 @@
 package br.com.ifba.scop.projetopesquisa.view;
 
+import br.com.ifba.scop.infraestructure.model.ColumnDeleteLabel;
+import br.com.ifba.scop.infraestructure.model.ColumnEditLabel;
 import br.com.ifba.scop.infraestructure.service.Fachada;
 import br.com.ifba.scop.infraestructure.service.IFachada;
 import br.com.ifba.scop.projetopesquisa.dao.DaoProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.tableModel.ProjetoPesquisaTableModel;
+import java.awt.Color;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -23,8 +26,32 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
 
     private final ProjetoPesquisaTableModel modelo = new ProjetoPesquisaTableModel();
     private final IFachada fachada = new Fachada();
+    private final ColumnDeleteLabel deletar;
+    private final ColumnEditLabel editar;    
     int selecionado = -1;
     
+    /**
+     * It Returns a Button Table instance.
+     * @return ButtonTable Instance
+     */
+    private ColumnDeleteLabel getColumnDeleteLabel() {
+        return this.deletar;
+    }
+    /**
+     * It Returns a Button Table instance.
+     * @return ButtonTable Instance
+     */
+    private ColumnEditLabel getColumnEditLabel() {
+        return this.editar;
+    }
+    /**
+     * It Returns the patente table model (jtable).
+     * @return PatenteTableModel
+     */
+    private ProjetoPesquisaTableModel getProjetoPesquisaTableModel() {
+        return modelo;
+    }
+
     /**
      * Creates new form BuscarProjetoPesquisa
      */
@@ -33,7 +60,25 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
         initComponents();
         this.jtProjetosPesquisa.setModel(modelo);
         this.modelo.updateTableList(this.fachada.getAllProjetos());
+        //criando um botão do tipo deletar
+        this.deletar = new ColumnDeleteLabel(this.jtProjetosPesquisa, 4);
+        //criando um botão do tipo editar
+        this.editar = new ColumnEditLabel(this.jtProjetosPesquisa, 5);
         
+        //pega todos os proejtos
+        List<ProjetoPesquisa> dados = fachada.getAllProjetos();
+        
+       this.getProjetoPesquisaTableModel().clearTable(); // remove as informações
+        
+        //for com o tamanho da lista
+        for (int i = 0; i < dados.size(); i++) {
+            //add cada elemento pela posicao 
+            this.getProjetoPesquisaTableModel().addElementIndex(i, dados.get(i));
+            //insere os nomes no label de acordo com a coluna
+            this.getColumnDeleteLabel().getTableCellEditorComponent(this.jtProjetosPesquisa, "Delete", false, i, 4);
+            this.getColumnEditLabel().getTableCellEditorComponent(this.jtProjetosPesquisa, "Edite", false, i, 5);
+        }
+      
     }
 
     /**
@@ -82,7 +127,9 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
 
             }
         ));
+        jtProjetosPesquisa.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jtProjetosPesquisa.setOpaque(false);
+        jtProjetosPesquisa.getTableHeader().setReorderingAllowed(false);
         jtProjetosPesquisa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jtProjetosPesquisaMouseClicked(evt);
@@ -138,9 +185,7 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         
-        // Deleta o projeto selecionado e atualisa a tabela
-        
-        
+        // Deleta o projeto selecionado e atualiza a tabela
        if(this.selecionado != -1){           
             int confirmacao = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja remover este projeto pesquisa?", "REMOVER PROJETO PESQUISA", JOptionPane.INFORMATION_MESSAGE);
             //inteiro igualado ao joptionpane  para pegar se o usuário tem certeza de excluir o projeto
@@ -152,6 +197,7 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
                 this.fachada.deleteProjetoPesquisa(this.fachada.getAllProjetos().get(this.selecionado));
                 this.modelo.updateTableList(this.fachada.getAllProjetos());
                 this.selecionado = -1;
+                
             }
        }else{
            //caso não clique em algo
@@ -163,8 +209,33 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
     // Ação que é disparada quando houver um click na tabela
     private void jtProjetosPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtProjetosPesquisaMouseClicked
         // selecionado recebe o numero da linha que está selecionada
-        this.selecionado = this.jtProjetosPesquisa.getSelectedRow();
+        this.selecionado = this.jtProjetosPesquisa.getSelectedRow();   
         
+        if (this.jtProjetosPesquisa.getSelectedColumn() == 4) {
+        // Deleta o projeto selecionado e atualiza a tabela
+            if(this.selecionado != -1){           
+                int confirmacao = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja remover este projeto pesquisa?", "REMOVER PROJETO PESQUISA", JOptionPane.INFORMATION_MESSAGE);
+                //inteiro igualado ao joptionpane  para pegar se o usuário tem certeza de excluir o projeto
+                if(confirmacao == JOptionPane.NO_OPTION){
+                //se a confirmação é 1, o usuário escolheu "não" ou "cancelar" e retorna para a a tela de busca
+                    this.selecionado = -1;
+                      
+                }else if(confirmacao == JOptionPane.YES_OPTION){
+                //se a confirmação é zero, o usuário quer realmente excluir o projeto e os seus dados       
+                    this.fachada.deleteProjetoPesquisa(this.fachada.getAllProjetos().get(this.selecionado));
+                    this.modelo.updateTableList(this.fachada.getAllProjetos());
+                    this.selecionado = -1;
+                }
+            }else{
+            //caso não clique em algo
+                JOptionPane.showMessageDialog(null, "Para remover um cadastro, selecione um campo na tabela.", "SELECIONE UM CAMPO", JOptionPane.WARNING_MESSAGE);
+                this.selecionado = -1;
+            }  
+            //editar pelo botão
+        } if (this.jtProjetosPesquisa.getSelectedColumn() == 5) {
+             new CadastrarProjetoPesquisa(this.fachada.getAllProjetos().get(this.selecionado)).setVisible(true);
+                          
+        }    
     }//GEN-LAST:event_jtProjetosPesquisaMouseClicked
 
     // Ação que é disparada quando a tela de cima for fechada
