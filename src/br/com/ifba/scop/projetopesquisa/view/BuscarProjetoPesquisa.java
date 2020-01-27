@@ -63,7 +63,7 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
         btnNovo.setToolTipText("Clique neste botão para cadastrar um novo Projeto de Pesquisa");
         btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnMenu.setToolTipText("Clique neste botão para voltar para a tela inicial");
-        txtNomeProjeto.setToolTipText("Digite algo para pesquisar");
+        txtNomeProjeto.setToolTipText("Digite algo neste campo para pesquisar");
         
         this.jtProjetosPesquisa.setModel(modelo);
         this.modelo.updateTableList(this.fachada.getAllProjetos());
