@@ -4,6 +4,7 @@ import br.com.ifba.scop.infraestructure.model.ColumnDeleteLabel;
 import br.com.ifba.scop.infraestructure.model.ColumnEditLabel;
 import br.com.ifba.scop.infraestructure.service.Fachada;
 import br.com.ifba.scop.infraestructure.service.IFachada;
+import br.com.ifba.scop.infraestructure.view.TelaInicial;
 import br.com.ifba.scop.projetopesquisa.dao.DaoProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.tableModel.ProjetoPesquisaTableModel;
@@ -58,6 +59,9 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
     public BuscarProjetoPesquisa() {
         
         initComponents();
+        btnNovo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        
         this.jtProjetosPesquisa.setModel(modelo);
         this.modelo.updateTableList(this.fachada.getAllProjetos());
         //criando um botão do tipo deletar
@@ -94,7 +98,7 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtProjetosPesquisa = new javax.swing.JTable();
         btnNovo = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnMenu = new javax.swing.JButton();
         lblImagenFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -145,8 +149,13 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
         });
         getContentPane().add(btnNovo, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 472, 40, 40));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/projetopesquisa/view/imagens/icon_home.png"))); // NOI18N
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 40));
+        btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/projetopesquisa/view/imagens/icon_home.png"))); // NOI18N
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 40));
 
         lblImagenFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/projetopesquisa/view/imagens/fundo_tela_buscarr.png"))); // NOI18N
         getContentPane().add(lblImagenFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 640));
@@ -209,6 +218,12 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
         new CadastrarProjetoPesquisa().setVisible(true);
     }//GEN-LAST:event_btnNovoActionPerformed
 
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        // TODO add your handling code here:
+        
+        this.dispose();
+    }//GEN-LAST:event_btnMenuActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -246,8 +261,8 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnMenu;
     private javax.swing.JButton btnNovo;
-    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jtProjetosPesquisa;
     private javax.swing.JLabel lblImagenFundo;
