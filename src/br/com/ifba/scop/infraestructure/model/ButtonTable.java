@@ -26,6 +26,7 @@ public class ButtonTable extends AbstractCellEditor implements
         TableCellRenderer, TableCellEditor, ActionListener {
     private final JTable table;
     private final JLabel delete;
+    private final JLabel editar;
     private String text;
 
     /**
@@ -34,17 +35,24 @@ public class ButtonTable extends AbstractCellEditor implements
      * @param column Integer
      */
     public ButtonTable(JTable table, int column) {
-        super();
-        
+        super(); // super class
+        // table was assign
         this.table = table;
-        
+        // delete label to: delete a register from database
         this.delete = new JLabel("Delete");
         final String path =
                 "/br/com/ifba/scop/projetopesquisa/view/imagens/icon_excluirr.png";
         ImageIcon icon = new ImageIcon(getClass().getResource(path));
         this.delete.setIcon(icon);
         this.delete.setForeground(Color.blue);
-        
+        // editar label to: delete a edite a register from database
+        final String path1 =
+                "/br/com/ifba/scop/projetopesquisa/view/imagens/icon_editarr.png";
+        ImageIcon icon1 = new ImageIcon(getClass().getResource(path1));
+        this.editar = new JLabel("Editar");
+        this.editar.setIcon(icon1);
+        this.editar.setForeground(Color.blue);
+        // modelo da celula da coluna colocado a disposição
         TableColumnModel columnModel = table.getColumnModel();
         columnModel.getColumn(column).setCellRenderer(this);
         columnModel.getColumn(column).setCellEditor(this);
@@ -55,18 +63,68 @@ public class ButtonTable extends AbstractCellEditor implements
         return this.text;
     }
 
+    /**
+     * Delete Renderer.
+     * @param table JTabel
+     * @param value Object
+     * @param isSelected Boolean
+     * @param hasFocus Boolean
+     * @param row Integer
+     * @param column Integer
+     * @return Component
+     */
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, 
             boolean isSelected, boolean hasFocus, int row, int column) {
         return this.delete;
     }
+    
+    /**
+     * Edit Renderer.
+     * @param table JTabel
+     * @param value Object
+     * @param isSelected Boolean
+     * @param hasFocus Boolean
+     * @param row Integer
+     * @param column Integer
+     * @return Component
+     */
+    public Component getTableCellRendererComponentEdit(JTable table, Object value, 
+            boolean isSelected, boolean hasFocus, int row, int column) {
+        return this.editar;
+    }
 
+    /**
+     * It returns a delete JLabel.
+     * @param table JTabel
+     * @param value Object
+     * @param isSelected Boolean
+     * @param row Integer
+     * @param column Integer
+     * @return Component
+     */
     @Override
     public Component getTableCellEditorComponent(JTable table, Object value, 
             boolean isSelected, int row, int column) {
         this.text = (value == null) ? "" : value.toString();
         this.delete.setText(text);
         return this.delete;
+    }
+    
+    /**
+     * It returns a edit JLabel.
+     * @param table JTabel
+     * @param value Object
+     * @param isSelected Boolean
+     * @param row Integer
+     * @param column Integer
+     * @return Component
+     */
+    public Component getTableCellEditorComponentEdit(JTable table, Object value, 
+            boolean isSelected, int row, int column) {
+        this.text = (value == null) ? "" : value.toString();
+        this.editar.setText(text);
+        return this.editar;
     }
 
     @Override
