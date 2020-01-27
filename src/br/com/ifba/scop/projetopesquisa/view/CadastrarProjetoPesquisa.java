@@ -36,7 +36,10 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
      */
     public CadastrarProjetoPesquisa() {
         initComponents();
+        btnCadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         this.radioSim.setSelected(true);
+        this.radioSim.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        this.radioNao.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         this.projeto = new ProjetoPesquisa();
     }
     
