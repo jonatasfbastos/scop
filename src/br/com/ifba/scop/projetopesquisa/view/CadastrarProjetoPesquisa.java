@@ -10,6 +10,7 @@ import br.com.ifba.scop.infraestructure.dao.IBaseDao;
 import br.com.ifba.scop.infraestructure.service.Fachada;
 import br.com.ifba.scop.infraestructure.service.IFachada;
 import br.com.ifba.scop.infraestructure.support.DateUtil;
+import br.com.ifba.scop.infraestructure.support.EmailUtils;
 import br.com.ifba.scop.infraestructure.support.StringUtil;
 import br.com.ifba.scop.projetopesquisa.dao.DaoProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.dao.IDaoProjetoPesquisa;
@@ -286,6 +287,8 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
     private boolean validaCampos(){
         
         StringUtil util = StringUtil.getInstance();
+        EmailUtils emailValido = EmailUtils.getInstance();
+        
        //se todos os campos não estiverem preenchidos
         if(txtTituloProjeto.getText().equals("") && txtEmail.getText().equals("")){
             if(txtSubarea.getText().equals("") && txtTelefone.getText().equals("(  )-     -    ")){
@@ -337,6 +340,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
            lblTituloProjeto.setText("Título do Projeto");
            lblTituloProjeto.setForeground(Color.black);
         }
+        
         
         if(util.isNullOrEmpty(txtEmail.getText())){
            lblEmail.setText("Email*");
@@ -446,7 +450,21 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         }else{
            lblFonte.setText("Fonte");
            lblFonte.setForeground(Color.black);
-        }        
+        }
+
+        //verifica se o Email é válido.
+        if(emailValido.isEmailValid(txtEmail.getText()))
+        {
+            lblEmail.setText("Email Válido!");
+            lblEmail.setForeground(Color.BLACK);
+        }
+        else
+        {
+            lblEmail.setText("Email Inválido!");
+            lblEmail.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Digite um Email Válido.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
         return true;
     }
     
