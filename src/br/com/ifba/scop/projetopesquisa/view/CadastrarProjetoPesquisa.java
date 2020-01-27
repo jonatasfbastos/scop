@@ -36,6 +36,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
      */
     public CadastrarProjetoPesquisa() {
         initComponents();
+        this.radioSim.setSelected(true);
         this.projeto = new ProjetoPesquisa();
     }
     
@@ -56,7 +57,9 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         this.txtFonte.setText(editado.getFinaciamento());
         this.txtForDataInicio.setText(this.utilDate.toString(editado.getDataInicio()));
         this.txtForDataTermino.setText(this.utilDate.toString(editado.getDataTermino()));
-        
+        this.radioSim.setSelected(editado.isFinanciada());
+        this.radioNao.setSelected(!this.radioSim.isSelected());
+        this.txtFonte.setText(editado.getFinaciamento());
     }
 
     /**
@@ -70,6 +73,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
 
         jTextField9 = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox();
+        grupoBotoes = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         txtEmail = new javax.swing.JTextField();
         lblEmail = new javax.swing.JLabel();
@@ -80,9 +84,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         txtTituloProjeto = new javax.swing.JTextField();
         txtSubarea = new javax.swing.JTextField();
         txtLinhaPesquisa = new javax.swing.JTextField();
-        chkSim = new javax.swing.JCheckBox();
         lblFinanciamento = new javax.swing.JLabel();
-        chkNao = new javax.swing.JCheckBox();
         lblFonte = new javax.swing.JLabel();
         txtFonte = new javax.swing.JTextField();
         lblDataInicio = new javax.swing.JLabel();
@@ -101,6 +103,8 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtForDataInicio = new javax.swing.JFormattedTextField();
         txtForDataTermino = new javax.swing.JFormattedTextField();
+        radioSim = new javax.swing.JRadioButton();
+        radioNao = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
 
         jTextField9.addActionListener(new java.awt.event.ActionListener() {
@@ -137,19 +141,12 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         jPanel1.add(txtSubarea, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 295, 303, 27));
         jPanel1.add(txtLinhaPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 353, 303, 27));
 
-        chkSim.setSelected(true);
-        chkSim.setText("Sim");
-        jPanel1.add(chkSim, new org.netbeans.lib.awtextra.AbsoluteConstraints(405, 452, 60, -1));
-
         lblFinanciamento.setText("Financiamento");
-        jPanel1.add(lblFinanciamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(405, 416, 130, -1));
-
-        chkNao.setText("Não");
-        jPanel1.add(chkNao, new org.netbeans.lib.awtextra.AbsoluteConstraints(464, 452, 70, -1));
+        jPanel1.add(lblFinanciamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 130, -1));
 
         lblFonte.setText("Fonte");
-        jPanel1.add(lblFonte, new org.netbeans.lib.awtextra.AbsoluteConstraints(405, 333, 70, -1));
-        jPanel1.add(txtFonte, new org.netbeans.lib.awtextra.AbsoluteConstraints(405, 353, 306, 27));
+        jPanel1.add(lblFonte, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 430, 70, -1));
+        jPanel1.add(txtFonte, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 450, 306, 27));
 
         lblDataInicio.setText("Data de inicio");
         jPanel1.add(lblDataInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(408, 259, 140, -1));
@@ -211,6 +208,19 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         txtForDataTermino.setToolTipText("");
         jPanel1.add(txtForDataTermino, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 290, 110, -1));
 
+        grupoBotoes.add(radioSim);
+        radioSim.setText("Sim");
+        radioSim.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                radioSimItemStateChanged(evt);
+            }
+        });
+        jPanel1.add(radioSim, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, -1, -1));
+
+        grupoBotoes.add(radioNao);
+        radioNao.setText("Não");
+        jPanel1.add(radioNao, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 390, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/projetopesquisa/view/imagens/fundo_tela_buscarr.png"))); // NOI18N
@@ -234,15 +244,17 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         if(validaCampos() == true){
 
             // Atribuindo os dados dos campos aos atributos do objeto
-            projeto.setCampus(this.txtCampus.getText());
-            projeto.setDataInicio(this.utilDate.toDate(this.txtForDataInicio.getText()));
-            projeto.setDataTermino(this.utilDate.toDate(this.txtForDataTermino.getText()));
-            projeto.setEspaco(this.txtLocalDesenvolvimento.getText());
-            projeto.setFinaciamento(this.txtFonte.getText());
-            projeto.setLinhaPesquisa(this.txtLinhaPesquisa.getText());
-            projeto.setSubArea(this.txtSubarea.getText());
-            projeto.setTitulo(this.txtTituloProjeto.getText());
-            projeto.setViabilidadeTec(this.txtViabilidadeTecnica.getText());
+            this.projeto.setCampus(this.txtCampus.getText());
+            this.projeto.setDataInicio(this.utilDate.toDate(this.txtForDataInicio.getText()));
+            this.projeto.setDataTermino(this.utilDate.toDate(this.txtForDataTermino.getText()));
+            this.projeto.setEspaco(this.txtLocalDesenvolvimento.getText());
+            this.projeto.setFinaciamento(this.txtFonte.getText());
+            this.projeto.setLinhaPesquisa(this.txtLinhaPesquisa.getText());
+            this.projeto.setSubArea(this.txtSubarea.getText());
+            this.projeto.setTitulo(this.txtTituloProjeto.getText());
+            this.projeto.setViabilidadeTec(this.txtViabilidadeTecnica.getText());
+            this.projeto.setFinanciada(this.radioSim.isSelected());
+            
 
             // Já existe na base. Updade nele!
             if(fachada.getByIdProjeto(projeto.getId()) == projeto){
@@ -277,6 +289,13 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    // Evento que acontece ao mudar de para "Sim" ou para "Não" os botoẽs radio
+    private void radioSimItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_radioSimItemStateChanged
+        // TODO add your handling code here:
+        this.txtFonte.setText("");
+        this.txtFonte.setEditable(this.radioSim.isSelected());
+    }//GEN-LAST:event_radioSimItemStateChanged
 
         
     /**
@@ -505,8 +524,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
-    private javax.swing.JCheckBox chkNao;
-    private javax.swing.JCheckBox chkSim;
+    private javax.swing.ButtonGroup grupoBotoes;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -526,6 +544,8 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
     private javax.swing.JLabel lblTelefone;
     private javax.swing.JLabel lblTituloProjeto;
     private javax.swing.JLabel lblViabilidadeTecnica;
+    private javax.swing.JRadioButton radioNao;
+    private javax.swing.JRadioButton radioSim;
     private javax.swing.JTextField txtCampus;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtFonte;

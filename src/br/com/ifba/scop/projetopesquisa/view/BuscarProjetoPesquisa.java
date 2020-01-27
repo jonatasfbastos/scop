@@ -93,10 +93,8 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
         txtNomeProjeto = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtProjetosPesquisa = new javax.swing.JTable();
-        btnExcluir = new javax.swing.JButton();
         btnNovo = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        btnEditar = new javax.swing.JButton();
         lblImagenFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -117,7 +115,7 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
                 txtNomeProjetoKeyReleased(evt);
             }
         });
-        getContentPane().add(txtNomeProjeto, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 120, 280, 30));
+        getContentPane().add(txtNomeProjeto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 560, 30));
 
         jtProjetosPesquisa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -139,14 +137,6 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 195, 557, 271));
 
-        btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/projetopesquisa/view/imagens/icon_excluirr.png"))); // NOI18N
-        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExcluirActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 470, 40, -1));
-
         btnNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/projetopesquisa/view/imagens/icon_add.png"))); // NOI18N
         btnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,14 +147,6 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/projetopesquisa/view/imagens/icon_home.png"))); // NOI18N
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 40));
-
-        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/projetopesquisa/view/imagens/icon_editarr.png"))); // NOI18N
-        btnEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 150, 40, -1));
 
         lblImagenFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/projetopesquisa/view/imagens/fundo_tela_buscarr.png"))); // NOI18N
         getContentPane().add(lblImagenFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 640));
@@ -182,29 +164,6 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
         this.modelo.updateTableList(this.fachada.findByTitulo(this.txtNomeProjeto.getText()));
         
     }//GEN-LAST:event_txtNomeProjetoKeyReleased
-
-    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        
-        // Deleta o projeto selecionado e atualiza a tabela
-       if(this.selecionado != -1){           
-            int confirmacao = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja remover este projeto pesquisa?", "REMOVER PROJETO PESQUISA", JOptionPane.INFORMATION_MESSAGE);
-            //inteiro igualado ao joptionpane  para pegar se o usuário tem certeza de excluir o projeto
-            if(confirmacao == JOptionPane.NO_OPTION){
-                //se a confirmação é 1, o usuário escolheu "não" ou "cancelar" e retorna para a a tela de busca
-                this.selecionado = -1;
-            }else if(confirmacao == JOptionPane.YES_OPTION){
-            //se a confirmação é zero, o usuário quer realmente excluir o projeto e os seus dados       
-                this.fachada.deleteProjetoPesquisa(this.fachada.getAllProjetos().get(this.selecionado));
-                this.modelo.updateTableList(this.fachada.getAllProjetos());
-                this.selecionado = -1;
-                
-            }
-       }else{
-           //caso não clique em algo
-           JOptionPane.showMessageDialog(null, "Para remover um cadastro, selecione um campo na tabela.", "SELECIONE UM CAMPO", JOptionPane.WARNING_MESSAGE);
-           this.selecionado = -1;
-       } 
-    }//GEN-LAST:event_btnExcluirActionPerformed
 
     // Ação que é disparada quando houver um click na tabela
     private void jtProjetosPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtProjetosPesquisaMouseClicked
@@ -244,12 +203,6 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
         this.modelo.updateTableList(this.fachada.getAllProjetos());
         
     }//GEN-LAST:event_formWindowGainedFocus
-
-    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        // TODO add your handling code here:
-        // Abre a tela para a edição
-        new CadastrarProjetoPesquisa(this.fachada.getAllProjetos().get(this.selecionado)).setVisible(true);
-    }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         // TODO add your handling code here:
@@ -293,8 +246,6 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEditar;
-    private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
