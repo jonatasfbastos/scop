@@ -15,9 +15,9 @@ import java.util.List;
  */
 public class DaoGrupoPesquisa extends BaseDao<GrupoPesquisa> implements IDaoGrupoPesquisa{
     @Override
-    public List<GrupoPesquisa> findByTitulo(String titulo) {
+    public List<GrupoPesquisa> findByTitulo(String nome) {
         
-        String query = "select pp from ProjetoPesquisa pp WHERE upper(pp.titulo) like upper('" + titulo +"%')";
+        String query = "select gp from GrupoPesquisa gp WHERE upper(pp.nome) like upper('" + nome +"%')";
         
         return BaseDao.entityManager.createQuery(query).getResultList();
     }

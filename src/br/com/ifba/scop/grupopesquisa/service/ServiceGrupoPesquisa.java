@@ -36,19 +36,16 @@ public class ServiceGrupoPesquisa implements IServiceGrupoPesquisa{
          if(grupoPesquisa == null){
             // Tratamento de exceção
             throw new BusinessException(GRUPO_NULL);
-            
         }
         
         if(this.validaGrupoPesquisa(grupoPesquisa) == false){
             // Tratamento de exceção
            throw new BusinessException(GRUPO_INVALIDO);
-            
         }
         
         if(this.grupoExistente(grupoPesquisa)){
             // Tratamento de exceção
             throw new BusinessException(GRUPO_EXISTE);
-            
         }
         
         // Salvando objeto na base de dados
@@ -80,14 +77,14 @@ public class ServiceGrupoPesquisa implements IServiceGrupoPesquisa{
     @Override
     public void deleteGrupoPesquisa(GrupoPesquisa grupoPesquisa) {
         if(grupoPesquisa == null){
-              // Tratamento de exceção
-              throw new BusinessException(GRUPO_NULL);
-          }else if(this.daoGrupoPesquisa.findById(grupoPesquisa.getId()) == null) {
-              // Tratamento de exceção
-              throw new BusinessException(GRUPO_NAO_EXISTE);
-          }else{
-              this.daoGrupoPesquisa.delete(grupoPesquisa);
-          }
+            // Tratamento de exceção
+            throw new BusinessException(GRUPO_NULL);
+        }else if(this.daoGrupoPesquisa.findById(grupoPesquisa.getId()) == null) {
+            // Tratamento de exceção
+            throw new BusinessException(GRUPO_NAO_EXISTE);
+        }else{
+            this.daoGrupoPesquisa.delete(grupoPesquisa);
+        }
     }
     
     //lista todos os grupos de pesquisa

@@ -29,45 +29,46 @@ public class GrupoPesquisa extends AbstractEntity implements Serializable {
 //  lista private String projetosExecucao;
 // lista de equipes cooperantes
 // lista de projetos
-//  lista de pesquisadores (responsaveis)
-/* @ManyToMany(mappedBy = "gruposPesquisa")
-    private List<ProjetoPesquisa> projetoPesquisas;
-    */
+//  lista de pesquisadores (responsaveis
     
-    @Column(name= "NOME", length=100, nullable=false) //not null
+    @ManyToMany(mappedBy = "gruposPesquisa")
+    private List<ProjetoPesquisa> projetoPesquisas;
+    
+    
+    @Column(name= "nome", length=100, nullable=false) //not null
     private String nome;
     
-    @Column(name="ATIVIDADE_GRUPO", length=100, nullable=false) //not null
+    @Column(name="atividade_grupo", length=100, nullable=false) //not null
     private String atividadeGrupo;
     
-    @Column(name="LINHA_PESQUISA", length=100, nullable=false) //not null
+    @Column(name="linha_pesquisa", length=100, nullable=false) //not null
     private String linhaPesquisa;
     
-    @Column(name="PALAVRA_CHAVE", length=100, nullable=false) //not null
+    @Column(name="palavra_chave", length=100, nullable=false) //not null
     private String palavraChave;
     
-    @Column(name="AREA_CONHEC", length=100, nullable=false) //not null
+    @Column(name="area_conhe", length=100, nullable=false) //not null
     private String areaConhecimento;
     
-    @Column(name="SUBAREA", length=100, nullable=false) //not null
+    @Column(name="subarea", length=100, nullable=false) //not null
     private String subarea;
     
-    @Column(name="LOCAL", length=100, nullable=false) //not null
+    @Column(name="local", length=100, nullable=false) //not null
     private String local;
     
-    @Column(name="RESUMO_ATV", length=100, nullable=false) //not null
+    @Column(name="resumo_ativ", length=100, nullable=false) //not null
     private String resumoAtividades;
     
-    @Column(name="RESULTADOS_ESP", length=100, nullable=false) //not null
+    @Column(name="resultados_esp", length=100, nullable=false) //not null
     private String resultadosEsperados;
     
-    @Column(name="INFRAESTRUTURA", length=100, nullable=false) //not null
+    @Column(name="infraestrutura", length=100, nullable=false) //not null
     private boolean infraEstrutura;
     
-    @Column(name="DESCRICAO_IE", length=100, nullable=false) //not null
+    @Column(name="descricao_IE", length=100, nullable=false) //not null
     private String descricaoIE;
     
-    @Column(name="COMENTARIOS_ADD", length=100, nullable=false) //not null
+    @Column(name="comentarios_add", length=100, nullable=false) //not null
     private String comentariosAdicionais;
     
     //métodos acessores

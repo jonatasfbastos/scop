@@ -32,9 +32,6 @@ public class ProjetoPesquisa extends AbstractEntity implements Serializable{
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Pesquisador coordenador;
     //Precisa corrigir o nome da classe pesquisador
-    
-    @ManyToMany(mappedBy = "projetoPesquisas")
-    private List<GrupoPesquisa> gruposPesquisa;
     */
     
     /*      AVISOOOOOO!!!!!!
@@ -42,36 +39,40 @@ public class ProjetoPesquisa extends AbstractEntity implements Serializable{
     da classe ServiceProjetoPesquisa deve ser revisado e implementado se necessario
     */
     
-    @Column(name="TITULO", length=100, nullable=false) //not null
+    // Relacionamento muitos para muitos com a classe GrupoPesquisa
+    @ManyToMany
+    private List<GrupoPesquisa> gruposPesquisa;
+    
+    @Column(name="titulo", length=100, nullable=false) //not null
     private String titulo;
     
-    @Column(name="CAMPUS", length=100, nullable=false) //not null
+    @Column(name="campus", length=100, nullable=false) //not null
     private String campus;
     
-    @Column(name="SUBAREA", length=100, nullable=false) //not null
+    @Column(name="subarea", length=100, nullable=false) //not null
     private String subArea;
     
-    @Column(name="LINHA_PESQUISA", length=100, nullable=false) //not null
+    @Column(name="linha_pesquisa", length=100, nullable=false) //not null
     private String linhaPesquisa;
     
-    @Column(name="DATA_INICIO", nullable=false) //not null
+    @Column(name="data_inicio", nullable=false) //not null
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataInicio;
     
-    @Column(name="DATA_TERMINO")
+    @Column(name="data_termino")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataTermino;
     
-    @Column(name="FINANCIADA")
-    private boolean financiada = false; // Por default é false
+    @Column(name="financiada")
+    private boolean financiada = true; // Por default é true
     
-    @Column(name="FINANCIAMENTO") 
+    @Column(name="financiamento") 
     private String finaciamento;
     
-    @Column(name="VIABILIDADE_TEC", nullable=false) //not null
+    @Column(name="viabilidade_tec", nullable=false) //not null
     private String viabilidadeTec;
     
-    @Column(name="ESPACO")
+    @Column(name="espaco")
     private String espaco;
     
      //boolean porque pode existir financiamento ou não, e data término é a data prevista
