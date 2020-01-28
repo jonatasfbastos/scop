@@ -310,9 +310,30 @@ public class CadastroPesquisador extends javax.swing.JFrame {
             pesquisador.setTitulação(txtTitulacao.getText());
 
             fachada.savePesquisador(pesquisador);
+            
+           //Atualizado com sucesso
+            if(fachada.findByMatricula(pesquisador.getMatricula()) == pesquisador){
+                
+                if (fachada.updatePesquisador(pesquisador) == pesquisador){
+                    JOptionPane.showMessageDialog(null, "Editado com sucesso!");
+                    // Fecha a janela
+                    this.dispose();
+                }else{
+                     // Caso a edição não seja bem sucedida
+                    JOptionPane.showMessageDialog(null, "Erro ao editar");
+                }
+                
+             // Entra na consição caso não exista na base de dados       
+            }else{
+                if(fachada.findByMatricula(pesquisador.getMatricula()) == pesquisador){
+                    JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
+                    // Fecha a janela
+                    this.dispose();
+                }else{
+                    JOptionPane.showMessageDialog(null, "Erro ao salvar");
+                }
+            }
         }
-        
-        
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private boolean validaCampos(){

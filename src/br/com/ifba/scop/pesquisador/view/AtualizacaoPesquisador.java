@@ -288,7 +288,7 @@ public class AtualizacaoPesquisador extends javax.swing.JFrame {
     }//GEN-LAST:event_txtLocacaoActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-        // TODO add your handling code here:
+
         lblAviso.setText("Existem campos vazios!");
         
     }//GEN-LAST:event_btnConfirmActionPerformed
