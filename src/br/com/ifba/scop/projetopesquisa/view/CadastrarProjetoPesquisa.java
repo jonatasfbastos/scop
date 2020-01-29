@@ -298,6 +298,12 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.txtFonte.setText("");
         this.txtFonte.setEditable(this.radioSim.isSelected());
+        
+        if(!radioSim.isSelected()){
+           lblFonte.setText("Fonte");
+           lblFonte.setForeground(Color.black);
+           txtFonte.setToolTipText("Não é possível preencher este campo");
+        }
     }//GEN-LAST:event_radioSimItemStateChanged
 
         
