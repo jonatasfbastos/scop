@@ -60,7 +60,7 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
         
         initComponents();
         btnNovo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnNovo.setToolTipText("Clique neste botão para cadastrar um novo Projeto de Pesquisa");
+        btnNovo.setToolTipText("Clique neste botão para cadastrar um novo projeto de pesquisa");
         btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnMenu.setToolTipText("Clique neste botão para voltar para a tela inicial");
         txtNomeProjeto.setToolTipText("Digite algo neste campo para pesquisar");

@@ -5,6 +5,7 @@
  */
 package br.com.ifba.scop.projetopesquisa.view;
 
+import br.com.ifba.scop.grupopesquisa.view.CadastrarGrupoPesquisa;
 import br.com.ifba.scop.infraestructure.dao.BaseDao;
 import br.com.ifba.scop.infraestructure.dao.IBaseDao;
 import br.com.ifba.scop.infraestructure.service.Fachada;
@@ -37,6 +38,9 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
     public CadastrarProjetoPesquisa() {
         initComponents();
         btnCadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCadastrar.setToolTipText("Clique aqui para salvar o cadastro");
+        btnCadastrarGrupoPesquisa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCadastrarGrupoPesquisa.setToolTipText("Clique aqui para cadastrar um novo grupo de pesquisa");
         this.radioSim.setSelected(true);
         this.radioSim.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         this.radioNao.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -95,7 +99,6 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         lblGrupoPesquisa = new javax.swing.JLabel();
         lblCampus = new javax.swing.JLabel();
         txtLocalDesenvolvimento = new javax.swing.JTextField();
-        txtGrupoPesquisa = new javax.swing.JTextField();
         lblLocalDesenvolvimento = new javax.swing.JLabel();
         txtCampus = new javax.swing.JTextField();
         lblViabilidadeTecnica = new javax.swing.JLabel();
@@ -108,6 +111,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         txtForDataTermino = new javax.swing.JFormattedTextField();
         radioSim = new javax.swing.JRadioButton();
         radioNao = new javax.swing.JRadioButton();
+        btnCadastrarGrupoPesquisa = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         jTextField9.addActionListener(new java.awt.event.ActionListener() {
@@ -157,13 +161,12 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         lblDataTermino.setText("Data de Término prevista");
         jPanel1.add(lblDataTermino, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 297, 180, -1));
 
-        lblGrupoPesquisa.setText("Grupo de pesquisa");
-        jPanel1.add(lblGrupoPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 391, 130, -1));
+        lblGrupoPesquisa.setText("Grupo de Pesquisa");
+        jPanel1.add(lblGrupoPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 391, 300, -1));
 
         lblCampus.setText("Campus");
         jPanel1.add(lblCampus, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 456, 110, -1));
         jPanel1.add(txtLocalDesenvolvimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 530, 303, 27));
-        jPanel1.add(txtGrupoPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 416, 303, 27));
 
         lblLocalDesenvolvimento.setText("Local de desenvolvimento da pesquisa (espaço físico)");
         jPanel1.add(lblLocalDesenvolvimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, 360, -1));
@@ -184,7 +187,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
                 btnCadastrarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 50, -1));
+        jPanel1.add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 517, 50, -1));
 
         try {
             txtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)-#####-####")));
@@ -223,6 +226,14 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         grupoBotoes.add(radioNao);
         radioNao.setText("Não");
         jPanel1.add(radioNao, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 390, -1, -1));
+
+        btnCadastrarGrupoPesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/projetopesquisa/view/imagens/icon_add.png"))); // NOI18N
+        btnCadastrarGrupoPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarGrupoPesquisaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCadastrarGrupoPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 50, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
@@ -306,6 +317,11 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_radioSimItemStateChanged
 
+    private void btnCadastrarGrupoPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarGrupoPesquisaActionPerformed
+        // TODO add your handling code here:
+        new CadastrarGrupoPesquisa().setVisible(true);        
+    }//GEN-LAST:event_btnCadastrarGrupoPesquisaActionPerformed
+
         
     /**
      * 
@@ -320,7 +336,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
        //se todos os campos não estiverem preenchidos
         if(txtTituloProjeto.getText().equals("") && txtEmail.getText().equals("")){
             if(txtSubarea.getText().equals("") && txtTelefone.getText().equals("(  )-     -    ")){
-                if(txtLinhaPesquisa.getText().equals("") && txtGrupoPesquisa.getText().equals("")){
+                if(txtLinhaPesquisa.getText().equals("")){
                     if(txtCampus.getText().equals("") && txtLocalDesenvolvimento.getText().equals("")){
                         if(txtViabilidadeTecnica.getText().equals("") && txtFonte.getText().equals("")){
                             if(txtForDataInicio.getText().equals("  /  /    ") && txtForDataTermino.getText().equals("  /  /    ")){
@@ -334,8 +350,6 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
                                 lblSubarea.setForeground(Color.red);
                                 lblLinhaPesquisa.setText("Linha de Pesquisa*");
                                 lblLinhaPesquisa.setForeground(Color.red);
-                                lblGrupoPesquisa.setText("Grupo de Pesquisa*");
-                                lblGrupoPesquisa.setForeground(Color.red);
                                 lblCampus.setText("Campus*");
                                 lblCampus.setForeground(Color.red);
                                 lblLocalDesenvolvimento.setText("Local de Desenvolvimento*");
@@ -419,16 +433,6 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         }else{
             lblLinhaPesquisa.setText("Linha de Pesquisa");
             lblLinhaPesquisa.setForeground(Color.black);
-        }
-        
-        if(util.isNullOrEmpty(txtGrupoPesquisa.getText())){
-           lblGrupoPesquisa.setText("Grupo de Pesquisa*");
-           lblGrupoPesquisa.setForeground(Color.red);
-           JOptionPane.showMessageDialog(null, "Preencha o campo Grupo de Pesquisa.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
-            return false;
-        }else{
-           lblGrupoPesquisa.setText("Grupo de Pesquisa");
-           lblGrupoPesquisa.setForeground(Color.black);
         }
         
         if(util.isNullOrEmpty(txtCampus.getText())){
@@ -533,6 +537,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton btnCadastrarGrupoPesquisa;
     private javax.swing.ButtonGroup grupoBotoes;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
@@ -560,7 +565,6 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
     private javax.swing.JTextField txtFonte;
     private javax.swing.JFormattedTextField txtForDataInicio;
     private javax.swing.JFormattedTextField txtForDataTermino;
-    private javax.swing.JTextField txtGrupoPesquisa;
     private javax.swing.JTextField txtLinhaPesquisa;
     private javax.swing.JTextField txtLocalDesenvolvimento;
     private javax.swing.JTextField txtSubarea;

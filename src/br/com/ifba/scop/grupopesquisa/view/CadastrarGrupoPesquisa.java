@@ -30,6 +30,7 @@ public class CadastrarGrupoPesquisa extends javax.swing.JFrame {
     public CadastrarGrupoPesquisa() {
         initComponents();
         btnCadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCadastrar.setToolTipText("Clique aqui para salvar o cadastro");
         this.radioSim.setSelected(true);
         this.radioSim.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         this.radioNao.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
