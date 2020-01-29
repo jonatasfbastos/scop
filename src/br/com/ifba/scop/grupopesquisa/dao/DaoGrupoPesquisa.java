@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class DaoGrupoPesquisa extends BaseDao<GrupoPesquisa> implements IDaoGrupoPesquisa{
     @Override
-    public List<GrupoPesquisa> findByNome(String nome) {
+    public List<GrupoPesquisa> findByNomeGrupoPesquisa(String nome) {
         
         String query = "select gp from GrupoPesquisa gp WHERE upper(pp.nome) like upper('" + nome +"%')";
         

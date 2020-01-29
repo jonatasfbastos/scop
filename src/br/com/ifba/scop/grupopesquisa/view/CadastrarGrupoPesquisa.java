@@ -31,6 +31,8 @@ public class CadastrarGrupoPesquisa extends javax.swing.JFrame {
         initComponents();
         btnCadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCadastrar.setToolTipText("Clique aqui para salvar o cadastro");
+        lblTelaBusca.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblTelaBusca.setToolTipText("Clique aqui visualizar grupos de pesquisa");
         this.radioSim.setSelected(true);
         this.radioSim.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         this.radioNao.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -91,6 +93,7 @@ public class CadastrarGrupoPesquisa extends javax.swing.JFrame {
         txtResultadosEsperados = new javax.swing.JTextField();
         txtResumoAtividades = new javax.swing.JTextField();
         txtPalavraChave = new javax.swing.JTextField();
+        lblTelaBusca = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         jTextField9.addActionListener(new java.awt.event.ActionListener() {
@@ -166,6 +169,15 @@ public class CadastrarGrupoPesquisa extends javax.swing.JFrame {
         jPanel1.add(txtResultadosEsperados, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 303, 90));
         jPanel1.add(txtResumoAtividades, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 370, 303, 90));
         jPanel1.add(txtPalavraChave, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 295, 303, 27));
+
+        lblTelaBusca.setForeground(new java.awt.Color(102, 102, 102));
+        lblTelaBusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/projetopesquisa/view/imagens/icon_pesquisar.png"))); // NOI18N
+        lblTelaBusca.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblTelaBuscaMouseClicked(evt);
+            }
+        });
+        jPanel1.add(lblTelaBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 510, 40, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 720, -1));
 
@@ -244,8 +256,13 @@ public class CadastrarGrupoPesquisa extends javax.swing.JFrame {
             lblDescricaoIE.setText("Descrição de Infra-Estrutura");
             lblDescricaoIE.setForeground(Color.black);
             txtDescricaoIE.setToolTipText("Não é possível preencher este campo");
-          }
+        }
     }//GEN-LAST:event_radioSimItemStateChanged
+
+    private void lblTelaBuscaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTelaBuscaMouseClicked
+        // TODO add your handling code here:
+        new BuscarGrupoPesquisa().setVisible(true);
+    }//GEN-LAST:event_lblTelaBuscaMouseClicked
 
     //valida se todosos campos em conjunto ou individualmente estão preenchidos
    private boolean validaCampos(){
@@ -428,6 +445,7 @@ public class CadastrarGrupoPesquisa extends javax.swing.JFrame {
     private javax.swing.JLabel lblPalavraChave;
     private javax.swing.JLabel lblResultadosEsperados;
     private javax.swing.JLabel lblResumoAtividades;
+    private javax.swing.JLabel lblTelaBusca;
     private javax.swing.JRadioButton radioNao;
     private javax.swing.JRadioButton radioSim;
     private javax.swing.JTextField txtAreaConhecimento;
