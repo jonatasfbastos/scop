@@ -58,10 +58,8 @@ public class BuscarGrupoPesquisa extends javax.swing.JFrame {
     public BuscarGrupoPesquisa() {
         
         initComponents();
-        btnNovo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnNovo.setToolTipText("Clique neste botão para cadastrar um novo grupo de pesquisa");
         btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnMenu.setToolTipText("Clique neste botão para voltar para a tela de buscar projeto de pesquisa");
+        btnMenu.setToolTipText("Clique neste botão para voltar para a tela de cadastrar grupo de pesquisa");
         txtNomeGrupoPesquisa.setToolTipText("Digite algo neste campo para pesquisar");
         
         this.jtGrupoPesquisa.setModel(modelo);
@@ -99,7 +97,6 @@ public class BuscarGrupoPesquisa extends javax.swing.JFrame {
         txtNomeGrupoPesquisa = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtGrupoPesquisa = new javax.swing.JTable();
-        btnNovo = new javax.swing.JButton();
         btnMenu = new javax.swing.JButton();
         lblImagenFundo = new javax.swing.JLabel();
 
@@ -147,14 +144,6 @@ public class BuscarGrupoPesquisa extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jtGrupoPesquisa);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 195, 557, 271));
-
-        btnNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/projetopesquisa/view/imagens/icon_add.png"))); // NOI18N
-        btnNovo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNovoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnNovo, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 472, 40, 40));
 
         btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/projetopesquisa/view/imagens/icon_home.png"))); // NOI18N
         btnMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -219,12 +208,6 @@ public class BuscarGrupoPesquisa extends javax.swing.JFrame {
         
     }//GEN-LAST:event_formWindowGainedFocus
 
-    private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
-        // TODO add your handling code here:
-        new CadastrarGrupoPesquisa().setVisible(true);
-        
-    }//GEN-LAST:event_btnNovoActionPerformed
-
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
         // TODO add your handling code here:
         
@@ -276,7 +259,6 @@ public class BuscarGrupoPesquisa extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMenu;
-    private javax.swing.JButton btnNovo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jtGrupoPesquisa;
     private javax.swing.JLabel lblImagenFundo;
