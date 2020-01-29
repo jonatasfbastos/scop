@@ -1,6 +1,5 @@
 package br.com.ifba.scop.infraestructure.service;
 
-import br.com.ifba.scop.grupopesquisa.dao.DaoGrupoPesquisa;
 import br.com.ifba.scop.grupopesquisa.model.GrupoPesquisa;
 import br.com.ifba.scop.grupopesquisa.service.IServiceGrupoPesquisa;
 import br.com.ifba.scop.grupopesquisa.service.ServiceGrupoPesquisa;

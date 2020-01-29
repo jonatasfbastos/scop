@@ -11,7 +11,7 @@ public interface IFachada {
     
     //---------------- Grupo de Pesquisa ---------------------//
     
-     // Metodo que salva um Grupo de Pesquisa na base de dados
+//     // Metodo que salva um Grupo de Pesquisa na base de dados
     public abstract GrupoPesquisa saveGrupoPesquisa (GrupoPesquisa grupoPesquisa);
     // Metodo que atualiza um Grupo de Pesquisa que já existe na base de dados
     public abstract GrupoPesquisa updateGrupoPesquisa (GrupoPesquisa grupoPesquisa);
