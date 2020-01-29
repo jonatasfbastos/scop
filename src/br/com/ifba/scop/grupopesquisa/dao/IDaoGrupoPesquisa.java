@@ -15,5 +15,5 @@ import java.util.List;
  */
 public interface IDaoGrupoPesquisa extends IBaseDao<GrupoPesquisa>{
     //Busca um Grupo de Pesquisa pelo título.
-    public abstract List<GrupoPesquisa> findByTitulo(String titulo);
+    public abstract List<GrupoPesquisa> findByNome(String titulo);
 }

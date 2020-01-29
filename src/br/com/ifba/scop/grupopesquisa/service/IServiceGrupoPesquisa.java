@@ -24,5 +24,5 @@ public interface IServiceGrupoPesquisa {
     // Método que retorna um Grupo de Pesquisa pelo Id
     public abstract GrupoPesquisa getByIdGrupoPesquisa(Long id);
     // Metodo que busca um Grupo de Pesquisa na base de dados através do nome
-    public abstract List<GrupoPesquisa> findByTituloGrupoPesquisa (String titulo);
+    public abstract List<GrupoPesquisa> findByNomeGrupoPesquisa (String titulo);
 }

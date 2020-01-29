@@ -1,5 +1,6 @@
 package br.com.ifba.scop.infraestructure.service;
 
+import br.com.ifba.scop.grupopesquisa.model.GrupoPesquisa;
 import br.com.ifba.scop.patente.model.Patente;
 import br.com.ifba.scop.pesquisador.model.Pesquisador;
 import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
@@ -7,6 +8,21 @@ import java.util.List;
 
 
 public interface IFachada {
+    
+    //---------------- Grupo de Pesquisa ---------------------//
+    
+     // Metodo que salva um Grupo de Pesquisa na base de dados
+    public abstract GrupoPesquisa saveGrupoPesquisa (GrupoPesquisa grupoPesquisa);
+    // Metodo que atualiza um Grupo de Pesquisa que já existe na base de dados
+    public abstract GrupoPesquisa updateGrupoPesquisa (GrupoPesquisa grupoPesquisa);
+    // Metodo que deleta um Grupo de Pesquisa da base de dados
+    public abstract void deleteGrupoPesquisa (GrupoPesquisa grupoPesquisa);
+    // Metodo que retorna todos os Grupo de Pesquisa da base de dados
+    public abstract List<GrupoPesquisa> getAllGrupoPesquisa();
+    // Método que retorna um Grupo de Pesquisa pelo Id
+    public abstract GrupoPesquisa getByIdGrupoPesquisa(Long id);
+    // Metodo que busca um Grupo de Pesquisa na base de dados através do nome
+    public abstract List<GrupoPesquisa> findByNomeGrupoPesquisa (String titulo);
     
     // ---------- Patente ----------------------------------
     // valida savePatente

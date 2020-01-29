@@ -1,5 +1,9 @@
 package br.com.ifba.scop.infraestructure.service;
 
+import br.com.ifba.scop.grupopesquisa.dao.DaoGrupoPesquisa;
+import br.com.ifba.scop.grupopesquisa.model.GrupoPesquisa;
+import br.com.ifba.scop.grupopesquisa.service.IServiceGrupoPesquisa;
+import br.com.ifba.scop.grupopesquisa.service.ServiceGrupoPesquisa;
 import br.com.ifba.scop.patente.model.Patente;
 import br.com.ifba.scop.patente.service.IServicePatente;
 import br.com.ifba.scop.pesquisador.model.Pesquisador;
@@ -13,6 +17,41 @@ import java.util.List;
 
 
 public class Fachada implements IFachada {
+    
+    //---------------- Grupo de Pesquisa --------------------//
+    
+    private final IServiceGrupoPesquisa serviceGrupo = new ServiceGrupoPesquisa();
+    
+    @Override
+    public GrupoPesquisa saveGrupoPesquisa(GrupoPesquisa grupoPesquisa) {
+        return this.serviceGrupo.saveGrupoPesquisa(grupoPesquisa);
+    }
+
+    @Override
+    public GrupoPesquisa updateGrupoPesquisa(GrupoPesquisa grupoPesquisa) {
+        return this.serviceGrupo.updateGrupoPesquisa(grupoPesquisa);
+    }
+
+    @Override
+    public void deleteGrupoPesquisa(GrupoPesquisa grupoPesquisa) {
+        this.serviceGrupo.deleteGrupoPesquisa(grupoPesquisa);
+    }
+
+    @Override
+    public List<GrupoPesquisa> getAllGrupoPesquisa() {
+        return this.serviceGrupo.getAllGrupoPesquisa();
+    }
+
+    @Override
+    public GrupoPesquisa getByIdGrupoPesquisa(Long id) {
+        return this.serviceGrupo.getByIdGrupoPesquisa(id);
+    }
+
+    @Override
+    public List<GrupoPesquisa> findByNomeGrupoPesquisa(String titulo) {
+        return this.serviceGrupo.findByNomeGrupoPesquisa(titulo);
+    }
+    
     
     //------------PROJETO PESQUISA-------------
     
@@ -152,5 +191,7 @@ public class Fachada implements IFachada {
     public Pesquisador findByMatricula(String matricula) {
         return this.servicePesquisador.findByMatricula(matricula);
     }
+
+    
 
 }

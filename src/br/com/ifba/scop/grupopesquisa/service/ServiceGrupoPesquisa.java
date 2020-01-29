@@ -101,8 +101,8 @@ public class ServiceGrupoPesquisa implements IServiceGrupoPesquisa{
     
     //retorna o grupo de pesquisa pelo título
     @Override
-    public List<GrupoPesquisa> findByTituloGrupoPesquisa(String titulo) {
-         return daoGrupoPesquisa.findByTitulo(titulo);
+    public List<GrupoPesquisa> findByNomeGrupoPesquisa(String titulo) {
+         return daoGrupoPesquisa.findByNome(titulo);
     }
       
     //precisa implementar

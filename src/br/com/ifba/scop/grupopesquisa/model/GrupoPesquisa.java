@@ -31,8 +31,8 @@ public class GrupoPesquisa extends AbstractEntity implements Serializable {
 // lista de projetos
 //  lista de pesquisadores (responsaveis
     
-   // @ManyToMany(mappedBy = "gruposPesquisa")
-   // private List<ProjetoPesquisa> projetoPesquisas;
+    @ManyToMany(mappedBy = "gruposPesquisa")
+    private List<ProjetoPesquisa> projetoPesquisas;
     
     
     @Column(name= "nome", length=100, nullable=false) //not null
@@ -168,4 +168,13 @@ public class GrupoPesquisa extends AbstractEntity implements Serializable {
     public void setComentariosAdicionais(String comentariosAdicionais) {
         this.comentariosAdicionais = comentariosAdicionais;
     }
+
+    public List<ProjetoPesquisa> getProjetoPesquisas() {
+        return projetoPesquisas;
+    }
+
+    public void setProjetoPesquisas(List<ProjetoPesquisa> projetoPesquisas) {
+        this.projetoPesquisas = projetoPesquisas;
+    }
+    
 }
