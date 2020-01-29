@@ -17,7 +17,7 @@ public class DaoGrupoPesquisa extends BaseDao<GrupoPesquisa> implements IDaoGrup
     @Override
     public List<GrupoPesquisa> findByNomeGrupoPesquisa(String nome) {
         
-        String query = "select gp from GrupoPesquisa gp WHERE upper(pp.nome) like upper('" + nome +"%')";
+        String query = "select gp from GrupoPesquisa gp WHERE upper(gp.nome) like upper('" + nome +"%')";
         
         return BaseDao.entityManager.createQuery(query).getResultList();
     }

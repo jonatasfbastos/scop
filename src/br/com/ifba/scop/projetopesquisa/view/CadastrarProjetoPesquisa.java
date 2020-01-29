@@ -5,6 +5,7 @@
  */
 package br.com.ifba.scop.projetopesquisa.view;
 
+import br.com.ifba.scop.grupopesquisa.model.GrupoPesquisa;
 import br.com.ifba.scop.grupopesquisa.view.CadastrarGrupoPesquisa;
 import br.com.ifba.scop.infraestructure.dao.BaseDao;
 import br.com.ifba.scop.infraestructure.dao.IBaseDao;
@@ -17,8 +18,11 @@ import br.com.ifba.scop.projetopesquisa.dao.DaoProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.dao.IDaoProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -27,8 +31,10 @@ import javax.swing.JOptionPane;
  */
 public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
 
-    ProjetoPesquisa projeto;
-    DateUtil utilDate = new DateUtil();
+    private final IFachada fachada = new Fachada();
+    private final ProjetoPesquisa projeto;
+    private final DateUtil utilDate = new DateUtil();
+    private final List<GrupoPesquisa> grupos = this.fachada.getAllGrupoPesquisa();
     
     
     // Esse contrutor é chamado quando a operação for salvar
@@ -37,6 +43,11 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
      */
     public CadastrarProjetoPesquisa() {
         initComponents();
+        
+        for(int i = 0; i < this.grupos.size(); i++){
+            this.combxGrupoPesquisa.addItem(this.grupos.get(i));
+        }
+        
         btnCadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCadastrar.setToolTipText("Clique aqui para salvar o cadastro");
         btnCadastrarGrupoPesquisa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -112,6 +123,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         radioSim = new javax.swing.JRadioButton();
         radioNao = new javax.swing.JRadioButton();
         btnCadastrarGrupoPesquisa = new javax.swing.JButton();
+        combxGrupoPesquisa = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         jTextField9.addActionListener(new java.awt.event.ActionListener() {
@@ -165,12 +177,12 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         jPanel1.add(lblGrupoPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 391, 300, -1));
 
         lblCampus.setText("Campus");
-        jPanel1.add(lblCampus, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 456, 110, -1));
-        jPanel1.add(txtLocalDesenvolvimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 530, 303, 27));
+        jPanel1.add(lblCampus, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, 110, -1));
+        jPanel1.add(txtLocalDesenvolvimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 580, 303, 27));
 
         lblLocalDesenvolvimento.setText("Local de desenvolvimento da pesquisa (espaço físico)");
-        jPanel1.add(lblLocalDesenvolvimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, 360, -1));
-        jPanel1.add(txtCampus, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 477, 303, 27));
+        jPanel1.add(lblLocalDesenvolvimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 560, 360, -1));
+        jPanel1.add(txtCampus, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 530, 303, 27));
 
         lblViabilidadeTecnica.setText("Viabilidade técnica");
         jPanel1.add(lblViabilidadeTecnica, new org.netbeans.lib.awtextra.AbsoluteConstraints(405, 90, 130, -1));
@@ -233,7 +245,11 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
                 btnCadastrarGrupoPesquisaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCadastrarGrupoPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 50, -1));
+        jPanel1.add(btnCadastrarGrupoPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 50, -1));
+
+        combxGrupoPesquisa.setModel(new DefaultComboBoxModel<>()
+        );
+        jPanel1.add(combxGrupoPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 303, 26));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
@@ -252,7 +268,6 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
     
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
             
-        IFachada fachada = new Fachada();
 
         // Verifica se o projeto é valido
         if(validaCampos() == true){
@@ -538,6 +553,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnCadastrarGrupoPesquisa;
+    private javax.swing.JComboBox<GrupoPesquisa> combxGrupoPesquisa;
     private javax.swing.ButtonGroup grupoBotoes;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;

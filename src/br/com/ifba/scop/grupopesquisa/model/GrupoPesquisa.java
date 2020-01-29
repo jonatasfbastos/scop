@@ -71,6 +71,12 @@ public class GrupoPesquisa extends AbstractEntity implements Serializable {
     @Column(name="comentarios_add", length=100, nullable=false) //not null
     private String comentariosAdicionais;
     
+    // Para exibir corretamente nos combosBox que utilizar essa classe
+    @Override
+    public String toString(){
+        return this.nome;
+    }
+    
     //métodos acessores
 
     public String getNome() {
