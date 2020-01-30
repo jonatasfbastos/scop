@@ -5,69 +5,53 @@
  */
 package br.com.ifba.scop.infraestructure.pessoa;
 
-import java.util.Calendar;
+import br.com.ifba.scop.infraestructure.endereco.model.Endereco;
+import br.com.ifba.scop.infraestructure.model.AbstractEntity;
+import br.com.ifba.scop.infraestructure.telefone.model.Telefone;
+import java.io.Serializable;
+import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
  * @author beatriz
  */
-//precisa acrescentar mais coisas :D
-//métodos acessores
-public abstract class Pessoa{
+@Entity
+public abstract class Pessoa extends AbstractEntity implements Serializable{
+    
+    @OneToOne
     private Endereco endereco;
-    private String nome;
-    private Integer telefone;
-    private Integer cpf;
-    private Integer rg;
-    private String ocupacao;
-    private Calendar dataNascimento;
+    
+    @OneToMany(mappedBy = "pessoa")
+    private List<Telefone> telefones;
+    
+    private String email;
 
-    public String getNome() {
-        return nome;
+    //Métodos Acessores
+    public Endereco getEndereco() {
+        return endereco;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 
-    public Integer getTelefone() {
-        return telefone;
+    public List<Telefone> getTelefones() {
+        return telefones;
     }
 
-    public void setTelefone(Integer telefone) {
-        this.telefone = telefone;
+    public void setTelefones(List<Telefone> telefones) {
+        this.telefones = telefones;
     }
 
-    public Integer getCpf() {
-        return cpf;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCpf(Integer cpf) {
-        this.cpf = cpf;
-    }
-
-    public Integer getRg() {
-        return rg;
-    }
-
-    public void setRg(Integer rg) {
-        this.rg = rg;
-    }
-
-    public String getOcupacao() {
-        return ocupacao;
-    }
-
-    public void setOcupacao(String ocupacao) {
-        this.ocupacao = ocupacao;
-    }
-
-    public Calendar getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public void setDataNascimento(Calendar dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    public void setEmail(String email) {
+        this.email = email;
     }
       
 }

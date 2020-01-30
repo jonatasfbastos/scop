@@ -8,6 +8,10 @@
     <class>br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa</class>
     <class>br.com.ifba.scop.grupopesquisa.model.GrupoPesquisa</class>
     <class>br.com.ifba.scop.pesquisador.model.Pesquisador</class>
+    <class>br.com.ifba.scop.infraestructure.telefone.model.Telefone</class>
+    <class>br.com.ifba.scop.infraestructure.endereco.model.Endereco</class>
+    <class>br.com.ifba.scop.infraestructure.pessoa.Pessoa</class>
+
     <properties>
       <!-- dados da conexao -->
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
