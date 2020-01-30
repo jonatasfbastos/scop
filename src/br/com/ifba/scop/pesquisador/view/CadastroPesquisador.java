@@ -7,7 +7,9 @@ package br.com.ifba.scop.pesquisador.view;
 
 import br.com.ifba.scop.infraestructure.service.Fachada;
 import br.com.ifba.scop.infraestructure.service.IFachada;
+import br.com.ifba.scop.infraestructure.support.StringUtil;
 import br.com.ifba.scop.pesquisador.model.Pesquisador;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
@@ -94,7 +96,7 @@ public class CadastroPesquisador extends javax.swing.JFrame {
 
         lblCPF.setText("CPF");
 
-        lblEmail.setText("Email");
+        lblEmail.setText("E-mail");
 
         txtInstituicao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -310,33 +312,14 @@ public class CadastroPesquisador extends javax.swing.JFrame {
             pesquisador.setTitulação(txtTitulacao.getText());
 
             fachada.savePesquisador(pesquisador);
-            
-           //Atualizado com sucesso
-            if(fachada.findByMatricula(pesquisador.getMatricula()) == pesquisador){
-                
-                if (fachada.updatePesquisador(pesquisador) == pesquisador){
-                    JOptionPane.showMessageDialog(null, "Editado com sucesso!");
-                    // Fecha a janela
-                    this.dispose();
-                }else{
-                     // Caso a edição não seja bem sucedida
-                    JOptionPane.showMessageDialog(null, "Erro ao editar");
-                }
-                
-             // Entra na consição caso não exista na base de dados       
-            }else{
-                if(fachada.findByMatricula(pesquisador.getMatricula()) == pesquisador){
-                    JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
-                    // Fecha a janela
-                    this.dispose();
-                }else{
-                    JOptionPane.showMessageDialog(null, "Erro ao salvar");
-                }
-            }
         }
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private boolean validaCampos(){
+        
+        StringUtil util = StringUtil.getInstance();
+        
+        // Validação de todos os campos ao mesmo tempo
         if(txtNome.getText().equals("") && txtRG.getText().equals("")){
             if(txtCPF.getText().equals("") && txtEmail.getText().equals("")){
                 if(txtInstituicao.getText().equals("") && txtMatricula.getText().equals("")){
@@ -347,6 +330,106 @@ public class CadastroPesquisador extends javax.swing.JFrame {
                 }
             }
         }
+        
+        // Validação dos campos individuais
+        // nome
+        if(util.isNullOrEmpty(txtNome.getText())){
+            lblNome.setText("Nome*");
+            lblNome.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo Nome.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            lblNome.setText("Nome");
+            lblNome.setForeground(Color.black);
+        }
+        // Campo RG
+        if(util.isNullOrEmpty(txtRG.getText())){
+            lblRG.setText("RG*");
+            lblRG.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo RG.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            lblRG.setText("RG");
+            lblRG.setForeground(Color.black);
+        }
+        // Campo CPF
+        if(util.isNullOrEmpty(txtCPF.getText())){
+            lblCPF.setText("CPF*");
+            lblCPF.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo CPF.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            lblCPF.setText("CPF");
+            lblCPF.setForeground(Color.black);
+        }
+        // Campo E-mail
+        if(util.isNullOrEmpty(txtEmail.getText())){
+            lblEmail.setText("E-mail*");
+            lblEmail.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo E-mail.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            lblEmail.setText("E-mail");
+            lblEmail.setForeground(Color.black);
+        }
+        
+        // Campo Instituição
+        if(util.isNullOrEmpty(txtInstituicao.getText())){
+            lblInstituicao.setText("Instituição*");
+            lblInstituicao.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo Instituição.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            lblInstituicao.setText("Instituição");
+            lblInstituicao.setForeground(Color.black);
+        }
+        
+        // Campo Matricula
+        if(util.isNullOrEmpty(txtMatricula.getText())){
+            lblMatricula.setText("Matrícula*");
+            lblMatricula.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo Matrícula.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            lblMatricula.setText("Matríula");
+            lblMatricula.setForeground(Color.black);
+        }
+        
+        // Campo Titulação
+        
+        if(util.isNullOrEmpty(txtTitulacao.getText())){
+            lblTitulacao.setText("Titulação*");
+            lblTitulacao.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo Titulação.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            lblTitulacao.setText("Titulação");
+            lblTitulacao.setForeground(Color.black);
+        }
+        
+        // Campo Orgão Emissor
+        if(util.isNullOrEmpty(txtOrgaoEmissor.getText())){
+            lblOrgEmissor.setText("Orgão Emissor*");
+            lblOrgEmissor.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo Orgão Emissor.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            lblOrgEmissor.setText("Orgão Emissor");
+            lblOrgEmissor.setForeground(Color.black);
+        }
+        
+        // Campo Locação
+        
+        if(util.isNullOrEmpty(txtLocacao.getText())){
+            lblLocacao.setText("Locação*");
+            lblLocacao.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo Locação.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            lblLocacao.setText("Locação");
+            lblLocacao.setForeground(Color.black);
+        }
+        
         return true;
     }
     

@@ -71,7 +71,7 @@ public class CentroPatente extends javax.swing.JFrame {
         panButton = new javax.swing.JPanel();
         btnNovo = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Centro de Patentes");
         setResizable(false);
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
