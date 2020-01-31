@@ -21,7 +21,7 @@ public interface IServiceFornecedor {
     // Metodo que deleta um Grupo de Pesquisa da base de dados
     public abstract void deleteFornecedor (Fornecedor  fornecedor);
     // Metodo que retorna todos os Grupo de Pesquisa da base de dados
-    public abstract List<GrupoPesquisa> getAllFornecedor ();
+    public abstract List<Fornecedor> getAllFornecedor ();
     // Método que retorna um Grupo de Pesquisa pelo Id
     public abstract Fornecedor  getByIdFornecedor (Long id);
     // Metodo que busca um Grupo de Pesquisa na base de dados através do nome
