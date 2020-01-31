@@ -5,35 +5,43 @@
  */
 package br.com.ifba.scop.infraestructure.endereco.model;
 
+import br.com.ifba.scop.infraestructure.model.AbstractEntity;
+import br.com.ifba.scop.infraestructure.pessoa.Pessoa;
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+
 /**
  *
  * @author beatriz
  */
 
-//acrescentar mais coisas
-public class Endereco {
-    private String endereco;
-    private Integer numero;
-    private String complemento;
-    private String bairro;
-    private String cidade;
-    private String estado;
-    private String pais;
-    private Integer cep;
+@Entity
+public class Endereco extends AbstractEntity implements Serializable{
     
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public Integer getNumero() {
+    private int numero;
+    
+    private String complemento;
+    
+    private String rua;
+    
+    private String bairro;
+    
+    private String cidade;
+    
+    private String cep;
+    
+    private String uf;
+    
+    @OneToOne(mappedBy = "endereco")
+    private Pessoa pessoa;
+    
+    // Métodos acessores
+    public int getNumero() {
         return numero;
     }
 
-    public void setNumero(Integer numero) {
+    public void setNumero(int numero) {
         this.numero = numero;
     }
 
@@ -61,27 +69,36 @@ public class Endereco {
         this.cidade = cidade;
     }
 
-    public String getEstado() {
-        return estado;
+    public String getRua() {
+        return rua;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setRua(String rua) {
+        this.rua = rua;
     }
 
-    public String getPais() {
-        return pais;
-    }
-
-    public void setPais(String pais) {
-        this.pais = pais;
-    }
-
-    public Integer getCep() {
+    public String getCep() {
         return cep;
     }
 
-    public void setCep(Integer cep) {
+    public void setCep(String cep) {
         this.cep = cep;
     }
+
+    public String getUf() {
+        return uf;
+    }
+
+    public void setUf(String uf) {
+        this.uf = uf;
+    }
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
+
 }

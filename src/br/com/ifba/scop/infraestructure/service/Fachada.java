@@ -3,6 +3,9 @@ package br.com.ifba.scop.infraestructure.service;
 import br.com.ifba.scop.grupopesquisa.model.GrupoPesquisa;
 import br.com.ifba.scop.grupopesquisa.service.IServiceGrupoPesquisa;
 import br.com.ifba.scop.grupopesquisa.service.ServiceGrupoPesquisa;
+import br.com.ifba.scop.infraestructure.endereco.model.Endereco;
+import br.com.ifba.scop.infraestructure.endereco.service.IServiceEndereco;
+import br.com.ifba.scop.infraestructure.endereco.service.ServiceEndereco;
 import br.com.ifba.scop.patente.model.Patente;
 import br.com.ifba.scop.patente.service.IServicePatente;
 import br.com.ifba.scop.pesquisador.model.Pesquisador;
@@ -16,6 +19,29 @@ import java.util.List;
 
 
 public class Fachada implements IFachada {
+    
+    //------------------- Endereço ----------------------------//
+    private final IServiceEndereco serviceEndereco = new ServiceEndereco();
+    
+    @Override
+    public Endereco saveEndereco(Endereco endereco) {
+        return this.serviceEndereco.saveEndereco(endereco);
+    }
+
+    @Override
+    public Endereco updateEndereco(Endereco endereco) {
+        return this.serviceEndereco.updateEndereco(endereco);
+    }
+
+    @Override
+    public void deleteEndereco(Endereco endereco) {
+        this.serviceEndereco.deleteEndereco(endereco);
+    }
+
+    @Override
+    public List<Endereco> getAllEndereco() {
+        return this.serviceEndereco.getAllEndereco();
+    }
     
     //---------------- Grupo de Pesquisa --------------------//
     

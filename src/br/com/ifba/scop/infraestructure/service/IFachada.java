@@ -1,6 +1,7 @@
 package br.com.ifba.scop.infraestructure.service;
 
 import br.com.ifba.scop.grupopesquisa.model.GrupoPesquisa;
+import br.com.ifba.scop.infraestructure.endereco.model.Endereco;
 import br.com.ifba.scop.patente.model.Patente;
 import br.com.ifba.scop.pesquisador.model.Pesquisador;
 import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
@@ -8,6 +9,16 @@ import java.util.List;
 
 
 public interface IFachada {
+    
+    //------------------- Endereço ----------------------------//
+    // Método que salva um Endereço na base de dados
+    public Endereco saveEndereco(Endereco endereco);
+    // Método que salva um Endereço na base de dados
+    public Endereco updateEndereco(Endereco endereco);
+    // Método que deleta um Endereço da base de dados
+    public void deleteEndereco(Endereco endereco);
+    // Método que retorna todos Endereços da base de dados
+    public List<Endereco> getAllEndereco();
     
     //---------------- Grupo de Pesquisa ---------------------//
     

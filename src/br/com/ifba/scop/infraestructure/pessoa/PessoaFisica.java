@@ -6,7 +6,6 @@
 package br.com.ifba.scop.infraestructure.pessoa;
 
 import java.util.Date;
-import javax.persistence.Entity;
 
 /**
  *

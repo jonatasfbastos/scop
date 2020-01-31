@@ -5,8 +5,6 @@
  */
 package br.com.ifba.scop.infraestructure.pessoa;
 
-import javax.persistence.Entity;
-
 /**
  *
  * @author itallo007
