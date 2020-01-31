@@ -1,11 +1,7 @@
 package br.com.ifba.scop.pesquisador.view;
 
-import br.com.ifba.scop.projetopesquisa.view.*;
 import br.com.ifba.scop.infraestructure.service.Singleton;
-import br.com.ifba.scop.projetopesquisa.dao.DaoProjetoPesquisa;
-import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
-import br.com.ifba.scop.projetopesquisa.tableModel.ProjetoPesquisaTableModel;
-import java.util.List;
+import br.com.ifba.scop.pesquisador.model.PesquisadorTableModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,18 +16,16 @@ import java.util.List;
  */
 public class CentroPesquisador extends javax.swing.JFrame {
 
-    private ProjetoPesquisaTableModel modelo = new ProjetoPesquisaTableModel();
+    private final PesquisadorTableModel modelo = new PesquisadorTableModel();
     int selecionado;
     
     /**
      * Creates new form BuscarProjetoPesquisa
      */
     public CentroPesquisador() {
-        
         initComponents();
         this.jtPesquisador.setModel(modelo);
-        this.modelo.updateTableList(Singleton.getInstance().getAllProjetos());
-        
+        this.modelo.updateTableList(Singleton.getInstance().getAllPesquisador());
     }
 
     /**
@@ -45,7 +39,6 @@ public class CentroPesquisador extends javax.swing.JFrame {
 
         lblTitulo = new javax.swing.JLabel();
         txtPesquisar = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         btnPesquisar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtPesquisador = new javax.swing.JTable();
@@ -64,11 +57,9 @@ public class CentroPesquisador extends javax.swing.JFrame {
             public void windowLostFocus(java.awt.event.WindowEvent evt) {
             }
         });
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitulo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblTitulo.setText("Pesquisar Pesquisador");
-        getContentPane().add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 250, 30));
 
         txtPesquisar.setForeground(new java.awt.Color(153, 153, 153));
         txtPesquisar.setMinimumSize(new java.awt.Dimension(6, 27));
@@ -77,10 +68,6 @@ public class CentroPesquisador extends javax.swing.JFrame {
                 txtPesquisarKeyReleased(evt);
             }
         });
-        getContentPane().add(txtPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 259, 23));
-
-        jLabel2.setText("Nome do projeto");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, -1, -1));
 
         btnPesquisar.setText("Pesquisar");
         btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +75,6 @@ public class CentroPesquisador extends javax.swing.JFrame {
                 btnPesquisarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(505, 120, -1, -1));
 
         jtPesquisador.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -106,15 +92,12 @@ public class CentroPesquisador extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jtPesquisador);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 195, 557, 271));
-
         btnExcluir.setText("Excluir");
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExcluirActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(595, 472, 79, -1));
 
         btnAtualizar.setText("Atualizar");
         btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -122,13 +105,61 @@ public class CentroPesquisador extends javax.swing.JFrame {
                 btnAtualizarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAtualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 472, -1, -1));
 
         cmbFiltro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nome", "Matrícula" }));
-        getContentPane().add(cmbFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, -1, -1));
 
         lblFiltro.setText("Pesquisar por:");
-        getContentPane().add(lblFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, -1, 20));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(250, 250, 250)
+                        .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(190, 190, 190)
+                        .addComponent(txtPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnPesquisar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(240, 240, 240)
+                        .addComponent(lblFiltro)
+                        .addGap(31, 31, 31)
+                        .addComponent(cmbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(92, 92, 92)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnAtualizar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(108, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPesquisar))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnExcluir)
+                    .addComponent(btnAtualizar))
+                .addContainerGap(52, Short.MAX_VALUE))
+        );
 
         pack();
         setLocationRelativeTo(null);
@@ -137,17 +168,17 @@ public class CentroPesquisador extends javax.swing.JFrame {
     
     
     
-    // Ação que é disparada quando algo é diditado no txtNomeProjeto
+    // Ação que é disparada quando algo é digitado no txtNomeProjeto
     private void txtPesquisarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisarKeyReleased
         
         //Busca por titulo
-        this.modelo.updateTableList(Singleton.getInstance().findByTitulo(this.txtPesquisar.getText()));
+//        this.modelo.updateTableList(Singleton.getInstance().findByTitulo(this.txtPesquisar.getText()));
         
     }//GEN-LAST:event_txtPesquisarKeyReleased
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         
-        this.modelo.updateTableList(Singleton.getInstance().findByTitulo(this.txtPesquisar.getText()));
+//        this.modelo.updateTableList(Singleton.getInstance().findByTitulo(this.txtPesquisar.getText()));
         
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
@@ -155,14 +186,14 @@ public class CentroPesquisador extends javax.swing.JFrame {
         
         // Deleta o projeto selecionado e atualisa a tabela
         Singleton.getInstance().deleteProjetoPesquisa(Singleton.getInstance().getAllProjetos().get(this.selecionado));
-        this.modelo.updateTableList(Singleton.getInstance().getAllProjetos());
+//        this.modelo.updateTableList(Singleton.getInstance().getAllProjetos());
         
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
-        
+      
         // Abre a tela para a edição
-        new CadastrarProjetoPesquisa(Singleton.getInstance().getAllProjetos().get(this.selecionado)).setVisible(true);
+        new AtualizacaoPesquisador().setVisible(true);
         
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
@@ -176,7 +207,7 @@ public class CentroPesquisador extends javax.swing.JFrame {
     // Ação que é disparada quando a tela de cima for fechada
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
         
-        this.modelo.updateTableList(Singleton.getInstance().getAllProjetos());
+//        this.modelo.updateTableList(Singleton.getInstance().getAllProjetos());
         
     }//GEN-LAST:event_formWindowGainedFocus
 
@@ -223,7 +254,6 @@ public class CentroPesquisador extends javax.swing.JFrame {
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JComboBox cmbFiltro;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jtPesquisador;
     private javax.swing.JLabel lblFiltro;

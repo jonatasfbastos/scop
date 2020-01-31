@@ -8,6 +8,7 @@ package br.com.ifba.scop.infraestructure.view;
 import br.com.ifba.scop.pesquisador.view.AtualizacaoPesquisador;
 import br.com.ifba.scop.pesquisador.view.CadastroPesquisador;
 import br.com.ifba.scop.patente.view.CentroPatente;
+import br.com.ifba.scop.pesquisador.view.CentroPesquisador;
 import br.com.ifba.scop.projetopesquisa.view.BuscarProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.view.CadastrarProjetoPesquisa;
 import static java.lang.Thread.sleep;
@@ -169,8 +170,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void btnCadPesquisadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadPesquisadorActionPerformed
         // TODO add your handling code here:
-        CadastroPesquisador cadastrarPesquisador = new CadastroPesquisador();
-        cadastrarPesquisador.setVisible(true);
+        new CentroPesquisador().setVisible(true);
     }//GEN-LAST:event_btnCadPesquisadorActionPerformed
 
     private void btnCadPesquisaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadPesquisaMouseEntered
