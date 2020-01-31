@@ -8,6 +8,7 @@ package br.com.ifba.scop.grupopesquisa.model;
 import br.com.ifba.scop.infraestructure.model.AbstractEntity;
 import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,8 +32,8 @@ public class GrupoPesquisa extends AbstractEntity implements Serializable {
 // lista de projetos
 //  lista de pesquisadores (responsaveis
     
-//    @ManyToMany(mappedBy = "gruposPesquisa")
-//    private List<ProjetoPesquisa> projetoPesquisas;
+    @ManyToMany(mappedBy = "gruposPesquisa")
+    private List<ProjetoPesquisa> projetoPesquisas;
     
     
     @Column(name= "nome", length=100, nullable=false) //not null
@@ -53,7 +54,7 @@ public class GrupoPesquisa extends AbstractEntity implements Serializable {
     @Column(name="subarea", length=100, nullable=false) //not null
     private String subarea;
     
-    @Column(name="local", length=100, nullable=false) //not null
+    @Column(name="locall", length=100, nullable=false) //not null
     private String local;
     
     @Column(name="resumo_ativ", length=100, nullable=false) //not null
@@ -175,12 +176,12 @@ public class GrupoPesquisa extends AbstractEntity implements Serializable {
         this.comentariosAdicionais = comentariosAdicionais;
     }
 
-//    public List<ProjetoPesquisa> getProjetoPesquisas() {
+//    public Collection<ProjetoPesquisa> getProjetoPesquisas() {
 //        return projetoPesquisas;
 //    }
 //
-//    public void setProjetoPesquisas(List<ProjetoPesquisa> projetoPesquisas) {
-//        this.projetoPesquisas = projetoPesquisas;
-//    }
+    public void setProjetoPesquisas(List<ProjetoPesquisa> projetoPesquisas) {
+        this.projetoPesquisas = projetoPesquisas;
+    }
     
 }

@@ -93,9 +93,9 @@ public class Endereco extends AbstractEntity implements Serializable{
         this.uf = uf;
     }
 
-    public Pessoa getPessoa() {
-        return pessoa;
-    }
+//    public Pessoa getPessoa() {
+//        return pessoa;
+//    }
 
     public void setPessoa(Pessoa pessoa) {
         this.pessoa = pessoa;

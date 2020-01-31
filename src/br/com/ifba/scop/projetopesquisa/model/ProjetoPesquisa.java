@@ -9,6 +9,7 @@ import br.com.ifba.scop.grupopesquisa.model.GrupoPesquisa;
 import br.com.ifba.scop.infraestructure.model.AbstractEntity;
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -79,15 +80,13 @@ public class ProjetoPesquisa extends AbstractEntity implements Serializable{
     
     //métodos acessores
 
-    /*
-    public GrupoPesquisa getGrupoPesquisa() {
-        return grupoPesquisa;
-    }
+//    public Collection<GrupoPesquisa> getGruposPesquisa() {
+//        return gruposPesquisa;
+//    }
 
-    public void setGrupoPesquisa(GrupoPesquisa grupoPesquisa) {
-        this.grupoPesquisa = grupoPesquisa;
+    public void setGruposPesquisa(List<GrupoPesquisa> gruposPesquisa) {
+        this.gruposPesquisa = gruposPesquisa;
     }
-    */
 
     public String getTitulo() {
         return titulo;

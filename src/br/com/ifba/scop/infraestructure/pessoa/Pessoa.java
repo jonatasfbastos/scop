@@ -9,8 +9,10 @@ import br.com.ifba.scop.infraestructure.endereco.model.Endereco;
 import br.com.ifba.scop.infraestructure.model.AbstractEntity;
 import br.com.ifba.scop.infraestructure.telefone.model.Telefone;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -38,9 +40,9 @@ public abstract class Pessoa extends AbstractEntity implements Serializable{
         this.endereco = endereco;
     }
 
-    public List<Telefone> getTelefones() {
-        return telefones;
-    }
+//    public List<Telefone> getTelefones() {
+//        return telefones;
+//    }
 
     public void setTelefones(List<Telefone> telefones) {
         this.telefones = telefones;

@@ -12,13 +12,13 @@ public interface IFachada {
     
     //------------------- Endereço ----------------------------//
     // Método que salva um Endereço na base de dados
-    public Endereco saveEndereco(Endereco endereco);
+    public abstract Endereco saveEndereco(Endereco endereco);
     // Método que salva um Endereço na base de dados
-    public Endereco updateEndereco(Endereco endereco);
+    public abstract Endereco updateEndereco(Endereco endereco);
     // Método que deleta um Endereço da base de dados
-    public void deleteEndereco(Endereco endereco);
+    public abstract void deleteEndereco(Endereco endereco);
     // Método que retorna todos Endereços da base de dados
-    public List<Endereco> getAllEndereco();
+    public abstract List<Endereco> getAllEndereco();
     
     //---------------- Grupo de Pesquisa ---------------------//
     
