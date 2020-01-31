@@ -5,7 +5,7 @@
  */
 package br.com.ifba.scop.patente.view;
 
-import br.com.ifba.scop.infraestructure.service.IFachada;
+import br.com.ifba.scop.infraestructure.service.Singleton;
 import br.com.ifba.scop.patente.model.Patente;
 
 /**
@@ -267,11 +267,8 @@ public class AtualizaPatente extends javax.swing.JFrame {
         // titulo e area
         patente.setTituloInvencao(this.txtTituloPatente.getText());
         patente.setAreaInvencao(this.txtAreaPatente.getText());
-        // instanciando fachada
-        IFachada fachada = 
-                new br.com.ifba.scop.infraestructure.service.Fachada();
         // enviando para a fachada e testando operação
-        if (!fachada.updatePatente(patente)) {
+        if (!Singleton.getInstance().updatePatente(patente)) {
             javax.swing.JOptionPane.showMessageDialog(null, 
                     "Impossível Atualizar! Dados Inválidos.");
         } else {

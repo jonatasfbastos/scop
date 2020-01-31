@@ -5,6 +5,10 @@
  */
 package br.com.ifba.scop.pesquisador.view;
 
+/* NOTA AO AUTOR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+use essa classe com o metodo getInstance() que retorna a fachada ao invés de instanciar*/
+import br.com.ifba.scop.infraestructure.service.Singleton;
+
 /**
  *
  * @author Cliente

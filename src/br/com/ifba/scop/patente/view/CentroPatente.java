@@ -5,8 +5,8 @@
  */
 package br.com.ifba.scop.patente.view;
 
-import br.com.ifba.scop.infraestructure.service.IFachada;
 import br.com.ifba.scop.infraestructure.model.ColumnDeleteLabel;
+import br.com.ifba.scop.infraestructure.service.Singleton;
 import br.com.ifba.scop.patente.model.Patente;
 import br.com.ifba.scop.patente.model.PatenteTableModel;
 import java.util.List;
@@ -367,14 +367,14 @@ public class CentroPatente extends javax.swing.JFrame {
         // instanciando patente entidade
         Patente patente = new Patente();
         // instanciando fachada
-        IFachada fachada = 
-                new br.com.ifba.scop.infraestructure.service.Fachada();
+        /*IFachada fachada = 
+                new br.com.ifba.scop.infraestructure.service.Fachada();*/
         // qual o tipo de pesquisa
         if (this.radArea.isSelected()) {
             // area
             patente.setAreaInvencao(this.txtPesquisar.getText());
             // retorna pesquisa de área
-            List<Patente> dados = fachada.searchPatenteArea(patente);
+            List<Patente> dados = Singleton.getInstance().searchPatenteArea(patente);
             // testa se houve erro
             if (dados == null || dados.isEmpty()) {
                 return; // stop here
@@ -396,7 +396,7 @@ public class CentroPatente extends javax.swing.JFrame {
             long num = (long) this.stringBeNumber(this.txtPesquisar.getText());
             patente.setNumero(num);
             // retorna pesquisa de numero
-            List<Patente> dados = fachada.searchPatenteNumber(patente);
+            List<Patente> dados = Singleton.getInstance().searchPatenteNumber(patente);
             // testa se houve erro
             if (dados == null || dados.isEmpty()) {
                 return; //stop here
@@ -415,7 +415,7 @@ public class CentroPatente extends javax.swing.JFrame {
             // titulo
             patente.setTituloInvencao(this.txtPesquisar.getText());
             // retorna pesquisa de titulo
-            List<Patente> dados = fachada.searchPatenteTitle(patente);
+            List<Patente> dados = Singleton.getInstance().searchPatenteTitle(patente);
             // testa se houve erro
             if (dados == null || dados.isEmpty()) {
                 return; // stop here
@@ -515,11 +515,8 @@ public class CentroPatente extends javax.swing.JFrame {
      * This method insert all data found inside database into the JTable.
      */
     private void forListagemAll() {
-        // instancia fachada
-        IFachada fachada =
-                new br.com.ifba.scop.infraestructure.service.Fachada();
         // inserindo numa lista
-        List<Patente> patentes = fachada.getAllPatente();
+        List<Patente> patentes = Singleton.getInstance().getAllPatente();
         if (patentes == null || patentes.isEmpty()) {
             return;
         }
@@ -559,11 +556,8 @@ public class CentroPatente extends javax.swing.JFrame {
         // instanciando patente
         Patente patente = new Patente();
         patente.setId((long) this.stringBeNumber(id)); // setando na entidade
-        // instanciando fachada
-        IFachada fachada = new 
-            br.com.ifba.scop.infraestructure.service.Fachada();
         // enviando valores e testando sucesso ou não
-        if (fachada.deletePatente(patente)) {
+        if (Singleton.getInstance().deletePatente(patente)) {
             javax.swing.JOptionPane.showMessageDialog(null, 
                     "Patente Encontrada e Deletada.");
             this.patenteModel.removeRow(idx);

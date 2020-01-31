@@ -6,8 +6,7 @@
 package br.com.ifba.scop.grupopesquisa.view;
 
 import br.com.ifba.scop.grupopesquisa.model.GrupoPesquisa;
-import br.com.ifba.scop.infraestructure.service.Fachada;
-import br.com.ifba.scop.infraestructure.service.IFachada;
+import br.com.ifba.scop.infraestructure.service.Singleton;
 import br.com.ifba.scop.infraestructure.support.StringUtil;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -195,8 +194,6 @@ public class CadastrarGrupoPesquisa extends javax.swing.JFrame {
 
     
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-            
-        IFachada fachada = new Fachada();
 
         // Verifica se o projeto é valido
         if(validaCampos() == true){
@@ -213,10 +210,10 @@ public class CadastrarGrupoPesquisa extends javax.swing.JFrame {
             this.grupopesquisa.setComentariosAdicionais(this.txtComentariosAdicionais.getText());
             
             // Já existe na base. Updade nele!
-             if(fachada.getByIdGrupoPesquisa(grupopesquisa.getId()) == grupopesquisa){
+             if(Singleton.getInstance().getByIdGrupoPesquisa(grupopesquisa.getId()) == grupopesquisa){
 
                 // Atualixzado com sucesso
-                if(fachada.updateGrupoPesquisa(grupopesquisa) == grupopesquisa){
+                if(Singleton.getInstance().updateGrupoPesquisa(grupopesquisa) == grupopesquisa){
                    
                     JOptionPane.showMessageDialog(null, "Editado com sucesso!");
 
@@ -231,7 +228,7 @@ public class CadastrarGrupoPesquisa extends javax.swing.JFrame {
                 // Ainda não existe na base
 
                 // Salvo com sucesso
-                if(fachada.saveGrupoPesquisa(grupopesquisa) == grupopesquisa){
+                if(Singleton.getInstance().saveGrupoPesquisa(grupopesquisa) == grupopesquisa){
 
                     JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
 

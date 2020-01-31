@@ -9,14 +9,13 @@ import br.com.ifba.scop.grupopesquisa.model.GrupoPesquisa;
 import br.com.ifba.scop.grupopesquisa.view.CadastrarGrupoPesquisa;
 import br.com.ifba.scop.infraestructure.dao.BaseDao;
 import br.com.ifba.scop.infraestructure.dao.IBaseDao;
-import br.com.ifba.scop.infraestructure.service.Fachada;
-import br.com.ifba.scop.infraestructure.service.IFachada;
 import br.com.ifba.scop.infraestructure.support.DateUtil;
 import br.com.ifba.scop.infraestructure.support.EmailUtils;
 import br.com.ifba.scop.infraestructure.support.StringUtil;
 import br.com.ifba.scop.projetopesquisa.dao.DaoProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.dao.IDaoProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
+import br.com.ifba.scop.infraestructure.service.Singleton;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -30,11 +29,10 @@ import javax.swing.JOptionPane;
  * @author jonatasfbastos
  */
 public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
-
-    private final IFachada fachada = new Fachada();
+    
     private final ProjetoPesquisa projeto;
     private final DateUtil utilDate = new DateUtil();
-    private final List<GrupoPesquisa> grupos = this.fachada.getAllGrupoPesquisa();
+    private final List<GrupoPesquisa> grupos = Singleton.getInstance().getAllGrupoPesquisa();
     
     
     // Esse contrutor é chamado quando a operação for salvar
@@ -291,10 +289,10 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
             
 
             // Já existe na base. Updade nele!
-            if(fachada.getByIdProjeto(projeto.getId()) == projeto){
+            if(Singleton.getInstance().getByIdProjeto(projeto.getId()) == projeto){
 
                 // Atualixzado com sucesso
-                if(fachada.updateProjetoPesquisa(projeto) == projeto){
+                if(Singleton.getInstance().updateProjetoPesquisa(projeto) == projeto){
 
                     JOptionPane.showMessageDialog(null, "Editado com sucesso!");
 
@@ -309,7 +307,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
                 // Ainda não existe na base
 
                 // Salvo com sucesso
-                if(fachada.saveProjetoPesquisa(projeto) == projeto){
+                if(Singleton.getInstance().saveProjetoPesquisa(projeto) == projeto){
 
                     JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
 

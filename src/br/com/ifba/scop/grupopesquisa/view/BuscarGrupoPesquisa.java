@@ -4,8 +4,7 @@ import br.com.ifba.scop.grupopesquisa.model.GrupoPesquisa;
 import br.com.ifba.scop.grupopesquisa.tableModel.GrupoPesquisaTableModel;
 import br.com.ifba.scop.infraestructure.model.ColumnDeleteLabel;
 import br.com.ifba.scop.infraestructure.model.ColumnEditLabel;
-import br.com.ifba.scop.infraestructure.service.Fachada;
-import br.com.ifba.scop.infraestructure.service.IFachada;
+import br.com.ifba.scop.infraestructure.service.Singleton;
 import br.com.ifba.scop.infraestructure.view.TelaInicial;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -25,7 +24,6 @@ import javax.swing.JOptionPane;
  */
 public class BuscarGrupoPesquisa extends javax.swing.JFrame {
     private final GrupoPesquisaTableModel modelo = new GrupoPesquisaTableModel();
-    private final IFachada fachada = new Fachada();
     private final ColumnDeleteLabel deletar;
     private final ColumnEditLabel edite;    
     int selecionado = -1;
@@ -63,14 +61,14 @@ public class BuscarGrupoPesquisa extends javax.swing.JFrame {
         txtNomeGrupoPesquisa.setToolTipText("Digite algo neste campo para pesquisar");
         
         this.jtGrupoPesquisa.setModel(modelo);
-        this.modelo.updateTableList(this.fachada.getAllGrupoPesquisa());
+        this.modelo.updateTableList(Singleton.getInstance().getAllGrupoPesquisa());
         //criando um botão do tipo deletar
         this.deletar = new ColumnDeleteLabel(this.jtGrupoPesquisa, 2);
         //criando um botão do tipo editar
         this.edite = new ColumnEditLabel(this.jtGrupoPesquisa, 3);
         
         //pega todos os proejtos
-       List<GrupoPesquisa> dados = fachada.getAllGrupoPesquisa();
+       List<GrupoPesquisa> dados = Singleton.getInstance().getAllGrupoPesquisa();
        
        this.getGrupoPesquisaTableModel().clearTable(); // remove as informações
         
@@ -166,7 +164,7 @@ public class BuscarGrupoPesquisa extends javax.swing.JFrame {
     private void txtNomeGrupoPesquisaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeGrupoPesquisaKeyReleased
         
         //Busca por titulo
-        this.modelo.updateTableList(this.fachada.findByNomeGrupoPesquisa(this.txtNomeGrupoPesquisa.getText()));
+        this.modelo.updateTableList(Singleton.getInstance().findByNomeGrupoPesquisa(this.txtNomeGrupoPesquisa.getText()));
         
     }//GEN-LAST:event_txtNomeGrupoPesquisaKeyReleased
 
@@ -186,8 +184,8 @@ public class BuscarGrupoPesquisa extends javax.swing.JFrame {
                       
                 }else if(confirmacao == JOptionPane.YES_OPTION){
                 //se a confirmação é zero, o usuário quer realmente excluir o projeto e os seus dados       
-                    this.fachada.deleteGrupoPesquisa(this.fachada.getAllGrupoPesquisa().get(this.selecionado));
-                    this.modelo.updateTableList(this.fachada.getAllGrupoPesquisa());
+                    Singleton.getInstance().deleteGrupoPesquisa(Singleton.getInstance().getAllGrupoPesquisa().get(this.selecionado));
+                    this.modelo.updateTableList(Singleton.getInstance().getAllGrupoPesquisa());
                     this.selecionado = -1;
                 }
             }else{
@@ -197,14 +195,14 @@ public class BuscarGrupoPesquisa extends javax.swing.JFrame {
             }  
             //editar pelo botão
         } if (this.jtGrupoPesquisa.getSelectedColumn() == 3) {
-            new CadastrarGrupoPesquisa(this.fachada.getAllGrupoPesquisa().get(this.selecionado)).setVisible(true);
+            new CadastrarGrupoPesquisa(Singleton.getInstance().getAllGrupoPesquisa().get(this.selecionado)).setVisible(true);
         }    
     }//GEN-LAST:event_jtGrupoPesquisaMouseClicked
 
     // Ação que é disparada quando a tela de cima for fechada
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
         
-        this.modelo.updateTableList(this.fachada.getAllGrupoPesquisa());
+        this.modelo.updateTableList(Singleton.getInstance().getAllGrupoPesquisa());
         
     }//GEN-LAST:event_formWindowGainedFocus
 

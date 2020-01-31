@@ -5,7 +5,7 @@
  */
 package br.com.ifba.scop.patente.view;
 
-import br.com.ifba.scop.infraestructure.service.IFachada;
+import br.com.ifba.scop.infraestructure.service.Singleton;
 import br.com.ifba.scop.patente.model.Patente;
 
 /**
@@ -230,11 +230,8 @@ public class CadastroPatente extends javax.swing.JFrame {
         // titulo e area
         patente.setTituloInvencao(titulo);
         patente.setAreaInvencao(areaLinha);
-        // acessando a fachada
-        IFachada fachada = 
-                new br.com.ifba.scop.infraestructure.service.Fachada();
         // enviando entidade // testando sucesso
-        if (!fachada.savePatente(patente)) {
+        if (!Singleton.getInstance().savePatente(patente)) {
             // quando houve dados invalidos
             javax.swing.JOptionPane.showMessageDialog(null, 
                     "Error: Dados Invalidos Encontrados.");

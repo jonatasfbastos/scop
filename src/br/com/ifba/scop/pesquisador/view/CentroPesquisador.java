@@ -1,8 +1,7 @@
 package br.com.ifba.scop.pesquisador.view;
 
 import br.com.ifba.scop.projetopesquisa.view.*;
-import br.com.ifba.scop.infraestructure.service.Fachada;
-import br.com.ifba.scop.infraestructure.service.IFachada;
+import br.com.ifba.scop.infraestructure.service.Singleton;
 import br.com.ifba.scop.projetopesquisa.dao.DaoProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.tableModel.ProjetoPesquisaTableModel;
@@ -22,7 +21,6 @@ import java.util.List;
 public class CentroPesquisador extends javax.swing.JFrame {
 
     private ProjetoPesquisaTableModel modelo = new ProjetoPesquisaTableModel();
-    private IFachada fachada = new Fachada();
     int selecionado;
     
     /**
@@ -32,7 +30,7 @@ public class CentroPesquisador extends javax.swing.JFrame {
         
         initComponents();
         this.jtPesquisador.setModel(modelo);
-        this.modelo.updateTableList(this.fachada.getAllProjetos());
+        this.modelo.updateTableList(Singleton.getInstance().getAllProjetos());
         
     }
 
@@ -143,28 +141,28 @@ public class CentroPesquisador extends javax.swing.JFrame {
     private void txtPesquisarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisarKeyReleased
         
         //Busca por titulo
-        this.modelo.updateTableList(this.fachada.findByTitulo(this.txtPesquisar.getText()));
+        this.modelo.updateTableList(Singleton.getInstance().findByTitulo(this.txtPesquisar.getText()));
         
     }//GEN-LAST:event_txtPesquisarKeyReleased
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         
-        this.modelo.updateTableList(this.fachada.findByTitulo(this.txtPesquisar.getText()));
+        this.modelo.updateTableList(Singleton.getInstance().findByTitulo(this.txtPesquisar.getText()));
         
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         
         // Deleta o projeto selecionado e atualisa a tabela
-        this.fachada.deleteProjetoPesquisa(this.fachada.getAllProjetos().get(this.selecionado));
-        this.modelo.updateTableList(this.fachada.getAllProjetos());
+        Singleton.getInstance().deleteProjetoPesquisa(Singleton.getInstance().getAllProjetos().get(this.selecionado));
+        this.modelo.updateTableList(Singleton.getInstance().getAllProjetos());
         
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
         
         // Abre a tela para a edição
-        new CadastrarProjetoPesquisa(this.fachada.getAllProjetos().get(this.selecionado)).setVisible(true);
+        new CadastrarProjetoPesquisa(Singleton.getInstance().getAllProjetos().get(this.selecionado)).setVisible(true);
         
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
@@ -178,7 +176,7 @@ public class CentroPesquisador extends javax.swing.JFrame {
     // Ação que é disparada quando a tela de cima for fechada
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
         
-        this.modelo.updateTableList(this.fachada.getAllProjetos());
+        this.modelo.updateTableList(Singleton.getInstance().getAllProjetos());
         
     }//GEN-LAST:event_formWindowGainedFocus
 

@@ -5,8 +5,7 @@
  */
 package br.com.ifba.scop.pesquisador.view;
 
-import br.com.ifba.scop.infraestructure.service.Fachada;
-import br.com.ifba.scop.infraestructure.service.IFachada;
+import br.com.ifba.scop.infraestructure.service.Singleton;
 import br.com.ifba.scop.infraestructure.support.StringUtil;
 import br.com.ifba.scop.pesquisador.model.Pesquisador;
 import java.awt.Color;
@@ -298,7 +297,6 @@ public class CadastroPesquisador extends javax.swing.JFrame {
         // TODO add your handling code here:
         // Verificação de campos vazios
         Pesquisador pesquisador = new Pesquisador();
-        IFachada fachada = new Fachada();
         
         if(validaCampos() == true){
             pesquisador.setCpf(txtCPF.getText());
@@ -311,7 +309,7 @@ public class CadastroPesquisador extends javax.swing.JFrame {
             pesquisador.setRg(txtRG.getText());
             pesquisador.setTitulação(txtTitulacao.getText());
 
-            fachada.savePesquisador(pesquisador);
+            Singleton.getInstance().savePesquisador(pesquisador);
         }
     }//GEN-LAST:event_btnConfirmActionPerformed
 

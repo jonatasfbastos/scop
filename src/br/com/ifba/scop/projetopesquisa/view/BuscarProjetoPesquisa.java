@@ -2,8 +2,7 @@ package br.com.ifba.scop.projetopesquisa.view;
 
 import br.com.ifba.scop.infraestructure.model.ColumnDeleteLabel;
 import br.com.ifba.scop.infraestructure.model.ColumnEditLabel;
-import br.com.ifba.scop.infraestructure.service.Fachada;
-import br.com.ifba.scop.infraestructure.service.IFachada;
+import br.com.ifba.scop.infraestructure.service.Singleton;
 import br.com.ifba.scop.infraestructure.view.TelaInicial;
 import br.com.ifba.scop.projetopesquisa.dao.DaoProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
@@ -26,7 +25,6 @@ import javax.swing.JOptionPane;
 public class BuscarProjetoPesquisa extends javax.swing.JFrame {
 
     private final ProjetoPesquisaTableModel modelo = new ProjetoPesquisaTableModel();
-    private final IFachada fachada = new Fachada();
     private final ColumnDeleteLabel deletar;
     private final ColumnEditLabel editar;    
     int selecionado = -1;
@@ -66,14 +64,14 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
         txtNomeProjeto.setToolTipText("Digite algo neste campo para pesquisar");
         
         this.jtProjetosPesquisa.setModel(modelo);
-        this.modelo.updateTableList(this.fachada.getAllProjetos());
+        this.modelo.updateTableList(Singleton.getInstance().getAllProjetos());
         //criando um botão do tipo deletar
         this.deletar = new ColumnDeleteLabel(this.jtProjetosPesquisa, 4);
         //criando um botão do tipo editar
         this.editar = new ColumnEditLabel(this.jtProjetosPesquisa, 5);
         
         //pega todos os proejtos
-        List<ProjetoPesquisa> dados = fachada.getAllProjetos();
+        List<ProjetoPesquisa> dados = Singleton.getInstance().getAllProjetos();
         
        this.getProjetoPesquisaTableModel().clearTable(); // remove as informações
         
@@ -173,7 +171,7 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
     private void txtNomeProjetoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeProjetoKeyReleased
         
         //Busca por titulo
-        this.modelo.updateTableList(this.fachada.findByTitulo(this.txtNomeProjeto.getText()));
+        this.modelo.updateTableList(Singleton.getInstance().findByTitulo(this.txtNomeProjeto.getText()));
         
     }//GEN-LAST:event_txtNomeProjetoKeyReleased
 
@@ -193,8 +191,8 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
                       
                 }else if(confirmacao == JOptionPane.YES_OPTION){
                 //se a confirmação é zero, o usuário quer realmente excluir o projeto e os seus dados       
-                    this.fachada.deleteProjetoPesquisa(this.fachada.getAllProjetos().get(this.selecionado));
-                    this.modelo.updateTableList(this.fachada.getAllProjetos());
+                    Singleton.getInstance().deleteProjetoPesquisa(Singleton.getInstance().getAllProjetos().get(this.selecionado));
+                    this.modelo.updateTableList(Singleton.getInstance().getAllProjetos());
                     this.selecionado = -1;
                 }
             }else{
@@ -204,7 +202,7 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
             }  
             //editar pelo botão
         } if (this.jtProjetosPesquisa.getSelectedColumn() == 5) {
-             new CadastrarProjetoPesquisa(this.fachada.getAllProjetos().get(this.selecionado)).setVisible(true);
+             new CadastrarProjetoPesquisa(Singleton.getInstance().getAllProjetos().get(this.selecionado)).setVisible(true);
                           
         }    
     }//GEN-LAST:event_jtProjetosPesquisaMouseClicked
@@ -212,7 +210,7 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
     // Ação que é disparada quando a tela de cima for fechada
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
         
-        this.modelo.updateTableList(this.fachada.getAllProjetos());
+        this.modelo.updateTableList(Singleton.getInstance().getAllProjetos());
         
     }//GEN-LAST:event_formWindowGainedFocus
 
