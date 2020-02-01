@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.ifba.scop.infraestructure.pessoa;
+package br.com.ifba.scop.infraestructure.pessoa.model;
 
 import br.com.ifba.scop.infraestructure.endereco.model.Endereco;
 import br.com.ifba.scop.infraestructure.model.AbstractEntity;

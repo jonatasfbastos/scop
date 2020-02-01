@@ -6,7 +6,8 @@
 package br.com.ifba.scop.infraestructure.telefone.model;
 
 import br.com.ifba.scop.infraestructure.model.AbstractEntity;
-import br.com.ifba.scop.infraestructure.pessoa.Pessoa;
+import br.com.ifba.scop.infraestructure.pessoa.model.Pessoa;
+import com.sun.istack.NotNull;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -19,10 +20,13 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Telefone extends AbstractEntity implements Serializable{
     
+    @NotNull
     private String numero;
     
+    @NotNull
     private String ddd;
     
+    @NotNull
     private String tipoTelefine;
     
     @ManyToOne

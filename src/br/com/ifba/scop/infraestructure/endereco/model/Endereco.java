@@ -6,7 +6,7 @@
 package br.com.ifba.scop.infraestructure.endereco.model;
 
 import br.com.ifba.scop.infraestructure.model.AbstractEntity;
-import br.com.ifba.scop.infraestructure.pessoa.Pessoa;
+import br.com.ifba.scop.infraestructure.pessoa.model.Pessoa;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
