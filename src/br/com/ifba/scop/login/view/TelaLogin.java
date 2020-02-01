@@ -31,6 +31,7 @@ public class TelaLogin extends javax.swing.JFrame {
         txtSenha = new javax.swing.JTextField();
         lblIconeUsuario = new javax.swing.JLabel();
         lblIconeSenha = new javax.swing.JLabel();
+        btnNovoUsuario = new javax.swing.JButton();
         lblUsurário = new javax.swing.JLabel();
         lblFundo = new javax.swing.JLabel();
 
@@ -54,6 +55,25 @@ public class TelaLogin extends javax.swing.JFrame {
         lblIconeSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/login/view/icon_senha_.png"))); // NOI18N
         getContentPane().add(lblIconeSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, -1, 30));
 
+        btnNovoUsuario.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        btnNovoUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        btnNovoUsuario.setText("clique aqui");
+        btnNovoUsuario.setContentAreaFilled(false);
+        btnNovoUsuario.setDefaultCapable(false);
+        btnNovoUsuario.setEnabled(false);
+        btnNovoUsuario.setFocusPainted(false);
+        btnNovoUsuario.setOpaque(false);
+        btnNovoUsuario.setRequestFocusEnabled(false);
+        btnNovoUsuario.setRolloverEnabled(false);
+        btnNovoUsuario.setSelected(true);
+        btnNovoUsuario.setVerifyInputWhenFocusTarget(false);
+        btnNovoUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovoUsuarioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnNovoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, 80, 40));
+
         lblUsurário.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/login/view/tela_login_usuario.png"))); // NOI18N
         getContentPane().add(lblUsurário, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 320, 440));
 
@@ -63,6 +83,10 @@ public class TelaLogin extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnNovoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNovoUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -100,6 +124,7 @@ public class TelaLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnNovoUsuario;
     private javax.swing.JLabel lblFundo;
     private javax.swing.JLabel lblIconeSenha;
     private javax.swing.JLabel lblIconeUsuario;
