@@ -55,14 +55,12 @@ public class PesquisadorTableModel extends AbstractTableModel {
     public Object getValueAt(int line, int col) {
         switch (col) {
             case 0:
-                return data.get(line).getId();
+                return data.get(line).getNome();
             case 1:
-                return this.data.get(line).getNome();
-            case 2:
                 return this.data.get(line).getMatricula();
-            case 3:
+            case 2:
                 return this.data.get(line).getTitulação();
-            case 4:
+            case 3:
                 return this.data.get(line).getEmail();
         }
         return null;
