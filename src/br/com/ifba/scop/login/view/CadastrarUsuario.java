@@ -5,11 +5,19 @@
  */
 package br.com.ifba.scop.login.view;
 
+import br.com.ifba.scop.infraestructure.service.Singleton;
+import br.com.ifba.scop.login.usuario.model.Usuario;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Lucas
  */
 public class CadastrarUsuario extends javax.swing.JFrame {
+    
+    private Usuario usuario;
+    
 
     /**
      * Creates new form CadastrarUsuario
@@ -56,8 +64,12 @@ public class CadastrarUsuario extends javax.swing.JFrame {
 
         btnCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/login/view/botão_cadastrar.png"))); // NOI18N
         btnCadastrar.setContentAreaFilled(false);
-        btnCadastrar.setOpaque(false);
         btnCadastrar.setSelected(true);
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 190, 50));
 
         lblIconUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/login/view/icon_usuario_.png"))); // NOI18N
@@ -83,6 +95,21 @@ public class CadastrarUsuario extends javax.swing.JFrame {
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsuarioActionPerformed
+
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        // TODO add your handling code here:
+        if(txtUsuario.getText() == null){
+            JOptionPane.showMessageDialog(null, "Você precisa digitar um usuário");
+        }else{
+            this.usuario.setLogin(this.txtUsuario.getText());
+        }
+        if(txtSenha == null){
+            JOptionPane.showMessageDialog(null, "Você precisa digitar uma senha");
+        }else{
+            this.usuario.setSenha(this.txtSenha.getText());
+        }
+      
+    }//GEN-LAST:event_btnCadastrarActionPerformed
 
     /**
      * @param args the command line arguments
