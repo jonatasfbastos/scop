@@ -5,6 +5,8 @@
  */
 package br.com.ifba.scop.login.view;
 
+import br.com.ifba.scop.grupopesquisa.view.CadastrarGrupoPesquisa;
+
 /**
  *
  * @author Lucas
@@ -32,6 +34,7 @@ public class TelaLogin extends javax.swing.JFrame {
         lblIconeUsuario = new javax.swing.JLabel();
         lblIconeSenha = new javax.swing.JLabel();
         btnNovoUsuario = new javax.swing.JButton();
+        btnEntrar = new javax.swing.JButton();
         lblUsurário = new javax.swing.JLabel();
         lblFundo = new javax.swing.JLabel();
 
@@ -43,26 +46,24 @@ public class TelaLogin extends javax.swing.JFrame {
 
         txtUsuario.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txtUsuario.setForeground(new java.awt.Color(0, 0, 153));
-        getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 180, 30));
+        getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 180, 30));
 
         txtSenha.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txtSenha.setForeground(new java.awt.Color(0, 0, 153));
-        getContentPane().add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 180, 30));
+        getContentPane().add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 180, 30));
 
         lblIconeUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/login/view/icon_usuario_.png"))); // NOI18N
-        getContentPane().add(lblIconeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, -1, 30));
+        getContentPane().add(lblIconeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, -1, 30));
 
         lblIconeSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/login/view/icon_senha_.png"))); // NOI18N
-        getContentPane().add(lblIconeSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, -1, 30));
+        getContentPane().add(lblIconeSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, -1, 30));
 
         btnNovoUsuario.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         btnNovoUsuario.setForeground(new java.awt.Color(255, 255, 255));
         btnNovoUsuario.setText("clique aqui");
         btnNovoUsuario.setContentAreaFilled(false);
         btnNovoUsuario.setDefaultCapable(false);
-        btnNovoUsuario.setEnabled(false);
         btnNovoUsuario.setFocusPainted(false);
-        btnNovoUsuario.setOpaque(false);
         btnNovoUsuario.setRequestFocusEnabled(false);
         btnNovoUsuario.setRolloverEnabled(false);
         btnNovoUsuario.setSelected(true);
@@ -72,10 +73,20 @@ public class TelaLogin extends javax.swing.JFrame {
                 btnNovoUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(btnNovoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, 80, 40));
+        getContentPane().add(btnNovoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, 80, 30));
+
+        btnEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/login/view/botao_entrar.png"))); // NOI18N
+        btnEntrar.setBorder(null);
+        btnEntrar.setContentAreaFilled(false);
+        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 130, 50));
 
         lblUsurário.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/login/view/tela_login_usuario.png"))); // NOI18N
-        getContentPane().add(lblUsurário, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 320, 440));
+        getContentPane().add(lblUsurário, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 320, 430));
 
         lblFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/login/view/tela_login_fundo.png"))); // NOI18N
         getContentPane().add(lblFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 460));
@@ -86,7 +97,15 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void btnNovoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoUsuarioActionPerformed
         // TODO add your handling code here:
+        CadastrarUsuario  cadastrousuario = new CadastrarUsuario();
+        cadastrousuario.setVisible(true);
     }//GEN-LAST:event_btnNovoUsuarioActionPerformed
+
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+        // TODO add your handling code here:
+       
+       
+    }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -124,6 +143,7 @@ public class TelaLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEntrar;
     private javax.swing.JButton btnNovoUsuario;
     private javax.swing.JLabel lblFundo;
     private javax.swing.JLabel lblIconeSenha;
