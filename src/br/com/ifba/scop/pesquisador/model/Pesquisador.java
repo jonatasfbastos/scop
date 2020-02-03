@@ -7,8 +7,12 @@ package br.com.ifba.scop.pesquisador.model;
 
 //inports 
 import br.com.ifba.scop.infraestructure.model.AbstractEntity;
+import br.com.ifba.scop.patente.model.Patente;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 /**
  * clase para gerar pesquisadores.
@@ -29,6 +33,9 @@ public class Pesquisador extends AbstractEntity implements Serializable {
     private String orgaoEmisor;
     private String email;
     private String nda;
+    // chave estangueira // coloco o nome do atributo que usei em Patente e o tipo de relacionamento
+    @OneToMany (mappedBy = "pesquisador")
+    private List<Patente> patentes = new ArrayList<Patente>();
     // devera conter tambem endereço, data de emisão do RG e telefone
     
     //Construtor
@@ -108,6 +115,16 @@ public class Pesquisador extends AbstractEntity implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+    
+    // getter e setter que se refere a chave estrangueira
+
+    public List<Patente> getPatentes() {
+        return patentes;
+    }
+
+    public void setPatentes(List<Patente> patentes) {
+        this.patentes = patentes;
     }
     
 }
