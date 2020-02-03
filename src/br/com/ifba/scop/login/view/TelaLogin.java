@@ -85,9 +85,11 @@ public class TelaLogin extends javax.swing.JFrame {
         btnNovoUsuario.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         btnNovoUsuario.setForeground(new java.awt.Color(255, 255, 255));
         btnNovoUsuario.setText("clique aqui");
+        btnNovoUsuario.setBorderPainted(false);
         btnNovoUsuario.setContentAreaFilled(false);
         btnNovoUsuario.setDefaultCapable(false);
         btnNovoUsuario.setFocusPainted(false);
+        btnNovoUsuario.setFocusable(false);
         btnNovoUsuario.setRequestFocusEnabled(false);
         btnNovoUsuario.setRolloverEnabled(false);
         btnNovoUsuario.setSelected(true);
@@ -97,7 +99,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 btnNovoUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(btnNovoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, 80, 30));
+        getContentPane().add(btnNovoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 380, 120, 30));
 
         btnEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/login/view/botao_entrar.png"))); // NOI18N
         btnEntrar.setBorder(null);

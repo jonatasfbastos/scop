@@ -119,9 +119,9 @@ public class Pesquisador extends AbstractEntity implements Serializable {
     
     // getter e setter que se refere a chave estrangueira
 
-    public List<Patente> getPatentes() {
-        return patentes;
-    }
+//    public List<Patente> getPatentes() {
+//        return patentes;
+//    }
 
     public void setPatentes(List<Patente> patentes) {
         this.patentes = patentes;

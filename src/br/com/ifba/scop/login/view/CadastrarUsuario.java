@@ -60,11 +60,13 @@ public class CadastrarUsuario extends javax.swing.JFrame {
         btnCadastrar = new javax.swing.JButton();
         lblIconUsuario = new javax.swing.JLabel();
         lblIconSenha = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         lbl_FuncoCadastro = new javax.swing.JLabel();
         lblFundoTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastrar Usuário");
+        setAlwaysOnTop(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -83,8 +85,15 @@ public class CadastrarUsuario extends javax.swing.JFrame {
         getContentPane().add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 250, 30));
 
         btnCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/login/view/botão_cadastrar.png"))); // NOI18N
+        btnCadastrar.setBorderPainted(false);
         btnCadastrar.setContentAreaFilled(false);
+        btnCadastrar.setDefaultCapable(false);
+        btnCadastrar.setFocusPainted(false);
+        btnCadastrar.setFocusable(false);
+        btnCadastrar.setRequestFocusEnabled(false);
+        btnCadastrar.setRolloverEnabled(false);
         btnCadastrar.setSelected(true);
+        btnCadastrar.setVerifyInputWhenFocusTarget(false);
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastrarActionPerformed(evt);
@@ -97,6 +106,25 @@ public class CadastrarUsuario extends javax.swing.JFrame {
 
         lblIconSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/login/view/icon_senha_.png"))); // NOI18N
         getContentPane().add(lblIconSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, -1, 30));
+
+        jButton1.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(254, 254, 254));
+        jButton1.setText("Voltar para login");
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setDefaultCapable(false);
+        jButton1.setFocusPainted(false);
+        jButton1.setFocusable(false);
+        jButton1.setRequestFocusEnabled(false);
+        jButton1.setRolloverEnabled(false);
+        jButton1.setSelected(true);
+        jButton1.setVerifyInputWhenFocusTarget(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, 210, -1));
 
         lbl_FuncoCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/login/view/tela_cadastrar_usuario.png"))); // NOI18N
         getContentPane().add(lbl_FuncoCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 430, 500));
@@ -138,6 +166,12 @@ public class CadastrarUsuario extends javax.swing.JFrame {
       
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -175,6 +209,7 @@ public class CadastrarUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblFundoTela;
     private javax.swing.JLabel lblIconSenha;
     private javax.swing.JLabel lblIconUsuario;
