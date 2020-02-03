@@ -104,7 +104,11 @@ public class ServiceUsuario implements IServiceUsuario{
 
        @Override
        public List<Usuario> findByNome(Usuario usuario) {
-               return daoUsuario.findByNome(usuario);
+               return  daoUsuario.findByNome(usuario);
+       }
+       @Override
+       public Usuario findByLoginSenha(Usuario usuario) {
+               return daoUsuario.findByLoginSenha(usuario);
        }
 
        @Override
@@ -116,11 +120,11 @@ public class ServiceUsuario implements IServiceUsuario{
        public boolean usuarioExistente(Usuario usuario) {
                List<Usuario> usuarios = new ArrayList<Usuario>();
                usuarios=getAllUsuario();		
-                       for (int i=0;i<usuarios.size();i++){				
+                       for (int i=0; i<usuarios.size(); i++){				
                                        if (usuario.getLogin().equals(usuarios.get(i).getLogin())){
-                                               if (usuario.getId()!=null){
-                                                       if (usuario.getId().equals(usuarios.get(i).getId())){
-                                                               return false;
+                                               if (usuario.getId()!= null){
+                                                       if (usuario.getId() == usuarios.get(i).getId() ){
+                                                               return true;
                                                        }
                                                }
                                                throw new BusinessException(USUARIO_EXIST);						

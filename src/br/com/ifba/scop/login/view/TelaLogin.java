@@ -6,18 +6,42 @@
 package br.com.ifba.scop.login.view;
 
 import br.com.ifba.scop.grupopesquisa.view.CadastrarGrupoPesquisa;
+import br.com.ifba.scop.infraestructure.service.Singleton;
+import br.com.ifba.scop.infraestructure.support.StringUtil;
+import br.com.ifba.scop.infraestructure.view.TelaInicial;
+import br.com.ifba.scop.login.usuario.model.Usuario;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Lucas
  */
 public class TelaLogin extends javax.swing.JFrame {
+    
+    private final Usuario usuario = new Usuario();
 
     /**
      * Creates new form TelaLogin
      */
     public TelaLogin() {
         initComponents();
+    }
+        private boolean validaCampos(){
+        StringUtil util = StringUtil.getInstance();
+        
+        if (txtUsuario.getText().equals("") && txtSenha.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios.", "CAMPOS OBRIGATÓRIOS", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        if(util.isNullOrEmpty(txtUsuario.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Usuario.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        if(util.isNullOrEmpty(txtSenha.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Senha.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        return true;
     }
 
     /**
@@ -103,6 +127,15 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
+        if(validaCampos()){
+            this.usuario.setLogin(this.txtUsuario.getText());
+            this.usuario.setSenha(this.txtSenha.getText());
+            if(Singleton.getInstance().findByLoginSenha(usuario) == usuario){
+                System.out.println(" aqui!!!");
+               new TelaInicial().setVisible(true);
+            }
+            
+        }
        
        
     }//GEN-LAST:event_btnEntrarActionPerformed

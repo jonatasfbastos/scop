@@ -11,13 +11,14 @@
     <class>br.com.ifba.scop.infraestructure.telefone.model.Telefone</class>
     <class>br.com.ifba.scop.infraestructure.endereco.model.Endereco</class>
     <class>br.com.ifba.scop.infraestructure.pessoa.Pessoa</class>
+    <class>br.com.ifba.scop.login.usuario.model.Usuario</class>
 
     <properties>
       <!-- dados da conexao -->
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/scop?useTimezone=true&amp;serverTimezone=UTC"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
-      <property name="javax.persistence.jdbc.password" value="root"/>
+      <property name="javax.persistence.jdbc.password" value=""/>
       <!-- propriedades do hibernate -->
       <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
       <property name="hibernate.show_sql" value="true"/>

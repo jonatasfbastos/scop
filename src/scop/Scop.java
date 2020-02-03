@@ -1,6 +1,7 @@
 package scop;
 
 import br.com.ifba.scop.infraestructure.view.TelaInicial;
+import br.com.ifba.scop.login.view.TelaLogin;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -18,7 +19,8 @@ public class Scop {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        new TelaInicial().setVisible(true);
+        new TelaLogin().setVisible(true);
+       // new TelaInicial().setVisible(true);
     }
     
 }

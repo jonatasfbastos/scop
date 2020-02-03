@@ -6,8 +6,6 @@
 package br.com.ifba.scop.login.usuario.service;
 
 import br.com.ifba.scop.login.usuario.model.Usuario;
-import br.com.ifba.scop.pesquisador.service.*;
-import br.com.ifba.scop.pesquisador.model.Pesquisador;
 import java.util.List;
 
 /**
@@ -29,5 +27,7 @@ public interface IServiceUsuario {
     public Usuario findById(Long id);
 
     boolean usuarioExistente(Usuario usuario);
+    
+    public Usuario findByLoginSenha(Usuario usuario);
     
 }

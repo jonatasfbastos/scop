@@ -6,6 +6,9 @@ import br.com.ifba.scop.grupopesquisa.service.ServiceGrupoPesquisa;
 import br.com.ifba.scop.infraestructure.endereco.model.Endereco;
 import br.com.ifba.scop.infraestructure.endereco.service.IServiceEndereco;
 import br.com.ifba.scop.infraestructure.endereco.service.ServiceEndereco;
+import br.com.ifba.scop.login.usuario.model.Usuario;
+import br.com.ifba.scop.login.usuario.service.IServiceUsuario;
+import br.com.ifba.scop.login.usuario.service.ServiceUsuario;
 import br.com.ifba.scop.patente.model.Patente;
 import br.com.ifba.scop.patente.service.IServicePatente;
 import br.com.ifba.scop.pesquisador.model.Pesquisador;
@@ -216,7 +219,48 @@ public class Fachada implements IFachada {
     public Pesquisador findByMatricula(String matricula) {
         return this.servicePesquisador.findByMatricula(matricula);
     }
-
     
+     //----------- Usuario ----------------------
+    private final IServiceUsuario serviceUsuario = new ServiceUsuario();
+    // Salva usuário na bsa de dados
+    @Override
+    public Usuario saveUsuario(Usuario usuario){
+        return this.serviceUsuario.saveUsuario(usuario);
+    }
+    // Atualiza usuário
+    @Override
+    public Usuario updateUsuario(Usuario usuario){
+        return this.serviceUsuario.updateUsuario(usuario);
+    }
+    // Constroi lista com todos os usuários cadastrados
+    @Override
+    public List<Usuario> getAllUsuario(){
+        return this.serviceUsuario.getAllUsuario();
+    }
+    // Deleta um usuário
+    @Override
+    public void deleteUsuario(final Usuario usuario){
+        this.serviceUsuario.deleteUsuario(usuario);
+    }
+    // Busca por nome
+    @Override
+    public List<Usuario> findByNome(Usuario usuario){
+        return this.serviceUsuario.findByNome(usuario);
+    }
+    // Busca por ID
+    @Override
+    public Usuario findById(Long id){
+        return this.serviceUsuario.findById(id);
+    }
+    // Verifica se usuário ja existe
+    @Override
+    public boolean usuarioExistente(Usuario usuario){
+        return this.serviceUsuario.usuarioExistente(usuario);
+    }
+    // Valida usuário para login
+    @Override
+    public Usuario findByLoginSenha(Usuario usuario){
+        return  this.serviceUsuario.findByLoginSenha(usuario);
+    }
 
 }

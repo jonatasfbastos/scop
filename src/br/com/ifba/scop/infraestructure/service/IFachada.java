@@ -2,6 +2,7 @@ package br.com.ifba.scop.infraestructure.service;
 
 import br.com.ifba.scop.grupopesquisa.model.GrupoPesquisa;
 import br.com.ifba.scop.infraestructure.endereco.model.Endereco;
+import br.com.ifba.scop.login.usuario.model.Usuario;
 import br.com.ifba.scop.patente.model.Patente;
 import br.com.ifba.scop.pesquisador.model.Pesquisador;
 import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
@@ -78,4 +79,23 @@ public interface IFachada {
     public abstract ProjetoPesquisa getByIdProjeto(Long id);
     // Metodo que busca um Projeto de Pesquisa na base de dados através do titulo
     public abstract List<ProjetoPesquisa> findByTitulo (String titulo);
+    
+    //----------- Usuario ----------------------
+    
+    // Salva usuário na bsa de dados
+    Usuario saveUsuario(Usuario usuario);
+    // Atualiza usuário
+    Usuario updateUsuario(Usuario usuario);
+    // Constroi lista com todos os usuários cadastrados
+    List<Usuario> getAllUsuario();
+    // Deleta um usuário
+    void deleteUsuario(final Usuario usuario);
+    // Busca por nome
+    public List<Usuario> findByNome(Usuario usuario);
+    // Busca por ID
+    public Usuario findById(Long id);
+    // Verifica se usuário ja existe
+    boolean usuarioExistente(Usuario usuario);
+    //Valida login
+    public Usuario findByLoginSenha(Usuario usuario);
 }

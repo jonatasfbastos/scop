@@ -6,6 +6,7 @@
 package br.com.ifba.scop.login.view;
 
 import br.com.ifba.scop.infraestructure.service.Singleton;
+import br.com.ifba.scop.infraestructure.support.StringUtil;
 import br.com.ifba.scop.login.usuario.model.Usuario;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -16,7 +17,7 @@ import javax.swing.JOptionPane;
  */
 public class CadastrarUsuario extends javax.swing.JFrame {
     
-    private Usuario usuario;
+    private final Usuario usuario = new Usuario();
     
 
     /**
@@ -24,6 +25,25 @@ public class CadastrarUsuario extends javax.swing.JFrame {
      */
     public CadastrarUsuario() {
         initComponents();
+        
+    }
+    
+    private boolean validaCampos(){
+        StringUtil util = StringUtil.getInstance();
+        
+        if (txtUsuario.getText().equals("") && txtSenha.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios.", "CAMPOS OBRIGATÓRIOS", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        if(util.isNullOrEmpty(txtUsuario.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Usuario.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        if(util.isNullOrEmpty(txtSenha.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Senha.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        return true;
     }
 
     /**
@@ -98,15 +118,22 @@ public class CadastrarUsuario extends javax.swing.JFrame {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
-        if(txtUsuario.getText() == null){
-            JOptionPane.showMessageDialog(null, "Você precisa digitar um usuário");
-        }else{
+        if(validaCampos()){
+            
             this.usuario.setLogin(this.txtUsuario.getText());
-        }
-        if(txtSenha == null){
-            JOptionPane.showMessageDialog(null, "Você precisa digitar uma senha");
-        }else{
             this.usuario.setSenha(this.txtSenha.getText());
+            
+               // Salvo com sucesso
+            if(Singleton.getInstance().saveUsuario(usuario) == usuario){
+
+                JOptionPane.showMessageDialog(null, "Cadastro efetuado com sucesso!");
+
+                // Fecha a janela
+                this.dispose();
+
+            }else{
+                JOptionPane.showMessageDialog(null, "Erro ao cadastrar");
+            }
         }
       
     }//GEN-LAST:event_btnCadastrarActionPerformed
