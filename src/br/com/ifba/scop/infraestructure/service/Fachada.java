@@ -19,6 +19,9 @@ import br.com.ifba.scop.projetopesquisa.service.IServiceProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.service.ServiceProjetoPesquisa;
 import java.security.Provider.Service;
 import java.util.List;
+import br.com.ifba.scop.professor.model.Professor;
+import br.com.ifba.scop.professor.service.IServiceProfessor;
+import br.com.ifba.scop.professor.service.ServiceProfessor;
 
 
 public class Fachada implements IFachada {
@@ -262,5 +265,8 @@ public class Fachada implements IFachada {
     public Usuario findByLoginSenha(Usuario usuario){
         return  this.serviceUsuario.findByLoginSenha(usuario);
     }
+    
+    // ----------------------------- Professor ----------------------
+    Professor professor = new Professor();
 
 }

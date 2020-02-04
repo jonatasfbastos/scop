@@ -5,9 +5,19 @@
  */
 package br.com.ifba.scop.professor.view;
 
+import br.com.ifba.scop.infraestructure.service.Singleton;
+import br.com.ifba.scop.infraestructure.support.StringUtil;
+import br.com.ifba.scop.professor.model.Professor;
+import java.awt.Color;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
- * @author Marina
+ * @author Bessa
  */
 public class CadastrarProfessor extends javax.swing.JFrame {
 
@@ -151,6 +161,11 @@ public class CadastrarProfessor extends javax.swing.JFrame {
         lblTitulacao.setText("Titulação:");
 
         btnAdicionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/professor/view/Imagens/icon_add.png"))); // NOI18N
+        btnAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -200,30 +215,20 @@ public class CadastrarProfessor extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblTitulacao)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtTitulacao, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblMatricula)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                                .addComponent(txtMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblEmail)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblNacionalidade)
-                                    .addComponent(lblNaturalidade))
-                                .addGap(4, 4, 4)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNaturalidade)
-                                    .addComponent(txtNacionalidade)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblEndereco)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblNacionalidade)
+                            .addComponent(lblNaturalidade)
+                            .addComponent(lblEndereco)
+                            .addComponent(lblEmail)
+                            .addComponent(lblMatricula)
+                            .addComponent(lblTitulacao))
+                        .addGap(4, 4, 4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtTitulacao, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                            .addComponent(txtMatricula)
+                            .addComponent(txtEmail)
+                            .addComponent(txtEndereco)
+                            .addComponent(txtNaturalidade)
+                            .addComponent(txtNacionalidade))
                         .addGap(27, 27, 27))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -290,6 +295,40 @@ public class CadastrarProfessor extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
+        // TODO add your handling code here:
+        Professor professor = new Professor();
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); 
+        
+        if (validaCampos() == true){
+            professor.setNome(txtNome.getText());
+            professor.setCpf(Integer.parseInt(txtCpf.getText()));
+            professor.setEmail(txtEmail.getText());
+            professor.setSexo(txtSexo.getText());
+            professor.setMatricula(txtMatricula.getText());
+            professor.setTitulacao(txtTitulacao.getText());
+            professor.setOrgaoExpedidor(txtOrgExpedidor.getText());
+            
+            try {
+                professor.setDataNascimento(formato.parse(txtNascimento.getText()));
+            } catch (ParseException ex) {
+                Logger.getLogger(CadastrarProfessor.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            professor.setRg(Integer.parseInt(txtRg.getText()));
+            professor.setNacionalidade(txtNacionalidade.getText());
+            professor.setNaturalidade(txtNaturalidade.getText());
+            
+            try {
+                professor.setDataExpedicao(formato.parse(txtExpedicao.getText()));
+            } catch (ParseException ex) {
+                Logger.getLogger(CadastrarProfessor.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+        
+    }//GEN-LAST:event_btnAdicionarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -324,6 +363,162 @@ public class CadastrarProfessor extends javax.swing.JFrame {
             }
         });
     }
+    
+    // Checar se existe campos vazios
+    
+    private boolean validaCampos(){
+        
+        StringUtil util = StringUtil.getInstance();
+        
+                if(txtNome.getText().equals("") && txtRg.getText().equals("")){
+                    if(txtCpf.getText().equals("") && txtEmail.getText().equals("")){
+                        if(txtSexo.getText().equals("") && txtMatricula.getText().equals("")){
+                            if (txtTitulacao.getText().equals("") && txtOrgExpedidor.getText().equals("")){
+                                if (txtNascimento.getText().equals("") && txtExpedicao.getText().equals("")){
+                                    if (txtNacionalidade.getText().equals("") && txtNaturalidade.getText().equals("")){
+                                        JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios.", "CAMPOS OBRIGATÓRIOS", JOptionPane.ERROR_MESSAGE);
+                                        return false; 
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                
+        // Validação dos campos individuais
+        // nome
+        if(util.isNullOrEmpty(txtNome.getText())){
+            lblNome.setText("Nome*");
+            lblNome.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo Nome.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            lblNome.setText("Nome");
+            lblNome.setForeground(Color.black);
+        }
+        // Campo RG
+        if(util.isNullOrEmpty(txtRg.getText())){
+            lblRg.setText("RG*");
+            lblRg.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo RG.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            lblRg.setText("RG");
+            lblRg.setForeground(Color.black);
+        }
+        // Campo CPF
+        if(util.isNullOrEmpty(txtCpf.getText())){
+            lblCpf.setText("CPF:*");
+            lblCpf.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo CPF.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            lblCpf.setText("CPF:");
+            lblCpf.setForeground(Color.black);
+        }
+        // Campo E-mail
+        if(util.isNullOrEmpty(txtEmail.getText())){
+            lblEmail.setText("E-mail:*");
+            lblEmail.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo E-mail.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            lblEmail.setText("E-mail:");
+            lblEmail.setForeground(Color.black);
+        }
+        
+        // Campo Sexo
+        if(util.isNullOrEmpty(txtSexo.getText())){
+            lblSexo.setText("Sexo*");
+            lblSexo.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo Sexo.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            lblSexo.setText("Sexo:");
+            lblSexo.setForeground(Color.black);
+        }
+        
+        // Campo Matricula
+        if(util.isNullOrEmpty(txtMatricula.getText())){
+            lblMatricula.setText("Matrícula:*");
+            lblMatricula.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo Matrícula.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            lblMatricula.setText("Matríula:");
+            lblMatricula.setForeground(Color.black);
+        }
+        
+        // Campo Titulação
+        
+        if(util.isNullOrEmpty(txtTitulacao.getText())){
+            lblTitulacao.setText("Titulação:*");
+            lblTitulacao.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo Titulação.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            lblTitulacao.setText("Titulação:");
+            lblTitulacao.setForeground(Color.black);
+        }
+        
+        // Campo Orgão Expedidor
+        if(util.isNullOrEmpty(txtOrgExpedidor.getText())){
+            txtOrgExpedidor.setText("Orgão Expedidor:*");
+            txtOrgExpedidor.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo Orgão Expedidor.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            txtOrgExpedidor.setText("Orgão Expedidor:");
+            txtOrgExpedidor.setForeground(Color.black);
+        }
+        
+        // Campo Nascimento
+        
+        if(util.isNullOrEmpty(txtNascimento.getText())){
+            txtNascimento.setText("Nascimento:*");
+            txtNascimento.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo Nascimento.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            txtNascimento.setText("Nascimento:");
+            txtNascimento.setForeground(Color.black);
+        }
+        
+        // Data da expedição
+        if(util.isNullOrEmpty(txtExpedicao.getText())){
+            txtExpedicao.setText("Data da expedição:*");
+            txtExpedicao.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo Data da expedição.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            txtExpedicao.setText("Data da expedição:");
+            txtExpedicao.setForeground(Color.black);
+        }
+        
+        // Nacionalidade
+        if(util.isNullOrEmpty(txtNacionalidade.getText())){
+            txtNacionalidade.setText("Nacionalidade:*");
+            txtNacionalidade.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo Nacionalidade.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            txtNacionalidade.setText("Nacionalidade:");
+            txtNacionalidade.setForeground(Color.black);
+        }
+        
+        // Naturalidade
+        if(util.isNullOrEmpty(txtNaturalidade.getText())){
+            txtNaturalidade.setText("Naturalidade:*");
+            txtNaturalidade.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo Naturalidade.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            txtNaturalidade.setText("Naturalidade:");
+            txtNaturalidade.setForeground(Color.black);
+        }
+        
+        return true;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CbEstadoCivil;
@@ -353,7 +548,6 @@ public class CadastrarProfessor extends javax.swing.JFrame {
     private javax.swing.JTextField txtNaturalidade;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtOrgExpedidor;
-    private javax.swing.JFormattedTextField txtRG;
     private javax.swing.JFormattedTextField txtRg;
     private javax.swing.JTextField txtSexo;
     private javax.swing.JTextField txtTitulacao;

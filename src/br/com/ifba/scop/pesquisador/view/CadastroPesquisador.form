@@ -123,17 +123,17 @@
                               <Component id="txtCPF" min="-2" pref="194" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="48" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="lblLocacao" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtLocacao" min="-2" pref="267" max="-2" attributes="0"/>
-                              <Component id="txtInstituicao" min="-2" pref="267" max="-2" attributes="0"/>
-                              <Component id="txtTitulacao" min="-2" pref="267" max="-2" attributes="0"/>
-                              <Component id="txtOrgaoEmissor" min="-2" pref="267" max="-2" attributes="0"/>
+                              <Component id="txtLocacao" pref="267" max="32767" attributes="0"/>
+                              <Component id="txtInstituicao" pref="267" max="32767" attributes="0"/>
+                              <Component id="txtTitulacao" pref="267" max="32767" attributes="0"/>
+                              <Component id="txtOrgaoEmissor" pref="267" max="32767" attributes="0"/>
                               <Component id="lblInstituicao" min="-2" max="-2" attributes="0"/>
                               <Component id="lblMatricula" min="-2" max="-2" attributes="0"/>
                               <Component id="lblTitulacao" min="-2" max="-2" attributes="0"/>
                               <Component id="lblOrgEmissor" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtMatricula" alignment="0" min="-2" pref="169" max="-2" attributes="0"/>
+                              <Component id="txtMatricula" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -199,9 +199,6 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JTextField" name="txtNome">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNomeActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblRG">
           <Properties>
@@ -226,24 +223,12 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtInstituicao">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtInstituicaoActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtMatricula">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtMatriculaActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtTitulacao">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTitulacaoActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtOrgaoEmissor">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtOrgaoEmissorActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblInstituicao">
           <Properties>
@@ -278,9 +263,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtLocacao">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtLocacaoActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblLocacao">
           <Properties>
@@ -301,9 +283,6 @@
               <Format format="##.###.###-##" subtype="-1" type="5"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRGActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="txtCPF">
           <Properties>
@@ -311,9 +290,6 @@
               <Format format="###.###.###-##" subtype="-1" type="5"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCPFActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>
