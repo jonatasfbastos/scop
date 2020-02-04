@@ -5,7 +5,6 @@
  */
 package br.com.ifba.scop.professor.dao;
 
-import br.com.ifba.scop.infraestructure.dao.BaseDao;
 import br.com.ifba.scop.infraestructure.dao.IBaseDao;
 import br.com.ifba.scop.professor.model.Professor;
 import java.util.List;

@@ -102,7 +102,7 @@ public class ServiceProfessor extends IServiceProfessor{
     }
 
     public boolean professorExistente(Professor professor) {
-        // Recebe todos os Projetos de Pesquisa da base de dados
+        // 
         List<Professor> all = this.daoProfessor.findAll();
         return false;
     }
