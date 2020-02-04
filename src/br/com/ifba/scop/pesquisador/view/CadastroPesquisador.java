@@ -5,10 +5,12 @@
  */
 package br.com.ifba.scop.pesquisador.view;
 
+import br.com.ifba.scop.grupopesquisa.model.GrupoPesquisa;
 import br.com.ifba.scop.infraestructure.service.Singleton;
 import br.com.ifba.scop.infraestructure.support.StringUtil;
 import br.com.ifba.scop.pesquisador.model.Pesquisador;
 import java.awt.Color;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,7 +18,6 @@ import javax.swing.JOptionPane;
  * @author Cliente
  */
 public class CadastroPesquisador extends javax.swing.JFrame {
-
     /**
      * Creates new form CadastroPesquisador
      */

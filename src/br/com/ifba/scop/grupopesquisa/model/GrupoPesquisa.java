@@ -6,6 +6,7 @@
 package br.com.ifba.scop.grupopesquisa.model;
 
 import br.com.ifba.scop.infraestructure.model.AbstractEntity;
+import br.com.ifba.scop.pesquisador.model.Pesquisador;
 import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
 import java.io.Serializable;
 import java.util.Collection;
@@ -31,6 +32,25 @@ public class GrupoPesquisa extends AbstractEntity implements Serializable {
 // lista de equipes cooperantes
 // lista de projetos
 //  lista de pesquisadores (responsaveis
+    
+     /* GRUPO DE PESQUISA
+    @ManyToMany(mappedBy = "gruposPesquisa")
+    private List<ProjetoPesquisa> projetoPesquisas;
+    
+    PROJETO DE PESQUISA
+    @ManyToMany
+    private List<GrupoPesquisa> gruposPesquisa;
+    
+    CADASTRO PP
+     private final List<GrupoPesquisa> grupos = Singleton.getInstance().getAllGrupoPesquisa();
+     
+    INIT COMPONENTS
+     for(int i = 0; i < this.grupos.size(); i++){
+            this.combxGrupoPesquisa.addItem(this.grupos.get(i));
+        }
+    */
+    @ManyToMany(mappedBy = "gruposPesquisa")
+    private List<Pesquisador> pesquisador;
     
     @ManyToMany(mappedBy = "gruposPesquisa")
     private List<ProjetoPesquisa> projetoPesquisas;

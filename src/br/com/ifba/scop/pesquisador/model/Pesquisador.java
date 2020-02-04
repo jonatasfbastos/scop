@@ -6,12 +6,15 @@
 package br.com.ifba.scop.pesquisador.model;
 
 //inports 
+import br.com.ifba.scop.grupopesquisa.model.GrupoPesquisa;
 import br.com.ifba.scop.infraestructure.model.AbstractEntity;
 import br.com.ifba.scop.patente.model.Patente;
+import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 /**
@@ -37,8 +40,13 @@ public class Pesquisador extends AbstractEntity implements Serializable {
     @OneToMany (mappedBy = "pesquisador")
     private List<Patente> patentes = new ArrayList<Patente>();
     // devera conter tambem endereço, data de emisão do RG e telefone
+    //relacionamento entre pesquisador e projeto pesquisa
     
-    //Construtor
+    @ManyToMany(mappedBy = "pesquisador")
+    private List<GrupoPesquisa> grupoPesquisa;
+
+    
+   //Construtor
     public Pesquisador() {
         super();
     }
