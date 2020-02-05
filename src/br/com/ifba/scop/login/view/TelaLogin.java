@@ -54,11 +54,11 @@ public class TelaLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         txtUsuario = new javax.swing.JTextField();
-        txtSenha = new javax.swing.JTextField();
         lblIconeUsuario = new javax.swing.JLabel();
         lblIconeSenha = new javax.swing.JLabel();
         btnNovoUsuario = new javax.swing.JButton();
         btnEntrar = new javax.swing.JButton();
+        txtSenha = new javax.swing.JPasswordField();
         lblUsurário = new javax.swing.JLabel();
         lblFundo = new javax.swing.JLabel();
 
@@ -71,10 +71,6 @@ public class TelaLogin extends javax.swing.JFrame {
         txtUsuario.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txtUsuario.setForeground(new java.awt.Color(0, 0, 153));
         getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 180, 30));
-
-        txtSenha.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        txtSenha.setForeground(new java.awt.Color(0, 0, 153));
-        getContentPane().add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 180, 30));
 
         lblIconeUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/login/view/icon_usuario_.png"))); // NOI18N
         getContentPane().add(lblIconeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, -1, 30));
@@ -110,6 +106,10 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 130, 50));
+
+        txtSenha.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txtSenha.setForeground(new java.awt.Color(0, 0, 204));
+        getContentPane().add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 180, 30));
 
         lblUsurário.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/login/view/tela_login_usuario.png"))); // NOI18N
         getContentPane().add(lblUsurário, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 320, 430));
@@ -184,7 +184,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel lblIconeSenha;
     private javax.swing.JLabel lblIconeUsuario;
     private javax.swing.JLabel lblUsurário;
-    private javax.swing.JTextField txtSenha;
+    private javax.swing.JPasswordField txtSenha;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

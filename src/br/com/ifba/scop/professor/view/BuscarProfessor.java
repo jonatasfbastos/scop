@@ -1,12 +1,13 @@
-package br.com.ifba.scop.projetopesquisa.view;
+package br.com.ifba.scop.professor.view;
 
+import br.com.ifba.scop.professor.view.*;
 import br.com.ifba.scop.infraestructure.model.ColumnDeleteLabel;
 import br.com.ifba.scop.infraestructure.model.ColumnEditLabel;
 import br.com.ifba.scop.infraestructure.service.Singleton;
 import br.com.ifba.scop.infraestructure.view.TelaInicial;
-import br.com.ifba.scop.projetopesquisa.dao.DaoProjetoPesquisa;
-import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
-import br.com.ifba.scop.projetopesquisa.tableModel.ProjetoPesquisaTableModel;
+import br.com.ifba.scop.professor.dao.DaoProfessor;
+import br.com.ifba.scop.professor.model.Professor;
+import br.com.ifba.scop.professor.tableModel.ProfessorTableModel;
 import java.awt.Color;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -22,9 +23,9 @@ import javax.swing.JOptionPane;
  *
  * @author Lucas
  */
-public class BuscarProjetoPesquisa extends javax.swing.JFrame {
+public class BuscarProfessor extends javax.swing.JFrame {
 
-    private final ProjetoPesquisaTableModel modelo = new ProjetoPesquisaTableModel();
+    private final ProfessorTableModel modelo = new ProfessorTableModel();
     private final ColumnDeleteLabel deletar;
     private final ColumnEditLabel editar;    
     int selecionado = -1;
@@ -47,41 +48,41 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
      * It Returns the patente table model (jtable).
      * @return PatenteTableModel
      */
-    private ProjetoPesquisaTableModel getProjetoPesquisaTableModel() {
+    private ProfessorTableModel getProfessorTableModel() {
         return modelo;
     }
 
     /**
      * Creates new form BuscarProjetoPesquisa
      */
-    public BuscarProjetoPesquisa() {
+    public BuscarProfessor() {
         
         initComponents();
         btnNovo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnNovo.setToolTipText("Clique neste botão para cadastrar um novo projeto de pesquisa");
         btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnMenu.setToolTipText("Clique neste botão para voltar para a tela inicial");
-        txtNomeProjeto.setToolTipText("Digite algo neste campo para pesquisar");
+        txtNomeProfessor.setToolTipText("Digite algo neste campo para pesquisar");
         
-        this.jtProjetosPesquisa.setModel(modelo);
-        this.modelo.updateTableList(Singleton.getInstance().getAllProjetos());
+        this.jtProfessor.setModel(modelo);
+        this.modelo.updateTableList(Singleton.getInstance().getAllProfessor());
         //criando um botão do tipo deletar
-        this.deletar = new ColumnDeleteLabel(this.jtProjetosPesquisa, 4);
+        this.deletar = new ColumnDeleteLabel(this.jtProfessor, 4);
         //criando um botão do tipo editar
-        this.editar = new ColumnEditLabel(this.jtProjetosPesquisa, 5);
+        this.editar = new ColumnEditLabel(this.jtProfessor, 5);
         
         //pega todos os projetos
-        List<ProjetoPesquisa> dados = Singleton.getInstance().getAllProjetos();
+        List<Professor> dados = Singleton.getInstance().getAllProfessor();
         
-       this.getProjetoPesquisaTableModel().clearTable(); // remove as informações
+       this.getProfessorTableModel().clearTable(); // remove as informações
         
         //for com o tamanho da lista
         for (int i = 0; i < dados.size(); i++) {
             //add cada elemento pela posicao 
-            this.getProjetoPesquisaTableModel().addElementIndex(i, dados.get(i));
+            this.getProfessorTableModel().addElementIndex(i, dados.get(i));
             //insere os nomes no label de acordo com a coluna
-            this.getColumnDeleteLabel().getTableCellEditorComponent(this.jtProjetosPesquisa, "Delete", false, i, 4);
-            this.getColumnEditLabel().getTableCellEditorComponent(this.jtProjetosPesquisa, "Edite", false, i, 5);
+            this.getColumnDeleteLabel().getTableCellEditorComponent(this.jtProfessor, "Delete", false, i, 4);
+            this.getColumnEditLabel().getTableCellEditorComponent(this.jtProfessor, "Edite", false, i, 5);
         }
       
     }
@@ -95,9 +96,9 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtNomeProjeto = new javax.swing.JTextField();
+        txtNomeProfessor = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jtProjetosPesquisa = new javax.swing.JTable();
+        jtProfessor = new javax.swing.JTable();
         btnNovo = new javax.swing.JButton();
         btnMenu = new javax.swing.JButton();
         lblImagenFundo = new javax.swing.JLabel();
@@ -114,15 +115,15 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtNomeProjeto.setMinimumSize(new java.awt.Dimension(6, 27));
-        txtNomeProjeto.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtNomeProfessor.setMinimumSize(new java.awt.Dimension(6, 27));
+        txtNomeProfessor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtNomeProjetoKeyReleased(evt);
+                txtNomeProfessorKeyReleased(evt);
             }
         });
-        getContentPane().add(txtNomeProjeto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 560, 30));
+        getContentPane().add(txtNomeProfessor, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 560, 30));
 
-        jtProjetosPesquisa.setModel(new javax.swing.table.DefaultTableModel(
+        jtProfessor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -130,15 +131,15 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
 
             }
         ));
-        jtProjetosPesquisa.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jtProjetosPesquisa.setOpaque(false);
-        jtProjetosPesquisa.getTableHeader().setReorderingAllowed(false);
-        jtProjetosPesquisa.addMouseListener(new java.awt.event.MouseAdapter() {
+        jtProfessor.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jtProfessor.setOpaque(false);
+        jtProfessor.getTableHeader().setReorderingAllowed(false);
+        jtProfessor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jtProjetosPesquisaMouseClicked(evt);
+                jtProfessorMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jtProjetosPesquisa);
+        jScrollPane1.setViewportView(jtProfessor);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 195, 557, 271));
 
@@ -168,19 +169,19 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
 
     
     // Ação que é disparada quando algo é diditado no txtNomeProjeto
-    private void txtNomeProjetoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeProjetoKeyReleased
+    private void txtNomeProfessorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeProfessorKeyReleased
         
         //Busca por titulo
-        this.modelo.updateTableList(Singleton.getInstance().findByTitulo(this.txtNomeProjeto.getText()));
+        this.modelo.updateTableList(Singleton.getInstance().findByProfessor(this.txtNomeProfessor.getText()));
         
-    }//GEN-LAST:event_txtNomeProjetoKeyReleased
+    }//GEN-LAST:event_txtNomeProfessorKeyReleased
 
     // Ação que é disparada quando houver um click na tabela
-    private void jtProjetosPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtProjetosPesquisaMouseClicked
+    private void jtProfessorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtProfessorMouseClicked
         // selecionado recebe o numero da linha que está selecionada
-        this.selecionado = this.jtProjetosPesquisa.getSelectedRow();   
+        this.selecionado = this.jtProfessor.getSelectedRow();   
         
-        if (this.jtProjetosPesquisa.getSelectedColumn() == 4) {
+        if (this.jtProfessor.getSelectedColumn() == 4) {
         // Deleta o projeto selecionado e atualiza a tabela
             if(this.selecionado != -1){           
                 int confirmacao = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja remover este projeto pesquisa?", "REMOVER PROJETO PESQUISA", JOptionPane.INFORMATION_MESSAGE);
@@ -192,7 +193,7 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
                 }else if(confirmacao == JOptionPane.YES_OPTION){
                 //se a confirmação é zero, o usuário quer realmente excluir o projeto e os seus dados       
                     Singleton.getInstance().deleteProjetoPesquisa(Singleton.getInstance().getAllProjetos().get(this.selecionado));
-                    this.modelo.updateTableList(Singleton.getInstance().getAllProjetos());
+                    this.modelo.updateTableList(Singleton.getInstance().getAllProfessor());
                     this.selecionado = -1;
                 }
             }else{
@@ -201,22 +202,22 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
                 this.selecionado = -1;
             }  
             //editar pelo botão
-        } if (this.jtProjetosPesquisa.getSelectedColumn() == 5) {
-             new CadastrarProjetoPesquisa(Singleton.getInstance().getAllProjetos().get(this.selecionado)).setVisible(true);
+        } if (this.jtProfessor.getSelectedColumn() == 5) {
+            new CadastrarProfessor(Singleton.getInstance().getAllProfessor().get(this.selecionado)).setVisible(true);
                           
         }    
-    }//GEN-LAST:event_jtProjetosPesquisaMouseClicked
+    }//GEN-LAST:event_jtProfessorMouseClicked
 
     // Ação que é disparada quando a tela de cima for fechada
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
         
-        this.modelo.updateTableList(Singleton.getInstance().getAllProjetos());
+        this.modelo.updateTableList(Singleton.getInstance().getAllProfessor());
         
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         // TODO add your handling code here:
-        new CadastrarProjetoPesquisa().setVisible(true);
+        new CadastrarProfessor().setVisible(true);
         
     }//GEN-LAST:event_btnNovoActionPerformed
 
@@ -243,21 +244,23 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BuscarProjetoPesquisa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscarProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BuscarProjetoPesquisa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscarProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BuscarProjetoPesquisa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscarProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BuscarProjetoPesquisa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscarProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BuscarProjetoPesquisa().setVisible(true);
+                new BuscarProfessor().setVisible(true);
             }
         });
     }
@@ -266,8 +269,8 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
     private javax.swing.JButton btnMenu;
     private javax.swing.JButton btnNovo;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jtProjetosPesquisa;
+    private javax.swing.JTable jtProfessor;
     private javax.swing.JLabel lblImagenFundo;
-    private javax.swing.JTextField txtNomeProjeto;
+    private javax.swing.JTextField txtNomeProfessor;
     // End of variables declaration//GEN-END:variables
 }

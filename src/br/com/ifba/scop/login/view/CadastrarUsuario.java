@@ -56,11 +56,11 @@ public class CadastrarUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         txtUsuario = new javax.swing.JTextField();
-        txtSenha = new javax.swing.JTextField();
         btnCadastrar = new javax.swing.JButton();
         lblIconUsuario = new javax.swing.JLabel();
         lblIconSenha = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        txtSenha = new javax.swing.JPasswordField();
         lbl_FuncoCadastro = new javax.swing.JLabel();
         lblFundoTela = new javax.swing.JLabel();
 
@@ -70,19 +70,14 @@ public class CadastrarUsuario extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtUsuario.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txtUsuario.setForeground(new java.awt.Color(0, 0, 204));
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsuarioActionPerformed(evt);
             }
         });
         getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 250, 30));
-
-        txtSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSenhaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 250, 30));
 
         btnCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/login/view/botão_cadastrar.png"))); // NOI18N
         btnCadastrar.setBorderPainted(false);
@@ -126,6 +121,10 @@ public class CadastrarUsuario extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, 210, -1));
 
+        txtSenha.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txtSenha.setForeground(new java.awt.Color(0, 0, 204));
+        getContentPane().add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 250, 30));
+
         lbl_FuncoCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/login/view/tela_cadastrar_usuario.png"))); // NOI18N
         getContentPane().add(lbl_FuncoCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 430, 500));
 
@@ -135,10 +134,6 @@ public class CadastrarUsuario extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSenhaActionPerformed
 
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
@@ -214,7 +209,7 @@ public class CadastrarUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel lblIconSenha;
     private javax.swing.JLabel lblIconUsuario;
     private javax.swing.JLabel lbl_FuncoCadastro;
-    private javax.swing.JTextField txtSenha;
+    private javax.swing.JPasswordField txtSenha;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
