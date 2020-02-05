@@ -119,8 +119,12 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <Component id="txtEmail" alignment="0" min="-2" pref="267" max="-2" attributes="0"/>
                               <Component id="txtCPF" min="-2" pref="194" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="lblGrupoPesquisa" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="comboxGrupoPesquisa" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtEmail" alignment="0" pref="267" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace pref="48" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -187,9 +191,15 @@
                       <Component id="txtOrgaoEmissor" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lblLocacao" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblLocacao" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblGrupoPesquisa" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="txtLocacao" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="txtLocacao" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="comboxGrupoPesquisa" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace pref="115" max="32767" attributes="0"/>
                   <Component id="btnConfirm" min="-2" pref="46" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -314,6 +324,24 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCPFActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="comboxGrupoPesquisa">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboxGrupoPesquisaActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;GrupoPesquisa&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblGrupoPesquisa">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Grupo de Pesquisa"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
