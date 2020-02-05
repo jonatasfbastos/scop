@@ -6,7 +6,6 @@
 package br.com.ifba.scop.fornecedor.service;
 
 import br.com.ifba.scop.fornecedor.model.Fornecedor;
-import br.com.ifba.scop.grupopesquisa.model.GrupoPesquisa;
 import java.util.List;
 
 /**

@@ -118,19 +118,19 @@ public class ServiceUsuario implements IServiceUsuario{
 
        @Override
        public boolean usuarioExistente(Usuario usuario) {
-               List<Usuario> usuarios = new ArrayList<Usuario>();
-               usuarios=getAllUsuario();		
-                       for (int i=0; i<usuarios.size(); i++){				
-                                       if (usuario.getLogin().equals(usuarios.get(i).getLogin())){
-                                               if (usuario.getId()!= null){
-                                                       if (usuario.getId() == usuarios.get(i).getId() ){
-                                                               return true;
-                                                       }
-                                               }
-                                               throw new BusinessException(USUARIO_EXIST);						
-                                       }
-                       }
-               return false;
+            List<Usuario> usuarios = new ArrayList<Usuario>();
+            usuarios=getAllUsuario();		
+                 for (int i=0; i<usuarios.size(); i++){				
+                      if (usuario.getLogin().equals(usuarios.get(i).getLogin())){
+                            if (usuario.getId()!= null){
+                                if (usuario.getId() == usuarios.get(i).getId() ){
+                                    return true;
+                                }
+                            }
+                            throw new BusinessException(USUARIO_EXIST);						
+                      }
+                 }
+            return false;
        }	  
 
 

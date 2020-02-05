@@ -119,21 +119,25 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <Component id="txtEmail" alignment="0" min="-2" pref="267" max="-2" attributes="0"/>
                               <Component id="txtCPF" min="-2" pref="194" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="lblGrupoPesquisa" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="comboxGrupoPesquisa" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtEmail" alignment="0" pref="267" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace pref="48" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="lblLocacao" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtLocacao" min="-2" pref="267" max="-2" attributes="0"/>
-                              <Component id="txtInstituicao" min="-2" pref="267" max="-2" attributes="0"/>
-                              <Component id="txtTitulacao" min="-2" pref="267" max="-2" attributes="0"/>
-                              <Component id="txtOrgaoEmissor" min="-2" pref="267" max="-2" attributes="0"/>
+                              <Component id="txtLocacao" pref="267" max="32767" attributes="0"/>
+                              <Component id="txtInstituicao" pref="267" max="32767" attributes="0"/>
+                              <Component id="txtTitulacao" pref="267" max="32767" attributes="0"/>
+                              <Component id="txtOrgaoEmissor" pref="267" max="32767" attributes="0"/>
                               <Component id="lblInstituicao" min="-2" max="-2" attributes="0"/>
                               <Component id="lblMatricula" min="-2" max="-2" attributes="0"/>
                               <Component id="lblTitulacao" min="-2" max="-2" attributes="0"/>
                               <Component id="lblOrgEmissor" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtMatricula" alignment="0" min="-2" pref="169" max="-2" attributes="0"/>
+                              <Component id="txtMatricula" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -187,9 +191,15 @@
                       <Component id="txtOrgaoEmissor" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lblLocacao" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblLocacao" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblGrupoPesquisa" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="txtLocacao" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="txtLocacao" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="comboxGrupoPesquisa" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace pref="115" max="32767" attributes="0"/>
                   <Component id="btnConfirm" min="-2" pref="46" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -199,9 +209,6 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JTextField" name="txtNome">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNomeActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblRG">
           <Properties>
@@ -226,24 +233,12 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtInstituicao">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtInstituicaoActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtMatricula">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtMatriculaActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtTitulacao">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTitulacaoActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtOrgaoEmissor">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtOrgaoEmissorActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblInstituicao">
           <Properties>
@@ -278,9 +273,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtLocacao">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtLocacaoActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblLocacao">
           <Properties>
@@ -301,9 +293,6 @@
               <Format format="##.###.###-##" subtype="-1" type="5"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRGActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="txtCPF">
           <Properties>
@@ -311,9 +300,24 @@
               <Format format="###.###.###-##" subtype="-1" type="5"/>
             </Property>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="comboxGrupoPesquisa">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCPFActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboxGrupoPesquisaActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;GrupoPesquisa&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblGrupoPesquisa">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Grupo de Pesquisa"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

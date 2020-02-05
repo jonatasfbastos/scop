@@ -6,6 +6,9 @@ import br.com.ifba.scop.grupopesquisa.service.ServiceGrupoPesquisa;
 import br.com.ifba.scop.infraestructure.endereco.model.Endereco;
 import br.com.ifba.scop.infraestructure.endereco.service.IServiceEndereco;
 import br.com.ifba.scop.infraestructure.endereco.service.ServiceEndereco;
+import br.com.ifba.scop.login.tipousuario.model.TipoUsuario;
+import br.com.ifba.scop.login.tipousuario.service.IServiceTipoUsuario;
+import br.com.ifba.scop.login.tipousuario.service.ServiceTipoUsuario;
 import br.com.ifba.scop.login.usuario.model.Usuario;
 import br.com.ifba.scop.login.usuario.service.IServiceUsuario;
 import br.com.ifba.scop.login.usuario.service.ServiceUsuario;
@@ -19,6 +22,9 @@ import br.com.ifba.scop.projetopesquisa.service.IServiceProjetoPesquisa;
 import br.com.ifba.scop.projetopesquisa.service.ServiceProjetoPesquisa;
 import java.security.Provider.Service;
 import java.util.List;
+import br.com.ifba.scop.professor.model.Professor;
+import br.com.ifba.scop.professor.service.IServiceProfessor;
+import br.com.ifba.scop.professor.service.ServiceProfessor;
 
 
 public class Fachada implements IFachada {
@@ -262,5 +268,63 @@ public class Fachada implements IFachada {
     public Usuario findByLoginSenha(Usuario usuario){
         return  this.serviceUsuario.findByLoginSenha(usuario);
     }
+    
+    // ----------------------------- Professor ----------------------
+    private final IServiceProfessor serviceProfessor = new ServiceProfessor();
 
+    @Override
+    public Professor saveProfessor(Professor professor) {
+        return this.serviceProfessor.saveProfessor(professor);
+    }
+
+    @Override
+    public void deleteProfessor(Professor professor) {
+        this.serviceProfessor.deleteProfessor(professor);
+    }
+
+    @Override
+    public Professor updateProfessor(Professor professor) {
+        return this.serviceProfessor.updateProfessor(professor);
+    }
+
+    @Override
+    public List<Professor> getAllProfessor() {
+        return this.serviceProfessor.getAllProfessor();
+    }
+
+    @Override
+    public Professor getByIdProfessor(Long id) {
+        return this.serviceProfessor.getByIdProfessor(id);
+    }
+
+    @Override
+    public List<Professor> findByProfessor(String Professor) {
+        return this.serviceProfessor.findByProfessor(Professor);
+    }
+    // ----------------------------- Professor --------------------------
+        private final IServiceTipoUsuario serviceTipoUsuario = new ServiceTipoUsuario();
+    @Override
+    	public TipoUsuario saveTipoUsuario(TipoUsuario tipousuario){
+            return this.serviceTipoUsuario.saveTipoUsuario(tipousuario);
+        }
+    @Override
+	public  List<TipoUsuario> getAllTipoUsuario(){
+            return this.serviceTipoUsuario.getAllTipoUsuario();
+        }
+    @Override
+	public  void deleteTipoUsuario(final TipoUsuario tipousuario){
+             this.serviceTipoUsuario.deleteTipoUsuario(tipousuario);
+        }
+    @Override
+	public  TipoUsuario updateTipoUsuario(TipoUsuario tipousuario){
+            return this.serviceTipoUsuario.updateTipoUsuario(tipousuario);
+        }
+    @Override
+	public  List<TipoUsuario> findByNome(TipoUsuario tipousuario){
+            return this.serviceTipoUsuario.findByNome(tipousuario);
+        }
+    @Override
+	public  boolean tipoUsuarioExistente(TipoUsuario tipousuario){
+            return this.serviceTipoUsuario.tipoUsuarioExistente(tipousuario);
+        }
 }
