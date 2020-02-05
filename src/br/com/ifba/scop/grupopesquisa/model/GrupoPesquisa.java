@@ -6,6 +6,7 @@
 package br.com.ifba.scop.grupopesquisa.model;
 
 import br.com.ifba.scop.infraestructure.model.AbstractEntity;
+import br.com.ifba.scop.pesquisador.model.Pesquisador;
 import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
 import java.io.Serializable;
 import java.util.Collection;
@@ -31,6 +32,9 @@ public class GrupoPesquisa extends AbstractEntity implements Serializable {
 // lista de equipes cooperantes
 // lista de projetos
 //  lista de pesquisadores (responsaveis
+    
+    @ManyToMany(mappedBy = "gruposPesquisa")
+    private List<Pesquisador> pesquisador;
     
     @ManyToMany(mappedBy = "gruposPesquisa")
     private List<ProjetoPesquisa> projetoPesquisas;

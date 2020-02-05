@@ -26,7 +26,7 @@ public abstract class Pessoa extends AbstractEntity implements Serializable{
     @OneToOne
     private Endereco endereco;
     
-    @OneToMany(mappedBy = "pessoa")
+    @OneToMany
     private List<Telefone> telefones;
     
     private String email;

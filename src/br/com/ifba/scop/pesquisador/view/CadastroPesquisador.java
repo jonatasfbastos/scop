@@ -5,10 +5,12 @@
  */
 package br.com.ifba.scop.pesquisador.view;
 
+import br.com.ifba.scop.grupopesquisa.model.GrupoPesquisa;
 import br.com.ifba.scop.infraestructure.service.Singleton;
 import br.com.ifba.scop.infraestructure.support.StringUtil;
 import br.com.ifba.scop.pesquisador.model.Pesquisador;
 import java.awt.Color;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,13 +18,18 @@ import javax.swing.JOptionPane;
  * @author Cliente
  */
 public class CadastroPesquisador extends javax.swing.JFrame {
-
+    
+    private final List<GrupoPesquisa> grupos = Singleton.getInstance().getAllGrupoPesquisa();
     /**
      * Creates new form CadastroPesquisador
      */
     public CadastroPesquisador() {
         initComponents();
         lblAviso.setVisible(false);
+        
+        for(int i = 0; i < this.grupos.size(); i++){
+            this.comboxGrupoPesquisa.addItem(this.grupos.get(i));
+        }
     }
 
     /**
@@ -58,6 +65,8 @@ public class CadastroPesquisador extends javax.swing.JFrame {
         btnConfirm = new javax.swing.JButton();
         txtRG = new javax.swing.JFormattedTextField();
         txtCPF = new javax.swing.JFormattedTextField();
+        comboxGrupoPesquisa = new javax.swing.JComboBox<>();
+        lblGrupoPesquisa = new javax.swing.JLabel();
         lblAviso = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -83,12 +92,6 @@ public class CadastroPesquisador extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        txtNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeActionPerformed(evt);
-            }
-        });
-
         lblRG.setText("RG");
 
         lblNome.setText("Nome");
@@ -96,30 +99,6 @@ public class CadastroPesquisador extends javax.swing.JFrame {
         lblCPF.setText("CPF");
 
         lblEmail.setText("E-mail");
-
-        txtInstituicao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtInstituicaoActionPerformed(evt);
-            }
-        });
-
-        txtMatricula.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMatriculaActionPerformed(evt);
-            }
-        });
-
-        txtTitulacao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTitulacaoActionPerformed(evt);
-            }
-        });
-
-        txtOrgaoEmissor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtOrgaoEmissorActionPerformed(evt);
-            }
-        });
 
         lblInstituicao.setText("Instituição");
 
@@ -132,12 +111,6 @@ public class CadastroPesquisador extends javax.swing.JFrame {
         jSpinner1.setModel(new javax.swing.SpinnerDateModel());
 
         lblRGdata.setText("Data de emissão");
-
-        txtLocacao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLocacaoActionPerformed(evt);
-            }
-        });
 
         lblLocacao.setText("Locação");
 
@@ -153,22 +126,20 @@ public class CadastroPesquisador extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtRG.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRGActionPerformed(evt);
-            }
-        });
 
         try {
             txtCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtCPF.addActionListener(new java.awt.event.ActionListener() {
+
+        comboxGrupoPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCPFActionPerformed(evt);
+                comboxGrupoPesquisaActionPerformed(evt);
             }
         });
+
+        lblGrupoPesquisa.setText("Grupo de Pesquisa");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -196,20 +167,23 @@ public class CadastroPesquisador extends javax.swing.JFrame {
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(lblRGdata)
                                         .addGap(0, 0, Short.MAX_VALUE))))
-                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(lblGrupoPesquisa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(comboxGrupoPesquisa, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblLocacao)
-                            .addComponent(txtLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtInstituicao, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtTitulacao, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtOrgaoEmissor, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtLocacao, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+                            .addComponent(txtInstituicao, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+                            .addComponent(txtTitulacao, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+                            .addComponent(txtOrgaoEmissor, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
                             .addComponent(lblInstituicao)
                             .addComponent(lblMatricula)
                             .addComponent(lblTitulacao)
                             .addComponent(lblOrgEmissor)
-                            .addComponent(txtMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtMatricula))))
                 .addGap(68, 68, 68))
         );
         jPanel2Layout.setVerticalGroup(
@@ -250,9 +224,13 @@ public class CadastroPesquisador extends javax.swing.JFrame {
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtOrgaoEmissor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblLocacao)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblLocacao)
+                    .addComponent(lblGrupoPesquisa))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboxGrupoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
                 .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -290,30 +268,6 @@ public class CadastroPesquisador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeActionPerformed
-
-    private void txtInstituicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtInstituicaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtInstituicaoActionPerformed
-
-    private void txtMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMatriculaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMatriculaActionPerformed
-
-    private void txtTitulacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTitulacaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTitulacaoActionPerformed
-
-    private void txtOrgaoEmissorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOrgaoEmissorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtOrgaoEmissorActionPerformed
-
-    private void txtLocacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLocacaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLocacaoActionPerformed
-
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // TODO add your handling code here:
         // Verificação de campos vazios
@@ -329,28 +283,52 @@ public class CadastroPesquisador extends javax.swing.JFrame {
             pesquisador.setOrgaoEmisor(txtOrgaoEmissor.getText());
             pesquisador.setRg(txtRG.getText());
             pesquisador.setTitulação(txtTitulacao.getText());
+            
+            if(Singleton.getInstance().savePesquisador(pesquisador) == pesquisador){
 
-            Singleton.getInstance().savePesquisador(pesquisador);
+                JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
+
+               // Fecha a janela
+                this.dispose();
+
+            }else{
+                    JOptionPane.showMessageDialog(null, "Erro ao salvar");
+            }
         }
     }//GEN-LAST:event_btnConfirmActionPerformed
 
-    private void txtRGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRGActionPerformed
+    private void comboxGrupoPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboxGrupoPesquisaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtRGActionPerformed
-
-    private void txtCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCPFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCPFActionPerformed
+    }//GEN-LAST:event_comboxGrupoPesquisaActionPerformed
 
     private boolean validaCampos(){
         
         StringUtil util = StringUtil.getInstance();
         
         // Validação de todos os campos ao mesmo tempo
-        if(txtNome.getText().equals("") && txtRG.getText().equals("")){
-            if(txtCPF.getText().equals("") && txtEmail.getText().equals("")){
+        if(txtNome.getText().equals("") && txtRG.getText().equals("  .   .   -  ")){
+            if(txtCPF.getText().equals("   .   .   -  ") && txtEmail.getText().equals("")){
                 if(txtInstituicao.getText().equals("") && txtMatricula.getText().equals("")){
                     if (txtTitulacao.getText().equals("") && txtOrgaoEmissor.getText().equals("") && txtLocacao.getText().equals("")){
+                        lblNome.setText("Nome*");
+                        lblNome.setForeground(Color.red);
+                        lblRG.setText("RG*");
+                        lblRG.setForeground(Color.red);
+                        lblCPF.setText("CPF*");
+                        lblCPF.setForeground(Color.red);
+                        lblEmail.setText("E-mail*");
+                        lblEmail.setForeground(Color.red);
+                        lblInstituicao.setText("Instituição*");
+                        lblInstituicao.setForeground(Color.red);
+                        lblMatricula.setText("Matrícula*");
+                        lblMatricula.setForeground(Color.red);
+                        lblTitulacao.setText("Titulação*");
+                        lblTitulacao.setForeground(Color.red);
+                        lblOrgEmissor.setText("Orgão Emissor*");
+                        lblOrgEmissor.setForeground(Color.red);
+                        lblLocacao.setText("Locação*");
+                        lblLocacao.setForeground(Color.red);
+                        
                         JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios.", "CAMPOS OBRIGATÓRIOS", JOptionPane.ERROR_MESSAGE);
                         return false;                        
                     }
@@ -497,6 +475,7 @@ public class CadastroPesquisador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirm;
+    private javax.swing.JComboBox<GrupoPesquisa> comboxGrupoPesquisa;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -504,6 +483,7 @@ public class CadastroPesquisador extends javax.swing.JFrame {
     private javax.swing.JLabel lblAviso;
     private javax.swing.JLabel lblCPF;
     private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblGrupoPesquisa;
     private javax.swing.JLabel lblInstituicao;
     private javax.swing.JLabel lblLocacao;
     private javax.swing.JLabel lblMatricula;

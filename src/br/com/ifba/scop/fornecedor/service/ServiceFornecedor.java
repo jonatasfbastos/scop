@@ -9,7 +9,6 @@ package br.com.ifba.scop.fornecedor.service;
 import br.com.ifba.scop.fornecedor.dao.DaoFornecedor;
 import br.com.ifba.scop.fornecedor.dao.IDaoFornecedor;
 import br.com.ifba.scop.fornecedor.model.Fornecedor;
-import br.com.ifba.scop.grupopesquisa.model.GrupoPesquisa;
 import br.com.ifba.scop.infraestructure.exception.BusinessException;
 import java.util.List;
 /**
@@ -128,7 +127,7 @@ public class ServiceFornecedor implements IServiceFornecedor{
      * @return
      */
     
-    public boolean validaFornecedor(Fornecedor grupoPesquisa) {
+    public boolean validaFornecedor(Fornecedor fornecedor) {
         return true;
     }
     

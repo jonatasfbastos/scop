@@ -3,22 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.ifba.scop.professor.dao;
+package br.com.ifba.scop.tecnicoadiministrativo.dao;
 
 import br.com.ifba.scop.infraestructure.dao.IBaseDao;
-import br.com.ifba.scop.professor.model.Professor;
+import br.com.ifba.scop.tecnicoadiministrativo.model.Tecnico;
 import java.util.List;
-
 /**
  *
- * @author lab02
+ * @author Gusdb
  */
-public interface IDaoProfessor extends IBaseDao<Professor>{
+public interface IDaoTecnico extends IBaseDao<Tecnico>{
 
     /**
      *
-     * @param professor
+     * @param tecnico
      * @return
      */
-    public abstract List<Professor> FindByNomeProfessor(String professor);
+    public abstract List<Tecnico> FindByNomeTecnico(String tecnico);
 }
