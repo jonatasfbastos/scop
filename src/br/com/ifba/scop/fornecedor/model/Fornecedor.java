@@ -5,7 +5,8 @@
  */
 package br.com.ifba.scop.fornecedor.model;
 
-import br.com.ifba.scop.infraestructure.model.AbstractEntity;
+
+import br.com.ifba.scop.infraestructure.pessoa.model.PessoaJuridica;
 import java.io.Serializable;
 import javax.persistence.*;
 
@@ -15,7 +16,8 @@ import javax.persistence.*;
  */
 
 @Entity
-public class Fornecedor extends AbstractEntity implements Serializable{
+public class Fornecedor extends PessoaJuridica implements Serializable{
     //todos implementos da classe
+ 
     
 }
