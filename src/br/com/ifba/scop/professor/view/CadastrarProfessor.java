@@ -325,37 +325,8 @@ public class CadastrarProfessor extends javax.swing.JFrame {
                 Logger.getLogger(CadastrarProfessor.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            // Já existe na base. Updade nele!
-            if(Singleton.getInstance().getByIdProfessor(professor.getId()) == professor){
-
-                // Atualixzado com sucesso
-                if(Singleton.getInstance().updateProfessor(professor) == professor){
-
-                    JOptionPane.showMessageDialog(null, "Editado com sucesso!");
-
-                    // Fecha a janela
-                    this.dispose();
-
-                }else{
-                    JOptionPane.showMessageDialog(null, "Erro ao editar");
-                }
-
-            }else{
-                // Ainda não existe na base
-
-                // Salvo com sucesso
-                if(Singleton.getInstance().saveProfessor(professor) == professor){
-
-                    JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
-
-                    // Fecha a janela
-                    this.dispose();
-
-                }else{
-                    JOptionPane.showMessageDialog(null, "Erro ao salvar");
-                }
-            }
         }
+        
     }//GEN-LAST:event_btnAdicionarActionPerformed
 
     /**
