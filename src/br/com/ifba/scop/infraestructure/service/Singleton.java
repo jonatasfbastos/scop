@@ -5,6 +5,9 @@
  */
 package br.com.ifba.scop.infraestructure.service;
 
+import br.com.ifba.scop.login.usuario.model.Usuario;
+import java.util.List;
+
 /**
  * This class is for linkage break.
  * @author AbelCoder
@@ -40,5 +43,7 @@ public class Singleton extends Fachada {
         }
         return instance;
     }
+
+    
     
 }
