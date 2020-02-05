@@ -6,6 +6,9 @@ import br.com.ifba.scop.grupopesquisa.service.ServiceGrupoPesquisa;
 import br.com.ifba.scop.infraestructure.endereco.model.Endereco;
 import br.com.ifba.scop.infraestructure.endereco.service.IServiceEndereco;
 import br.com.ifba.scop.infraestructure.endereco.service.ServiceEndereco;
+import br.com.ifba.scop.login.tipousuario.model.TipoUsuario;
+import br.com.ifba.scop.login.tipousuario.service.IServiceTipoUsuario;
+import br.com.ifba.scop.login.tipousuario.service.ServiceTipoUsuario;
 import br.com.ifba.scop.login.usuario.model.Usuario;
 import br.com.ifba.scop.login.usuario.service.IServiceUsuario;
 import br.com.ifba.scop.login.usuario.service.ServiceUsuario;
@@ -298,4 +301,30 @@ public class Fachada implements IFachada {
     public List<Professor> findByProfessor(String Professor) {
         return this.serviceProfessor.findByProfessor(Professor);
     }
+    // ----------------------------- Professor --------------------------
+        private final IServiceTipoUsuario serviceTipoUsuario = new ServiceTipoUsuario();
+    @Override
+    	public TipoUsuario saveTipoUsuario(TipoUsuario tipousuario){
+            return this.serviceTipoUsuario.saveTipoUsuario(tipousuario);
+        }
+    @Override
+	public  List<TipoUsuario> getAllTipoUsuario(){
+            return this.serviceTipoUsuario.getAllTipoUsuario();
+        }
+    @Override
+	public  void deleteTipoUsuario(final TipoUsuario tipousuario){
+             this.serviceTipoUsuario.deleteTipoUsuario(tipousuario);
+        }
+    @Override
+	public  TipoUsuario updateTipoUsuario(TipoUsuario tipousuario){
+            return this.serviceTipoUsuario.updateTipoUsuario(tipousuario);
+        }
+    @Override
+	public  List<TipoUsuario> findByNome(TipoUsuario tipousuario){
+            return this.serviceTipoUsuario.findByNome(tipousuario);
+        }
+    @Override
+	public  boolean tipoUsuarioExistente(TipoUsuario tipousuario){
+            return this.serviceTipoUsuario.tipoUsuarioExistente(tipousuario);
+        }
 }

@@ -2,6 +2,7 @@ package br.com.ifba.scop.infraestructure.service;
 
 import br.com.ifba.scop.grupopesquisa.model.GrupoPesquisa;
 import br.com.ifba.scop.infraestructure.endereco.model.Endereco;
+import br.com.ifba.scop.login.tipousuario.model.TipoUsuario;
 import br.com.ifba.scop.login.usuario.model.Usuario;
 import br.com.ifba.scop.patente.model.Patente;
 import br.com.ifba.scop.pesquisador.model.Pesquisador;
@@ -116,4 +117,12 @@ public interface IFachada {
     public abstract Professor  getByIdProfessor (Long id);
     // Metodo que busca um Grupo de Pesquisa na base de dados através do nome
     public abstract List<Professor> findByProfessor (String Professor);
+    
+    //---------------------------- Tipo Usuario -------------------------------
+    public abstract TipoUsuario saveTipoUsuario(TipoUsuario tipousuario);
+    public abstract List<TipoUsuario> getAllTipoUsuario();
+    public abstract void deleteTipoUsuario(final TipoUsuario tipousuario);
+    public abstract TipoUsuario updateTipoUsuario(TipoUsuario tipousuario);
+    public abstract List<TipoUsuario> findByNome(TipoUsuario tipousuario);
+    public abstract boolean tipoUsuarioExistente(TipoUsuario tipousuario);
 }
