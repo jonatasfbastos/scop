@@ -78,37 +78,21 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="34" pref="34" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="lblTitulacao" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="txtTitulacao" min="-2" pref="159" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="lblMatricula" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="31" max="32767" attributes="0"/>
-                              <Component id="txtMatricula" min="-2" pref="159" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="lblEmail" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="txtEmail" min="-2" pref="159" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblNacionalidade" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblNaturalidade" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtNaturalidade" max="32767" attributes="0"/>
-                                  <Component id="txtNacionalidade" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="lblEndereco" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="txtEndereco" min="-2" pref="159" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="lblNacionalidade" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNaturalidade" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblEndereco" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblMatricula" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblTitulacao" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="txtTitulacao" pref="204" max="32767" attributes="0"/>
+                          <Component id="txtMatricula" max="32767" attributes="0"/>
+                          <Component id="txtEmail" max="32767" attributes="0"/>
+                          <Component id="txtEndereco" max="32767" attributes="0"/>
+                          <Component id="txtNaturalidade" max="32767" attributes="0"/>
+                          <Component id="txtNacionalidade" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   </Group>
@@ -428,6 +412,9 @@
           <Image iconType="3" name="/br/com/ifba/scop/professor/view/Imagens/icon_add.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdicionarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

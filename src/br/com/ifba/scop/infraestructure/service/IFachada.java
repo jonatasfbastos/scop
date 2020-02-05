@@ -7,6 +7,9 @@ import br.com.ifba.scop.patente.model.Patente;
 import br.com.ifba.scop.pesquisador.model.Pesquisador;
 import br.com.ifba.scop.projetopesquisa.model.ProjetoPesquisa;
 import java.util.List;
+import br.com.ifba.scop.professor.model.Professor;
+import br.com.ifba.scop.professor.service.IServiceProfessor;
+import br.com.ifba.scop.professor.service.ServiceProfessor;
 
 
 public interface IFachada {
@@ -98,4 +101,19 @@ public interface IFachada {
     boolean usuarioExistente(Usuario usuario);
     //Valida login
     public Usuario findByLoginSenha(Usuario usuario);
+    
+    // ---------------------------- PROFESSOR -------------------------------
+    
+    // Salva professor na base de dados
+    public abstract Professor saveProfessor(Professor professor);
+    // Deleta o professor da base de dados
+    public abstract void deleteProfessor(Professor professor);
+    // Metodo que atualiza um Grupo de Pesquisa que já existe na base de dados
+    public abstract Professor  updateProfessor (Professor professor);
+    // Metodo que retorna todos os Grupo de Pesquisa da base de dados
+    public abstract List<Professor> getAllProfessor ();
+    // Método que retorna um Grupo de Pesquisa pelo Id
+    public abstract Professor  getByIdProfessor (Long id);
+    // Metodo que busca um Grupo de Pesquisa na base de dados através do nome
+    public abstract List<Professor> findByProfessor (String Professor);
 }
