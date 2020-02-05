@@ -6,13 +6,13 @@
 package br.com.ifba.scop.fornecedor.view;
 
 import br.com.ifba.scop.fornecedor.tableModel.*;
-import javax.swing.JOptionPane;
+import javax.swing.JFrame;
 
 /**
  *
  * @author mvictor
  */
-public class ListaFornecedor extends javax.swing.JFrame {
+public class EditarFornecedor extends JFrame {
 
     FornecedorTableModel modelo = new FornecedorTableModel();
    
@@ -20,7 +20,7 @@ public class ListaFornecedor extends javax.swing.JFrame {
     /**
      * Creates new form ListaFornecedor
      */
-    public ListaFornecedor() {
+    public EditarFornecedor() {
         initComponents();  
         this.setLocationRelativeTo(null);
         this.tableFornecedor.setModel(modelo);
@@ -46,7 +46,6 @@ public class ListaFornecedor extends javax.swing.JFrame {
         tableFornecedor = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Tela de Busca");
 
         panelBusca.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Busca", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP));
 
@@ -220,8 +219,11 @@ public class ListaFornecedor extends javax.swing.JFrame {
                 }
             }
         }catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ListaFornecedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarFornecedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         
         //</editor-fold>
@@ -230,7 +232,7 @@ public class ListaFornecedor extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new ListaFornecedor().setVisible(true);
+            new EditarFornecedor().setVisible(true);
         });
     }
 

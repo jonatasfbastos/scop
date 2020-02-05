@@ -113,7 +113,7 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
                 .addContainerGap(96, Short.MAX_VALUE))
         );
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/fornecedor/view/adicionar_icone.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/projetopesquisa/view/imagens/icon_add.png"))); // NOI18N
         jButton1.setText("jButton1");
         jButton1.setAutoscrolls(true);
         jButton1.setBorderPainted(false);
