@@ -370,12 +370,12 @@ public class CadastrarProfessor extends javax.swing.JFrame {
         
         StringUtil util = StringUtil.getInstance();
         
-                if(txtNome.getText().equals("") && txtRg.getText().equals("")){
-                    if(txtCpf.getText().equals("") && txtEmail.getText().equals("")){
-                        if(txtSexo.getText().equals("") && txtMatricula.getText().equals("")){
-                            if (txtTitulacao.getText().equals("") && txtOrgExpedidor.getText().equals("")){
-                                if (txtNascimento.getText().equals("") && txtExpedicao.getText().equals("")){
-                                    if (txtNacionalidade.getText().equals("") && txtNaturalidade.getText().equals("")){
+                if(txtNome.getText().equals("") && txtSexo.getText().equals("")){
+                    if(txtNascimento.getText().equals("") && txtCpf.getText().equals("")){
+                        if(txtRg.getText().equals("") && txtExpedicao.getText().equals("")){
+                            if (txtOrgExpedidor.getText().equals("") && txtNacionalidade.getText().equals("")){
+                                if (txtNaturalidade.getText().equals("") && txtEndereco.getText().equals("")){
+                                    if (txtEmail.getText().equals("") && txtMatricula.getText().equals("") && txtTitulacao.getText().equals("")){
                                         JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios.", "CAMPOS OBRIGATÓRIOS", JOptionPane.ERROR_MESSAGE);
                                         return false; 
                                     }
@@ -396,36 +396,6 @@ public class CadastrarProfessor extends javax.swing.JFrame {
             lblNome.setText("Nome");
             lblNome.setForeground(Color.black);
         }
-        // Campo RG
-        if(util.isNullOrEmpty(txtRg.getText())){
-            lblRg.setText("RG*");
-            lblRg.setForeground(Color.red);
-            JOptionPane.showMessageDialog(null, "Preencha o campo RG.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
-            return false;
-        }else{
-            lblRg.setText("RG");
-            lblRg.setForeground(Color.black);
-        }
-        // Campo CPF
-        if(util.isNullOrEmpty(txtCpf.getText())){
-            lblCpf.setText("CPF:*");
-            lblCpf.setForeground(Color.red);
-            JOptionPane.showMessageDialog(null, "Preencha o campo CPF.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
-            return false;
-        }else{
-            lblCpf.setText("CPF:");
-            lblCpf.setForeground(Color.black);
-        }
-        // Campo E-mail
-        if(util.isNullOrEmpty(txtEmail.getText())){
-            lblEmail.setText("E-mail:*");
-            lblEmail.setForeground(Color.red);
-            JOptionPane.showMessageDialog(null, "Preencha o campo E-mail.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
-            return false;
-        }else{
-            lblEmail.setText("E-mail:");
-            lblEmail.setForeground(Color.black);
-        }
         
         // Campo Sexo
         if(util.isNullOrEmpty(txtSexo.getText())){
@@ -436,6 +406,105 @@ public class CadastrarProfessor extends javax.swing.JFrame {
         }else{
             lblSexo.setText("Sexo:");
             lblSexo.setForeground(Color.black);
+        }
+        
+        // Campo Nascimento
+        if(util.isNullOrEmpty(txtNascimento.getText())){
+            lblNascimento.setText("Nascimento:*");
+            lblNascimento.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo Nascimento.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            lblNascimento.setText("Nascimento:");
+            lblNascimento.setForeground(Color.black);
+        }
+        
+        // Campo CPF
+        if(util.isNullOrEmpty(txtCpf.getText())){
+            lblCpf.setText("CPF:*");
+            lblCpf.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo CPF.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            lblCpf.setText("CPF:");
+            lblCpf.setForeground(Color.black);
+        }
+        
+        // Campo RG
+        if(util.isNullOrEmpty(txtRg.getText())){
+            lblRg.setText("RG*");
+            lblRg.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo RG.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            lblRg.setText("RG");
+            lblRg.setForeground(Color.black);
+        }
+        
+        // Data da expedição
+        if(util.isNullOrEmpty(txtExpedicao.getText())){
+            lblExpedicao.setText("Data da expedição:*");
+            lblExpedicao.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo Data da expedição.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            lblExpedicao.setText("Data da expedição:");
+            lblExpedicao.setForeground(Color.black);
+        }
+        
+        // Campo Orgão Expedidor
+        if(util.isNullOrEmpty(txtOrgExpedidor.getText())){
+            lblOrgExpedidor.setText("Orgão Expedidor:*");
+            lblOrgExpedidor.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo Orgão Expedidor.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            lblOrgExpedidor.setText("Orgão Expedidor:");
+            lblOrgExpedidor.setForeground(Color.black);
+        }   
+        
+        // Nacionalidade
+        if(util.isNullOrEmpty(txtNacionalidade.getText())){
+            lblNacionalidade.setText("Nacionalidade:*");
+            lblNacionalidade.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo Nacionalidade.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            lblNacionalidade.setText("Nacionalidade:");
+            lblNacionalidade.setForeground(Color.black);
+        }
+        
+        // Naturalidade
+        if(util.isNullOrEmpty(txtNaturalidade.getText())){
+            lblNaturalidade.setText("Naturalidade:*");
+            lblNaturalidade.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo Naturalidade.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            lblNaturalidade.setText("Naturalidade:");
+            lblNaturalidade.setForeground(Color.black);
+        }
+        
+        // Endereço
+        if(util.isNullOrEmpty(txtEndereco.getText())){
+            lblEndereco.setText("Endereço:*");
+            lblEndereco.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo Enrereço.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            lblEndereco.setText("Endereço:");
+            lblEndereco.setForeground(Color.black);
+        }
+        
+        // Campo E-mail
+        if(util.isNullOrEmpty(txtEmail.getText())){
+            lblEmail.setText("E-mail:*");
+            lblEmail.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Preencha o campo E-mail.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }else{
+            lblEmail.setText("E-mail:");
+            lblEmail.setForeground(Color.black);
         }
         
         // Campo Matricula
@@ -450,7 +519,6 @@ public class CadastrarProfessor extends javax.swing.JFrame {
         }
         
         // Campo Titulação
-        
         if(util.isNullOrEmpty(txtTitulacao.getText())){
             lblTitulacao.setText("Titulação:*");
             lblTitulacao.setForeground(Color.red);
@@ -460,63 +528,6 @@ public class CadastrarProfessor extends javax.swing.JFrame {
             lblTitulacao.setText("Titulação:");
             lblTitulacao.setForeground(Color.black);
         }
-        
-        // Campo Orgão Expedidor
-        if(util.isNullOrEmpty(txtOrgExpedidor.getText())){
-            txtOrgExpedidor.setText("Orgão Expedidor:*");
-            txtOrgExpedidor.setForeground(Color.red);
-            JOptionPane.showMessageDialog(null, "Preencha o campo Orgão Expedidor.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
-            return false;
-        }else{
-            txtOrgExpedidor.setText("Orgão Expedidor:");
-            txtOrgExpedidor.setForeground(Color.black);
-        }
-        
-        // Campo Nascimento
-        
-        if(util.isNullOrEmpty(txtNascimento.getText())){
-            txtNascimento.setText("Nascimento:*");
-            txtNascimento.setForeground(Color.red);
-            JOptionPane.showMessageDialog(null, "Preencha o campo Nascimento.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
-            return false;
-        }else{
-            txtNascimento.setText("Nascimento:");
-            txtNascimento.setForeground(Color.black);
-        }
-        
-        // Data da expedição
-        if(util.isNullOrEmpty(txtExpedicao.getText())){
-            txtExpedicao.setText("Data da expedição:*");
-            txtExpedicao.setForeground(Color.red);
-            JOptionPane.showMessageDialog(null, "Preencha o campo Data da expedição.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
-            return false;
-        }else{
-            txtExpedicao.setText("Data da expedição:");
-            txtExpedicao.setForeground(Color.black);
-        }
-        
-        // Nacionalidade
-        if(util.isNullOrEmpty(txtNacionalidade.getText())){
-            txtNacionalidade.setText("Nacionalidade:*");
-            txtNacionalidade.setForeground(Color.red);
-            JOptionPane.showMessageDialog(null, "Preencha o campo Nacionalidade.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
-            return false;
-        }else{
-            txtNacionalidade.setText("Nacionalidade:");
-            txtNacionalidade.setForeground(Color.black);
-        }
-        
-        // Naturalidade
-        if(util.isNullOrEmpty(txtNaturalidade.getText())){
-            txtNaturalidade.setText("Naturalidade:*");
-            txtNaturalidade.setForeground(Color.red);
-            JOptionPane.showMessageDialog(null, "Preencha o campo Naturalidade.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
-            return false;
-        }else{
-            txtNaturalidade.setText("Naturalidade:");
-            txtNaturalidade.setForeground(Color.black);
-        }
-        
         return true;
     }
 

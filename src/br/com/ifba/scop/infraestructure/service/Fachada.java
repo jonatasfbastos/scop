@@ -267,6 +267,35 @@ public class Fachada implements IFachada {
     }
     
     // ----------------------------- Professor ----------------------
-    Professor professor = new Professor();
+    private final IServiceProfessor serviceProfessor = new ServiceProfessor();
 
+    @Override
+    public Professor saveProfessor(Professor professor) {
+        return this.serviceProfessor.saveProfessor(professor);
+    }
+
+    @Override
+    public void deleteProfessor(Professor professor) {
+        this.serviceProfessor.deleteProfessor(professor);
+    }
+
+    @Override
+    public Professor updateProfessor(Professor professor) {
+        return this.serviceProfessor.updateProfessor(professor);
+    }
+
+    @Override
+    public List<Professor> getAllProfessor() {
+        return this.serviceProfessor.getAllProfessor();
+    }
+
+    @Override
+    public Professor getByIdProfessor(Long id) {
+        return this.serviceProfessor.getByIdProfessor(id);
+    }
+
+    @Override
+    public List<Professor> findByProfessor(String Professor) {
+        return this.serviceProfessor.findByProfessor(Professor);
+    }
 }
