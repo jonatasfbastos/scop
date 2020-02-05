@@ -6,11 +6,13 @@
 package br.com.ifba.scop.professor.view;
 
 import br.com.ifba.scop.infraestructure.service.Singleton;
+import br.com.ifba.scop.infraestructure.support.DateUtil;
 import br.com.ifba.scop.infraestructure.support.StringUtil;
 import br.com.ifba.scop.professor.model.Professor;
 import java.awt.Color;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -20,12 +22,40 @@ import javax.swing.JOptionPane;
  * @author Bessa
  */
 public class CadastrarProfessor extends javax.swing.JFrame {
+    
+    private final Professor professor;
+    private final DateUtil utilDate = new DateUtil();
+    private final List<Professor> grupos = Singleton.getInstance().getAllProfessor();
+    
 
     /**
      * Creates new form CadastrarProfessor
      */
     public CadastrarProfessor() {
         initComponents();
+        btnAdicionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAdicionar.setToolTipText("Clique aqui para salvar o cadastro");
+        this.professor = new Professor();
+    }
+
+    CadastrarProfessor(Professor editado) {
+        
+        btnAdicionar.setText("Atualizar");
+        
+        this.professor = editado;
+        
+        this.txtNome.setText(editado.getNome());
+        this.txtCpf.setText(Integer.toString(editado.getCpf()));
+        this.txtEmail.setText(editado.getEmail());
+        this.txtSexo.setText(editado.getSexo());
+        this.txtMatricula.setText(editado.getMatricula());
+        this.txtTitulacao.setText(editado.getTitulacao());
+        this.txtOrgExpedidor.setText(editado.getOrgaoExpedidor());
+        this.txtNascimento.setText(this.utilDate.toString(editado.getDataNascimento()));
+        this.txtExpedicao.setText(this.utilDate.toString(editado.getDataExpedicao()));
+        this.txtRg.setText(Integer.toString(editado.getRg()));
+        this.txtNacionalidade.setText(editado.getNacionalidade());
+        this.txtNaturalidade.setText(editado.getNaturalidade());
     }
 
     /**
@@ -297,30 +327,30 @@ public class CadastrarProfessor extends javax.swing.JFrame {
 
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
         // TODO add your handling code here:
-        Professor professor = new Professor();
+        Professor professor2 = new Professor();
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); 
         
         if (validaCampos() == true){
-            professor.setNome(txtNome.getText());
-            professor.setCpf(Integer.parseInt(txtCpf.getText()));
-            professor.setEmail(txtEmail.getText());
-            professor.setSexo(txtSexo.getText());
-            professor.setMatricula(txtMatricula.getText());
-            professor.setTitulacao(txtTitulacao.getText());
-            professor.setOrgaoExpedidor(txtOrgExpedidor.getText());
+            professor2.setNome(txtNome.getText());
+            professor2.setCpf(Integer.parseInt(txtCpf.getText()));
+            professor2.setEmail(txtEmail.getText());
+            professor2.setSexo(txtSexo.getText());
+            professor2.setMatricula(txtMatricula.getText());
+            professor2.setTitulacao(txtTitulacao.getText());
+            professor2.setOrgaoExpedidor(txtOrgExpedidor.getText());
             
             try {
-                professor.setDataNascimento(formato.parse(txtNascimento.getText()));
+                professor2.setDataNascimento(formato.parse(txtNascimento.getText()));
             } catch (ParseException ex) {
                 Logger.getLogger(CadastrarProfessor.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            professor.setRg(Integer.parseInt(txtRg.getText()));
-            professor.setNacionalidade(txtNacionalidade.getText());
-            professor.setNaturalidade(txtNaturalidade.getText());
+            professor2.setRg(Integer.parseInt(txtRg.getText()));
+            professor2.setNacionalidade(txtNacionalidade.getText());
+            professor2.setNaturalidade(txtNaturalidade.getText());
             
             try {
-                professor.setDataExpedicao(formato.parse(txtExpedicao.getText()));
+                professor2.setDataExpedicao(formato.parse(txtExpedicao.getText()));
             } catch (ParseException ex) {
                 Logger.getLogger(CadastrarProfessor.class.getName()).log(Level.SEVERE, null, ex);
             }
