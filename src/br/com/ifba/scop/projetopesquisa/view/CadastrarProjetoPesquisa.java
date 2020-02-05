@@ -319,7 +319,6 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
                 }
             }
         }
-        
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     // Evento que acontece ao mudar de para "Sim" ou para "Não" os botoẽs radio
