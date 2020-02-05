@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-/*package br.com.ifba.scop.tecnicoadiministrativo.service;
+package br.com.ifba.scop.tecnicoadiministrativo.service;
 
 import br.com.ifba.scop.tecnicoadiministrativo.model.Tecnico;
-import java.util.List;*/
+import java.util.List;
 
 /**
  *
  * @author Gusdb
  */
-/*public abstract class IServiceTecnico {
+public abstract class IServiceTecnico {
     
     // Salva tecnico na base de dados
     public abstract Tecnico saveTecnico(Tecnico tecnico);
@@ -28,4 +28,4 @@ import java.util.List;*/
     public abstract List<Tecnico> findByTecnico (String tecnico);
   
     
-}*/
+}
