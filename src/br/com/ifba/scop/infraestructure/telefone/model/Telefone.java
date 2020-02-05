@@ -27,10 +27,8 @@ public class Telefone extends AbstractEntity implements Serializable{
     private String ddd;
     
     @NotNull
-    private String tipoTelefine;
+    private String tipoTelefone;
     
-    @ManyToOne
-    private Pessoa pessoa;
 
     //Metodos Acessores
     public String getNumero() {
@@ -50,19 +48,19 @@ public class Telefone extends AbstractEntity implements Serializable{
     }
 
     public String getTipoTelefine() {
-        return tipoTelefine;
+        return tipoTelefone;
     }
 
     public void setTipoTelefine(String tipoTelefine) {
-        this.tipoTelefine = tipoTelefine;
+        this.tipoTelefone = tipoTelefine;
     }
 
-    public Pessoa getPessoa() {
-        return pessoa;
-    }
-
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
-    }
+//    public Pessoa getPessoa() {
+//        return pessoa;
+//    }
+//
+//    public void setPessoa(Pessoa pessoa) {
+//        this.pessoa = pessoa;
+//    }
     
 }
