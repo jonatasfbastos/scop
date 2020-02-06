@@ -5,7 +5,12 @@
  */
 package br.com.ifba.scop.fornecedor.view;
 
-import javax.swing.ImageIcon;
+import br.com.ifba.scop.infraestructure.support.CnpjUtil;
+import br.com.ifba.scop.infraestructure.support.StringUtil;
+import java.awt.Color;
+import javax.swing.border.LineBorder;
+
+
 
 /**
  *
@@ -13,12 +18,18 @@ import javax.swing.ImageIcon;
  */
 public class CadastrarFornecedor extends javax.swing.JFrame {
 
+    private static final LineBorder bordaPreta = new LineBorder(Color.BLACK);
+    private static final LineBorder bordaVermelha = new LineBorder(Color.RED);
+    private static final int largura = 190;
+    private static final int altura = 19;
+    
     /**
      * Creates new form CadastrarFornecedor
      */
     public CadastrarFornecedor() {
         initComponents();
         this.setLocationRelativeTo(null); 
+       
     }
 
     /**
@@ -30,32 +41,90 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelFornecedor = new javax.swing.JPanel();
-        lblNomeFantasia = new javax.swing.JLabel();
-        txtNomeFantasia = new javax.swing.JTextField();
-        lblRazaoSocial = new javax.swing.JLabel();
-        txtRazaoSocial = new javax.swing.JTextField();
+        btnCadastrar = new javax.swing.JButton();
+        panelPrincipal = new javax.swing.JPanel();
+        lblTItulo = new javax.swing.JLabel();
+        panelDadosPessoais = new javax.swing.JPanel();
+        lblNm = new javax.swing.JLabel();
+        txtNome = new javax.swing.JTextField();
+        lblRzSocial = new javax.swing.JLabel();
+        txtRzSocial = new javax.swing.JTextField();
         lblCNPJ = new javax.swing.JLabel();
-        lblInscricaoEstadual = new javax.swing.JLabel();
         txtCNPJ = new javax.swing.JFormattedTextField();
-        txtInscricaoEstadual = new javax.swing.JFormattedTextField();
-        jButton1 = new javax.swing.JButton();
+        lblInscricaoUF = new javax.swing.JLabel();
+        txtIncriscaoEstadual = new javax.swing.JFormattedTextField();
+        lblTel = new javax.swing.JLabel();
+        txtTel = new javax.swing.JFormattedTextField();
+        lblTagNm = new javax.swing.JLabel();
+        lblTagRzSocial = new javax.swing.JLabel();
+        lblTagInscricaoUF = new javax.swing.JLabel();
+        lblTagCNPJ = new javax.swing.JLabel();
+        lblTagTel = new javax.swing.JLabel();
+        btnLimpar = new javax.swing.JButton();
+        panelEndereco = new javax.swing.JPanel();
+        spinNumero = new javax.swing.JSpinner();
+        lblNumero = new javax.swing.JLabel();
+        txtCidade = new javax.swing.JTextField();
+        lblCidade = new javax.swing.JLabel();
+        txtBairro = new javax.swing.JTextField();
+        lblBairro = new javax.swing.JLabel();
+        lblRua = new javax.swing.JLabel();
+        txtRua = new javax.swing.JTextField();
+        lblUF = new javax.swing.JLabel();
+        boxUF = new javax.swing.JComboBox<>();
+        lblCEP = new javax.swing.JLabel();
+        txtCEP = new javax.swing.JFormattedTextField();
+        lblComplemento = new javax.swing.JLabel();
+        txtComplemento = new javax.swing.JTextField();
+        lblTagRua = new javax.swing.JLabel();
+        lblTagBairro = new javax.swing.JLabel();
+        lblTagCidade = new javax.swing.JLabel();
+        lblTagComplemento = new javax.swing.JLabel();
+        lblTagCEP = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panelFornecedor.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Cadastro de Fornecedor", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Comic Sans MS", 1, 14))); // NOI18N
+        btnCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/projetopesquisa/view/imagens/icon_add.png"))); // NOI18N
+        btnCadastrar.setText("CADASTRAR");
+        btnCadastrar.setAutoscrolls(true);
+        btnCadastrar.setBorderPainted(false);
+        btnCadastrar.setContentAreaFilled(false);
+        btnCadastrar.setSelected(true);
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
 
-        lblNomeFantasia.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        lblNomeFantasia.setText("Nome Fantasia: ");
+        panelPrincipal.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder()));
 
-        lblRazaoSocial.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        lblRazaoSocial.setText("Razão Social");
+        lblTItulo.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        lblTItulo.setText("CADASTRO DE FORNECEDOR");
 
-        lblCNPJ.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
+        panelPrincipal.setLayout(panelPrincipalLayout);
+        panelPrincipalLayout.setHorizontalGroup(
+            panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincipalLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTItulo)
+                .addGap(268, 268, 268))
+        );
+        panelPrincipalLayout.setVerticalGroup(
+            panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPrincipalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTItulo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelDadosPessoais.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), " Dados Pessoais do Fornecedor", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Comic Sans MS", 1, 14))); // NOI18N
+
+        lblNm.setText("Nome");
+
+        lblRzSocial.setText("Razão Social");
+
         lblCNPJ.setText("CNPJ");
-
-        lblInscricaoEstadual.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        lblInscricaoEstadual.setText("Inscrição Estadual");
 
         try {
             txtCNPJ.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
@@ -63,88 +132,321 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        lblInscricaoUF.setText("Inscrição Estadual");
+
         try {
-            txtInscricaoEstadual.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("######-##")));
+            txtIncriscaoEstadual.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("######-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
 
-        javax.swing.GroupLayout panelFornecedorLayout = new javax.swing.GroupLayout(panelFornecedor);
-        panelFornecedor.setLayout(panelFornecedorLayout);
-        panelFornecedorLayout.setHorizontalGroup(
-            panelFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelFornecedorLayout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addGroup(panelFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblRazaoSocial)
-                    .addComponent(lblNomeFantasia, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCNPJ))
+        lblTel.setText("Tel");
+
+        try {
+            txtTel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)-#-####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        lblTagNm.setForeground(new java.awt.Color(255, 0, 0));
+
+        lblTagRzSocial.setForeground(new java.awt.Color(255, 0, 0));
+
+        lblTagInscricaoUF.setForeground(new java.awt.Color(255, 0, 0));
+
+        lblTagCNPJ.setForeground(new java.awt.Color(255, 0, 0));
+
+        lblTagTel.setForeground(new java.awt.Color(255, 0, 0));
+
+        javax.swing.GroupLayout panelDadosPessoaisLayout = new javax.swing.GroupLayout(panelDadosPessoais);
+        panelDadosPessoais.setLayout(panelDadosPessoaisLayout);
+        panelDadosPessoaisLayout.setHorizontalGroup(
+            panelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDadosPessoaisLayout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addGroup(panelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblCNPJ)
+                    .addComponent(lblRzSocial)
+                    .addComponent(lblNm)
+                    .addComponent(lblTel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtRazaoSocial)
-                    .addComponent(txtNomeFantasia)
-                    .addGroup(panelFornecedorLayout.createSequentialGroup()
-                        .addComponent(txtCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNome, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtRzSocial)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDadosPessoaisLayout.createSequentialGroup()
+                        .addGroup(panelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtTel, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCNPJ)
+                            .addGroup(panelDadosPessoaisLayout.createSequentialGroup()
+                                .addGap(0, 8, Short.MAX_VALUE)
+                                .addGroup(panelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblTagTel, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblTagCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblInscricaoEstadual)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtInscricaoEstadual, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(71, Short.MAX_VALUE))
+                        .addGroup(panelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDadosPessoaisLayout.createSequentialGroup()
+                                .addComponent(lblInscricaoUF)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtIncriscaoEstadual, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblTagNm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTagRzSocial, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTagInscricaoUF, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(50, 50, 50))
         );
-        panelFornecedorLayout.setVerticalGroup(
-            panelFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelFornecedorLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(panelFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNomeFantasia)
-                    .addComponent(txtNomeFantasia, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtRazaoSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblRazaoSocial))
-                .addGap(23, 23, 23)
-                .addGroup(panelFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblCNPJ))
-                    .addGroup(panelFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtInscricaoEstadual, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblInscricaoEstadual)))
-                .addContainerGap(96, Short.MAX_VALUE))
+        panelDadosPessoaisLayout.setVerticalGroup(
+            panelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDadosPessoaisLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(panelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNm, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTagNm, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addGroup(panelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRzSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRzSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTagRzSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addGroup(panelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblInscricaoUF, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIncriscaoEstadual, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDadosPessoaisLayout.createSequentialGroup()
+                        .addComponent(lblTagInscricaoUF, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)
+                        .addGroup(panelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblTel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lblTagCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTagTel, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/projetopesquisa/view/imagens/icon_add.png"))); // NOI18N
-        jButton1.setText("jButton1");
-        jButton1.setAutoscrolls(true);
-        jButton1.setBorderPainted(false);
-        jButton1.setSelected(true);
+        btnLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/projetopesquisa/view/imagens/icon_excluirr.png"))); // NOI18N
+        btnLimpar.setText("LIMPAR CAMPOS");
+        btnLimpar.setAutoscrolls(true);
+        btnLimpar.setBorderPainted(false);
+        btnLimpar.setContentAreaFilled(false);
+        btnLimpar.setSelected(true);
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
+
+        panelEndereco.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Endereço do Fornecedor", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Comic Sans MS", 1, 14))); // NOI18N
+
+        spinNumero.setModel(new javax.swing.SpinnerNumberModel(1, 0, 999999, 1));
+
+        lblNumero.setText("Número");
+
+        lblCidade.setText("Cidade");
+
+        lblBairro.setText("Bairro");
+
+        lblRua.setText("Logradouro");
+
+        lblUF.setText("UF");
+
+        boxUF.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
+        boxUF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxUFActionPerformed(evt);
+            }
+        });
+
+        lblCEP.setText("CEP");
+
+        try {
+            txtCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###-###")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        lblComplemento.setText("Comp.");
+
+        lblTagRua.setForeground(new java.awt.Color(255, 0, 0));
+
+        lblTagBairro.setForeground(new java.awt.Color(255, 0, 0));
+
+        lblTagCidade.setForeground(new java.awt.Color(255, 0, 0));
+
+        lblTagComplemento.setForeground(new java.awt.Color(255, 0, 0));
+
+        lblTagCEP.setForeground(new java.awt.Color(255, 0, 0));
+
+        javax.swing.GroupLayout panelEnderecoLayout = new javax.swing.GroupLayout(panelEndereco);
+        panelEndereco.setLayout(panelEnderecoLayout);
+        panelEnderecoLayout.setHorizontalGroup(
+            panelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEnderecoLayout.createSequentialGroup()
+                .addGroup(panelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelEnderecoLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblTagRua, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelEnderecoLayout.createSequentialGroup()
+                        .addGap(121, 121, 121)
+                        .addGroup(panelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblUF)
+                            .addComponent(lblRua)
+                            .addComponent(lblBairro))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtRua)
+                            .addGroup(panelEnderecoLayout.createSequentialGroup()
+                                .addGroup(panelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblTagCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(panelEnderecoLayout.createSequentialGroup()
+                                        .addGroup(panelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addGroup(panelEnderecoLayout.createSequentialGroup()
+                                                .addComponent(boxUF, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(lblCEP))
+                                            .addGroup(panelEnderecoLayout.createSequentialGroup()
+                                                .addGroup(panelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                    .addComponent(lblTagBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(txtBairro))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(lblCidade)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(panelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(lblTagCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtCidade)
+                                            .addComponent(txtCEP))))
+                                .addGroup(panelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panelEnderecoLayout.createSequentialGroup()
+                                        .addGroup(panelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lblNumero)
+                                            .addComponent(lblComplemento))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(panelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(spinNumero)
+                                            .addComponent(txtComplemento)))
+                                    .addGroup(panelEnderecoLayout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(lblTagComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addGap(28, 28, 28))
+        );
+        panelEnderecoLayout.setVerticalGroup(
+            panelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelEnderecoLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(panelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRua, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRua, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTagRua, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelEnderecoLayout.createSequentialGroup()
+                        .addGroup(panelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNumero)
+                            .addComponent(spinNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCidade)
+                            .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblTagBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelEnderecoLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(lblTagCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUF, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boxUF, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblComplemento)
+                    .addComponent(txtComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblTagComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTagCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelDadosPessoais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(panelFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(274, 274, 274)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(43, Short.MAX_VALUE))
+                        .addGap(177, 177, 177)
+                        .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(panelFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(panelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addComponent(panelDadosPessoais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(panelEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCadastrar)
+                    .addComponent(btnLimpar))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        //verifica se o campos estão válidos, antes de salvar as informações.
+        if(valido())
+        {
+            
+        }
+        
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void boxUFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxUFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boxUFActionPerformed
+
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        // TODO add your handling code here:
+        //Campos de entrada de dados.
+        this.txtNome.setText(" ");
+        this.txtRzSocial.setText(" ");
+        this.txtCNPJ.setText(" ");
+        this.txtIncriscaoEstadual.setText(" ");
+        this.txtTel.setText(" ");
+        this.txtRua.setText(" ");
+        this.txtBairro.setText(" ");
+        this.txtCEP.setText(" ");
+        this.txtComplemento.setText(" ");
+        this.spinNumero.setValue(0);
+        
+        //limpas as tags de alerta
+        this.lblTItulo.setText(" ");
+        this.lblTagBairro.setText(" ");
+        this.lblTagCEP.setText(" ");
+        this.lblTagCNPJ.setText(" ");
+        this.lblTagCidade.setText(" ");
+        this.lblTagComplemento.setText(" ");
+        this.lblTagInscricaoUF.setText(" ");
+        this.lblTagNm.setText(" ");
+        this.lblTagRua.setText(" ");
+        this.lblTagRzSocial.setText(" ");
+        this.lblTagTel.setText(" ");
+    }//GEN-LAST:event_btnLimparActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,24 +472,90 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new CadastrarFornecedor().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new CadastrarFornecedor().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> boxUF;
+    private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton btnLimpar;
+    private javax.swing.JLabel lblBairro;
+    private javax.swing.JLabel lblCEP;
     private javax.swing.JLabel lblCNPJ;
-    private javax.swing.JLabel lblInscricaoEstadual;
-    private javax.swing.JLabel lblNomeFantasia;
-    private javax.swing.JLabel lblRazaoSocial;
-    private javax.swing.JPanel panelFornecedor;
+    private javax.swing.JLabel lblCidade;
+    private javax.swing.JLabel lblComplemento;
+    private javax.swing.JLabel lblInscricaoUF;
+    private javax.swing.JLabel lblNm;
+    private javax.swing.JLabel lblNumero;
+    private javax.swing.JLabel lblRua;
+    private javax.swing.JLabel lblRzSocial;
+    private javax.swing.JLabel lblTItulo;
+    private javax.swing.JLabel lblTagBairro;
+    private javax.swing.JLabel lblTagCEP;
+    private javax.swing.JLabel lblTagCNPJ;
+    private javax.swing.JLabel lblTagCidade;
+    private javax.swing.JLabel lblTagComplemento;
+    private javax.swing.JLabel lblTagInscricaoUF;
+    private javax.swing.JLabel lblTagNm;
+    private javax.swing.JLabel lblTagRua;
+    private javax.swing.JLabel lblTagRzSocial;
+    private javax.swing.JLabel lblTagTel;
+    private javax.swing.JLabel lblTel;
+    private javax.swing.JLabel lblUF;
+    private javax.swing.JPanel panelDadosPessoais;
+    private javax.swing.JPanel panelEndereco;
+    private javax.swing.JPanel panelPrincipal;
+    private javax.swing.JSpinner spinNumero;
+    private javax.swing.JTextField txtBairro;
+    private javax.swing.JFormattedTextField txtCEP;
     private javax.swing.JFormattedTextField txtCNPJ;
-    private javax.swing.JFormattedTextField txtInscricaoEstadual;
-    private javax.swing.JTextField txtNomeFantasia;
-    private javax.swing.JTextField txtRazaoSocial;
+    private javax.swing.JTextField txtCidade;
+    private javax.swing.JTextField txtComplemento;
+    private javax.swing.JFormattedTextField txtIncriscaoEstadual;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtRua;
+    private javax.swing.JTextField txtRzSocial;
+    private javax.swing.JFormattedTextField txtTel;
     // End of variables declaration//GEN-END:variables
+
+    private boolean valido(){
+        
+        StringUtil util = StringUtil.getInstance();
+        CnpjUtil cnpjVal = CnpjUtil.getInstance();
+        
+        if(util.isEmpty(this.txtNome.getText()) || util.isNull(this.txtNome.getText())){
+            this.lblTagNm.setText("* Campo Vázio!*");
+            this.txtNome.setBorder(CadastrarFornecedor.bordaVermelha);
+        }
+        else
+        {
+            this.lblTagNm.setText("");
+            this.txtNome.setBorder(CadastrarFornecedor.bordaPreta);
+        }
+        
+        if(util.isEmpty(this.txtRzSocial.getText()) || util.isNull(this.txtRzSocial.getText())){
+            this.lblTagRzSocial.setText("* Campo Vázio!*");
+            this.txtRzSocial.setBorder(CadastrarFornecedor.bordaVermelha);
+        }
+        else
+        {
+            this.lblTagRzSocial.setText("");
+            this.txtRzSocial.setBorder(CadastrarFornecedor.bordaPreta);
+        }
+        
+        if(cnpjVal.isCNPJEmpty(this.txtCNPJ.getText()) || cnpjVal.isCPNJNumbersInvalid(this.txtCNPJ.getText()) ||util.isEmpty(this.txtCNPJ.getText()) || util.isNull(this.txtCNPJ.getText())){
+            this.lblTagCNPJ.setText("* Campo Vázio!*");
+            this.txtCNPJ.setBorder(CadastrarFornecedor.bordaVermelha);
+        }
+        else
+        {
+            this.lblTagCNPJ.setText("");
+            this.txtCNPJ.setBorder(CadastrarFornecedor.bordaPreta);
+        }
+        
+        
+        return true;
+    }
 }
