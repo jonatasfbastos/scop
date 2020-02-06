@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
  *
  * @author mvictor
  */
-public class CnpjUtil {
+public final class CnpjUtil {
     /**
      * Represents the singleton instance of the class.
      */
@@ -50,13 +50,7 @@ public class CnpjUtil {
         return instance;
     }
     
-    
-    public boolean isEmailValid(String Campo)
-    {
-       matcher = pattern.matcher(Campo);
-       return matcher.matches();
-    }
-    
+   
     //verifica se o campo não está preenchido com números.
     public boolean isCNPJEmpty(String campo)
     {
@@ -74,6 +68,7 @@ public class CnpjUtil {
                 campo.equals("66.666.666/6666-66") ||
                 campo.equals("77.777.777/7777-77") ||
                 campo.equals("88.888.888/8888-88") ||
-                campo.equals("99.999.999/9999-99");
+                campo.equals("99.999.999/9999-99") ||
+                campo.length() != 14;
     }
 }
