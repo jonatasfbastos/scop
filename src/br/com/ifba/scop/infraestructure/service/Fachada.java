@@ -1,5 +1,8 @@
 package br.com.ifba.scop.infraestructure.service;
 
+import br.com.ifba.scop.aluno.model.Aluno;
+import br.com.ifba.scop.aluno.service.IServiceAluno;
+import br.com.ifba.scop.aluno.service.ServiceAluno;
 import br.com.ifba.scop.grupopesquisa.model.GrupoPesquisa;
 import br.com.ifba.scop.grupopesquisa.service.IServiceGrupoPesquisa;
 import br.com.ifba.scop.grupopesquisa.service.ServiceGrupoPesquisa;
@@ -327,4 +330,33 @@ public class Fachada implements IFachada {
 	public  boolean tipoUsuarioExistente(TipoUsuario tipousuario){
             return this.serviceTipoUsuario.tipoUsuarioExistente(tipousuario);
         }
+        ////////////////////////////////////////////////////////////////
+       private final IServiceAluno serviceAluno = new ServiceAluno();
+
+    public Aluno saveAluno(Aluno aluno) {
+        return this.serviceAluno.saveAluno(aluno);
+    }
+
+    public void deleteAluno(Aluno aluno) {
+        this.serviceAluno.deleteAluno(aluno);
+    }
+
+    
+    public Aluno updateAluno(Aluno aluno) {
+        return this.serviceAluno.updateAluno(aluno);
+    }
+
+    public List<Aluno> getAllAluno() {
+        return this.serviceAluno.getAllAluno();
+    }
+
+    
+    public Aluno getByIdAluno(Long id) {
+        return this.serviceAluno.getByIdAluno(id);
+    }
+
+    public List<Aluno> findByAluno(String Aluno) {
+        return this.serviceAluno.findByAluno(Aluno);
+    }
+    // ----------------------------- Aluno --------------------------
 }

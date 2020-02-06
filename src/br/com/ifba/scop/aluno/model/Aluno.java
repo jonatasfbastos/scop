@@ -6,6 +6,7 @@
 package br.com.ifba.scop.aluno.model;
 
 import br.com.ifba.scop.infraestructure.pessoa.model.PessoaFisica;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 /**
@@ -15,10 +16,17 @@ import javax.persistence.Entity;
 
 @Entity
 public class Aluno extends PessoaFisica {
+   
+    @Column(name="Matrícula", length=100, nullable=false) //not null
     private String matricula;
-    private int ano;
+    @Column(name="Ano", length=100, nullable=false) //not null
+    private String ano; 
+    @Column(name="Nome", length=100, nullable=false) //not null
     private String nome;
 
+   
+   
+    
     public String getNome() {
         return nome;
     }
@@ -36,11 +44,11 @@ public class Aluno extends PessoaFisica {
         this.matricula = matricula;
     }
 
-    public int getAno() {
+    public String getAno() {
         return ano;
     }
 
-    public void setAno(int ano) {
+    public void setAno(String ano) {
         this.ano = ano;
     }
 }

@@ -17,12 +17,12 @@ public abstract class IServiceAluno {
     public abstract Aluno saveAluno(Aluno aluno);
     // Deleta o aluno da base de dados
     public abstract void deleteAluno(Aluno aluno);
-    // Metodo que atualiza um Grupo de Pesquisa que já existe na base de dados
+    // Metodo que atualiza Aluno que já existe na base de dados
     public abstract Aluno  updateAluno (Aluno aluno);
-    // Metodo que retorna todos os Grupo de Pesquisa da base de dados
+    // Metodo que retorna todos os Alunos da base de dados
     public abstract List<Aluno> getAllAluno ();
-    // Método que retorna um Grupo de Pesquisa pelo Id
+    // Método que retorna um Aluno pelo Id
     public abstract Aluno  getByIdAluno (Long id);
-    // Metodo que busca um Grupo de Pesquisa na base de dados através do nome
+    // Metodo que busca um Aluno na base de dados através do nome
     public abstract List<Aluno> findByAluno (String Aluno);
 }
