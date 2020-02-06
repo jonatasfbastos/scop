@@ -47,10 +47,6 @@ public class FornecedorTableModel extends AbstractTableModel implements IFornece
                 return FornecedorTableModel.listaFornecedor.get(linhas).getCnpj();
             case 3:
                 return FornecedorTableModel.listaFornecedor.get(linhas).getInscricaoEstadual();
-            case 4:
-                return null;
-            case 5:
-                return null;
        }
        return null;
     }
