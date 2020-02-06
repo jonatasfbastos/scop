@@ -25,6 +25,13 @@ public class CentroPesquisador extends javax.swing.JFrame {
      */
     public CentroPesquisador() {
         initComponents();
+        btnAtualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPesquisar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAdicionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnTelaInicial.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cmbFiltro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        
         this.jtPesquisador.setModel(modelo);
         this.modelo.updateTableList(Singleton.getInstance().getAllPesquisador());
     }

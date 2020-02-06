@@ -25,6 +25,7 @@ public class CadastroPesquisador extends javax.swing.JFrame {
      */
     public CadastroPesquisador() {
         initComponents();
+        btnConfirm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblAviso.setVisible(false);
         
         for(int i = 0; i < this.grupos.size(); i++){

@@ -20,6 +20,7 @@ public class AtualizacaoPesquisador extends javax.swing.JFrame {
      */
     public AtualizacaoPesquisador() {
         initComponents();
+        btnConfirm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblAviso.setVisible(false);
     }
 
