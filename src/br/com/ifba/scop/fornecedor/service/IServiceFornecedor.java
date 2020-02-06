@@ -23,6 +23,9 @@ public interface IServiceFornecedor {
     public abstract List<Fornecedor> getAllFornecedor ();
     // Método que retorna um Grupo de Pesquisa pelo Id
     public abstract Fornecedor  getByIdFornecedor (Long id);
-    // Metodo que busca um Grupo de Pesquisa na base de dados através do nome
-    public abstract List<Fornecedor> findByFornecedor  (String titulo);
+    // Metodo que busca o CPNJ
+    public abstract List<Fornecedor> findByFornecedorCNPJ(String cnpj);
+    // Metodo que busca a Inscrição Estadual
+    public abstract List<Fornecedor> findByFornecedorIE(String IE);
+    
 }
