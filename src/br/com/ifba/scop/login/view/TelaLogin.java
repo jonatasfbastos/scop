@@ -126,6 +126,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void btnNovoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoUsuarioActionPerformed
         // TODO add your handling code here:
+        this.dispose();
         CadastrarUsuario  cadastrousuario = new CadastrarUsuario();
         cadastrousuario.setVisible(true);
     }//GEN-LAST:event_btnNovoUsuarioActionPerformed

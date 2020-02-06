@@ -25,27 +25,10 @@ public class CadastrarUsuario extends javax.swing.JFrame {
      */
     public CadastrarUsuario() {
         initComponents();
-        
+            btnVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            btnCadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     }
     
-    private boolean validaCampos(){
-        StringUtil util = StringUtil.getInstance();
-        
-        if (txtUsuario.getText().equals("") && txtSenha.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios.", "CAMPOS OBRIGATÓRIOS", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-        if(util.isNullOrEmpty(txtUsuario.getText())){
-            JOptionPane.showMessageDialog(null, "Preencha o campo Usuario.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
-            return false;
-        }
-        if(util.isNullOrEmpty(txtSenha.getText())){
-            JOptionPane.showMessageDialog(null, "Preencha o campo Senha.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
-            return false;
-        }
-        return true;
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -59,7 +42,7 @@ public class CadastrarUsuario extends javax.swing.JFrame {
         btnCadastrar = new javax.swing.JButton();
         lblIconUsuario = new javax.swing.JLabel();
         lblIconSenha = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
         txtSenha = new javax.swing.JPasswordField();
         lbl_FuncoCadastro = new javax.swing.JLabel();
         lblFundoTela = new javax.swing.JLabel();
@@ -102,24 +85,24 @@ public class CadastrarUsuario extends javax.swing.JFrame {
         lblIconSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/login/view/icon_senha_.png"))); // NOI18N
         getContentPane().add(lblIconSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, -1, 30));
 
-        jButton1.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(254, 254, 254));
-        jButton1.setText("Voltar para login");
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setDefaultCapable(false);
-        jButton1.setFocusPainted(false);
-        jButton1.setFocusable(false);
-        jButton1.setRequestFocusEnabled(false);
-        jButton1.setRolloverEnabled(false);
-        jButton1.setSelected(true);
-        jButton1.setVerifyInputWhenFocusTarget(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnVoltar.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        btnVoltar.setForeground(new java.awt.Color(254, 254, 254));
+        btnVoltar.setText("Voltar para login");
+        btnVoltar.setBorderPainted(false);
+        btnVoltar.setContentAreaFilled(false);
+        btnVoltar.setDefaultCapable(false);
+        btnVoltar.setFocusPainted(false);
+        btnVoltar.setFocusable(false);
+        btnVoltar.setRequestFocusEnabled(false);
+        btnVoltar.setRolloverEnabled(false);
+        btnVoltar.setSelected(true);
+        btnVoltar.setVerifyInputWhenFocusTarget(false);
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnVoltarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, 210, -1));
+        getContentPane().add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, 210, -1));
 
         txtSenha.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txtSenha.setForeground(new java.awt.Color(0, 0, 204));
@@ -142,17 +125,19 @@ public class CadastrarUsuario extends javax.swing.JFrame {
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
         if(validaCampos()){
-            
+             
             this.usuario.setLogin(this.txtUsuario.getText());
             this.usuario.setSenha(this.txtSenha.getText());
             
                // Salvo com sucesso
             if(Singleton.getInstance().saveUsuario(usuario) == usuario){
-
+                
+                this.dispose(); 
+                
                 JOptionPane.showMessageDialog(null, "Cadastro efetuado com sucesso!");
-
+                new TelaLogin().setVisible(true);
                 // Fecha a janela
-                this.dispose();
+                
 
             }else{
                 JOptionPane.showMessageDialog(null, "Erro ao cadastrar");
@@ -161,12 +146,31 @@ public class CadastrarUsuario extends javax.swing.JFrame {
       
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+        new TelaLogin().setVisible(true);
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
+    private boolean validaCampos(){
+        StringUtil util = StringUtil.getInstance();
+        
+        if (txtUsuario.getText().equals("") && txtSenha.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios.", "CAMPOS OBRIGATÓRIOS", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        if(util.isNullOrEmpty(txtUsuario.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Usuario.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        if(util.isNullOrEmpty(txtSenha.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Senha.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        return true;
+    }
+
+    
     /**
      * @param args the command line arguments
      */
@@ -204,7 +208,7 @@ public class CadastrarUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel lblFundoTela;
     private javax.swing.JLabel lblIconSenha;
     private javax.swing.JLabel lblIconUsuario;
