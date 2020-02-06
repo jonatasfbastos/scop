@@ -34,18 +34,16 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
     private static final LineBorder bordaPreta = new LineBorder(Color.BLACK);
     private static final LineBorder bordaVermelha = new LineBorder(Color.RED);
 
-    
-    
-    
+      
     /**
      * Creates new form CadastrarFornecedor
      */
     public CadastrarFornecedor() {
 
         initComponents();
-        this.setLocationRelativeTo(null); 
-       
+        this.setLocationRelativeTo(null);
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -99,6 +97,7 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
         lblTagCidade = new javax.swing.JLabel();
         lblTagComplemento = new javax.swing.JLabel();
         lblTagCEP = new javax.swing.JLabel();
+        btnLista = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -189,6 +188,8 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
 
         lblEmail.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         lblEmail.setText("E-mail");
+
+        lblTagEmail.setForeground(new java.awt.Color(253, 50, 57));
 
         javax.swing.GroupLayout panelDadosPessoaisLayout = new javax.swing.GroupLayout(panelDadosPessoais);
         panelDadosPessoais.setLayout(panelDadosPessoaisLayout);
@@ -426,6 +427,19 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        btnLista.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        btnLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/projetopesquisa/view/imagens/icon_home.png"))); // NOI18N
+        btnLista.setText("LISTA");
+        btnLista.setAutoscrolls(true);
+        btnLista.setBorderPainted(false);
+        btnLista.setContentAreaFilled(false);
+        btnLista.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/fornecedor/imagens/icon_home.png"))); // NOI18N
+        btnLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -436,7 +450,9 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
                         .addGap(216, 216, 216)
                         .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
-                        .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnLista, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -457,8 +473,9 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCadastrar)
-                    .addComponent(btnLimpar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnLimpar)
+                    .addComponent(btnLista))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
@@ -466,7 +483,8 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         //verifica se o campos estão válidos, antes de salvar as informações.
-        Fornecedor fornecedor = new Fornecedor();
+        Fornecedor fornecedor1;
+        fornecedor1 = new Fornecedor();
         Telefone tel = new Telefone();
         Endereco end = new Endereco();
         
@@ -474,19 +492,20 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
         if(valido() == true)
         {
             //dados pessoais do fornecedor
-            fornecedor.setNomeFantasia(txtNome.getText());
-            fornecedor.setRazaoSocial(txtRzSocial.getText());
-            fornecedor.setCnpj(txtCNPJ.getText());
-            fornecedor.setInscricaoEstadual(txtIncriscaoEstadual.getText());
-            fornecedor.setEmail(txtEmail.getText());
+            fornecedor1.setNomeFantasia(txtNome.getText());
+            fornecedor1.setRazaoSocial(txtRzSocial.getText());
+            fornecedor1.setCnpj(txtCNPJ.getValue().toString());
+            fornecedor1.setInscricaoEstadual(txtIncriscaoEstadual.getText());
+            fornecedor1.setEmail(txtEmail.getText());
             //dados endereco do fornecedor
             end.setRua(txtRua.getText());
             end.setBairro(txtBairro.getText());
             end.setCidade(txtCidade.getText());
+            end.setCep(txtCEP.getValue().toString());
             end.setUf(boxUF.getSelectedItem().toString());
             end.setComplemento(txtComplemento.getText());
             end.setNumero((int) spinNumero.getValue());
-            end.setPessoa(fornecedor);
+            end.setPessoa(fornecedor1);
             
             //dados telefones
             tel.setDdd(this.getDDD(txtTel.getText()));
@@ -499,19 +518,21 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
             //adiciona um array de telefones - ou seja, uma lista de telefones.
             telefones.add(tel);
             //guarda os dados do endereco do fornecedor.
-            
-            
             //salva as informações na base de dados.
-            Singleton.getInstance().saveFornecedor(fornecedor);
+            Singleton.getInstance().saveFornecedor(fornecedor1);
             //exibe um alerta antes de salva, as informações definitavamente.
             JOptionPane.showMessageDialog(this, "Cadastrado com sucesso...", "Sucesso", JOptionPane.PLAIN_MESSAGE);
-            try {
-                Thread.sleep(2000);
-                
-            } catch (InterruptedException ex) {
-                Logger.getLogger(CadastrarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
+            try{
+                Thread.sleep(3000);
+                ListaFornecedor lista = new ListaFornecedor();
+                lista.setVisible(true);
+                this.setVisible(false);
+                this.setDefaultCloseOperation(CadastrarFornecedor.EXIT_ON_CLOSE);
+                this.dispose();
             }
-            
+            catch(Exception ex)
+            {
+            }
         }
         else
         {
@@ -556,7 +577,7 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
         
         
         //limpas as tags de alerta
-        this.lblTItulo.setText(" ");
+        
         this.lblTagBairro.setText(" ");
         this.lblTagCEP.setText(" ");
         this.lblTagCNPJ.setText(" ");
@@ -569,6 +590,15 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
         this.lblTagTel.setText(" ");
         
     }//GEN-LAST:event_btnLimparActionPerformed
+
+    private void btnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaActionPerformed
+        // TODO add your handling code here:
+        ListaFornecedor lista = new ListaFornecedor();
+        lista.setVisible(true);
+        this.setVisible(false);
+        this.setDefaultCloseOperation(CadastrarFornecedor.EXIT_ON_CLOSE);
+        this.dispose();
+    }//GEN-LAST:event_btnListaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -603,6 +633,7 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> boxUF;
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnLimpar;
+    private javax.swing.JButton btnLista;
     private javax.swing.JLabel lblBairro;
     private javax.swing.JLabel lblCEP;
     private javax.swing.JLabel lblCNPJ;

@@ -58,9 +58,9 @@ public class ListaFornecedor extends javax.swing.JFrame {
         this.tableFornecedor.setModel(modelo);
         this.modelo.updateTableList(Singleton.getInstance().getAllFornecedor());
         //criando um botão do tipo deletar
-        this.deletar = new ColumnDeleteLabel(this.tableFornecedor, 2);
+        this.deletar = new ColumnDeleteLabel(this.tableFornecedor, 4);
         //criando um botão do tipo editar
-        this.edite = new ColumnEditLabel(this.tableFornecedor, 3);
+        this.edite = new ColumnEditLabel(this.tableFornecedor, 5);
         
         //pega todos os proejtos
        List<Fornecedor> dados = Singleton.getInstance().getAllFornecedor();
@@ -72,8 +72,8 @@ public class ListaFornecedor extends javax.swing.JFrame {
             //add cada elemento pela posicao 
             this.getGrupoPesquisaTableModel().addElementIndex(i, dados.get(i));
             //insere os nomes no label de acordo com a coluna
-            this.getColumnDeleteLabel().getTableCellEditorComponent(this.tableFornecedor, "Delete", false, i, 2);
-            this.getColumnEditLabel().getTableCellEditorComponent(this.tableFornecedor, "Edite", false, i, 3);
+            this.getColumnDeleteLabel().getTableCellEditorComponent(this.tableFornecedor, "Delete", false, i, 4);
+            this.getColumnEditLabel().getTableCellEditorComponent(this.tableFornecedor, "Edite", false, i, 5);
         }
     }
 
@@ -95,6 +95,8 @@ public class ListaFornecedor extends javax.swing.JFrame {
         panelTable = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableFornecedor = new javax.swing.JTable();
+        btnAdd = new javax.swing.JButton();
+        btnAtualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela de Busca");
@@ -146,7 +148,7 @@ public class ListaFornecedor extends javax.swing.JFrame {
                 .addGroup(panelBuscaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnRadioNome)
                     .addComponent(btnRadioCNPJ))
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelBuscaLayout.setVerticalGroup(
             panelBuscaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,6 +181,11 @@ public class ListaFornecedor extends javax.swing.JFrame {
         tableFornecedor.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tableFornecedor.getTableHeader().setResizingAllowed(false);
         tableFornecedor.getTableHeader().setReorderingAllowed(false);
+        tableFornecedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableFornecedorMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableFornecedor);
 
         javax.swing.GroupLayout panelTableLayout = new javax.swing.GroupLayout(panelTable);
@@ -197,15 +204,44 @@ public class ListaFornecedor extends javax.swing.JFrame {
                 .addGap(55, 55, 55))
         );
 
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/projetopesquisa/view/imagens/icon_add.png"))); // NOI18N
+        btnAdd.setText("NOVO FORNECEDOR");
+        btnAdd.setBorderPainted(false);
+        btnAdd.setContentAreaFilled(false);
+        btnAdd.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/fornecedor/imagens/icon_add.png"))); // NOI18N
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
+
+        btnAtualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/projetopesquisa/view/imagens/icon_home.png"))); // NOI18N
+        btnAtualizar.setText("TELA PRINCIPAL");
+        btnAtualizar.setBorderPainted(false);
+        btnAtualizar.setContentAreaFilled(false);
+        btnAtualizar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/fornecedor/imagens/icon_home.png"))); // NOI18N
+        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panelTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelBusca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(180, 180, 180)
+                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -215,7 +251,11 @@ public class ListaFornecedor extends javax.swing.JFrame {
                 .addComponent(panelBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(panelTable, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleParent(this);
@@ -255,6 +295,50 @@ public class ListaFornecedor extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnRadioNomeItemStateChanged
 
+    private void tableFornecedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableFornecedorMouseClicked
+        // TODO add your handling code here:
+        // selecionado recebe o numero da linha que está selecionada
+        this.selecionado = this.tableFornecedor.getSelectedRow();   
+        
+        if (this.tableFornecedor.getSelectedColumn() == 4) {
+        // Deleta o projeto selecionado e atualiza a tabela
+            if(this.selecionado != -1){           
+                int confirmacao = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja remover este grupo de pesquisa?", "REMOVER PROJETO PESQUISA", JOptionPane.INFORMATION_MESSAGE);
+                //inteiro igualado ao joptionpane  para pegar se o usuário tem certeza de excluir o grupo
+                if(confirmacao == JOptionPane.NO_OPTION){
+                //se a confirmação é 1, o usuário escolheu "não" ou "cancelar" e retorna para a a tela de busca
+                    this.selecionado = -1;
+                      
+                }else if(confirmacao == JOptionPane.YES_OPTION){
+                //se a confirmação é zero, o usuário quer realmente excluir o projeto e os seus dados       
+                    Singleton.getInstance().deletarFornecedor(Singleton.getInstance().getAllFornecedor().get(this.selecionado));
+                    this.modelo.updateTableList(Singleton.getInstance().getAllFornecedor());
+                    this.selecionado = -1;
+                }
+            }else{
+            //caso não clique em algo
+                JOptionPane.showMessageDialog(null, "Para remover um cadastro, selecione um campo na tabela.", "SELECIONE UM CAMPO", JOptionPane.WARNING_MESSAGE);
+                this.selecionado = -1;
+            }  
+            //editar pelo botão
+        } if (this.tableFornecedor.getSelectedColumn() == 5) {
+            new EditarFornecedor(Singleton.getInstance().getAllFornecedor().get(this.selecionado)).setVisible(true);
+        }   
+    }//GEN-LAST:event_tableFornecedorMouseClicked
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // TODO add your handling code here:
+        CadastrarFornecedor add = new CadastrarFornecedor();
+        add.setVisible(true);
+        this.setVisible(false);
+        this.setDefaultCloseOperation(ListaFornecedor.EXIT_ON_CLOSE);
+        this.dispose();
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAtualizarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -287,6 +371,8 @@ public class ListaFornecedor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnAtualizar;
     private javax.swing.JRadioButton btnRadioCNPJ;
     private javax.swing.JRadioButton btnRadioNome;
     private javax.swing.JButton jButton1;
