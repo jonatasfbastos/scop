@@ -6,14 +6,27 @@
 package br.com.ifba.scop.aluno.model;
 
 import br.com.ifba.scop.infraestructure.pessoa.model.PessoaFisica;
+import javax.persistence.Entity;
 
 /**
  *
  * @author Igor Lopes
  */
+
+@Entity
 public class Aluno extends PessoaFisica {
     private String matricula;
     private int ano;
+    private String nome;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
 
     public String getMatricula() {
         return matricula;

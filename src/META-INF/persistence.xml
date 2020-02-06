@@ -15,6 +15,7 @@
     <class>br.com.ifba.scop.professor.model.Professor</class> 
     <class>br.com.ifba.scop.tecnicoadiministrativo.model.Tecnico</class>
     <class>br.com.ifba.scop.login.usuario.model.Usuario</class>
+    <class>br.com.ifba.scop.aluno.model.Aluno</class>
 
     <properties>
       <!-- dados da conexao -->
