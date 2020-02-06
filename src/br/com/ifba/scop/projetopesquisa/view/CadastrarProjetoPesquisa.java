@@ -298,7 +298,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
 
                     // Fecha a janela
                     this.dispose();
-
+                    new BuscarProjetoPesquisa().setVisible(true);
                 }else{
                     JOptionPane.showMessageDialog(null, "Erro ao editar");
                 }
@@ -313,7 +313,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
 
                     // Fecha a janela
                     this.dispose();
-
+                    new BuscarProjetoPesquisa().setVisible(true);
                 }else{
                     JOptionPane.showMessageDialog(null, "Erro ao salvar");
                 }

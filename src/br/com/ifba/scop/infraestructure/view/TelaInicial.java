@@ -158,18 +158,21 @@ public class TelaInicial extends javax.swing.JFrame {
         // TODO add your handling code here:
         //this.setVisible(false); // invisivel
         //this.getDefaultCloseOperation(); // fechando
+        this.dispose();
         CentroPatente centroPatente = new CentroPatente();
         centroPatente.setVisible(true);
     }//GEN-LAST:event_btnCadPatenteActionPerformed
 
     private void btnCadPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadPesquisaActionPerformed
         // TODO add your handling code here:
+        this.dispose();
         BuscarProjetoPesquisa buscarProjeto = new BuscarProjetoPesquisa();
         buscarProjeto.setVisible(true);
     }//GEN-LAST:event_btnCadPesquisaActionPerformed
 
     private void btnCadPesquisadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadPesquisadorActionPerformed
         // TODO add your handling code here:
+        this.dispose();
         new CentroPesquisador().setVisible(true);
     }//GEN-LAST:event_btnCadPesquisadorActionPerformed
 

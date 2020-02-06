@@ -216,6 +216,7 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         // TODO add your handling code here:
+        this.dispose();
         new CadastrarProjetoPesquisa().setVisible(true);
         
     }//GEN-LAST:event_btnNovoActionPerformed
@@ -224,6 +225,7 @@ public class BuscarProjetoPesquisa extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         this.dispose();
+        new TelaInicial().setVisible(true);
     }//GEN-LAST:event_btnMenuActionPerformed
 
     /**
