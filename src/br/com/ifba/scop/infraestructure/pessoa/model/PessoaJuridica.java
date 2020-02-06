@@ -5,12 +5,17 @@
  */
 package br.com.ifba.scop.infraestructure.pessoa.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
 /**
  *
  * @author itallo007
  */
-
-public class PessoaJuridica extends Pessoa{
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class PessoaJuridica extends Pessoa{
     
     private String razaoSocial;
     
