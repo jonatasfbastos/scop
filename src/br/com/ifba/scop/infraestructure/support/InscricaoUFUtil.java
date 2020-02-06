@@ -41,22 +41,22 @@ public final class InscricaoUFUtil {
     
     public boolean isEmpty(String campo)
     {
-        return campo.equals("      -  ");
+        return campo.equals("       -  ");
     }
     
-    public boolean isInscricaoUFJNumbersInvalid(String campo)
+    public boolean isInscricaoUFNumbersInvalid(String campo)
     {
-        return  campo.equals("000.000-00") ||
-                campo.equals("111.111-11") || 
-                campo.equals("222.222-22") ||
-                campo.equals("333.333-33") ||
-                campo.equals("444.444-44") ||
-                campo.equals("555.555-55") ||
-                campo.equals("666.666-66") ||
-                campo.equals("777.777-77") ||
-                campo.equals("888.888-88") ||
-                campo.equals("999.999-99") ||
-                campo.length()!= 14;
+        return  campo.equals("0000000-00") ||
+                campo.equals("1111111-11") || 
+                campo.equals("2222222-22") ||
+                campo.equals("3333333-33") ||
+                campo.equals("4444444-44") ||
+                campo.equals("5555555-55") ||
+                campo.equals("6666666-66") ||
+                campo.equals("7777777-77") ||
+                campo.equals("8888888-88") ||
+                campo.equals("9999999-99") ||
+                campo.length()!= 10;
     }
     
 }
