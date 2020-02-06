@@ -22,8 +22,9 @@ import javax.persistence.Table;
 /**
  *
  * @author Cliente
- */@Entity
-@Table (name = "TIPOUSUARIO")
+// */
+//@Entity
+//@Table (name = "TIPOUSUARIO")
 public class TipoUsuario extends AbstractEntity implements Serializable {
 
 	/**
@@ -50,9 +51,9 @@ public class TipoUsuario extends AbstractEntity implements Serializable {
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Role> roles;*/
 	
-	public Collection<Usuario> getUsuarios() {
-		return usuarios;
-	}
+//	public Collection<Usuario> getUsuarios() {
+//		return usuarios;
+//	}
 
 	public void setUsuarios(Collection<Usuario> usuarios) {
 		this.usuarios = usuarios;

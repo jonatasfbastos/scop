@@ -11,6 +11,9 @@
     <class>br.com.ifba.scop.infraestructure.telefone.model.Telefone</class>
     <class>br.com.ifba.scop.infraestructure.endereco.model.Endereco</class>
     <class>br.com.ifba.scop.infraestructure.pessoa.Pessoa</class>
+    <class>br.com.ifba.scop.infraestructure.pessoa.PessoaFisica</class>
+    <class>br.com.ifba.scop.professor.model.Professor</class> 
+    <class>br.com.ifba.scop.tecnicoadiministrativo.model.Tecnico</class>
     <class>br.com.ifba.scop.login.usuario.model.Usuario</class>
 
     <properties>

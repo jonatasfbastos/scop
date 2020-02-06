@@ -17,7 +17,7 @@ public class DaoTecnico extends BaseDao<Tecnico> implements IDaoTecnico {
     
     @Override
     public List<Tecnico> FindByNomeTecnico(String tecnico){
-        String query = "select t from tecnico t WHERE upper(t.tecnico) like upper('" + tecnico +"%')";
+        String query = "select t from Tecnico t WHERE upper(t.nome) like upper('" + tecnico +"%')";
         return BaseDao.entityManager.createQuery(query).getResultList();
     }
     

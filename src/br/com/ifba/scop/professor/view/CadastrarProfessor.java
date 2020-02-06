@@ -33,19 +33,20 @@ public class CadastrarProfessor extends javax.swing.JFrame {
      */
     public CadastrarProfessor() {
         initComponents();
-        btnAdicionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAdicionar.setToolTipText("Clique aqui para salvar o cadastro");
+        btnCadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCadastrar.setToolTipText("Clique aqui para salvar o cadastro");
         this.professor = new Professor();
     }
 
     CadastrarProfessor(Professor editado) {
-        
-        btnAdicionar.setText("Atualizar");
+        initComponents();
+
+//        btnCadastrar.setText("Atualizar");
         
         this.professor = editado;
         
         this.txtNome.setText(editado.getNome());
-        this.txtCpf.setText(Integer.toString(editado.getCpf()));
+//        this.txtCpf.setText(Integer.toString(editado.getCpf()));
         this.txtEmail.setText(editado.getEmail());
         this.txtSexo.setText(editado.getSexo());
         this.txtMatricula.setText(editado.getMatricula());
@@ -53,7 +54,7 @@ public class CadastrarProfessor extends javax.swing.JFrame {
         this.txtOrgExpedidor.setText(editado.getOrgaoExpedidor());
         this.txtNascimento.setText(this.utilDate.toString(editado.getDataNascimento()));
         this.txtExpedicao.setText(this.utilDate.toString(editado.getDataExpedicao()));
-        this.txtRg.setText(Integer.toString(editado.getRg()));
+//        this.txtRg.setText(Integer.toString(editado.getRg()));
         this.txtNacionalidade.setText(editado.getNacionalidade());
         this.txtNaturalidade.setText(editado.getNaturalidade());
     }
@@ -96,9 +97,10 @@ public class CadastrarProfessor extends javax.swing.JFrame {
         lblMatricula = new javax.swing.JLabel();
         txtTitulacao = new javax.swing.JTextField();
         lblTitulacao = new javax.swing.JLabel();
-        btnAdicionar = new javax.swing.JButton();
+        btnCadastrar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAlwaysOnTop(true);
 
         lblNome.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblNome.setText("Nome:");
@@ -190,10 +192,10 @@ public class CadastrarProfessor extends javax.swing.JFrame {
         lblTitulacao.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblTitulacao.setText("Titulação:");
 
-        btnAdicionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/professor/view/Imagens/icon_add.png"))); // NOI18N
-        btnAdicionar.addActionListener(new java.awt.event.ActionListener() {
+        btnCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/professor/view/imagens/icon_add.png"))); // NOI18N
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdicionarActionPerformed(evt);
+                btnCadastrarActionPerformed(evt);
             }
         });
 
@@ -262,7 +264,7 @@ public class CadastrarProfessor extends javax.swing.JFrame {
                         .addGap(27, 27, 27))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAdicionar)
+                        .addComponent(btnCadastrar)
                         .addGap(55, 55, 55))))
         );
         layout.setVerticalGroup(
@@ -318,11 +320,12 @@ public class CadastrarProfessor extends javax.swing.JFrame {
                             .addComponent(txtOrgExpedidor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(67, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnAdicionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(34, 34, 34))))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
@@ -332,7 +335,7 @@ public class CadastrarProfessor extends javax.swing.JFrame {
         
         if (validaCampos() == true){
             professor2.setNome(txtNome.getText());
-            professor2.setCpf(Integer.parseInt(txtCpf.getText()));
+//            professor2.setCpf(Integer.parseInt(txtCpf.getText()));
             professor2.setEmail(txtEmail.getText());
             professor2.setSexo(txtSexo.getText());
             professor2.setMatricula(txtMatricula.getText());
@@ -345,7 +348,7 @@ public class CadastrarProfessor extends javax.swing.JFrame {
                 Logger.getLogger(CadastrarProfessor.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            professor2.setRg(Integer.parseInt(txtRg.getText()));
+//            professor2.setRg(Integer.parseInt(txtRg.getText()));
             professor2.setNacionalidade(txtNacionalidade.getText());
             professor2.setNaturalidade(txtNaturalidade.getText());
             
@@ -358,6 +361,41 @@ public class CadastrarProfessor extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnAdicionarActionPerformed
+
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        // TODO add your handling code here:
+         Professor professor2 = new Professor();
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); 
+        
+        if (validaCampos() == true){
+            professor2.setNome(txtNome.getText());
+            professor2.setCpf(txtCpf.getText());
+            professor2.setEmail(txtEmail.getText());
+            professor2.setSexo(txtSexo.getText());
+            professor2.setMatricula(txtMatricula.getText());
+            professor2.setTitulacao(txtTitulacao.getText());
+            professor2.setOrgaoExpedidor(txtOrgExpedidor.getText());
+            
+            try {
+                professor2.setDataNascimento(formato.parse(txtNascimento.getText()));
+            } catch (ParseException ex) {
+                Logger.getLogger(CadastrarProfessor.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            professor2.setRg(txtRg.getText());
+            professor2.setNacionalidade(txtNacionalidade.getText());
+            professor2.setNaturalidade(txtNaturalidade.getText());
+            
+            try {
+                professor2.setDataExpedicao(formato.parse(txtExpedicao.getText()));
+            } catch (ParseException ex) {
+                Logger.getLogger(CadastrarProfessor.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            Singleton.getInstance().saveProfessor(professor2);
+            
+        }
+    }//GEN-LAST:event_btnCadastrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -563,7 +601,7 @@ public class CadastrarProfessor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CbEstadoCivil;
-    private javax.swing.JButton btnAdicionar;
+    private javax.swing.JButton btnCadastrar;
     private javax.swing.JLabel lblCpf;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblEndereco;

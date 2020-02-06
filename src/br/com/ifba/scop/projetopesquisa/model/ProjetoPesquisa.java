@@ -41,7 +41,7 @@ public class ProjetoPesquisa extends AbstractEntity implements Serializable{
     */
     
     // Relacionamento muitos para muitos com a classe GrupoPesquisa
-    @ManyToMany
+    @ManyToMany(mappedBy = "projetoPesquisas")
     private List<GrupoPesquisa> gruposPesquisa;
     
     @Column(name="titulo", length=100, nullable=false) //not null

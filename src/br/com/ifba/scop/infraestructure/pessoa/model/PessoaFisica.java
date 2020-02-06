@@ -6,13 +6,18 @@
 package br.com.ifba.scop.infraestructure.pessoa.model;
 
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Temporal;
 
 /**
  *
  * @author itallo007
  */
-
-public class PessoaFisica extends Pessoa{
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class PessoaFisica extends Pessoa{
 
     private String nome;
     
@@ -20,12 +25,14 @@ public class PessoaFisica extends Pessoa{
     
     private String estadoCivil;
     
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataNascimento;
     
-    private Integer cpf;
+    private String cpf;
     
-    private Integer rg;
+    private String rg;
     
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataExpedicao;
     
     private String orgaoExpedidor;
@@ -66,19 +73,19 @@ public class PessoaFisica extends Pessoa{
         this.dataNascimento = dataNascimento;
     }
 
-    public Integer getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(Integer cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    public Integer getRg() {
+    public String getRg() {
         return rg;
     }
 
-    public void setRg(Integer rg) {
+    public void setRg(String rg) {
         this.rg = rg;
     }
 

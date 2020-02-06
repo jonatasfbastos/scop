@@ -6,11 +6,14 @@
 package br.com.ifba.scop.tecnicoadiministrativo.model;
 
 import br.com.ifba.scop.infraestructure.pessoa.model.PessoaFisica;
+import javax.persistence.Entity;
 
 /**
  *
  * @author Gusdb
  */
+
+@Entity
 public class Tecnico extends PessoaFisica{
     private String contrato;
     private String setor;

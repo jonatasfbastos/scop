@@ -87,9 +87,9 @@ public final class ServiceTipoUsuario implements IServiceTipoUsuario{
         	throw new BusinessException (ALREADY_DELETED);
         }
         
-        if( previous.getUsuarios().size() > 0 ) {
-        	throw new BusinessException (USUARIO_USANDO_TIPOUSUARIO);
-        }
+//        if( previous.getUsuarios().size() > 0 ) {
+//        	throw new BusinessException (USUARIO_USANDO_TIPOUSUARIO);
+//        }
         
 		this.daoTipoUsuario.delete(tipoUsuario);
 	}
