@@ -22,7 +22,9 @@ public interface IFornecedorTableModel {
        "Nome",
        "Razão Social",
        "CNPJ",
-       "Inscrição [UF]"
+       "Inscrição [UF]",
+       " ",
+       " "
    };
    
     

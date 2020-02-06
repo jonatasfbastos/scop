@@ -5,7 +5,12 @@
  */
 package br.com.ifba.scop.fornecedor.view;
 
+import br.com.ifba.scop.fornecedor.model.Fornecedor;
 import br.com.ifba.scop.fornecedor.tableModel.*;
+import br.com.ifba.scop.infraestructure.model.ColumnDeleteLabel;
+import br.com.ifba.scop.infraestructure.model.ColumnEditLabel;
+import br.com.ifba.scop.infraestructure.service.Singleton;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,7 +19,34 @@ import javax.swing.JOptionPane;
  */
 public class ListaFornecedor extends javax.swing.JFrame {
 
-    FornecedorTableModel modelo = new FornecedorTableModel();
+    private static final int largura = 190;
+    private static final int altura = 19;
+    private final FornecedorTableModel modelo = new FornecedorTableModel();
+    private final ColumnDeleteLabel deletar;
+    private final ColumnEditLabel edite;    
+    int selecionado = -1;
+    
+    /**
+     * It Returns a Button Table instance.
+     * @return ButtonTable Instance
+     */
+    private ColumnDeleteLabel getColumnDeleteLabel() {
+        return this.deletar;
+    }
+    /**
+     * It Returns a Button Table instance.
+     * @return ButtonTable Instance
+     */
+    private ColumnEditLabel getColumnEditLabel() {
+        return this.edite;
+    }
+    /**
+     * It Returns the patente table model (jtable).
+     * @return PatenteTableModel
+     */
+    private FornecedorTableModel getGrupoPesquisaTableModel() {
+        return modelo;
+    }
    
     
     /**
@@ -24,6 +56,25 @@ public class ListaFornecedor extends javax.swing.JFrame {
         initComponents();  
         this.setLocationRelativeTo(null);
         this.tableFornecedor.setModel(modelo);
+        this.modelo.updateTableList(Singleton.getInstance().getAllFornecedor());
+        //criando um botão do tipo deletar
+        this.deletar = new ColumnDeleteLabel(this.tableFornecedor, 2);
+        //criando um botão do tipo editar
+        this.edite = new ColumnEditLabel(this.tableFornecedor, 3);
+        
+        //pega todos os proejtos
+       List<Fornecedor> dados = Singleton.getInstance().getAllFornecedor();
+       
+       this.getGrupoPesquisaTableModel().clearTable(); // remove as informações
+        
+        //for com o tamanho da lista
+        for (int i = 0; i < dados.size(); i++) {
+            //add cada elemento pela posicao 
+            this.getGrupoPesquisaTableModel().addElementIndex(i, dados.get(i));
+            //insere os nomes no label de acordo com a coluna
+            this.getColumnDeleteLabel().getTableCellEditorComponent(this.tableFornecedor, "Delete", false, i, 2);
+            this.getColumnEditLabel().getTableCellEditorComponent(this.tableFornecedor, "Edite", false, i, 3);
+        }
     }
 
     /**
@@ -65,7 +116,7 @@ public class ListaFornecedor extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jLabel1.setText("Pesquisar CNPJ");
 
-        btnRadioNome.setText("NOME");
+        btnRadioNome.setText("IE");
         btnRadioNome.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 btnRadioNomeItemStateChanged(evt);
@@ -141,8 +192,9 @@ public class ListaFornecedor extends javax.swing.JFrame {
         panelTableLayout.setVerticalGroup(
             panelTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTableLayout.createSequentialGroup()
-                .addGap(0, 29, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -162,8 +214,8 @@ public class ListaFornecedor extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addComponent(panelBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(panelTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelTable, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleParent(this);

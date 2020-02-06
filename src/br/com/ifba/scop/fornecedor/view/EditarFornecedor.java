@@ -5,6 +5,9 @@
  */
 package br.com.ifba.scop.fornecedor.view;
 
+import br.com.ifba.scop.fornecedor.tableModel.FornecedorTableModel;
+import br.com.ifba.scop.infraestructure.model.ColumnDeleteLabel;
+import br.com.ifba.scop.infraestructure.model.ColumnEditLabel;
 import br.com.ifba.scop.infraestructure.support.StringUtil;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
@@ -19,8 +22,6 @@ public class EditarFornecedor extends javax.swing.JFrame {
 
     private static final LineBorder bordaPreta = new LineBorder(Color.BLACK);
     private static final LineBorder bordaVermelha = new LineBorder(Color.RED);
-    private static final int largura = 190;
-    private static final int altura = 19;
     
     /**
      * Creates new form CadastrarFornecedor
