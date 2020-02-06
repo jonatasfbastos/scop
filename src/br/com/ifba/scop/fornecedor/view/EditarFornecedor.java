@@ -56,7 +56,7 @@ public class EditarFornecedor extends javax.swing.JFrame {
     }
 
     public EditarFornecedor(Fornecedor editado) {
-        initComponents();
+        this.initComponents();
         this.fornecedor = editado;
         id = editado.getId();
         this.txtNome.setText(editado.getNomeFantasia());
