@@ -9,13 +9,19 @@ import br.com.ifba.scop.infraestructure.dao.BaseDao;
 import br.com.ifba.scop.infraestructure.service.Singleton;
 import br.com.ifba.scop.login.usuario.model.Usuario;
 import java.util.List;
+import javax.persistence.Query;
 
 /**
  *
  * @author Cliente
  */
 public class DaoUsuario extends BaseDao<Usuario> implements IDaoUsuario{
-
+    private String sql;
+    
+    public DaoUsuario() {
+        super();
+    }
+    
    @Override
    public List<Usuario> findByNome(Usuario usuario) {
             String query  = "FROM Usuario WHERE upper(login) like upper('"+
@@ -24,12 +30,21 @@ public class DaoUsuario extends BaseDao<Usuario> implements IDaoUsuario{
             return  BaseDao.entityManager.createQuery(query).getResultList();
 	}
     @Override
-   public Usuario findByLoginSenha(Usuario usuario) {
-            String query  = "select Usr from Usuario Usr WHERE Usr.login like'"+
-            usuario.getLogin()+"%' and Usr.senha like '"+usuario.getSenha()+"'";
-            //String query = "SELECT * FROM USUARIO WHERE login LIKE '"+usuario.getLogin()+"%'";
-            return  (Usuario) BaseDao.entityManager.createQuery(query).getSingleResult();
+   public List<Usuario> findByLoginSenha(Usuario usuario) {
+           this.setSql("SELECT u FROM Usuario AS u WHERE u.login=:login AND u.senha=:senha");
+        // inserindo comando na querry e inserindo os dados
+        Query query = entityManager.createQuery(this.getSql());
+        query.setParameter("login", usuario.getLogin());
+        query.setParameter("senha", usuario.getSenha());
+        return query.getResultList();
 	}
- 
-    
+
+
+    public String getSql() {
+        return sql;
+    }
+
+    public void setSql(String sql) {
+        this.sql = sql;
+    }   
 }

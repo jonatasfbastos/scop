@@ -651,7 +651,7 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
             this.lblTagInscricaoUF.setText("* Campo Vázio!*");
             this.txtIncriscaoEstadual.setBorder(CadastrarFornecedor.bordaVermelha);
         }
-        else if(inscricaoUFVal.isInscricaoUFNumbersInvalid(this.txtIncriscaoEstadual.getText()))
+       /* else if(inscricaoUFVal.isInscricaoUFNumbersInvalid(this.txtIncriscaoEstadual.getText()))
         {
             this.lblTagInscricaoUF.setText("* IE Inválido!*");
             this.txtIncriscaoEstadual.setBorder(CadastrarFornecedor.bordaVermelha);
@@ -737,7 +737,7 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
         {
             this.lblTagComplemento.setText(" ");
             this.txtComplemento.setBorder(CadastrarFornecedor.bordaPreta);
-        }
+        }*/
         
         
         return true;

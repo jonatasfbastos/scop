@@ -101,7 +101,7 @@ public interface IFachada {
     // Verifica se usuário ja existe
     boolean usuarioExistente(Usuario usuario);
     //Valida login
-    public Usuario findByLoginSenha(Usuario usuario);
+    public List<Usuario> findByLoginSenha(Usuario usuario);
     
     // ---------------------------- PROFESSOR -------------------------------
     

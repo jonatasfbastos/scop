@@ -107,8 +107,8 @@ public class ServiceUsuario implements IServiceUsuario{
                return  daoUsuario.findByNome(usuario);
        }
        @Override
-       public Usuario findByLoginSenha(Usuario usuario) {
-               return daoUsuario.findByLoginSenha(usuario);
+       public List<Usuario> findByLoginSenha(Usuario usuario) {
+               return (List<Usuario>) daoUsuario.findByLoginSenha(usuario);
        }
 
        @Override

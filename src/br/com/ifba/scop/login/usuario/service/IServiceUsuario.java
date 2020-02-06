@@ -28,6 +28,6 @@ public interface IServiceUsuario {
 
     boolean usuarioExistente(Usuario usuario);
     
-    public Usuario findByLoginSenha(Usuario usuario);
+    public List<Usuario> findByLoginSenha(Usuario usuario);
     
 }

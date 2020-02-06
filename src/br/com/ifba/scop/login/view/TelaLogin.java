@@ -10,6 +10,7 @@ import br.com.ifba.scop.infraestructure.service.Singleton;
 import br.com.ifba.scop.infraestructure.support.StringUtil;
 import br.com.ifba.scop.infraestructure.view.TelaInicial;
 import br.com.ifba.scop.login.usuario.model.Usuario;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,13 +19,15 @@ import javax.swing.JOptionPane;
  */
 public class TelaLogin extends javax.swing.JFrame {
     
-    private final Usuario usuario = new Usuario();
+    private final Usuario usuarioTela = new Usuario();
 
     /**
      * Creates new form TelaLogin
      */
     public TelaLogin() {
         initComponents();
+        btnEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnNovoUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     }
         private boolean validaCampos(){
         StringUtil util = StringUtil.getInstance();
@@ -130,13 +133,17 @@ public class TelaLogin extends javax.swing.JFrame {
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
         if(validaCampos()){
-            this.usuario.setLogin(this.txtUsuario.getText());
-            this.usuario.setSenha(this.txtSenha.getText());
-            if(Singleton.getInstance().findByLoginSenha(usuario) == usuario){
-                System.out.println(" aqui!!!");
-               new TelaInicial().setVisible(true);
-            }
+            this.usuarioTela.setLogin(this.txtUsuario.getText());
+            this.usuarioTela.setSenha(this.txtSenha.getText());
             
+            List<Usuario> dados = Singleton.getInstance().findByLoginSenha(usuarioTela);
+            
+            if(dados == null || dados.isEmpty()){
+                JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos.", "TENTE NOVAMENTE", JOptionPane.ERROR_MESSAGE);                
+            }else{
+                this.dispose();
+                new TelaInicial().setVisible(true);
+            }            
         }
        
        

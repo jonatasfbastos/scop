@@ -265,7 +265,7 @@ public class Fachada implements IFachada {
     }
     // Valida usuário para login
     @Override
-    public Usuario findByLoginSenha(Usuario usuario){
+    public List<Usuario> findByLoginSenha(Usuario usuario){
         return  this.serviceUsuario.findByLoginSenha(usuario);
     }
     
