@@ -1,6 +1,7 @@
 package br.com.ifba.scop.pesquisador.view;
 
 import br.com.ifba.scop.infraestructure.service.Singleton;
+import br.com.ifba.scop.infraestructure.view.TelaInicial;
 import br.com.ifba.scop.pesquisador.model.PesquisadorTableModel;
 
 /*
@@ -47,6 +48,7 @@ public class CentroPesquisador extends javax.swing.JFrame {
         cmbFiltro = new javax.swing.JComboBox();
         lblFiltro = new javax.swing.JLabel();
         btnAdicionar = new javax.swing.JButton();
+        btnTelaInicial = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Centro de pesquisador - SCOP");
@@ -118,6 +120,13 @@ public class CentroPesquisador extends javax.swing.JFrame {
             }
         });
 
+        btnTelaInicial.setText("Tela Inicial");
+        btnTelaInicial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTelaInicialActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -146,13 +155,15 @@ public class CentroPesquisador extends javax.swing.JFrame {
                                 .addComponent(btnAtualizar)
                                 .addGap(175, 175, 175)
                                 .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnTelaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(108, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addComponent(btnTelaInicial)
+                .addGap(27, 27, 27)
                 .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -202,7 +213,7 @@ public class CentroPesquisador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
-      
+        this.dispose();
         // Abre a tela para a edição
         new AtualizacaoPesquisador().setVisible(true);
         
@@ -224,8 +235,15 @@ public class CentroPesquisador extends javax.swing.JFrame {
 
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
         // TODO add your handling code here:
+        this.dispose();
         new CadastroPesquisador().setVisible(true);
     }//GEN-LAST:event_btnAdicionarActionPerformed
+
+    private void btnTelaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaInicialActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        new TelaInicial().setVisible(true);
+    }//GEN-LAST:event_btnTelaInicialActionPerformed
 
     /**
      * @param args the command line arguments
@@ -270,6 +288,7 @@ public class CentroPesquisador extends javax.swing.JFrame {
     private javax.swing.JButton btnAtualizar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnPesquisar;
+    private javax.swing.JButton btnTelaInicial;
     private javax.swing.JComboBox cmbFiltro;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jtPesquisador;

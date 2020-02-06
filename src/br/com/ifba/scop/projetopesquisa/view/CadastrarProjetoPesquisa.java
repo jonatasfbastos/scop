@@ -59,7 +59,6 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
     // Esse contrutor é chamado quando a operação for aualizar
     public CadastrarProjetoPesquisa(ProjetoPesquisa editado) {
         initComponents();
-        
         btnCadastrar.setText("Atualizar");
         
         this.projeto = editado;

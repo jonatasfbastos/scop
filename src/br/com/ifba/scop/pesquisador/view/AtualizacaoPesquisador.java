@@ -292,9 +292,10 @@ public class AtualizacaoPesquisador extends javax.swing.JFrame {
     }//GEN-LAST:event_txtLocacaoActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-
-        lblAviso.setText("Existem campos vazios!");
         
+        lblAviso.setText("Existem campos vazios!");
+        this.dispose();
+        new CentroPesquisador().setVisible(true);
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     /**

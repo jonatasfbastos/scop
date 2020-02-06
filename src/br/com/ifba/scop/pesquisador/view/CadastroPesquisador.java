@@ -290,6 +290,7 @@ public class CadastroPesquisador extends javax.swing.JFrame {
 
                // Fecha a janela
                 this.dispose();
+                new CentroPesquisador().setVisible(true);
 
             }else{
                     JOptionPane.showMessageDialog(null, "Erro ao salvar");
