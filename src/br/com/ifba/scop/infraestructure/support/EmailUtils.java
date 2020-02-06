@@ -55,4 +55,9 @@ public final class EmailUtils {
        return matcher.matches();
     }
     
+    public boolean isEmpty(String campo)
+    {
+        return campo.equals("");
+    }
+    
 }
