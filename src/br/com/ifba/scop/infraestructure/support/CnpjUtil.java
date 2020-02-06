@@ -69,6 +69,6 @@ public final class CnpjUtil {
                 campo.equals("77.777.777/7777-77") ||
                 campo.equals("88.888.888/8888-88") ||
                 campo.equals("99.999.999/9999-99") ||
-                campo.length() != 14;
+                campo.length() != 18;
     }
 }
