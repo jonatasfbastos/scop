@@ -5,6 +5,9 @@
  */
 package br.com.ifba.scop.infraestructure.support;
 
+import br.com.ifba.scop.fornecedor.model.Fornecedor;
+import br.com.ifba.scop.infraestructure.service.Singleton;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -22,6 +25,7 @@ public final class CnpjUtil {
     private static final String CNPJ_REGEX = "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$";
     private static Pattern pattern;
     private Matcher matcher;
+    
     
     /**
      * Object monitor for synchronize.
@@ -50,7 +54,11 @@ public final class CnpjUtil {
         return instance;
     }
     
-   
+    public boolean isValid(String cnpj)
+    {
+        return true;
+    }
+    
     //verifica se o campo não está preenchido com números.
     public boolean isCNPJEmpty(String campo)
     {
