@@ -505,7 +505,8 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
             end.setUf(boxUF.getSelectedItem().toString());
             end.setComplemento(txtComplemento.getText());
             end.setNumero((int) spinNumero.getValue());
-            end.setPessoa(fornecedor1);
+//            end.setPessoa(fornecedor1);
+            fornecedor1.setEndereco(end);
             
             //dados telefones
             tel.setDdd(this.getDDD(txtTel.getText()));

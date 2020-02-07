@@ -33,8 +33,8 @@ public class Endereco extends AbstractEntity implements Serializable{
     
     private String uf;
     
-    @OneToOne(mappedBy = "endereco")
-    private Pessoa pessoa;
+//    @OneToOne(mappedBy = "endereco")
+//    private Pessoa pessoa;
     
     // Métodos acessores
     public int getNumero() {
@@ -97,8 +97,8 @@ public class Endereco extends AbstractEntity implements Serializable{
 //        return pessoa;
 //    }
 
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
-    }
+//    public void setPessoa(Pessoa pessoa) {
+//        this.pessoa = pessoa;
+//    }
 
 }
