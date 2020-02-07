@@ -400,6 +400,19 @@ public class Fachada implements IFachada {
     public Fornecedor getByIdFornecedor(Long id) {
         return this.serviceFornecedor.getByIdFornecedor(id);
     }
+    
+    @Override
+    public boolean existCNPJBase(String CNPJ) {
+        return this.serviceFornecedor.existCNPJBase(CNPJ);
+    }
+
+    @Override
+    public boolean existIEBase(String IE) {
+        return this.serviceFornecedor.existIEBase(IE);
+    }
+    
     //----------------------------------- END ---------------------------------------
+
+    
 
 }

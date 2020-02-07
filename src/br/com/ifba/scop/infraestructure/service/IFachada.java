@@ -136,6 +136,8 @@ public interface IFachada {
     public abstract Fornecedor  getByIdFornecedor (Long id);
     public abstract List <Fornecedor> findByCnpj(String CNPJ);
     public abstract List <Fornecedor> findByIE(String IE);
+    public abstract boolean existCNPJBase(String CNPJ);
+    public abstract boolean existIEBase(String IE);
     
     
 }
