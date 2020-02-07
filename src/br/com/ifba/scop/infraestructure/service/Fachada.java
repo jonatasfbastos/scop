@@ -3,6 +3,9 @@ package br.com.ifba.scop.infraestructure.service;
 import br.com.ifba.scop.aluno.model.Aluno;
 import br.com.ifba.scop.aluno.service.IServiceAluno;
 import br.com.ifba.scop.aluno.service.ServiceAluno;
+import br.com.ifba.scop.fornecedor.model.Fornecedor;
+import br.com.ifba.scop.fornecedor.service.IServiceFornecedor;
+import br.com.ifba.scop.fornecedor.service.ServiceFornecedor;
 import br.com.ifba.scop.grupopesquisa.model.GrupoPesquisa;
 import br.com.ifba.scop.grupopesquisa.service.IServiceGrupoPesquisa;
 import br.com.ifba.scop.grupopesquisa.service.ServiceGrupoPesquisa;
@@ -359,4 +362,57 @@ public class Fachada implements IFachada {
         return this.serviceAluno.findByAluno(Aluno);
     }
     // ----------------------------- Aluno --------------------------
+
+    //----------------------------- Fornecedor ---------------------------------------
+    private final IServiceFornecedor serviceFornecedor = new ServiceFornecedor();
+    //------------------------------ BEGIN -------------------------------------------
+    @Override
+    public Fornecedor saveFornecedor(Fornecedor fornecedor) {
+        return this.serviceFornecedor.saveFornecedor(fornecedor);
+    }
+
+    @Override
+    public Fornecedor updateFornecedor(Fornecedor fornecedor) {
+        return this.serviceFornecedor.updateFornecedor(fornecedor);
+    }
+
+    @Override
+    public void deletarFornecedor(Fornecedor fornecedor) {
+        this.serviceFornecedor.deleteFornecedor(fornecedor);
+    }
+
+    @Override
+    public List<Fornecedor> getAllFornecedor() {
+        return this.serviceFornecedor.getAllFornecedor();
+    }
+    
+    @Override
+    public List<Fornecedor> findByCnpj(String CNPJ) {
+        return this.serviceFornecedor.findByFornecedorCNPJ(CNPJ);
+    }
+
+    @Override
+    public List<Fornecedor> findByIE(String IE) {
+        return this.serviceFornecedor.findByFornecedorIE(IE);
+    }
+       
+    @Override
+    public Fornecedor getByIdFornecedor(Long id) {
+        return this.serviceFornecedor.getByIdFornecedor(id);
+    }
+    
+    @Override
+    public boolean existCNPJBase(String CNPJ) {
+        return this.serviceFornecedor.existCNPJBase(CNPJ);
+    }
+
+    @Override
+    public boolean existIEBase(String IE) {
+        return this.serviceFornecedor.existIEBase(IE);
+    }
+    
+    //----------------------------------- END ---------------------------------------
+
+    
+
 }

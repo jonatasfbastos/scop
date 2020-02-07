@@ -36,6 +36,7 @@ public class BaseDao<Entity extends AbstractEntity> implements IBaseDao<Entity>{
     /**
      * {@inheritDoc}
      */
+    @Override
     public Entity save(Entity entity){
        entityManager.getTransaction().begin();
        entityManager.persist(entity);
@@ -49,6 +50,7 @@ public class BaseDao<Entity extends AbstractEntity> implements IBaseDao<Entity>{
      * @param entity
      * @return 
      */
+    @Override
     public Entity update(Entity entity){
         entityManager.getTransaction().begin();
         entityManager.merge(entity);
@@ -73,6 +75,7 @@ public class BaseDao<Entity extends AbstractEntity> implements IBaseDao<Entity>{
      * {@inheritDoc}
      * @return 
      */
+    @Override
     public List<Entity> findAll(){
         return entityManager.createQuery(("FROM " + getTypeClass().getName())).getResultList();
     }
@@ -83,6 +86,7 @@ public class BaseDao<Entity extends AbstractEntity> implements IBaseDao<Entity>{
      * @param id
      * @return 
      */
+    @Override
     public Entity findById(Long id){
         return (Entity) entityManager.find(getTypeClass(), id);
     }

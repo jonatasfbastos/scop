@@ -10,20 +10,18 @@ import br.com.ifba.scop.infraestructure.endereco.model.Endereco;
 import br.com.ifba.scop.infraestructure.service.Singleton;
 import br.com.ifba.scop.infraestructure.support.CepUtil;
 import br.com.ifba.scop.infraestructure.support.CnpjUtil;
+import br.com.ifba.scop.infraestructure.support.EmailUtils;
 import br.com.ifba.scop.infraestructure.support.InscricaoUFUtil;
 import br.com.ifba.scop.infraestructure.support.StringUtil;
 import br.com.ifba.scop.infraestructure.support.TelefoneUtil;
 import br.com.ifba.scop.infraestructure.telefone.model.Telefone;
 import java.awt.Color;
-import java.net.URL;
-import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
-import javax.swing.text.DefaultFormatterFactory;
-import javax.swing.text.MaskFormatter;
 
 
 
@@ -35,20 +33,17 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
 
     private static final LineBorder bordaPreta = new LineBorder(Color.BLACK);
     private static final LineBorder bordaVermelha = new LineBorder(Color.RED);
-    private static final int largura = 190;
-    private static final int altura = 19;
-    
-    
-    
+
+      
     /**
      * Creates new form CadastrarFornecedor
      */
     public CadastrarFornecedor() {
 
         initComponents();
-        this.setLocationRelativeTo(null); 
-       
+        this.setLocationRelativeTo(null);
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -78,6 +73,9 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
         lblTagInscricaoUF = new javax.swing.JLabel();
         lblTagCNPJ = new javax.swing.JLabel();
         lblTagTel = new javax.swing.JLabel();
+        lblEmail = new javax.swing.JLabel();
+        lblTagEmail = new javax.swing.JLabel();
+        txtEmail = new javax.swing.JTextField();
         btnLimpar = new javax.swing.JButton();
         panelEndereco = new javax.swing.JPanel();
         spinNumero = new javax.swing.JSpinner();
@@ -99,6 +97,7 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
         lblTagCidade = new javax.swing.JLabel();
         lblTagComplemento = new javax.swing.JLabel();
         lblTagCEP = new javax.swing.JLabel();
+        btnLista = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -187,29 +186,35 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
         lblTagTel.setForeground(new java.awt.Color(255, 0, 0));
         lblTagTel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
+        lblEmail.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        lblEmail.setText("E-mail");
+
+        lblTagEmail.setForeground(new java.awt.Color(253, 50, 57));
+
         javax.swing.GroupLayout panelDadosPessoaisLayout = new javax.swing.GroupLayout(panelDadosPessoais);
         panelDadosPessoais.setLayout(panelDadosPessoaisLayout);
         panelDadosPessoaisLayout.setHorizontalGroup(
             panelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDadosPessoaisLayout.createSequentialGroup()
+            .addGroup(panelDadosPessoaisLayout.createSequentialGroup()
                 .addGap(63, 63, 63)
                 .addGroup(panelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblCNPJ)
                     .addComponent(lblRzSocial)
-                    .addComponent(lblNm))
+                    .addComponent(lblNm)
+                    .addComponent(lblEmail))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelDadosPessoaisLayout.createSequentialGroup()
-                        .addGroup(panelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(lblTagCNPJ, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtCNPJ, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
+                        .addGroup(panelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblTagCNPJ, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtCNPJ, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblInscricaoUF)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtIncriscaoEstadual, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
                             .addComponent(lblTagInscricaoUF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblTel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,7 +227,10 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
                     .addComponent(txtNome)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDadosPessoaisLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lblTagNm, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(panelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTagNm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTagEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 672, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 672, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(40, 40, 40))
         );
         panelDadosPessoaisLayout.setVerticalGroup(
@@ -253,7 +261,13 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
                     .addComponent(lblTagInscricaoUF, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTagCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTagTel, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEmail)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTagEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         btnLimpar.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
@@ -413,6 +427,19 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        btnLista.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        btnLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/projetopesquisa/view/imagens/icon_home.png"))); // NOI18N
+        btnLista.setText("LISTA");
+        btnLista.setAutoscrolls(true);
+        btnLista.setBorderPainted(false);
+        btnLista.setContentAreaFilled(false);
+        btnLista.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/fornecedor/imagens/icon_home.png"))); // NOI18N
+        btnLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -423,14 +450,16 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
                         .addGap(216, 216, 216)
                         .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
-                        .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnLista, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(panelEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(panelDadosPessoais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(38, Short.MAX_VALUE))
+                            .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -444,8 +473,9 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCadastrar)
-                    .addComponent(btnLimpar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnLimpar)
+                    .addComponent(btnLista))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
@@ -453,29 +483,61 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         //verifica se o campos estão válidos, antes de salvar as informações.
-        Fornecedor fornecedor = new Fornecedor();
+        Fornecedor fornecedor1;
+        fornecedor1 = new Fornecedor();
         Telefone tel = new Telefone();
         Endereco end = new Endereco();
         
+        //verifica se o campo está válido, antes de submete-lo a persistência.
         if(valido() == true)
         {
-            fornecedor.setNomeFantasia(txtNome.getText());
-            fornecedor.setRazaoSocial(txtRzSocial.getText());
-            fornecedor.setCnpj(txtCNPJ.getText());
-            fornecedor.setInscricaoEstadual(txtIncriscaoEstadual.getText());
-            
+            //dados pessoais do fornecedor
+            fornecedor1.setNomeFantasia(txtNome.getText());
+            fornecedor1.setRazaoSocial(txtRzSocial.getText());
+            fornecedor1.setCnpj(txtCNPJ.getValue().toString());
+            fornecedor1.setInscricaoEstadual(txtIncriscaoEstadual.getText());
+            fornecedor1.setEmail(txtEmail.getText());
+            //dados endereco do fornecedor
             end.setRua(txtRua.getText());
             end.setBairro(txtBairro.getText());
             end.setCidade(txtCidade.getText());
+            end.setCep(txtCEP.getValue().toString());
             end.setUf(boxUF.getSelectedItem().toString());
             end.setComplemento(txtComplemento.getText());
             end.setNumero((int) spinNumero.getValue());
+//            end.setPessoa(fornecedor1);
+            fornecedor1.setEndereco(end);
             
-            fornecedor.setEndereco(end);
+            //dados telefones
+            tel.setDdd(this.getDDD(txtTel.getText()));
+            tel.setNumero(this.getNumeroTel(txtTel.getText()));
+            tel.setTipoTelefine("tel");
             
+            //telefones
+            List <Telefone> telefones;
+            telefones = new ArrayList();
+            //adiciona um array de telefones - ou seja, uma lista de telefones.
+            telefones.add(tel);
+            //guarda os dados do endereco do fornecedor.
+            //salva as informações na base de dados.
+            Singleton.getInstance().saveFornecedor(fornecedor1);
+            //exibe um alerta antes de salva, as informações definitavamente.
+            JOptionPane.showMessageDialog(this, "Cadastrado com sucesso...", "Sucesso", JOptionPane.PLAIN_MESSAGE);
+            try{
+                Thread.sleep(3000);
+                ListaFornecedor lista = new ListaFornecedor();
+                lista.setVisible(true);
+                this.setVisible(false);
+                this.setDefaultCloseOperation(CadastrarFornecedor.EXIT_ON_CLOSE);
+                this.dispose();
+            }
+            catch(Exception ex)
+            {
+            }
         }
         else
         {
+            //caso contrário exibe um alerta, justificando o motivo.
             JOptionPane.showMessageDialog(this, "Erro ao Salvar", "Erro ao Cadastrar", JOptionPane.ERROR_MESSAGE);
         }
         
@@ -516,7 +578,7 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
         
         
         //limpas as tags de alerta
-        this.lblTItulo.setText(" ");
+        
         this.lblTagBairro.setText(" ");
         this.lblTagCEP.setText(" ");
         this.lblTagCNPJ.setText(" ");
@@ -529,6 +591,15 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
         this.lblTagTel.setText(" ");
         
     }//GEN-LAST:event_btnLimparActionPerformed
+
+    private void btnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaActionPerformed
+        // TODO add your handling code here:
+        ListaFornecedor lista = new ListaFornecedor();
+        lista.setVisible(true);
+        this.setVisible(false);
+        this.setDefaultCloseOperation(CadastrarFornecedor.EXIT_ON_CLOSE);
+        this.dispose();
+    }//GEN-LAST:event_btnListaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -563,11 +634,13 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> boxUF;
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnLimpar;
+    private javax.swing.JButton btnLista;
     private javax.swing.JLabel lblBairro;
     private javax.swing.JLabel lblCEP;
     private javax.swing.JLabel lblCNPJ;
     private javax.swing.JLabel lblCidade;
     private javax.swing.JLabel lblComplemento;
+    private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblInscricaoUF;
     private javax.swing.JLabel lblNm;
     private javax.swing.JLabel lblNumero;
@@ -579,6 +652,7 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
     private javax.swing.JLabel lblTagCNPJ;
     private javax.swing.JLabel lblTagCidade;
     private javax.swing.JLabel lblTagComplemento;
+    private javax.swing.JLabel lblTagEmail;
     private javax.swing.JLabel lblTagInscricaoUF;
     private javax.swing.JLabel lblTagNm;
     private javax.swing.JLabel lblTagRua;
@@ -595,6 +669,7 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField txtCNPJ;
     private javax.swing.JTextField txtCidade;
     private javax.swing.JTextField txtComplemento;
+    private javax.swing.JTextField txtEmail;
     private javax.swing.JFormattedTextField txtIncriscaoEstadual;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtRua;
@@ -609,6 +684,7 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
         InscricaoUFUtil inscricaoUFVal = InscricaoUFUtil.getInstance();
         TelefoneUtil telVal = TelefoneUtil.getInstance();
         CepUtil cepVal = CepUtil.getInstance();
+        EmailUtils emailVal = EmailUtils.getInstance();
         
         if(util.isEmpty(this.txtNome.getText()) || util.isNull(this.txtNome.getText())){
             this.lblTagNm.setText("* Campo Vázio!*");
@@ -632,17 +708,18 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
         
         if(cnpjVal.isCNPJEmpty(this.txtCNPJ.getText())){
             this.lblTagCNPJ.setText("* Campo Vázio!*");
+            this.lblTagCNPJ.setForeground(Color.RED);
             this.txtCNPJ.setBorder(CadastrarFornecedor.bordaVermelha);
         }
         else if(cnpjVal.isCPNJNumbersInvalid(this.txtCNPJ.getText()))
         {
             this.lblTagCNPJ.setText("* CNPJ Inválido!*");
+            this.lblTagCNPJ.setForeground(Color.RED);
             this.txtCNPJ.setBorder(CadastrarFornecedor.bordaVermelha);
         }
         else
         {
-            this.lblTagCNPJ.setText("Válido");
-            this.lblTagCNPJ.setForeground(Color.GREEN);
+            this.lblTagCNPJ.setText(" ");
             this.txtCNPJ.setBorder(CadastrarFornecedor.bordaPreta);
         }
         
@@ -651,7 +728,7 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
             this.lblTagInscricaoUF.setText("* Campo Vázio!*");
             this.txtIncriscaoEstadual.setBorder(CadastrarFornecedor.bordaVermelha);
         }
-       /* else if(inscricaoUFVal.isInscricaoUFNumbersInvalid(this.txtIncriscaoEstadual.getText()))
+        else if(inscricaoUFVal.isInscricaoUFNumbersInvalid(this.txtIncriscaoEstadual.getText()))
         {
             this.lblTagInscricaoUF.setText("* IE Inválido!*");
             this.txtIncriscaoEstadual.setBorder(CadastrarFornecedor.bordaVermelha);
@@ -676,6 +753,22 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
         {
             this.lblTagTel.setText(" ");
             this.txtTel.setBorder(CadastrarFornecedor.bordaPreta);
+        }
+        
+        if(emailVal.isEmpty(this.txtEmail.getText()))
+        {
+            this.lblTagEmail.setText("* Campo Vázio!*");
+            this.txtEmail.setBorder(CadastrarFornecedor.bordaVermelha);
+        }
+        else if(!emailVal.isEmailValid(this.txtEmail.getText()))
+        {
+            this.lblTagEmail.setText("*E-mail Inválido! *");
+            this.txtEmail.setBorder(CadastrarFornecedor.bordaVermelha);
+        }
+        else
+        {
+            this.lblTagEmail.setText("");
+            this.txtEmail.setBorder(CadastrarFornecedor.bordaPreta);
         }
         
         if(util.isEmpty(this.txtRua.getText()) || util.isNull(this.txtRua.getText()))
@@ -737,9 +830,41 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
         {
             this.lblTagComplemento.setText(" ");
             this.txtComplemento.setBorder(CadastrarFornecedor.bordaPreta);
-        }*/
-        
-        
+        }
+
         return true;
     }
+    
+    public String getDDD(String telDDD)
+    {
+        String res;
+        char x,y;
+        x = telDDD.charAt(1);
+        y = telDDD.charAt(2);
+        StringBuilder textoConcatenado = new StringBuilder();
+        textoConcatenado.append(x);
+        textoConcatenado.append(y);
+        res = textoConcatenado.toString();
+        return res;
+    }
+    
+    public String getNumeroTel(String telefone)
+    {
+        String res;
+        char[] tel = telefone.toCharArray();
+        StringBuilder textoConcatenado = new StringBuilder();
+        //(74)-9-9999-9999
+        textoConcatenado.append(tel[5]);
+        textoConcatenado.append(tel[7]);
+        textoConcatenado.append(tel[8]);
+        textoConcatenado.append(tel[9]);
+        textoConcatenado.append(tel[10]);
+        textoConcatenado.append(tel[12]);
+        textoConcatenado.append(tel[13]);
+        textoConcatenado.append(tel[14]);
+        textoConcatenado.append(tel[15]);
+        res = textoConcatenado.toString();
+        return res;
+    }
+    
 }

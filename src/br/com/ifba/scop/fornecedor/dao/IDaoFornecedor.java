@@ -6,7 +6,6 @@
 package br.com.ifba.scop.fornecedor.dao;
 
 import br.com.ifba.scop.fornecedor.model.Fornecedor;
-import br.com.ifba.scop.grupopesquisa.model.GrupoPesquisa;
 import br.com.ifba.scop.infraestructure.dao.IBaseDao;
 import java.util.List;
 
@@ -19,8 +18,11 @@ public interface IDaoFornecedor extends IBaseDao<Fornecedor>{
 
     /**
      *
-     * @param titulo
+     * @param CNPJ
      * @return 
      */
-    public abstract List<Fornecedor> findByNomeFornecedor(String titulo);
+    public abstract List<Fornecedor> findByCNPJ(String CNPJ);
+    public abstract List<Fornecedor> findByIE(String IE);
+
+    
 }

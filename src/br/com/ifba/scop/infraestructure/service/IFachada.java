@@ -1,5 +1,6 @@
 package br.com.ifba.scop.infraestructure.service;
 
+import br.com.ifba.scop.fornecedor.model.Fornecedor;
 import br.com.ifba.scop.grupopesquisa.model.GrupoPesquisa;
 import br.com.ifba.scop.infraestructure.endereco.model.Endereco;
 import br.com.ifba.scop.login.tipousuario.model.TipoUsuario;
@@ -125,4 +126,18 @@ public interface IFachada {
     public abstract TipoUsuario updateTipoUsuario(TipoUsuario tipousuario);
     public abstract List<TipoUsuario> findByNome(TipoUsuario tipousuario);
     public abstract boolean tipoUsuarioExistente(TipoUsuario tipousuario);
+    
+    
+    //--------------------------- Fornecedor ----------------------------------
+    public abstract Fornecedor saveFornecedor(Fornecedor fornecedor);
+    public abstract Fornecedor updateFornecedor(Fornecedor fornecedor);
+    public abstract void deletarFornecedor(Fornecedor fornecedor);
+    public abstract List <Fornecedor> getAllFornecedor();
+    public abstract Fornecedor  getByIdFornecedor (Long id);
+    public abstract List <Fornecedor> findByCnpj(String CNPJ);
+    public abstract List <Fornecedor> findByIE(String IE);
+    public abstract boolean existCNPJBase(String CNPJ);
+    public abstract boolean existIEBase(String IE);
+    
+    
 }
