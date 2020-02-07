@@ -271,7 +271,6 @@ public class ListaFornecedor extends javax.swing.JFrame {
            case -1:
                if(Singleton.getInstance().existIEBase(txtBusca.getText()))
                {
-                    modelo.clearTable();
                     modelo.updateTableList(Singleton.getInstance().findByIE(txtBusca.getText()));
                }
                else
@@ -283,7 +282,6 @@ public class ListaFornecedor extends javax.swing.JFrame {
            case 1:
                if(Singleton.getInstance().existCNPJBase(txtBusca.getText()))
                {
-                    modelo.clearTable();
                     modelo.updateTableList(Singleton.getInstance().findByCnpj(txtBusca.getText()));
                }
                else
