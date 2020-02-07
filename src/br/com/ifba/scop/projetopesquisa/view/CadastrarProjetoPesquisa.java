@@ -45,7 +45,8 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         for(int i = 0; i < this.grupos.size(); i++){
             this.combxGrupoPesquisa.addItem(this.grupos.get(i));
         }
-        
+        btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMenu.setToolTipText("Clique aqui para voltar para a tela de listar projetos cadastrados");
         btnCadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCadastrar.setToolTipText("Clique aqui para salvar o cadastro");
         btnCadastrarGrupoPesquisa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -121,6 +122,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         radioNao = new javax.swing.JRadioButton();
         btnCadastrarGrupoPesquisa = new javax.swing.JButton();
         combxGrupoPesquisa = new javax.swing.JComboBox<>();
+        btnMenu = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         jTextField9.addActionListener(new java.awt.event.ActionListener() {
@@ -196,7 +198,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
                 btnCadastrarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 517, 50, -1));
+        jPanel1.add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 560, 50, -1));
 
         try {
             txtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)-#####-####")));
@@ -252,6 +254,14 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
         combxGrupoPesquisa.setModel(new DefaultComboBoxModel<>()
         );
         jPanel1.add(combxGrupoPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 303, 26));
+
+        btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/projetopesquisa/view/imagens/icon_home.png"))); // NOI18N
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 50, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
@@ -342,6 +352,12 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
     private void txtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefoneActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelefoneActionPerformed
+
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        new BuscarProjetoPesquisa().setVisible(true);
+    }//GEN-LAST:event_btnMenuActionPerformed
 
         
     /**
@@ -559,6 +575,7 @@ public class CadastrarProjetoPesquisa extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnCadastrarGrupoPesquisa;
+    private javax.swing.JButton btnMenu;
     private javax.swing.JComboBox<GrupoPesquisa> combxGrupoPesquisa;
     private javax.swing.ButtonGroup grupoBotoes;
     private javax.swing.JComboBox jComboBox1;

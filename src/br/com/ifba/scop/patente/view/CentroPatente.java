@@ -7,6 +7,7 @@ package br.com.ifba.scop.patente.view;
 
 import br.com.ifba.scop.infraestructure.model.ColumnDeleteLabel;
 import br.com.ifba.scop.infraestructure.service.Singleton;
+import br.com.ifba.scop.infraestructure.view.TelaInicial;
 import br.com.ifba.scop.patente.model.Patente;
 import br.com.ifba.scop.patente.model.PatenteTableModel;
 import java.util.List;
@@ -40,6 +41,8 @@ public class CentroPatente extends javax.swing.JFrame {
      */
     public CentroPatente() {
         initComponents();
+        btnVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnNovo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         this.tblPatentes.setModel(patenteModel); // setando modelo abstrato de jtable
         // enviando jtable para classe que contruirá o molde para coluna delete
         this.deleteLabel = new ColumnDeleteLabel(this.tblPatentes, 4);
@@ -70,6 +73,7 @@ public class CentroPatente extends javax.swing.JFrame {
         lblInfoDeletar = new javax.swing.JLabel();
         panButton = new javax.swing.JPanel();
         btnNovo = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Centro de Patentes");
@@ -251,12 +255,21 @@ public class CentroPatente extends javax.swing.JFrame {
             }
         });
 
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panButtonLayout = new javax.swing.GroupLayout(panButton);
         panButton.setLayout(panButtonLayout);
         panButtonLayout.setHorizontalGroup(
             panButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panButtonLayout.createSequentialGroup()
-                .addContainerGap(602, Short.MAX_VALUE)
+                .addGap(41, 41, 41)
+                .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 438, Short.MAX_VALUE)
                 .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -264,7 +277,9 @@ public class CentroPatente extends javax.swing.JFrame {
             panButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panButtonLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnNovo)
+                .addGroup(panButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNovo)
+                    .addComponent(btnVoltar))
                 .addContainerGap())
         );
 
@@ -443,6 +458,12 @@ public class CentroPatente extends javax.swing.JFrame {
         casdastro.setVisible(true); // tornando tela de cadastro visivel
     }//GEN-LAST:event_btnNovoActionPerformed
 
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        new TelaInicial().setVisible(true);
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -480,6 +501,7 @@ public class CentroPatente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnNovo;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblInfoAtualizar;
     private javax.swing.JLabel lblInfoDeletar;

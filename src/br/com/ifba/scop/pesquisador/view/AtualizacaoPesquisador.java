@@ -8,6 +8,7 @@ package br.com.ifba.scop.pesquisador.view;
 /* NOTA AO AUTOR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 use essa classe com o metodo getInstance() que retorna a fachada ao invés de instanciar*/
 import br.com.ifba.scop.infraestructure.service.Singleton;
+import br.com.ifba.scop.infraestructure.view.TelaInicial;
 
 /**
  *
@@ -20,6 +21,7 @@ public class AtualizacaoPesquisador extends javax.swing.JFrame {
      */
     public AtualizacaoPesquisador() {
         initComponents();
+        btnTelaInicial.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnConfirm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblAviso.setVisible(false);
     }
@@ -57,6 +59,7 @@ public class AtualizacaoPesquisador extends javax.swing.JFrame {
         txtLocacao = new javax.swing.JTextField();
         lblLocacao = new javax.swing.JLabel();
         btnConfirm = new javax.swing.JButton();
+        btnTelaInicial = new javax.swing.JButton();
         lblAviso = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -147,6 +150,13 @@ public class AtualizacaoPesquisador extends javax.swing.JFrame {
             }
         });
 
+        btnTelaInicial.setText("Voltar");
+        btnTelaInicial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTelaInicialActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -154,7 +164,8 @@ public class AtualizacaoPesquisador extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnTelaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
@@ -231,8 +242,10 @@ public class AtualizacaoPesquisador extends javax.swing.JFrame {
                 .addComponent(lblLocacao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 225, Short.MAX_VALUE)
-                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 258, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnTelaInicial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnConfirm, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -299,6 +312,12 @@ public class AtualizacaoPesquisador extends javax.swing.JFrame {
         new CentroPesquisador().setVisible(true);
     }//GEN-LAST:event_btnConfirmActionPerformed
 
+    private void btnTelaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaInicialActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        new CentroPesquisador().setVisible(true);
+    }//GEN-LAST:event_btnTelaInicialActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -337,6 +356,7 @@ public class AtualizacaoPesquisador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirm;
+    private javax.swing.JButton btnTelaInicial;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

@@ -8,6 +8,7 @@ package br.com.ifba.scop.pesquisador.view;
 import br.com.ifba.scop.grupopesquisa.model.GrupoPesquisa;
 import br.com.ifba.scop.infraestructure.service.Singleton;
 import br.com.ifba.scop.infraestructure.support.StringUtil;
+import br.com.ifba.scop.infraestructure.view.TelaInicial;
 import br.com.ifba.scop.pesquisador.model.Pesquisador;
 import java.awt.Color;
 import java.util.List;
@@ -25,6 +26,7 @@ public class CadastroPesquisador extends javax.swing.JFrame {
      */
     public CadastroPesquisador() {
         initComponents();
+        btnTelaInicial.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnConfirm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblAviso.setVisible(false);
         
@@ -68,6 +70,7 @@ public class CadastroPesquisador extends javax.swing.JFrame {
         txtCPF = new javax.swing.JFormattedTextField();
         comboxGrupoPesquisa = new javax.swing.JComboBox<>();
         lblGrupoPesquisa = new javax.swing.JLabel();
+        btnTelaInicial = new javax.swing.JButton();
         lblAviso = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -142,15 +145,19 @@ public class CadastroPesquisador extends javax.swing.JFrame {
 
         lblGrupoPesquisa.setText("Grupo de Pesquisa");
 
+        btnTelaInicial.setText("Voltar");
+        btnTelaInicial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTelaInicialActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,7 +191,11 @@ public class CadastroPesquisador extends javax.swing.JFrame {
                             .addComponent(lblMatricula)
                             .addComponent(lblTitulacao)
                             .addComponent(lblOrgEmissor)
-                            .addComponent(txtMatricula))))
+                            .addComponent(txtMatricula)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnTelaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(68, 68, 68))
         );
         jPanel2Layout.setVerticalGroup(
@@ -233,7 +244,9 @@ public class CadastroPesquisador extends javax.swing.JFrame {
                     .addComponent(txtLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboxGrupoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
-                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTelaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -302,6 +315,12 @@ public class CadastroPesquisador extends javax.swing.JFrame {
     private void comboxGrupoPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboxGrupoPesquisaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboxGrupoPesquisaActionPerformed
+
+    private void btnTelaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaInicialActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        new CentroPesquisador().setVisible(true);
+    }//GEN-LAST:event_btnTelaInicialActionPerformed
 
     private boolean validaCampos(){
         
@@ -477,6 +496,7 @@ public class CadastroPesquisador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirm;
+    private javax.swing.JButton btnTelaInicial;
     private javax.swing.JComboBox<GrupoPesquisa> comboxGrupoPesquisa;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
