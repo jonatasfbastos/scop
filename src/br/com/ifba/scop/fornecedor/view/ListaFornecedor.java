@@ -25,6 +25,7 @@ public class ListaFornecedor extends javax.swing.JFrame {
     private final ColumnDeleteLabel deletar;
     private final ColumnEditLabel edite;    
     int selecionado = -1;
+    int opcRadio = -1;
     
     /**
      * It Returns a Button Table instance.
@@ -87,7 +88,7 @@ public class ListaFornecedor extends javax.swing.JFrame {
     private void initComponents() {
 
         panelBusca = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        txtBusca = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnRadioNome = new javax.swing.JRadioButton();
@@ -103,8 +104,8 @@ public class ListaFornecedor extends javax.swing.JFrame {
 
         panelBusca.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Busca", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP));
 
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setToolTipText("");
+        txtBusca.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtBusca.setToolTipText("");
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/scop/projetopesquisa/view/imagens/icon_pesquisar.png"))); // NOI18N
         jButton1.setBorderPainted(false);
@@ -140,7 +141,7 @@ public class ListaFornecedor extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addGroup(panelBuscaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelBuscaLayout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1))
@@ -163,7 +164,7 @@ public class ListaFornecedor extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(7, 7, 7)
                         .addGroup(panelBuscaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
@@ -265,7 +266,32 @@ public class ListaFornecedor extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-       
+       switch(opcRadio)
+       {
+           case -1:
+               if(Singleton.getInstance().existIEBase(txtBusca.getText()))
+               {
+                    modelo.clearTable();
+                    modelo.updateTableList(Singleton.getInstance().findByIE(txtBusca.getText()));
+               }
+               else
+               {
+                   JOptionPane.showMessageDialog(this, "Não existe nenhum Inscrição Estadual com esse número","Aviso", JOptionPane.WARNING_MESSAGE);
+               }
+            break;
+           
+           case 1:
+               if(Singleton.getInstance().existCNPJBase(txtBusca.getText()))
+               {
+                    modelo.clearTable();
+                    modelo.updateTableList(Singleton.getInstance().findByCnpj(txtBusca.getText()));
+               }
+               else
+               {
+                   JOptionPane.showMessageDialog(this, "Não existe nenhum CNPJ com esse número","Aviso", JOptionPane.WARNING_MESSAGE);
+               }
+            break;
+       }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -275,11 +301,13 @@ public class ListaFornecedor extends javax.swing.JFrame {
         {
             //this.btnRadioNome.setEnabled(false);
             this.btnRadioNome.setSelected(false);
+            this.opcRadio = 1;
         }
         else if(evt.getStateChange() == java.awt.event.ItemEvent.DESELECTED)
         {
             //this.btnRadioNome.setEnabled(true);
             this.btnRadioNome.setSelected(true);
+            this.opcRadio = -1;
         }
     }//GEN-LAST:event_btnRadioCNPJItemStateChanged
 
@@ -378,9 +406,9 @@ public class ListaFornecedor extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel panelBusca;
     private javax.swing.JPanel panelTable;
     private javax.swing.JTable tableFornecedor;
+    private javax.swing.JTextField txtBusca;
     // End of variables declaration//GEN-END:variables
 }
