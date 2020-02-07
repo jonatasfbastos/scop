@@ -141,6 +141,7 @@ public class ServiceFornecedor implements IServiceFornecedor{
         return true;
     }
     
+    
     //Verifica se já existe algum Projeto de Pesquisa com o mesmo titulo na base de dados
 
     /**
@@ -153,15 +154,41 @@ public class ServiceFornecedor implements IServiceFornecedor{
         // Recebe todos os Projetos de Pesquisa da base de dados
         List<Fornecedor> todos = this.daoFornecedor.findAll();
 
-       /* for(int i = 0; i < todos.size(); i++){
+       for(int i = 0; i < todos.size(); i++){
             //Verifica se o titulo é igual ao de algum da lista
-            if(grupoPesquisa.getTitulo().equals(todos.get(i).getTitulo())){
+            if(fornecedor.getCnpj().equals(todos.get(i).getCnpj())){
                 return true;
             }
-        }*/
+        }
+        return false;
+    }
+    
+ 
+
+    @Override
+    public boolean existCNPJBase(String CNPJ) {
+        List<Fornecedor> resultado = this.daoFornecedor.findAll();
+        for(int i = 0; i < resultado.size(); i++){
+            if(CNPJ.equals(resultado.get(i).getCnpj()))
+            {
+                return true;
+            }
+        }
         return false;
     }
 
+    @Override
+    public boolean existIEBase(String IE) {
+        List<Fornecedor> resultado = this.daoFornecedor.findAll();
+        for(int i = 0; i < resultado.size(); i++){
+            if(IE.equals(resultado.get(i).getInscricaoEstadual()))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    
 
     
 }
